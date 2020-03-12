@@ -19,7 +19,7 @@ class InitialPropsDetail extends React.Component<Props> {
         `http://localhost:3000/api/users/${Array.isArray(id) ? id[0] : id}`,
       );
 
-return { item };
+      return { item };
     } catch (err) {
       return { errors: err.message };
     }
@@ -33,8 +33,8 @@ return { item };
         <Layout title={'Error | Next.js + TypeScript Example'}>
           <p>
             <span style={{ color: 'red' }}>{'Error:'}</span>
-{' '}
-{errors}
+            {' '}
+            {errors}
           </p>
         </Layout>
       );
@@ -44,7 +44,7 @@ return { item };
       <Layout
         title={`${
           item ? item.name : 'User Detail'
-        } | Next.js + TypeScript Example`}
+          } | Next.js + TypeScript Example`}
       >
         {item && <ListDetail item={item} />}
       </Layout>
