@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheets } from '@material-ui/core/styles';
@@ -10,6 +11,12 @@ export default class MyDocument extends Document {
 				<Head>
 					{/* PWA primary color */}
 					<meta name={'theme-color'} content={Theme.palette.primary.main} />
+					<meta httpEquiv={'x-ua-compatible'} content={'ie=edge'} />
+					<meta name={'viewport'} content={'width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover'} />
+					<meta name={'format-detection'} content={'telephone=no'} />
+					<meta name={'referrer'} content={'origin'} />
+					<meta name={'renderer'} content={'webkit'} />
+					<meta name={'wap-font-scale'} content={'no'} />
 					<link
 						rel={'stylesheet'}
 						href={'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'}
