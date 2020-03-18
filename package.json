@@ -10,7 +10,7 @@
     "update": "rm -rf node_modules && yarn",
     "static:server": "yarn build && yarn export && cd ./out && serve -p 8080",
     "preview": "yarn build && yarn start",
-    "lint": "./node_modules/.bin/eslint ./ --ext .ts --ext .tsx --cache --fix",
+    "lint": "./node_modules/.bin/eslint ./ --ext .ts --ext .tsx --fix",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
   },
   "husky": {
