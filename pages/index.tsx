@@ -1,17 +1,23 @@
-import * as React from 'react';
-import Link from 'next/link';
-import { NextPage } from 'next';
-import Layout from '../components/Layout';
+import React from 'react';
+import Container from '@material-ui/core/Container';
+import Typography from '@material-ui/core/Typography';
+import NavButton from '../src/components/NavButton';
+import useStyles from '../src/model/styles';
 
-const IndexPage: NextPage = () => (
-  <Layout title={'Home | Next.js + TypeScript Example'}>
-    <h1>{'Hello Next.js 👋'}</h1>
-    <p>
-      <Link href={'/about'}>
-        <p>{'About'}</p>
-      </Link>
-    </p>
-  </Layout>
-);
+export const Index = () => {
+	const classes = useStyles();
 
-export default IndexPage;
+	return (
+		<Container maxWidth={false} className={classes.root}>
+			<Typography variant={'h4'} component={'h1'} gutterBottom className={classes.titleLarge}>
+				{'Guide'}
+			</Typography>
+			<NavButton link={'/openlink'} title={'OpenLink'} />
+			<NavButton link={'/edit'} title={'Edit News'} />
+			<NavButton link={'/quote'} title={'Quote From Link'} />
+			<NavButton link={'/preview'} title={'Preview News'} />
+		</Container>
+	);
+};
+
+export default Index;
