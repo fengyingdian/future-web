@@ -3,9 +3,9 @@
   "version": "4.0.0",
   "private": true,
   "scripts": {
-    "dev": "next -- -p 3000",
+    "dev": "next -p 3000",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production next start -p 80",
     "export": "next export",
     "update": "rm -rf node_modules && yarn",
     "static:server": "yarn build && yarn export && cd ./out && serve -p 8080",
