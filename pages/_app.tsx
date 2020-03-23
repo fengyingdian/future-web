@@ -2,16 +2,16 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, styled } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import styled from 'styled-components';
 import Theme from '../src/model/theme';
 import { ColStart } from '../src/components/index';
 
-const Container = styled(ColStart)`
-  align-items: center;
-  width: 100%;
-`;
+const Container = styled(ColStart)({
+	alignItems: 'center',
+	width: '100%',
+	background: '#fff',
+});
 
 export default class MyApp extends App {
 	componentDidMount() {
@@ -26,7 +26,7 @@ export default class MyApp extends App {
 		const { Component, pageProps } = this.props;
 
 		return (
-			<Container>
+			<>
 				<Head>
 					<title>{'Flipboard News'}</title>
 					<meta name={'theme-color'} content={Theme.palette.primary.main} />
@@ -39,10 +39,12 @@ export default class MyApp extends App {
 				</Head>
 				<ThemeProvider theme={Theme}>
 					{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-					<CssBaseline />
-					<Component {...pageProps} />
+					<Container>
+						<CssBaseline />
+						<Component {...pageProps} />
+					</Container>
 				</ThemeProvider>
-			</Container>
+			</>
 		);
 	}
 }

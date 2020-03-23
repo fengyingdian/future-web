@@ -9,6 +9,23 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 	},
+	articleLayout: {
+		maxWidth: '100',
+		// boxShadow: '0 0 20px 0 rgba(0,0,0,0.12)',
+		'&:hover': {
+			transform: 'translateY(-5px)',
+			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
+		},
+		[theme.breakpoints.down('sm')]: {
+			backgroundColor: '#777',
+		},
+		[theme.breakpoints.up('md')]: {
+			backgroundColor: '#aaa',
+		},
+		[theme.breakpoints.up('lg')]: {
+			backgroundColor: '#333',
+		},
+	},
 	leftSide: {
 		margin: theme.spacing(6, 0, 3),
 		display: 'flex',

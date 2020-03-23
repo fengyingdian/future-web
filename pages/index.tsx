@@ -1,27 +1,20 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-// import Typography from '@material-ui/core/Typography';
-// import NavButton from '../src/components/NavButton';
 import useStyles from '../src/model/styles';
-import FlexColumn from '../src/components/FlexColumns/index';
-// import Card from '../src/components/Card/index';
-// import VirtualizedList from '../src/components/List';
+import ResponsibleTriple from '../src/components/ArticleSection/responsible-triple';
+import ResponsibleTripleReverse from '../src/components/ArticleSection/responsible-triple-reverse';
+import Header from '../src/components/Header/header';
 
 export const Index = () => {
 	const classes = useStyles();
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			{/* <Typography variant={'h4'} component={'h1'} gutterBottom className={classes.titleLarge}>
-				{'Guide'}
-			</Typography> */}
-			{/* <NavButton link={'/openlink'} title={'OpenLink'} />
-			<NavButton link={'/edit'} title={'Edit News'} />
-			<NavButton link={'/quote'} title={'Quote From Link'} />
-			<NavButton link={'/preview'} title={'Preview News'} /> */}
-			<FlexColumn />
-			{/* <Card /> */}
-			{/* <VirtualizedList /> */}
+			<Header />
+			<ResponsibleTriple title={'科技'} />
+			<ResponsibleTripleReverse title={'财经'} />
+			<ResponsibleTriple title={'民生'} />
+			<ResponsibleTripleReverse title={'健康'} />
 		</Container>
 	);
 };
