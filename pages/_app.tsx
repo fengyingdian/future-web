@@ -2,16 +2,10 @@
 import React from 'react';
 import App from 'next/app';
 import Head from 'next/head';
-import { ThemeProvider, styled } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { Box } from '@material-ui/core';
 import Theme from '../src/model/theme';
-import { ColStart } from '../src/components/index';
-
-const Container = styled(ColStart)({
-	alignItems: 'center',
-	width: '100%',
-	background: '#fff',
-});
 
 export default class MyApp extends App {
 	componentDidMount() {
@@ -38,11 +32,14 @@ export default class MyApp extends App {
 					<meta name={'wap-font-scale'} content={'no'} />
 				</Head>
 				<ThemeProvider theme={Theme}>
-					{/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-					<Container>
+					<Box
+						maxWidth={'100%'}
+						display={'flex'}
+						flexDirection={'column'}
+						alignItems={'center'}>
 						<CssBaseline />
 						<Component {...pageProps} />
-					</Container>
+					</Box>
 				</ThemeProvider>
 			</>
 		);

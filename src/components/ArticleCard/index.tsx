@@ -110,7 +110,7 @@ export const ArticleCardLongImage = (props: any) => {
 export const ArticleCardLargeImage = (props: any) => {
 	const classes = useStyles();
 	const { image = '' } = props;
-	const id = '123456';
+	const id = '68851d38f28b48ac4b22ffcbbe7d6998bd2847ec';
 
 	return (
 		<Link href={`/articles?id=${id}`}>
