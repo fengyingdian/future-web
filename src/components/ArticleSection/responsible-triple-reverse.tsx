@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import React from 'react';
 import {
 	Grid, Box,
@@ -8,6 +9,7 @@ import Title from './title';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
+		width: '100%',
 		maxWidth: '100%',
 		margin: theme.spacing(2, 0, 2),
 	},
@@ -70,24 +72,25 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const ArticleSection = (props: any) => {
 	const classes = useStyles();
-	const { title = '' } = props;
+	const { name = '', id = '', articles = [] } = props;
+	const [first, second, third] = articles;
 
 	return (
 		<>
-			<Title title={title} />
+			<Title title={name} id={id} />
 			<Box
 				display={'flex'}
 				flexDirection={'row-reverse'}
 				flexWrap={'wrap'}
 				className={classes.root}>
 				<Grid className={classes.first}>
-			    <ArticleCardLargeImage image={'http://back.rmsznet.com/upload/202003/09/202003090936244375.png'} />
+					<ArticleCardLargeImage title={first.title} description={first.description} id={first.id} image={first.image} />
 				</Grid>
 				<Grid className={classes.second}>
-					<ArticleCardShortImage image={'http://back.rmsznet.com/upload/202003/19/202003191021510185.jpg'} />
+					<ArticleCardShortImage title={second.title} description={second.description} id={second.id} image={second.image} />
 				</Grid>
 				<Grid className={classes.third}>
-					<ArticleCardLongImage image={'http://back.rmsznet.com/upload/202003/20/202003201015164375.jpg'} />
+					<ArticleCardLongImage title={third.title} description={third.description} id={third.id} image={third.image} />
 				</Grid>
 			</Box>
 		</>

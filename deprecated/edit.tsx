@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Typography, TextField } from '@material-ui/core';
-import useStyles from '../src/model/styles';
+import useStyles from '../src/theme/styles';
 
 export const Edit = () => {
 	const classes = useStyles();

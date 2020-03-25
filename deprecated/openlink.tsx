@@ -5,7 +5,7 @@ import {
 import copy from 'copy-to-clipboard';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
-import useStyles from '../src/model/styles';
+import useStyles from '../src/theme/styles';
 
 const Alert = (props: AlertProps) => <MuiAlert elevation={6} variant={'filled'} {...props} />;
 

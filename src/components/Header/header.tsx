@@ -2,10 +2,10 @@ import React from 'react';
 import Title from './title';
 import Tab from './tab';
 
-const Header = () => (
+const Header = (props: any) => (
 	<>
 		<Title />
-		<Tab />
+		<Tab menus={props.menus} />
 	</>
 );
 

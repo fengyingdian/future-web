@@ -27,6 +27,7 @@ const TextNode = ({ text, appearance }: any) => {
 
 	return (
 		<p
+			id={'render-text'}
 			style={{
 				color,
 				fontSize: size,
@@ -67,16 +68,16 @@ const ContentBlock = (props: any) => {
 
 					return true;
 				})
-				.map((content: any) => {
+				.map((content: any, index: any) => {
 					if (isTextNode(content)) {
 						const { text, appearance } = content;
 
-						return <TextNode key={content.text} text={text} appearance={appearance} />;
+						return <TextNode key={index} text={text} appearance={appearance} />;
 					}
 					if (isImageNode(content)) {
 						const { url, appearance } = content;
 
-						return <ImageNode appearance={appearance} url={url} />;
+						return <ImageNode key={index} appearance={appearance} url={url} />;
 					}
 
 					return <div>{`UNSUPPORTED BLOCK TYPE:${content.type}`}</div>;
@@ -91,7 +92,7 @@ const ArticleContent = (props: any) => {
 
 	return (
 		<div className={classes.root}>
-			{contents.map((item: any) => <ContentBlock block={item} />)}
+			{contents.map((item: any, index: any) => <ContentBlock key={index} block={item} />)}
 		</div>
 	);
 };

@@ -23,14 +23,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const Title = (props: any) => {
 	const classes = useStyles();
-	const { title = '' } = props;
+	const { title = '', id = '' } = props;
 
 	return (
 		<Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} className={classes.root}>
 			<Typography className={classes.title}>
 				{title}
 			</Typography>
-			<Link href={'/openlink'} className={classes.more}>
+			<Link href={`/sections?id=${id}`} className={classes.more}>
 				{'更多'}
 			</Link>
 		</Box>

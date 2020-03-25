@@ -5,25 +5,30 @@ import { withRouter } from 'next/router';
 // import Render from 'react-transcode-render/lib/index';
 // import 'react-transcode-render/lib/main.min.css';
 import useStyles from '../src/theme/styles';
-import Render from '../src/render';
-import { fetchArticleTranscode } from '../src/service/index';
+// import Render from '../src/render';
+import { fetchSection } from '../src/service/index';
 
-const Article = (props: any) => {
+const Section = (props: any) => {
 	const classes = useStyles();
+	const { id = '' } = props;
 
 	return (
 		<Container maxWidth={'sm'} className={classes.root}>
-			<Render contents={props.results} />
+			<p>
+				{' '}
+				{'Section '}
+				{id}
+			</p>
 		</Container>
 	);
 };
 
-Article.getInitialProps = async ({ query = {} }: any) => {
+Section.getInitialProps = async ({ query = {} }: any) => {
 	const { id = '' } = query;
 
-	const results = await fetchArticleTranscode(id);
+	const results = await fetchSection(id);
 
-	return { results };
+	return { results, id };
 };
 
-export default withRouter(Article);
+export default withRouter(Section);

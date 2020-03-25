@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import useStyles from '../src/model/styles';
+import useStyles from '../src/theme/styles';
 
 export const Quote = () => {
 	const classes = useStyles();

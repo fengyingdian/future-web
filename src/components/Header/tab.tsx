@@ -23,23 +23,17 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 }));
 
-const Tab = () => {
+const Tab = (props: any) => {
 	const classes = useStyles();
+	const { menus = [] } = props;
 
 	return (
 		<Box display={'flex'} flexDirection={'row'} justifyContent={'center'} className={classes.root}>
-			<Typography className={classes.title}>
-				{'科技'}
-			</Typography>
-			<Typography className={classes.title}>
-				{'财经'}
-			</Typography>
-			<Typography className={classes.title}>
-				{'民生'}
-			</Typography>
-			<Typography className={classes.title}>
-				{'健康'}
-			</Typography>
+			{menus.map((menu: string) => (
+				<Typography className={classes.title}>
+					{menu}
+				</Typography>
+			))}
 		</Box>
 	);
 };
