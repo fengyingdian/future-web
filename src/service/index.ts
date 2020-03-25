@@ -145,6 +145,9 @@ export const fetchSection = (id: string) => axios.get(sectionUrl(id))
 		if (response.status === 200) {
 			return response.data && response.data.section;
 		}
+	})
+	.catch((error: any) => {
+		console.log(error);
 
 		//
 		// ─── MOCK DATA ───────────────────────────────────────────────────
@@ -152,9 +155,6 @@ export const fetchSection = (id: string) => axios.get(sectionUrl(id))
 		const sections = mockData.sections.find(({ id: sectionId }: any) => sectionId === id);
 
 		return sections;
-	})
-	.catch((error: any) => {
-		console.log(error);
 	});
 
 //

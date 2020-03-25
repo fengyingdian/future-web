@@ -4,8 +4,8 @@ import {
 	Grid, Box,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { ArticleCardLargeImage, ArticleCardShortImage, ArticleCardLongImage } from '../ArticleCard';
-import Title from './title';
+import { ArticleCardLargeImage, ArticleCardShortImage, ArticleCardLongImage } from '../ArticleCard/normal-card';
+import Title from './section-block-title';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {

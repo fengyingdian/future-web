@@ -12,7 +12,7 @@ import { fetchHomeFeed } from '../src/service/index';
 export const Index = (props: any) => {
 	const classes = useStyles();
 	const { sections = [] } = props;
-	const menus = sections.map(({ name }: any) => name);
+	const menus = sections.map(({ name, id }: any) => ({ name, id }));
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
@@ -31,7 +31,6 @@ export const Index = (props: any) => {
 Index.getInitialProps = async ({ req }: any) => {
 	const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
 	const sections = await fetchHomeFeed();
-	console.log(sections);
 
 	return { userAgent, sections };
 };

@@ -2,23 +2,17 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import { withRouter } from 'next/router';
-// import Render from 'react-transcode-render/lib/index';
-// import 'react-transcode-render/lib/main.min.css';
 import useStyles from '../src/theme/styles';
-// import Render from '../src/render';
 import { fetchSection } from '../src/service/index';
+import ResponsibleSection from '../src/components/ArticleSection/responsible-section';
 
 const Section = (props: any) => {
 	const classes = useStyles();
-	const { id = '' } = props;
+	const { id = '', name = '', articles = [] } = props;
 
 	return (
-		<Container maxWidth={'sm'} className={classes.root}>
-			<p>
-				{' '}
-				{'Section '}
-				{id}
-			</p>
+		<Container maxWidth={false} className={classes.root}>
+			<ResponsibleSection key={id} name={name} id={id} articles={articles} />
 		</Container>
 	);
 };
@@ -26,9 +20,9 @@ const Section = (props: any) => {
 Section.getInitialProps = async ({ query = {} }: any) => {
 	const { id = '' } = query;
 
-	const results = await fetchSection(id);
+	const section = await fetchSection(id);
 
-	return { results, id };
+	return { ...section };
 };
 
 export default withRouter(Section);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-	Box, Typography,
+	Box, Typography, Link,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
@@ -29,10 +29,12 @@ const Tab = (props: any) => {
 
 	return (
 		<Box display={'flex'} flexDirection={'row'} justifyContent={'center'} className={classes.root}>
-			{menus.map((menu: string) => (
-				<Typography className={classes.title}>
-					{menu}
-				</Typography>
+			{menus.map(({ name, id }: any) => (
+				<Link key={id} href={`/sections?id=${id}`}>
+					<Typography className={classes.title}>
+						{name}
+					</Typography>
+				</Link>
 			))}
 		</Box>
 	);
