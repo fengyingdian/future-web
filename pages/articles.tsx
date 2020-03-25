@@ -3,6 +3,8 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import { withRouter } from 'next/router';
 import axios from 'axios';
+// import Render from 'react-transcode-render/lib/index';
+// import 'react-transcode-render/lib/main.min.css';
 import useStyles from '../src/model/styles';
 import Render from '../src/render';
 
