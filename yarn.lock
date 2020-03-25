@@ -6687,14 +6687,15 @@ react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-transcode-render@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-transcode-render/-/react-transcode-render-1.0.0.tgz#d2bcf4cfdd5c6e1a572f6afc54fdd4afeab6560c"
-  integrity sha512-vf9Zr8rvhbH1Mx7P5v8aQPGgSFk2xrH+XoBfxF5ihYXZKiVQ2nDrOFN6LPMHeBj1dhe9oopDSXmafUlfi4avBg==
+react-transcode-render@^1.0.1, react-transcode-render@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-transcode-render/-/react-transcode-render-1.0.4.tgz#e8e85de04d345c51475acf6cc5052090849de422"
+  integrity sha512-avjFpuPZIDCDViGpp7I7ysbw8oxL3tm4eLkclzIZVhHFi7ikQD7nNj37FB6z0hNg39KoUo7F2M/OhI0X9grMgg==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.8.3"
     axios "^0.19.2"
     ramda "^0.27.0"
+    react-transcode-render "^1.0.1"
 
 react-transition-group@^4.3.0:
   version "4.3.0"
