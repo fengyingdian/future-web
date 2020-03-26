@@ -3,10 +3,12 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import {
 	Link, Card, CardActionArea, CardContent, CardMedia, Typography,
 } from '@material-ui/core';
+import Theme from '../../theme/theme';
 
 const useStyles = makeStyles(() => createStyles({
 	root: {
 		maxWidth: '100%',
+		margin: Theme.spacing(2, 0, 1),
 	},
 	media: {
 		height: 0,
@@ -24,7 +26,7 @@ const useStyles = makeStyles(() => createStyles({
 	},
 }));
 
-const MediaCard = (props: any) => {
+const LiveCard = (props: any) => {
 	const classes = useStyles();
 	const {
 		image = '', title = '', description = '', id = '',
@@ -53,4 +55,4 @@ const MediaCard = (props: any) => {
 	);
 };
 
-export default MediaCard;
+export default LiveCard;

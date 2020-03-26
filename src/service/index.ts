@@ -3,9 +3,11 @@ import axios from 'axios';
 
 const transcodeUrl = (id: string) => `http://flipboard-cn-static.oss-cn-hangzhou.aliyuncs.com/fleural/mtoutiaocom/labeled-contents/${id}.json`;
 
-const sectionUrl = (id: string) => `${id}`;
+const articleSectionUrl = (id: string) => `${id}`;
 
 const homeFeedUrl = () => '';
+
+const liveSectionUrl = () => '';
 
 const mockData = {
 	sections: [
@@ -120,27 +122,56 @@ const mockData = {
 	],
 };
 
+const mockLiveData = {
+	lives: [{
+		title: 'Live 1',
+		description: '本报武汉3月22日电 （记者贺广华、范昊天）满目春茶，层层叠叠。今年开春气温升得快，湖北省五峰土家族自治县茶农谭从新家的6亩茶园，早早地就冒出了新芽。他去茶园查看长势，眼看快要采摘头道茶了，但在这个不寻常的春天，他却有些着急。路遇检查疫情防控的县委书记陈华，他忍不住发问：“今年茶叶收入，到底还有没有指望？”',
+		id: '1',
+		image: 'http://back.rmsznet.com/upload/202003/23/202003231017468466.jpg',
+		tags: ['标签1', '标签2', '标签3'],
+	}, {
+		title: 'Live 2',
+		description: '本报武汉3月22日电 （记者贺广华、范昊天）满目春茶，层层叠叠。今年开春气温升得快，湖北省五峰土家族自治县茶农谭从新家的6亩茶园，早早地就冒出了新芽。他去茶园查看长势，眼看快要采摘头道茶了，但在这个不寻常的春天，他却有些着急。路遇检查疫情防控的县委书记陈华，他忍不住发问：“今年茶叶收入，到底还有没有指望？”',
+		id: '2',
+		image: 'http://back.rmsznet.com/upload/202003/23/202003231017468466.jpg',
+		tags: ['标签1', '标签2', '标签3'],
+	},
+	{
+		title: 'Live 3',
+		description: '本报武汉3月22日电 （记者贺广华、范昊天）满目春茶，层层叠叠。今年开春气温升得快，湖北省五峰土家族自治县茶农谭从新家的6亩茶园，早早地就冒出了新芽。他去茶园查看长势，眼看快要采摘头道茶了，但在这个不寻常的春天，他却有些着急。路遇检查疫情防控的县委书记陈华，他忍不住发问：“今年茶叶收入，到底还有没有指望？”',
+		id: '3',
+		image: 'http://back.rmsznet.com/upload/202003/23/202003231017468466.jpg',
+		tags: ['标签1', '标签2', '标签3'],
+	},
+	],
+};
+
 //
-// ─── FETCH ARTICLE TRANSCODE ────────────────────────────────────────────────────
+// ─── FETCH HOME FEED ────────────────────────────────────────────────────────────
 //
 
-export const fetchArticleTranscode = (id: string) => axios.get(transcodeUrl(id))
+export const fetchHomeFeed = () => axios.get(homeFeedUrl())
 	.then((response: any) => {
 		if (response.status === 200) {
-			return response.data && response.data.contents;
+			return response.data && response.data.sections;
 		}
 
-		return [];
+		//
+		// ─── MOCK DATA ───────────────────────────────────────────────────
+		//
+		return mockData.sections;
 	})
 	.catch((error: any) => {
 		console.log(error);
+
+		return mockData.sections;
 	});
 
 //
-// ─── FETCH SECTION ─────────────────────────────────────────────────────
+// ─── FETCH ARTICLE SECTION ─────────────────────────────────────────────────────
 //
 
-export const fetchSection = (id: string) => axios.get(sectionUrl(id))
+export const fetchArticleSection = (id: string) => axios.get(articleSectionUrl(id))
 	.then((response: any) => {
 		if (response.status === 200) {
 			return response.data && response.data.section;
@@ -158,22 +189,40 @@ export const fetchSection = (id: string) => axios.get(sectionUrl(id))
 	});
 
 //
-// ─── FETCH HOME FEED ────────────────────────────────────────────────────────────
+// ─── FETCH ARTICLE TRANSCODE ────────────────────────────────────────────────────
 //
 
-export const fetchHomeFeed = () => axios.get(homeFeedUrl())
+export const fetchArticleTranscode = (id: string) => axios.get(transcodeUrl(id))
 	.then((response: any) => {
 		if (response.status === 200) {
-			return response.data && response.data.articles;
+			return response.data && response.data.contents;
+		}
+
+		return [];
+	})
+	.catch((error: any) => {
+		console.log(error);
+	});
+
+
+//
+// ─── FETCH LIVE SECTION ─────────────────────────────────────────────────────────
+//
+
+
+export const fetchLiveSection = () => axios.get(liveSectionUrl())
+	.then((response: any) => {
+		if (response.status === 200) {
+			return response.data && response.data.lives;
 		}
 
 		//
 		// ─── MOCK DATA ───────────────────────────────────────────────────
 		//
-		return mockData;
+		return mockLiveData.lives;
 	})
 	.catch((error: any) => {
 		console.log(error);
 
-		return mockData.sections;
+		return mockLiveData.lives;
 	});

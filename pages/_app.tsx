@@ -40,7 +40,8 @@ export default class MyApp extends App {
 					<meta name={'referrer'} content={'origin'} />
 					<meta name={'renderer'} content={'webkit'} />
 					<meta name={'wap-font-scale'} content={'no'} />
-					{/* <script type={'text/javascript'} src={'https://js.izihun.com/web/site/webfont/js/webfont.js'} /> */}
+					<link rel={'stylesheet'} href={'https://g.alicdn.com/de/prismplayer/2.8.2/skins/default/aliplayer-min.css'} />
+					<script type={'text/javascript'} src={'https://g.alicdn.com/de/prismplayer/2.8.2/aliplayer-h5-min.js'} />
 				</Head>
 				<ThemeProvider theme={Theme}>
 					<Box

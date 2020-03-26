@@ -3,7 +3,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import { withRouter } from 'next/router';
 import useStyles from '../src/theme/styles';
-import { fetchSection } from '../src/service/index';
+import { fetchArticleSection } from '../src/service/index';
 import ResponsibleSection from '../src/components/ArticleSection/responsible-section';
 
 const Section = (props: any) => {
@@ -20,7 +20,7 @@ const Section = (props: any) => {
 Section.getInitialProps = async ({ query = {} }: any) => {
 	const { id = '' } = query;
 
-	const section = await fetchSection(id);
+	const section = await fetchArticleSection(id);
 
 	return { ...section };
 };
