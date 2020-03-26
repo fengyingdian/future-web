@@ -9,26 +9,32 @@ import LiveSection from '../src/components/LiveSection/index';
 // const LiveSection = dynamic(import('../src/components/LiveSection/index'), { ssr: false });
 
 interface LiveProps {
-  lives: any;
+  currentLive: any;
+  relativeLives: any;
 }
 
 interface LiveState { }
 
 class Live extends React.Component<LiveProps, LiveState> {
-	static async getInitialProps({ req }: any) {
-		const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-		const lives = await fetchLiveSection();
+	static async getInitialProps({ req, query }: any) {
+		const { id = '' } = query;
 
-		return { userAgent, lives };
+		const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+		const {
+			currentLive,
+			relativeLives,
+		}: any = await fetchLiveSection(id);
+
+		return { userAgent, currentLive, relativeLives };
 	}
 
 	render() {
 		// const classes = useStyles();
-		const { lives = [] } = this.props;
+		const { currentLive, relativeLives } = this.props;
 
 		return (
 			<Container maxWidth={false}>
-				<LiveSection lives={lives} />
+				<LiveSection currentLive={currentLive} relativeLives={relativeLives} />
 			</Container>
 		);
 	}

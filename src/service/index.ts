@@ -7,7 +7,7 @@ const articleSectionUrl = (id: string) => `${id}`;
 
 const homeFeedUrl = () => '';
 
-const liveSectionUrl = () => '';
+const liveSectionUrl = () => 'http://sapp.flipboard.cn/fabulous/lives.json';
 
 const mockData = {
 	sections: [
@@ -122,30 +122,6 @@ const mockData = {
 	],
 };
 
-const mockLiveData = {
-	lives: [{
-		title: 'Live 1',
-		description: '本报武汉3月22日电 （记者贺广华、范昊天）满目春茶，层层叠叠。今年开春气温升得快，湖北省五峰土家族自治县茶农谭从新家的6亩茶园，早早地就冒出了新芽。他去茶园查看长势，眼看快要采摘头道茶了，但在这个不寻常的春天，他却有些着急。路遇检查疫情防控的县委书记陈华，他忍不住发问：“今年茶叶收入，到底还有没有指望？”',
-		id: '1',
-		image: 'http://back.rmsznet.com/upload/202003/23/202003231017468466.jpg',
-		tags: ['标签1', '标签2', '标签3'],
-	}, {
-		title: 'Live 2',
-		description: '本报武汉3月22日电 （记者贺广华、范昊天）满目春茶，层层叠叠。今年开春气温升得快，湖北省五峰土家族自治县茶农谭从新家的6亩茶园，早早地就冒出了新芽。他去茶园查看长势，眼看快要采摘头道茶了，但在这个不寻常的春天，他却有些着急。路遇检查疫情防控的县委书记陈华，他忍不住发问：“今年茶叶收入，到底还有没有指望？”',
-		id: '2',
-		image: 'http://back.rmsznet.com/upload/202003/23/202003231017468466.jpg',
-		tags: ['标签1', '标签2', '标签3'],
-	},
-	{
-		title: 'Live 3',
-		description: '本报武汉3月22日电 （记者贺广华、范昊天）满目春茶，层层叠叠。今年开春气温升得快，湖北省五峰土家族自治县茶农谭从新家的6亩茶园，早早地就冒出了新芽。他去茶园查看长势，眼看快要采摘头道茶了，但在这个不寻常的春天，他却有些着急。路遇检查疫情防控的县委书记陈华，他忍不住发问：“今年茶叶收入，到底还有没有指望？”',
-		id: '3',
-		image: 'http://back.rmsznet.com/upload/202003/23/202003231017468466.jpg',
-		tags: ['标签1', '标签2', '标签3'],
-	},
-	],
-};
-
 //
 // ─── FETCH HOME FEED ────────────────────────────────────────────────────────────
 //
@@ -210,19 +186,19 @@ export const fetchArticleTranscode = (id: string) => axios.get(transcodeUrl(id))
 //
 
 
-export const fetchLiveSection = () => axios.get(liveSectionUrl())
+export const fetchLiveSection = (id: string) => axios.get(liveSectionUrl())
 	.then((response: any) => {
 		if (response.status === 200) {
-			return response.data && response.data.lives;
-		}
+			const { lives = [] } = response.data;
+			const currentLive = lives.find(({ id: liveId }: any) => String(liveId) === id);
+			const relativeLives = lives.filter(({ id: liveId }: any) => String(liveId) !== id);
 
-		//
-		// ─── MOCK DATA ───────────────────────────────────────────────────
-		//
-		return mockLiveData.lives;
+			return {
+				currentLive,
+				relativeLives,
+			};
+		}
 	})
 	.catch((error: any) => {
 		console.log(error);
-
-		return mockLiveData.lives;
 	});

@@ -9,7 +9,8 @@ import LiveCard from '../LiveCard/index';
 declare const Aliplayer: any;
 
 interface LiveProps {
-  lives: any;
+  currentLive: any;
+  relativeLives: any;
 }
 
 interface LiveState { }
@@ -24,15 +25,17 @@ interface LiveState { }
 
 class LiveSection extends React.Component<LiveProps, LiveState> {
 	componentDidMount() {
+		const { currentLive: { pullStream = '' } = {} } = this.props;
+		console.log({ pullStream });
 		if (Aliplayer) {
 			const player = new Aliplayer({
 				id: 'J_prismPlayer',
 				width: '100%',
 				autoplay: true,
 				isLive: true,
-				source: 'https://video1.flipboard.cn/break/test.m3u8?auth_key=1585232276-0-0-f793f2351f14c83da671f3681e42615e',
+				source: pullStream,
 			}, (() => {
-				console.log('播放器创建好了。', player);
+				console.log('player loaded', player);
 			}));
 		} else {
 			console.log({});
@@ -41,7 +44,7 @@ class LiveSection extends React.Component<LiveProps, LiveState> {
 
 	render() {
 		// const classes = useStyles();
-		const { lives } = this.props;
+		const { relativeLives } = this.props;
 
 		return (
 			<>
@@ -55,7 +58,7 @@ class LiveSection extends React.Component<LiveProps, LiveState> {
 						margin: '32px 0 0',
 					}}>
 					<div className={'prism-player'} id={'J_prismPlayer'} />
-					{lives.map((live: any, index: any) => <LiveCard key={index} title={live.title} description={live.description} id={live.id} image={live.image} />)}
+					{relativeLives.map((live: any, index: any) => <LiveCard key={index} title={live.title} description={live.description} id={live.id} image={live.image} />)}
 				</Box>
 			</>
 		);
