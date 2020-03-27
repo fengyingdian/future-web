@@ -8,7 +8,7 @@ import Theme from '../../theme/theme';
 const useStyles = makeStyles(() => createStyles({
 	root: {
 		maxWidth: '100%',
-		margin: Theme.spacing(2, 0, 1),
+		margin: Theme.spacing(8, 0, 1),
 	},
 	media: {
 		height: 0,

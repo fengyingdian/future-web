@@ -11,6 +11,7 @@ import LiveSection from '../src/components/LiveSection/index';
 interface LiveProps {
   currentLive: any;
   relativeLives: any;
+  id: any;
 }
 
 interface LiveState { }
@@ -23,18 +24,20 @@ class Live extends React.Component<LiveProps, LiveState> {
 		const {
 			currentLive,
 			relativeLives,
-		}: any = await fetchLiveSection(id);
+		}: any = await fetchLiveSection('1');
 
-		return { userAgent, currentLive, relativeLives };
+		return {
+			userAgent, currentLive, relativeLives, id,
+		};
 	}
 
 	render() {
 		// const classes = useStyles();
-		const { currentLive, relativeLives } = this.props;
+		const { currentLive, relativeLives, id } = this.props;
 
 		return (
 			<Container maxWidth={false}>
-				<LiveSection currentLive={currentLive} relativeLives={relativeLives} />
+				<LiveSection id={id} currentLive={currentLive} relativeLives={relativeLives} />
 			</Container>
 		);
 	}
