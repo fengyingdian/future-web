@@ -8,6 +8,7 @@ import ResponsibleTriple from '../../components/ArticleSection/responsible-tripl
 import ResponsibleTripleReverse from '../../components/ArticleSection/responsible-triple-reverse';
 // import Header from './components/Header/header';
 import { BottomUpAction } from '../../action-components/MountAction/bottom-up-action';
+import MenuBar from './components/MenuBar/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -21,6 +22,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	headertitle: {
 		margin: theme.spacing(1, 0, 1),
 		opacity: (props: any) => props.opacity,
+	},
+	menubar: {
+		width: '100%',
+		position: 'sticky',
+		left: 0,
+		top: 0,
+		zIndex: 20,
 	},
 }));
 
@@ -52,7 +60,7 @@ const Main = (props: Props) => {
 	});
 
 	const classes = useStyles({ opacity: state });
-	const { sections } = props;
+	const { menus, sections } = props;
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
@@ -62,6 +70,9 @@ const Main = (props: Props) => {
 						<GradientText content={'THE NEXT'} />
 					</TopDownAction>
 				</NoSsr>
+			</div>
+			<div className={classes.menubar}>
+				<MenuBar menus={menus} />
 			</div>
 			{sections.map(({ name, id, articles }: any, index: any) => {
 				if (index % 2 === 0) {
@@ -73,9 +84,9 @@ const Main = (props: Props) => {
 				}
 
 				return (
-					<BottomUpAction>
+					<TopDownAction>
 						<ResponsibleTripleReverse key={id} name={name} id={id} articles={articles} />
-					</BottomUpAction>
+					</TopDownAction>
 				);
 			})}
 		</Container>

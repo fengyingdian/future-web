@@ -4,25 +4,25 @@ import Container from '@material-ui/core/Container';
 import { withRouter } from 'next/router';
 import useStyles from '../src/theme/styles';
 import { fetchArticleSection } from '../src/service/index';
-import ResponsibleSection from '../src/components/ArticleSection/responsible-section';
+import Section from '../src/containers/sections/index';
 
-const Section = (props: any) => {
+const Index = (props: any) => {
 	const classes = useStyles();
-	const { id = '', name = '', articles = [] } = props;
+	const { section } = props;
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			<ResponsibleSection key={id} name={name} id={id} articles={articles} />
+			<Section section={section} />
 		</Container>
 	);
 };
 
-Section.getInitialProps = async ({ query = {} }: any) => {
+Index.getInitialProps = async ({ query = {} }: any) => {
 	const { id = '' } = query;
 
 	const section = await fetchArticleSection(id);
 
-	return { ...section };
+	return { section };
 };
 
-export default withRouter(Section);
+export default withRouter(Index);

@@ -1,5 +1,5 @@
-import React from 'react';
 import { equals, prop } from 'ramda';
+import React from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 const isTextNode = (content: any) => equals('text', prop('type', content));
@@ -96,4 +96,5 @@ const ArticleContent = (props: any) => {
 		</div>
 	);
 };
+
 export default ArticleContent;

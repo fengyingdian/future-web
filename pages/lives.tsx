@@ -1,12 +1,8 @@
 /* eslint-disable max-len */
 import React from 'react';
 import Container from '@material-ui/core/Container';
-// import dynamic from 'next/dynamic';
-// import useStyles from '../src/theme/styles';
 import { fetchLiveSection } from '../src/service/index';
 import LiveSection from '../src/components/LiveSection/index';
-
-// const LiveSection = dynamic(import('../src/components/LiveSection/index'), { ssr: false });
 
 interface LiveProps {
   currentLive: any;
@@ -32,7 +28,6 @@ class Live extends React.Component<LiveProps, LiveState> {
 	}
 
 	render() {
-		// const classes = useStyles();
 		const { currentLive, relativeLives, id } = this.props;
 
 		return (

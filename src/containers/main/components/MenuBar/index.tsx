@@ -6,29 +6,33 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		margin: theme.spacing(4, 2, 1),
+		margin: theme.spacing(0, 0, 0),
 		padding: theme.spacing(1, 0, 1),
 		width: '100%',
-		borderTop: '1px solid #f8f8f8',
-		borderBottom: '1px solid #f8f8f8',
+		borderTop: '1px solid #e1e1e1',
+		borderBottom: '1px solid #e1e1e1',
 		boxSizing: 'border-box',
+		background: '#fff',
 	},
 	title: {
 		fontSize: 16,
 		fontWeight: 900,
-		margin: theme.spacing(0, 2, 0),
+		boxSizing: 'border-box',
+		color: '#111',
+		padding: theme.spacing(0, 2, 0),
 		'&:hover': {
 			color: '#f52828',
 		},
 	},
 }));
 
-const Tab = (props: any) => {
+const MenuBar = (props: any) => {
 	const classes = useStyles();
 	const { menus = [] } = props;
+	console.log({ menus });
 
 	return (
-		<Box display={'flex'} flexDirection={'row'} justifyContent={'center'} className={classes.root}>
+		<Box display={'flex'} flexDirection={'row'} justifyContent={'center'} flexWrap={'wrap'} className={classes.root}>
 			{menus.map(({ name, id }: any) => (
 				<Link key={id} href={`/sections?id=${id}`}>
 					<Typography className={classes.title}>
@@ -40,4 +44,4 @@ const Tab = (props: any) => {
 	);
 };
 
-export default Tab;
+export default MenuBar;

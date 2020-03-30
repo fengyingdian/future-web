@@ -2,28 +2,26 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import { withRouter } from 'next/router';
-// import Render from 'react-transcode-render/lib/index';
-// import 'react-transcode-render/lib/main.min.css';
 import useStyles from '../src/theme/styles';
-import Render from '../src/render';
 import { fetchArticleTranscode } from '../src/service/index';
+import Article from '../src/containers/articles/index';
 
-const Article = (props: any) => {
+const Index = (props: any) => {
 	const classes = useStyles();
 
 	return (
-		<Container maxWidth={'sm'} className={classes.root}>
-			<Render contents={props.results} />
+		<Container maxWidth={false} className={classes.root}>
+			<Article contents={props.contents} />
 		</Container>
 	);
 };
 
-Article.getInitialProps = async ({ query = {} }: any) => {
+Index.getInitialProps = async ({ query = {} }: any) => {
 	const { id = '' } = query;
 
-	const results = await fetchArticleTranscode(id);
+	const contents = await fetchArticleTranscode(id);
 
-	return { results };
+	return { contents };
 };
 
-export default withRouter(Article);
+export default withRouter(Index);

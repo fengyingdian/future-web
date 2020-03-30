@@ -7,7 +7,6 @@ import useStyles from '../src/theme/styles';
 import { fetchHomeFeed } from '../src/service/index';
 import Main from '../src/containers/main/index';
 
-
 export const Index = (props: any) => {
 	const classes = useStyles();
 	const { sections = [] } = props;
