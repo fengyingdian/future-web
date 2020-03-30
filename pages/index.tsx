@@ -4,10 +4,9 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import { withRouter } from 'next/router';
 import useStyles from '../src/theme/styles';
-import ResponsibleTriple from '../src/components/ArticleSection/responsible-triple';
-import ResponsibleTripleReverse from '../src/components/ArticleSection/responsible-triple-reverse';
-import Header from '../src/components/Header/header';
 import { fetchHomeFeed } from '../src/service/index';
+import Main from '../src/containers/main/index';
+
 
 export const Index = (props: any) => {
 	const classes = useStyles();
@@ -16,14 +15,7 @@ export const Index = (props: any) => {
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			<Header menus={menus} />
-			{sections.map(({ name, id, articles }: any, index: any) => {
-				if (index % 2 === 0) {
-					return <ResponsibleTriple key={id} name={name} id={id} articles={articles} />;
-				}
-
-				return <ResponsibleTripleReverse key={id} name={name} id={id} articles={articles} />;
-			})}
+			<Main menus={menus} sections={sections} />
 		</Container>
 	);
 };

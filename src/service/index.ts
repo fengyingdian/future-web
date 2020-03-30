@@ -185,7 +185,6 @@ export const fetchArticleTranscode = (id: string) => axios.get(transcodeUrl(id))
 // ─── FETCH LIVE SECTION ─────────────────────────────────────────────────────────
 //
 
-
 export const fetchLiveSection = (id: string) => axios.get(liveSectionUrl())
 	.then((response: any) => {
 		if (response.status === 200) {
