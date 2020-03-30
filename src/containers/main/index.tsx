@@ -2,11 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { BottomUpAction } from '../../action-components/MountAction/bottom-up-action';
+import { TopDownAction } from '../../action-components/MountAction/top-down-action';
 import { GradientText } from '../../components/Text';
 import ResponsibleTriple from '../../components/ArticleSection/responsible-triple';
 import ResponsibleTripleReverse from '../../components/ArticleSection/responsible-triple-reverse';
-import Header from '../../components/Header/header';
+// import Header from './components/Header/header';
+import { BottomUpAction } from '../../action-components/MountAction/bottom-up-action';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -51,24 +52,31 @@ const Main = (props: Props) => {
 	});
 
 	const classes = useStyles({ opacity: state });
-	const { menus = [], sections } = props;
+	const { sections } = props;
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
 			<div id={'intro-page-top-header'} className={classes.headertitle}>
 				<NoSsr>
-					<BottomUpAction>
+					<TopDownAction>
 						<GradientText content={'THE NEXT'} />
-					</BottomUpAction>
+					</TopDownAction>
 				</NoSsr>
 			</div>
-			<Header menus={menus} />
 			{sections.map(({ name, id, articles }: any, index: any) => {
 				if (index % 2 === 0) {
-					return <ResponsibleTriple key={id} name={name} id={id} articles={articles} />;
+					return (
+						<BottomUpAction>
+					    <ResponsibleTriple key={id} name={name} id={id} articles={articles} />
+						</BottomUpAction>
+					);
 				}
 
-				return <ResponsibleTripleReverse key={id} name={name} id={id} articles={articles} />;
+				return (
+					<BottomUpAction>
+						<ResponsibleTripleReverse key={id} name={name} id={id} articles={articles} />
+					</BottomUpAction>
+				);
 			})}
 		</Container>
   	);
