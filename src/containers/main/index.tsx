@@ -3,12 +3,13 @@ import React, { useState, useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { TopDownAction } from '../../action-components/MountAction/top-down-action';
-import { GradientText } from '../../components/Text';
-import ResponsibleTriple from '../../components/ArticleSection/responsible-triple';
-import ResponsibleTripleReverse from '../../components/ArticleSection/responsible-triple-reverse';
-// import Header from './components/Header/header';
+import ResponsibleTriple from '../../components/ArticleSection/responsible-tag-triple';
 import { BottomUpAction } from '../../action-components/MountAction/bottom-up-action';
 import MenuBar from './components/MenuBar/index';
+import Header from './components/Title/index';
+import TopStoryCard from '../../components/ArticleCard/top-story-card';
+import Live from './components/Live/index';
+import Focus from './components/Focus/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -18,17 +19,47 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'center',
 		maxWidth: '100%',
 		padding: '0',
+		background: '#f8f8f8',
 	},
-	headertitle: {
+	title: {
 		margin: theme.spacing(1, 0, 1),
 		opacity: (props: any) => props.opacity,
 	},
-	menubar: {
+	menuBar: {
 		width: '100%',
 		position: 'sticky',
 		left: 0,
 		top: 0,
 		zIndex: 20,
+	},
+	headerSection: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'flex-start',
+		maxWidth: '1280px',
+		padding: theme.spacing(0, 4, 0),
+		margin: theme.spacing(5, 0, 0),
+	},
+	headerSectionLeft: {
+		flex: 1,
+		maxWidth: '100%',
+	},
+	headerSectionRight: {
+		maxWidth: '34%',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		margin: theme.spacing(0, 0, 0, 4),
+	},
+	sections: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		maxWidth: '1280px',
+		padding: theme.spacing(0, 4, 0),
 	},
 }));
 
@@ -41,9 +72,9 @@ const Main = (props: Props) => {
 	const [state, setState] = useState(1);
 
 	const bindScroll = () => {
-  	const gradientText = document.getElementById('intro-page-top-header');
-  	if (gradientText) {
-  	  const rect = gradientText?.getBoundingClientRect();
+  	const header = document.getElementById('intro-page-top-header');
+  	if (header) {
+  	  const rect = header?.getBoundingClientRect();
 			const { bottom, height } = rect;
 			const pos = bottom / height;
   		const opacity = pos ** 3;
@@ -64,31 +95,42 @@ const Main = (props: Props) => {
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			<div id={'intro-page-top-header'} className={classes.headertitle}>
+			<div id={'intro-page-top-header'} className={classes.title}>
 				<NoSsr>
 					<TopDownAction>
-						<GradientText content={'THE NEXT'} />
+						<Header content={'人民数字'} />
 					</TopDownAction>
 				</NoSsr>
 			</div>
-			<div className={classes.menubar}>
+			<div className={classes.menuBar}>
 				<MenuBar menus={menus} />
 			</div>
-			{sections.map(({ name, id, articles }: any, index: any) => {
-				if (index % 2 === 0) {
-					return (
-						<BottomUpAction>
+			<div className={classes.headerSection}>
+				<div className={classes.headerSectionLeft}>
+					<TopStoryCard />
+				</div>
+				<div className={classes.headerSectionRight}>
+					<Live />
+					<Focus />
+				</div>
+			</div>
+			<div className={classes.sections}>
+				{sections.map(({ name, id, articles }: any, index: any) => {
+					if (index % 2 === 0) {
+						return (
+							<BottomUpAction>
 					    <ResponsibleTriple key={id} name={name} id={id} articles={articles} />
-						</BottomUpAction>
-					);
-				}
+							</BottomUpAction>
+						);
+					}
 
-				return (
-					<TopDownAction>
-						<ResponsibleTripleReverse key={id} name={name} id={id} articles={articles} />
-					</TopDownAction>
-				);
-			})}
+					return (
+						<TopDownAction>
+							<ResponsibleTriple key={id} name={name} id={id} articles={articles} />
+						</TopDownAction>
+					);
+				})}
+			</div>
 		</Container>
   	);
 };

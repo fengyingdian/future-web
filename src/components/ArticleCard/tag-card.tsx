@@ -11,11 +11,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
 		margin: theme.spacing(0, 0, 0),
-		padding: theme.spacing(0, 0, 0),
+		padding: theme.spacing(3),
 		transition: '0.3s',
 		boxShadow: '0 0 0',
 		border: 0,
 		borderRadius: 0,
+		background: '#fff',
 		// boxShadow: '0 0 20px 0 rgba(0,0,0,0.12)',
 		'&:hover': {
 			transform: 'translateY(-3px)',
@@ -23,7 +24,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 	},
 	header: {
-		padding: theme.spacing(1, 0, 0),
+		padding: theme.spacing(0),
+		fontSize: 18,
 		fontWeight: 900,
 	},
 	shortImage: {
@@ -46,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		whiteSpace: 'pre-line',
 		WebkitLineClamp: 3,
 		margin: theme.spacing(0, 0, 0),
-		padding: theme.spacing(1, 0, 0),
+		padding: theme.spacing(2, 0, 0),
 	},
 }));
 
@@ -66,10 +68,9 @@ export const ArticleCardShortImage = (props: any) => {
 					title={'Paella dish'}
 				/>
 				<Tag tag={tag} />
-				<CardHeader
-					className={classes.header}
-					title={title}
-				/>
+				<Typography className={classes.header}>
+					{title}
+				</Typography>
 				<Typography className={classes.content} variant={'body2'} color={'textSecondary'} component={'p'}>
 					{description}
 				</Typography>

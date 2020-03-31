@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(4, 0, 1),
 		padding: theme.spacing(1, 0, 0),
 		width: '100%',
-		borderTop: '10px solid #f52828',
+		borderTop: '10px solid #111',
 		boxSizing: 'border-box',
 	},
 	title: {
