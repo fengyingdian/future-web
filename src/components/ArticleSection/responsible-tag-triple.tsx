@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { ArticleCardShortImage } from '../ArticleCard/tag-card';
-import Title from './section-block-title';
+import { Title, ReadMore } from './section-block-title';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -85,6 +85,7 @@ const ArticleSection = (props: any) => {
 					<ArticleCardShortImage title={third.title} description={third.description} id={third.id} image={third.image} />
 				</Grid>
 			</Box>
+			<ReadMore id={id} />
 		</>
 	);
 };

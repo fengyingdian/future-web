@@ -79,7 +79,7 @@ const Focus = (props: any) => {
 			},
 			{
 				tag: '经济',
-				title: '中国经济供需循环愈加畅通中国经济供需循环',
+				title: '中国经济供需循环',
 				image: '',
 				host: '中国新闻报',
 				time: '10小时前',

@@ -27,6 +27,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		padding: theme.spacing(0),
 		fontSize: 18,
 		fontWeight: 900,
+		lineHeight: 1.5,
+		height: '48px',
 	},
 	shortImage: {
 		height: 0,
