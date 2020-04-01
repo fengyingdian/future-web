@@ -4,16 +4,16 @@ import {
 	Grid, Box,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { ArticleCardShortImage } from '../ArticleCard/tag-card';
+import { ArticleCardShortImage } from '../ArticleCard/tag-normal-card';
 import { Title, ReadMore } from './section-block-title';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		width: '100%',
 		maxWidth: '100%',
 		margin: theme.spacing(2, 0, 2),
 	},
 	first: {
+		width: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
 			margin: theme.spacing(0, 0, 0),
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 0, 0),
-			padding: theme.spacing(0, 2, 0, 0),
+			padding: theme.spacing(0, 1, 0, 0),
 			flex: 1,
 		},
 	},
@@ -35,12 +35,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			padding: theme.spacing(2, 0, 2),
 		},
 		[theme.breakpoints.up('sm')]: {
-			padding: theme.spacing(0, 2, 0, 0),
+			padding: theme.spacing(0, 1, 0),
 			maxWidth: '50% !important',
 		},
 		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 0, 0),
-			padding: theme.spacing(0, 1, 0),
+			padding: theme.spacing(0, 1),
 			maxWidth: '100%',
 			flex: 1,
 		},
@@ -65,6 +65,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const ArticleSection = (props: any) => {
 	const classes = useStyles();
 	const { name = '', id = '', articles = [] } = props;
+	if (articles.length <= 0) {
+		return (<> </>);
+	}
 	const [first, second, third] = articles;
 
 	return (
@@ -76,13 +79,16 @@ const ArticleSection = (props: any) => {
 				flexWrap={'wrap'}
 				className={classes.root}>
 				<Grid className={classes.first}>
-					<ArticleCardShortImage title={first.title} description={first.description} id={first.id} image={first.image} />
+					<ArticleCardShortImage
+						{...first} />
 				</Grid>
 				<Grid className={classes.second}>
-					<ArticleCardShortImage title={second.title} description={second.description} id={second.id} image={second.image} />
+					<ArticleCardShortImage
+						{...second} />
 				</Grid>
 				<Grid className={classes.third}>
-					<ArticleCardShortImage title={third.title} description={third.description} id={third.id} image={third.image} />
+					<ArticleCardShortImage
+						{...third} />
 				</Grid>
 			</Box>
 			<ReadMore id={id} />

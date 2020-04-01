@@ -4,7 +4,7 @@ import {
 	Grid, Box,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { ArticleCardShortImage } from '../ArticleCard/tag-card';
+import { ArticleCardShortImage } from '../ArticleCard/tag-normal-card';
 import { Title, ReadMore } from './section-block-title';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -66,6 +66,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const ArticleSection = (props: any) => {
 	const classes = useStyles();
 	const { name = '', id = '', articles = [] } = props;
+	if (articles.length <= 0) {
+		return (<> </>);
+	}
 	const [first, second, third] = articles;
 
 	return (

@@ -1,11 +1,12 @@
 /* eslint-disable max-len */
 import axios from 'axios';
+import { fabulousServiceHomePageUrl } from '../constants/index';
 
 const transcodeUrl = (id: string) => `http://flipboard-cn-static.oss-cn-hangzhou.aliyuncs.com/fleural/mtoutiaocom/labeled-contents/${id}.json`;
 
 const articleSectionUrl = (id: string) => `${id}`;
 
-const homeFeedUrl = () => '';
+const homeFeedUrl = () => fabulousServiceHomePageUrl;
 
 const liveSectionUrl = () => 'http://sapp.flipboard.cn/fabulous/lives.json';
 
@@ -128,19 +129,27 @@ const mockData = {
 
 export const fetchHomeFeed = () => axios.get(homeFeedUrl())
 	.then((response: any) => {
-		if (response.status === 200) {
-			return response.data && response.data.sections;
+		if (response.status === 200 && response.data && response.data.status === 0) {
+			const {
+				carousel = [],
+				livestreams = [],
+				categories: sections = [],
+			} = response.data;
+
+			return {
+				carousel,
+				livestreams,
+				sections,
+			};
 		}
 
 		//
-		// ─── MOCK DATA ───────────────────────────────────────────────────
+		// ─── ERROR ───────────────────────────────────────────────────
 		//
-		return mockData.sections;
+		return [];
 	})
 	.catch((error: any) => {
 		console.log(error);
-
-		return mockData.sections;
 	});
 
 //

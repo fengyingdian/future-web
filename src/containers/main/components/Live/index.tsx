@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		borderRadius: '50%',
 		background: '#f52828',
 		width: '16px',
+		minWidth: '16px',
 		height: '16px',
 		margin: theme.spacing(0, 2, 0, 0),
 	},

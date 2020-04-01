@@ -115,18 +115,18 @@ const Main = (props: Props) => {
 				</div>
 			</div>
 			<div className={classes.sections}>
-				{sections.map(({ name, id, articles }: any, index: any) => {
+				{sections.map(({ categoryName, id = '', posts }: any, index: any) => {
 					if (index % 2 === 0) {
 						return (
 							<BottomUpAction>
-					    <ResponsibleTriple key={id} name={name} id={id} articles={articles} />
+					    <ResponsibleTriple key={id} name={categoryName} id={id} articles={posts} />
 							</BottomUpAction>
 						);
 					}
 
 					return (
 						<TopDownAction>
-							<ResponsibleTriple key={id} name={name} id={id} articles={articles} />
+							<ResponsibleTriple key={id} name={categoryName} id={id} articles={posts} />
 						</TopDownAction>
 					);
 				})}

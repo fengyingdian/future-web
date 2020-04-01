@@ -10,7 +10,7 @@ import Main from '../src/containers/main/index';
 export const Index = (props: any) => {
 	const classes = useStyles();
 	const { sections = [] } = props;
-	const menus = sections.map(({ name, id }: any) => ({ name, id }));
+	const menus = sections.map(({ categoryName: name, id = '' }: any) => ({ name, id }));
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
@@ -21,9 +21,9 @@ export const Index = (props: any) => {
 
 Index.getInitialProps = async ({ req }: any) => {
 	const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-	const sections = await fetchHomeFeed();
+	const data = await fetchHomeFeed();
 
-	return { userAgent, sections };
+	return { userAgent, ...data };
 };
 
 export default withRouter(Index);
