@@ -18,9 +18,9 @@ const Index = (props: any) => {
 };
 
 Index.getInitialProps = async ({ query = {} }: any) => {
-	const { id = '' } = query;
+	const { name = '' } = query;
 
-	const section = await fetchArticleSection(id);
+	const { section }: any = await fetchArticleSection(name);
 
 	return { section };
 };

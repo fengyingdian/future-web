@@ -24,8 +24,8 @@ const Section = (props: Props) => {
 	const {
 		section: {
 			id = '',
-			name = '',
-			articles = '',
+			// categoryName = '',
+			posts: articles = '',
 		},
 	} = props;
 
@@ -37,7 +37,7 @@ const Section = (props: Props) => {
 				</title>
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
-				<ResponsibleSection key={id} name={name} id={id} articles={articles} />
+				<ResponsibleSection key={id} articles={articles} />
 			</Container>
 		</Container>
 	);
