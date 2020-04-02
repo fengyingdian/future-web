@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		background: '#fff',
 	},
 	tipsBox: {
+		width: '100%',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
@@ -33,6 +34,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#000',
 	},
 	infoBox: {
+		width: '100%',
 		borderTop: '1px solid #e8e8e8',
 		borderBottom: '1px solid #e8e8e8',
 		padding: theme.spacing(3, 0),

@@ -107,7 +107,9 @@ const Main = (props: Props) => {
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
-					<TopStoryCard />
+					<BottomUpAction>
+					  <TopStoryCard />
+					</BottomUpAction>
 				</div>
 				<div className={classes.headerSectionRight}>
 					<Live />
@@ -118,16 +120,12 @@ const Main = (props: Props) => {
 				{sections.map(({ categoryName, id = '', posts }: any, index: any) => {
 					if (index % 2 === 0) {
 						return (
-							<BottomUpAction>
 					    <ResponsibleTriple key={id} name={categoryName} id={id} articles={posts} />
-							</BottomUpAction>
 						);
 					}
 
 					return (
-						<TopDownAction>
-							<ResponsibleTriple key={id} name={categoryName} id={id} articles={posts} />
-						</TopDownAction>
+						<ResponsibleTriple key={id} name={categoryName} id={id} articles={posts} />
 					);
 				})}
 			</div>

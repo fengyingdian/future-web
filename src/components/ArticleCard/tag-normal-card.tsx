@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	image: {
 		height: 0,
 		paddingTop: '67%',
-		background: '#f8f8f8',
 	},
 	title: {
 		fontSize: 18,
@@ -59,7 +58,9 @@ export const ArticleCardShortImage = (props: any) => {
 	} = useCommonStyles({ line: 2 });
 
 	const {
-		image = '', title = '', excerpt = '', id = '', tags = [''],
+		cover: {
+			url = '',
+		} = {}, title = '', excerpt = '', id = '', tags = [''],
 	} = props;
 	const [tag] = tags;
 
@@ -68,8 +69,8 @@ export const ArticleCardShortImage = (props: any) => {
 			<Card className={classes.root}>
 				<CardMedia
 					className={classes.image}
-					image={image}
-					title={'Paella dish'}
+					image={url}
+					title={title}
 				/>
 				{tag && (<Tag tag={tag} />)}
 				<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
