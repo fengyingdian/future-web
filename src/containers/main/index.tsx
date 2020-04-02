@@ -120,16 +120,12 @@ const Main = (props: Props) => {
 				{sections.map(({ categoryName, id = '', posts }: any, index: any) => {
 					if (index % 2 === 0) {
 						return (
-							<BottomUpAction>
 					    <ResponsibleTagTripleSection key={id} name={categoryName} id={id} articles={posts} />
-							</BottomUpAction>
 						);
 					}
 
 					return (
-						<TopDownAction>
-							<ResponsibleTagTripleSection key={id} name={categoryName} id={id} articles={posts} />
-						</TopDownAction>
+					  <ResponsibleTagTripleSection key={id} name={categoryName} id={id} articles={posts} />
 					);
 				})}
 			</div>

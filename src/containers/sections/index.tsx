@@ -3,7 +3,7 @@ import React from 'react';
 import Head from 'next/head';
 import { Container } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import ResponsibleSection from '../../components/ArticleSection/responsible-section';
+import ResponsibleTagTriple from '../../components/ArticleSection/responsible-tag-triple';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -37,7 +37,7 @@ const Section = (props: Props) => {
 				</title>
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
-				<ResponsibleSection key={id} articles={articles} />
+				<ResponsibleTagTriple key={id} articles={articles} />
 			</Container>
 		</Container>
 	);

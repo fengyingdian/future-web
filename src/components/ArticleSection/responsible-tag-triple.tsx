@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(2, 0, 2),
 	},
 	first: {
-		width: '100%',
+		maxWidth: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
 			margin: theme.spacing(0, 0, 0),
@@ -24,38 +24,38 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 0, 0),
-			padding: theme.spacing(0, 1, 0, 0),
+			padding: theme.spacing(0, 1),
 			flex: 1,
 		},
 	},
 	second: {
+		maxWidth: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
 			padding: theme.spacing(2, 0, 2),
 		},
 		[theme.breakpoints.up('sm')]: {
 			padding: theme.spacing(0, 1, 0),
-			maxWidth: '50% !important',
+			maxWidth: '50%',
 		},
 		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 0, 0),
 			padding: theme.spacing(0, 1),
-			maxWidth: '100%',
 			flex: 1,
 		},
 	},
 	third: {
+		maxWidth: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
 			padding: theme.spacing(2, 0, 1),
 		},
 		[theme.breakpoints.up('sm')]: {
 			padding: theme.spacing(0, 0, 0, 1),
-			maxWidth: '50% !important',
+			maxWidth: '50%',
 		},
 		[theme.breakpoints.up('md')]: {
-			padding: theme.spacing(0, 0, 0, 1),
-			maxWidth: '100%',
+			padding: theme.spacing(0, 1),
 			flex: 1,
 		},
 	},
