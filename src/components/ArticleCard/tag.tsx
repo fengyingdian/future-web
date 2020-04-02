@@ -3,17 +3,16 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		maxWidth: '100%',
-		padding: theme.spacing(3, 0),
+		width: '100%',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 	},
 	tag: {
-		fontSize: 18,
+		fontSize: 14,
 		fontWeight: 900,
-		margin: '0 12px 0 0',
+		margin: theme.spacing(0, 1, 0, 0),
 		color: '#f52828',
 	},
 	line: {
@@ -23,15 +22,31 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 }));
 
-export const TopStoryTag = (props: any) => {
+export const TagLarge = (props: any) => {
 	const classes = useStyles();
 	const {
 		tag = '',
 	} = props;
 
 	return (
-		<div className={classes.root}>
-			<div className={classes.tag}>
+		<div className={classes.root} style={{ margin: '0 0 16px' }}>
+			<div className={classes.tag} style={{ fontSize: '24px' }}>
+				{tag}
+			</div>
+			<div className={classes.line} />
+		</div>
+	);
+};
+
+export const TagTopStory = (props: any) => {
+	const classes = useStyles();
+	const {
+		tag = '',
+	} = props;
+
+	return (
+		<div className={classes.root} style={{ margin: '16px 0 12px' }}>
+			<div className={classes.tag} style={{ fontSize: '20px' }}>
 				{tag}
 			</div>
 			<div className={classes.line} />
@@ -47,7 +62,7 @@ export const Tag = (props: any) => {
 
 	return (
 		<div className={classes.root} style={{ padding: '16px 0' }}>
-			<div className={classes.tag} style={{ fontSize: '14px' }}>
+			<div className={classes.tag}>
 				{tag}
 			</div>
 			<div className={classes.line} />

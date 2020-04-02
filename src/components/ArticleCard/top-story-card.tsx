@@ -3,7 +3,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import {
 	Link, CardMedia, Typography, Box,
 } from '@material-ui/core';
-import { TopStoryTag } from './tag';
+import { TagTopStory } from './tag';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -68,7 +68,7 @@ const TopStoryCard = (props: any) => {
 					image={image}
 					title={'Contemplative Reptile'}
 				/>
-				<TopStoryTag tag={tag} />
+				<TagTopStory tag={tag} />
 				<Typography className={classes.title}>
 					{title}
 				</Typography>

@@ -102,7 +102,7 @@ const Focus = (props: any) => {
 			{articles.map(({
 				tag, title, image, host, time,
 			}: any) => (
-				<div className={classes.articleBox}>
+				<div key={title} className={classes.articleBox}>
 					<CardMedia
 						className={classes.articleImage}
 						    image={image}

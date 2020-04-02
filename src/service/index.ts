@@ -1,12 +1,12 @@
 /* eslint-disable max-len */
 import axios from 'axios';
-import { fabulousServiceHomePageUrl } from '../constants/index';
+import { fabulousService } from '../constants/index';
 
 export const transcodeUrl = (id: string) => `http://flipboard-cn-static.oss-cn-hangzhou.aliyuncs.com/fleural/mtoutiaocom/labeled-contents/${id}.json`;
 
-export const articleSectionUrl = (id: string) => `${id}`;
+export const homeFeedUrl = () => `${fabulousService}/main/v1/homepage`;
 
-export const homeFeedUrl = () => fabulousServiceHomePageUrl;
+export const articleSectionUrl = () => `${fabulousService}/cat/v1/feed`;
 
 export const liveSectionUrl = () => 'http://sapp.flipboard.cn/fabulous/lives.json';
 
@@ -43,17 +43,23 @@ export const fetchHomeFeed = () => axios.get(homeFeedUrl())
 // ─── FETCH ARTICLE SECTION ─────────────────────────────────────────────────────
 //
 
-export const fetchArticleSection = (name: string) => axios.get(homeFeedUrl())
+export const fetchArticleSection = (name: string, pageKey: number = 0, limit: number = 20) => axios.get(articleSectionUrl(), {
+	params: {
+		categoryName: name,
+		pageKey,
+		limit,
+	},
+})
 	.then(response => {
 		if (response.status === 200 && response.data && response.data.status === 0) {
 			const {
-				categories: sections = [],
+				articles = [],
+				pageKey: newPageKey,
 			} = response.data;
 
-			const section = sections.find(({ categoryName = '' }: any) => categoryName === name);
-
 			return {
-				section,
+				articles,
+				newPageKey,
 			};
 		}
 	})

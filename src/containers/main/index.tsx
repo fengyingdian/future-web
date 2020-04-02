@@ -3,10 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { TopDownAction } from '../../action-components/MountAction/top-down-action';
-import ResponsibleTagTripleSection from '../../components/ArticleSection/responsible-tag-triple-section';
-import { BottomUpAction } from '../../action-components/MountAction/bottom-up-action';
-import MenuBar from './components/MenuBar/index';
-import Header from './components/Title/index';
+import ResponsibleTagTripleSection from '../../components/ArticleSection/responsible-tag-five-section';
+import MenuBar from '../../components/MenuBar/index';
+import Header from '../../components/Title/index';
 import TopStoryCard from '../../components/ArticleCard/top-story-card';
 import Live from './components/Live/index';
 import Focus from './components/Focus/index';
@@ -71,7 +70,8 @@ interface Props {
 const Main = (props: Props) => {
 	const [state, setState] = useState(1);
 
-	const bindScroll = () => {
+	const bindScroll = (e: any) => {
+		console.log({ e });
   	const header = document.getElementById('intro-page-top-header');
   	if (header) {
   	  const rect = header?.getBoundingClientRect();
@@ -107,9 +107,7 @@ const Main = (props: Props) => {
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
-					<BottomUpAction>
-					  <TopStoryCard />
-					</BottomUpAction>
+					<TopStoryCard />
 				</div>
 				<div className={classes.headerSectionRight}>
 					<Live />

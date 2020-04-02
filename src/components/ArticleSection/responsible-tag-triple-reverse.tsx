@@ -4,7 +4,7 @@ import {
 	Grid, Box,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { ArticleCardShortImage } from '../ArticleCard/tag-normal-card';
+import ArticleCard from '../ArticleCard/tag-normal-small-card';
 import { Title, ReadMore } from './section-block-title';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -80,13 +80,13 @@ const ArticleSection = (props: any) => {
 				flexWrap={'wrap'}
 				className={classes.root}>
 				<Grid className={classes.first}>
-					<ArticleCardShortImage title={first.title} description={first.description} id={first.id} image={first.image} />
+					<ArticleCard title={first.title} description={first.description} id={first.id} image={first.image} />
 				</Grid>
 				<Grid className={classes.second}>
-					<ArticleCardShortImage title={second.title} description={second.description} id={second.id} image={second.image} />
+					<ArticleCard title={second.title} description={second.description} id={second.id} image={second.image} />
 				</Grid>
 				<Grid className={classes.third}>
-					<ArticleCardShortImage title={third.title} description={third.description} id={third.id} image={third.image} />
+					<ArticleCard title={third.title} description={third.description} id={third.id} image={third.image} />
 				</Grid>
 			</Box>
 			<ReadMore id={id} />

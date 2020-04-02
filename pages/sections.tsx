@@ -8,11 +8,10 @@ import Section from '../src/containers/sections/index';
 
 const Index = (props: any) => {
 	const classes = useStyles();
-	const { section } = props;
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			<Section section={section} />
+			<Section {...props} />
 		</Container>
 	);
 };
@@ -20,9 +19,14 @@ const Index = (props: any) => {
 Index.getInitialProps = async ({ query = {} }: any) => {
 	const { name = '' } = query;
 
-	const { section }: any = await fetchArticleSection(name);
+	const {
+		articles,
+		newPageKey: pageKey,
+	}: any = await fetchArticleSection(name, 0, 20);
 
-	return { section };
+	return {
+		name, articles, pageKey, limit: 20,
+	};
 };
 
 export default withRouter(Index);

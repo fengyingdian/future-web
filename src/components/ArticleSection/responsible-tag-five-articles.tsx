@@ -5,6 +5,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import ArticleCard from '../ArticleCard/tag-normal-small-card';
+import ArticleCardLarge from '../ArticleCard/tag-normal-large-card';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -12,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(2, 0, 2),
 	},
 	first: {
-		maxWidth: '100%',
+		width: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
 			margin: theme.spacing(0, 0, 0),
@@ -23,12 +24,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			padding: theme.spacing(0, 0, 4),
 		},
 		[theme.breakpoints.up('md')]: {
-			margin: theme.spacing(0, 0, 0),
 			padding: theme.spacing(0, 1),
-			flex: 1,
 		},
 	},
-	second: {
+	othersRoot: {
+		maxWidth: '100%',
+		boxSizing: 'border-box',
+	},
+	others: {
 		maxWidth: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
@@ -44,21 +47,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			flex: 1,
 		},
 	},
-	third: {
-		maxWidth: '100%',
-		boxSizing: 'border-box',
-		[theme.breakpoints.down('sm')]: {
-			padding: theme.spacing(2, 0, 1),
-		},
-		[theme.breakpoints.up('sm')]: {
-			padding: theme.spacing(0, 0, 0, 1),
-			maxWidth: '50%',
-		},
-		[theme.breakpoints.up('md')]: {
-			padding: theme.spacing(0, 1),
-			flex: 1,
-		},
-	},
 }));
 
 const ResponsibleTagTriple = (props: any) => {
@@ -67,7 +55,8 @@ const ResponsibleTagTriple = (props: any) => {
 	if (articles.length <= 0) {
 		return (<> </>);
 	}
-	const [first, second, third] = articles;
+	const [first] = articles;
+	const others = articles.slice(1, 5);
 
 	return (
 		<Box
@@ -76,17 +65,21 @@ const ResponsibleTagTriple = (props: any) => {
 			flexWrap={'wrap'}
 			className={classes.root}>
 			<Grid className={classes.first}>
-				<ArticleCard
+				<ArticleCardLarge
 					{...first} />
 			</Grid>
-			<Grid className={classes.second}>
-				<ArticleCard
-					{...second} />
-			</Grid>
-			<Grid className={classes.third}>
-				<ArticleCard
-					{...third} />
-			</Grid>
+			<Box
+				display={'flex'}
+				flexDirection={'row'}
+				flexWrap={'wrap'}
+				className={classes.othersRoot}>
+				{others.map((article: any) => (
+					<Grid id={article.id} className={classes.others}>
+						<ArticleCard
+							{...article} />
+					</Grid>
+				))}
+			</Box>
 		</Box>
 	);
 };

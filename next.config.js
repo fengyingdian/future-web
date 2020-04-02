@@ -1,5 +1,5 @@
 module.exports = {
 	env: {
-		fabulousServiceHomePageUrl: 'http://fabulous.flipboard.cn/api/web/main/v1/homepage',
+		fabulousService: 'http://localhost:8000/api/web',
 	},
 };

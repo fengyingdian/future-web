@@ -7,18 +7,23 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		margin: theme.spacing(4, 1, 1),
-		padding: theme.spacing(1, 0, 0),
+		margin: theme.spacing(0, 0, 1),
+		padding: theme.spacing(2, 1, 2),
 		width: '100%',
-		borderTop: '10px solid #111',
 		boxSizing: 'border-box',
 	},
 	title: {
-		fontSize: 20,
+		fontSize: 28,
 		fontWeight: 900,
+		lineHeight: '28px',
+		color: '#000',
+		width: '100%',
+		boxSizing: 'border-box',
+		borderBottom: '10px solid #f52828',
 	},
 	readMoreRoot: {
 		width: '100%',
+		padding: theme.spacing(0, 1),
 	},
 	readMoreBox: {
 		display: 'flex',

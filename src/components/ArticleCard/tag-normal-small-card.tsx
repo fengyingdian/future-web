@@ -20,13 +20,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		background: '#fff',
 		'&:hover': {
 			transform: 'translateY(-3px)',
-			background: '#121212',
-			boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
+			background: '#e8e8e8',
+			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
 			'& #title': {
-				color: '#fff',
+				// color: '#fff',
 			},
 			'& #excerpt': {
-				color: '#e8e8e8',
+				// color: '#e8e8e8',
 			},
 		},
 	},
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 }));
 
-export const ArticleCardShortImage = (props: any) => {
+const ArticleCard = (props: any) => {
 	const classes = useStyles();
 	const {
 		overflowLine2,
@@ -70,7 +70,7 @@ export const ArticleCardShortImage = (props: any) => {
 				<CardMedia
 					className={classes.image}
 					image={url}
-					title={'Paella dish'}
+					title={title}
 				/>
 				{tag && (<Tag tag={tag} />)}
 				<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
@@ -83,3 +83,5 @@ export const ArticleCardShortImage = (props: any) => {
 		</Link>
 	);
 };
+
+export default ArticleCard;
