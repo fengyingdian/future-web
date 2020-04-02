@@ -5,7 +5,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Title from './section-page-title';
-import MediaCard from '../ArticleCard/media-card';
+import { ArticleCardShortImage } from '../ArticleCard/tag-normal-card';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -19,7 +19,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		[theme.breakpoints.down('sm')]: {
 			margin: theme.spacing(0, 0, 0),
 		  padding: theme.spacing(0, 0, 2),
-			// borderBottom: '1px solid #e5e5e5',
 		},
 		[theme.breakpoints.up('sm')]: {
 			margin: theme.spacing(0, 0, 4),
@@ -85,43 +84,16 @@ const ArticleSection = (props: any) => {
 				flexWrap={'wrap'}
 				className={classes.root}>
 				<Grid className={classes.first}>
-					<MediaCard title={first.title} description={first.description} id={first.id} image={first.image} />
+					<ArticleCardShortImage
+						{...first} />
 				</Grid>
 				<Grid className={classes.second}>
-					<MediaCard title={second.title} description={second.description} id={second.id} image={second.image} />
+					<ArticleCardShortImage
+						{...second} />
 				</Grid>
 				<Grid className={classes.third}>
-					<MediaCard title={third.title} description={third.description} id={third.id} image={third.image} />
-				</Grid>
-			</Box>
-			<Box
-				display={'flex'}
-				flexDirection={'row'}
-				flexWrap={'wrap'}
-				className={classes.root}>
-				<Grid className={classes.first}>
-					<MediaCard title={first.title} description={first.description} id={first.id} image={first.image} />
-				</Grid>
-				<Grid className={classes.second}>
-					<MediaCard title={second.title} description={second.description} id={second.id} image={second.image} />
-				</Grid>
-				<Grid className={classes.third}>
-					<MediaCard title={third.title} description={third.description} id={third.id} image={third.image} />
-				</Grid>
-			</Box>
-			<Box
-				display={'flex'}
-				flexDirection={'row'}
-				flexWrap={'wrap'}
-				className={classes.root}>
-				<Grid className={classes.first}>
-					<MediaCard title={first.title} description={first.description} id={first.id} image={first.image} />
-				</Grid>
-				<Grid className={classes.second}>
-					<MediaCard title={second.title} description={second.description} id={second.id} image={second.image} />
-				</Grid>
-				<Grid className={classes.third}>
-					<MediaCard title={third.title} description={third.description} id={third.id} image={third.image} />
+					<ArticleCardShortImage
+						{...third} />
 				</Grid>
 			</Box>
 		</>

@@ -70,7 +70,7 @@ export const ArticleCardShortImage = (props: any) => {
 				<CardMedia
 					className={classes.image}
 					image={url}
-					title={title}
+					title={'Paella dish'}
 				/>
 				{tag && (<Tag tag={tag} />)}
 				<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>

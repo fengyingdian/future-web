@@ -50,11 +50,11 @@ export const Title = (props: any) => {
 
 export const ReadMore = (props: any) => {
 	const classes = useStyles();
-	const { id = '' } = props;
+	const { name = '' } = props;
 
 	return (
 		<Box display={'flex'} flexDirection={'row-reverse'} justifyContent={'space-between'} className={classes.readMoreRoot}>
-			<Link href={`/sections?id=${id}`} className={classes.readMoreBox}>
+			<Link href={`/sections?name=${name}`} className={classes.readMoreBox}>
 				<Typography className={classes.readMoreText}>
 					{'查看更多'}
 				</Typography>
@@ -70,7 +70,6 @@ export const ReadMore = (props: any) => {
 					width={'20'}
 					height={'20'}>
 					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'#f52828'} />
-
 				</svg>
 			</Link>
 		</Box>

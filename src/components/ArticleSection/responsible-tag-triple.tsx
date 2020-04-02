@@ -5,7 +5,6 @@ import {
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { ArticleCardShortImage } from '../ArticleCard/tag-normal-card';
-import { Title, ReadMore } from './section-block-title';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -62,38 +61,34 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 }));
 
-const ArticleSection = (props: any) => {
+const ResponsibleTagTriple = (props: any) => {
 	const classes = useStyles();
-	const { name = '', id = '', articles = [] } = props;
+	const { articles = [] } = props;
 	if (articles.length <= 0) {
 		return (<> </>);
 	}
 	const [first, second, third] = articles;
 
 	return (
-		<>
-			<Title title={name} id={id} />
-			<Box
-				display={'flex'}
-				flexDirection={'row'}
-				flexWrap={'wrap'}
-				className={classes.root}>
-				<Grid className={classes.first}>
-					<ArticleCardShortImage
-						{...first} />
-				</Grid>
-				<Grid className={classes.second}>
-					<ArticleCardShortImage
-						{...second} />
-				</Grid>
-				<Grid className={classes.third}>
-					<ArticleCardShortImage
-						{...third} />
-				</Grid>
-			</Box>
-			<ReadMore id={id} />
-		</>
+		<Box
+			display={'flex'}
+			flexDirection={'row'}
+			flexWrap={'wrap'}
+			className={classes.root}>
+			<Grid className={classes.first}>
+				<ArticleCardShortImage
+					{...first} />
+			</Grid>
+			<Grid className={classes.second}>
+				<ArticleCardShortImage
+					{...second} />
+			</Grid>
+			<Grid className={classes.third}>
+				<ArticleCardShortImage
+					{...third} />
+			</Grid>
+		</Box>
 	);
 };
 
-export default ArticleSection;
+export default ResponsibleTagTriple;

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { TopDownAction } from '../../action-components/MountAction/top-down-action';
-import ResponsibleTriple from '../../components/ArticleSection/responsible-tag-triple';
+import ResponsibleTagTripleSection from '../../components/ArticleSection/responsible-tag-triple-section';
 import { BottomUpAction } from '../../action-components/MountAction/bottom-up-action';
 import MenuBar from './components/MenuBar/index';
 import Header from './components/Title/index';
@@ -120,12 +120,16 @@ const Main = (props: Props) => {
 				{sections.map(({ categoryName, id = '', posts }: any, index: any) => {
 					if (index % 2 === 0) {
 						return (
-					    <ResponsibleTriple key={id} name={categoryName} id={id} articles={posts} />
+							<BottomUpAction>
+					    <ResponsibleTagTripleSection key={id} name={categoryName} id={id} articles={posts} />
+							</BottomUpAction>
 						);
 					}
 
 					return (
-						<ResponsibleTriple key={id} name={categoryName} id={id} articles={posts} />
+						<TopDownAction>
+							<ResponsibleTagTripleSection key={id} name={categoryName} id={id} articles={posts} />
+						</TopDownAction>
 					);
 				})}
 			</div>
