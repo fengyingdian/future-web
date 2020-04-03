@@ -30,7 +30,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'flex-start',
-		padding: theme.spacing(0, 4, 0),
+		width: '100%',
+		padding: theme.spacing(0, 5, 0),
 		margin: theme.spacing(5, 0, 0),
 	},
 	headerSectionLeft: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: '100%',
 	},
 	headerSectionRight: {
-		maxWidth: '318px',
+		width: '318px',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
