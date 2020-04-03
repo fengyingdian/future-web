@@ -34,15 +34,12 @@ const Section = (props: any) => {
 		pageKey,
 	});
 
-	const debounce = (func: Function, delay: number) => {
-		let timeout: any = null;
+	const isBottom = (bottomDistance: number) => {
+		const clientHeight = document.documentElement.scrollTop === 0 ? document.body.clientHeight : document.documentElement.clientHeight;
+		const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
+		const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
 
-		return () => {
-			if (timeout !== null) {
-				clearTimeout(timeout);
-			}
-			timeout = setTimeout(func, delay);
-		};
+		return scrollTop !== 0 && clientHeight + scrollTop > scrollHeight - bottomDistance;
 	};
 
 	const fetchData = async () => {
@@ -60,11 +57,8 @@ const Section = (props: any) => {
 	};
 
 	const bindScroll = () => {
-		const clientHeight = document.documentElement.scrollTop === 0 ? document.body.clientHeight : document.documentElement.clientHeight;
-		const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
-		const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
-		if (scrollTop !== 0 && clientHeight + scrollTop < scrollHeight - 200) {
-			debounce(fetchData, 1000)();
+		if (isBottom(200)) {
+			fetchData();
 		}
 	};
 
