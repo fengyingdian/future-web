@@ -3,14 +3,26 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import {
 	Link, Typography,
 } from '@material-ui/core';
+import useCommonStyles from '../../../../theme/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
 		borderTop: '4px solid rgb(207, 92, 67)',
 		margin: theme.spacing(4, 0, 2),
-		padding: theme.spacing(4),
+		padding: theme.spacing(5.5, 5.5),
 		background: '#fff',
+		transition: 'all .3s',
+		'&:hover': {
+			transform: 'translateY(-3px)',
+			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
+			'& #content': {
+				color: 'rgb(207, 92, 67)',
+			},
+			'& #excerpt': {
+				// color: '#e8e8e8',
+			},
+		},
 	},
 	tipsBox: {
 		width: '100%',
@@ -18,15 +30,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		margin: theme.spacing(0, 0, 4),
+		margin: theme.spacing(0, 0, 2),
 	},
 	tipsIcon: {
 		borderRadius: '50%',
 		background: 'rgb(207, 92, 67)',
-		width: '16px',
-		minWidth: '16px',
-		height: '16px',
-		margin: theme.spacing(0, 2, 0, 0),
+		width: '12px',
+		minWidth: '12px',
+		height: '12px',
+		margin: theme.spacing(0, 1.5, 0, 0),
 	},
 	tipsContent: {
 		fontSize: 32,
@@ -37,15 +49,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		borderTop: '1px solid #e8e8e8',
 		borderBottom: '1px solid #e8e8e8',
-		padding: theme.spacing(3, 0),
+		padding: theme.spacing(3.5, 0),
 	},
 	infoHost: {
-		fontSize: 20,
-		fontWeight: 300,
+		fontSize: 24,
+		fontWeight: 200,
+		lineHeight: '36px',
 		color: '#000',
 	},
 	infoTitle: {
-		fontSize: 20,
+		fontSize: 24,
 		fontWeight: 900,
 		color: '#000',
 	},
@@ -56,21 +69,24 @@ const Live = (props: any) => {
 	const {
 		host = '蔚来汽车', title = '北京NIO Day 发布会',
 	} = props;
+	const {
+		overflowLine1,
+	} = useCommonStyles({ line: 1 });
 
 	return (
-		<Link href={'/lives'} className={classes.root}>
+		<Link href={'/lives'} className={classes.root} underline={'none'}>
 			<div>
 				<div className={classes.tipsBox}>
 					<div className={classes.tipsIcon} />
-					<Typography className={classes.tipsContent}>
+					<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
 						{'直播中'}
 					</Typography>
 				</div>
 				<div className={classes.infoBox}>
-					<Typography className={classes.infoHost}>
+					<Typography className={`${classes.infoHost} ${overflowLine1}`}>
 						{host}
 					</Typography>
-					<Typography className={classes.infoTitle}>
+					<Typography className={`${classes.infoTitle} ${overflowLine1}`}>
 						{title}
 					</Typography>
 				</div>

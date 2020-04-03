@@ -6,6 +6,7 @@ import { TopDownAction } from '../../action-components/MountAction/top-down-acti
 import ResponsibleTagTripleSection from '../../components/ArticleSection/responsible-tag-five-section';
 import MenuHeader from '../../components/MenuHeader/index';
 import TopStoryCard from '../../components/ArticleCard/top-story-card';
+import TopStoryBottomCard from '../../components/ArticleCard/top-story-bottom-card';
 import Live from './components/Live/index';
 import Focus from './components/Focus/index';
 
@@ -37,12 +38,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: '100%',
 	},
 	headerSectionRight: {
-		maxWidth: '34%',
+		maxWidth: '318px',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		margin: theme.spacing(0, 0, 0, 4),
+		margin: theme.spacing(0, 0, 0, 2),
 	},
 	sections: {
 		display: 'flex',
@@ -94,11 +95,12 @@ const Main = (props: Props) => {
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
-					<TopStoryCard />
+					<TopStoryCard {...sections[0].posts[0]} />
+					<TopStoryBottomCard {...sections[0].posts[1]} />
 				</div>
 				<div className={classes.headerSectionRight}>
 					<Live />
-					<Focus />
+					<Focus articles={sections[0].posts} />
 				</div>
 			</div>
 			<div className={classes.sections}>

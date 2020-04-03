@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { fabulousService } from '../constants/index';
 
-export const transcodeUrl = (id: string) => `http://flipboard-cn-static.oss-cn-hangzhou.aliyuncs.com/fleural/mtoutiaocom/labeled-contents/${id}.json`;
+export const transcodeUrl = (id: string) => `https://s.flipchina.cn/flit/trans/items/${id}`;
 
 export const homeFeedUrl = () => `${fabulousService}/main/v1/homepage`;
 
@@ -81,8 +81,24 @@ export const fetchArticleSection = (name: string, pageKey: number = 0, limit: nu
 
 export const fetchArticleTranscode = (id: string) => axios.get(transcodeUrl(id))
 	.then((response: any) => {
-		if (response.status === 200) {
-			return response.data && response.data.contents;
+		if (response.status === 200 && response.data) {
+			const {
+				title = '',
+				contents = [],
+				cover = {},
+				publisherName = '',
+				date = '',
+				tags = [],
+			} = response.data;
+
+			return {
+				title,
+				contents,
+				cover,
+				publisherName,
+				date,
+				tags,
+			};
 		}
 
 		return [];

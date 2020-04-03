@@ -3,7 +3,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import { withRouter } from 'next/router';
 import useStyles from '../src/theme/styles';
-import { fetchArticleTranscode } from '../src/service/index';
+import { fetchArticleTranscode, fetchArticleSection } from '../src/service/index';
 import Article from '../src/containers/articles/index';
 
 const Index = (props: any) => {
@@ -11,17 +11,25 @@ const Index = (props: any) => {
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			<Article contents={props.contents} />
+			<Article {...props} />
 		</Container>
 	);
 };
 
 Index.getInitialProps = async ({ query = {} }: any) => {
-	const { id = '' } = query;
+	const { id = '', category: categoryName = '' } = query;
 
-	const contents = await fetchArticleTranscode(id);
+	const result: any = await fetchArticleTranscode(id);
 
-	return { contents };
+	const {
+		articles,
+	}: any = await fetchArticleSection(categoryName, 0, 3);
+
+	return {
+		categoryName,
+		articles,
+		...result,
+	};
 };
 
 export default withRouter(Index);

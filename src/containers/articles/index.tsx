@@ -3,7 +3,10 @@ import React from 'react';
 import Head from 'next/head';
 import { Container } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Title } from '../../components/ArticleSection/section-article-title';
+import MenuHeader from '../../components/MenuHeader/index';
 import ArticleContent from './components/Render/index';
+import RelativeSection from '../../components/ArticleSection/responsible-tag-relative-section';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -11,27 +14,41 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		padding: theme.spacing(0),
+		maxWidth: '100%',
+		padding: '0',
+		background: '#f8f8f8',
+	},
+	sectionRoot: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		padding: theme.spacing(6, 4),
 	},
 }));
 
-interface Props {
-  contents: any,
-}
-
-const Article = (props: Props) => {
+const Article = (props: any) => {
 	const classes = useStyles();
-	const { contents } = props;
+	const {
+		title,
+		categoryName,
+		articles,
+	} = props;
 
 	return (
 		<Container className={classes.root}>
 			<Head>
 				<title>
-					{'文章页'}
+					{title}
 				</title>
 			</Head>
-			<Container maxWidth={'sm'} className={classes.root}>
-				<ArticleContent contents={contents} />
+			<Container maxWidth={false} className={classes.root}>
+				<MenuHeader />
+				<Container maxWidth={false} className={classes.sectionRoot}>
+					<Title title={categoryName} />
+					<ArticleContent {...props} />
+				  <RelativeSection articles={articles} />
+				</Container>
 			</Container>
 		</Container>
 	);

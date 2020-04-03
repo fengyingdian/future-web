@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		wordBreak: 'break-word',
 		whiteSpace: 'pre-line',
 		WebkitBoxOrient: 'vertical',
-		WebkitLineClamp: 2,
+		WebkitLineClamp: 1,
 	},
 	overflowLine2: {
 		display: '-webkit-box',

@@ -7,7 +7,8 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		padding: theme.spacing(0, 1, 1),
+		margin: theme.spacing(0),
+		padding: theme.spacing(0),
 		width: '100%',
 		boxSizing: 'border-box',
 	},
@@ -20,14 +21,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		boxSizing: 'border-box',
 		borderBottom: '4px solid rgb(207, 92, 67)',
 	},
-	description: {
-		fontSize: 28,
-		lineHeight: '28px',
-		fontWeight: 200,
-		color: 'rgb(207, 92, 67)',
-		boxSizing: 'border-box',
-		padding: theme.spacing(0),
-	},
 }));
 
 export const Title = (props: any) => {
@@ -35,13 +28,10 @@ export const Title = (props: any) => {
 	const { title = '' } = props;
 
 	return (
-		<Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} className={classes.root}>
+		<Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} className={classes.root}>
 			<Typography className={classes.title}>
 				{title}
 			</Typography>
-			{/* <Typography className={classes.description}>
-				{description}
-			</Typography> */}
 		</Box>
 	);
 };

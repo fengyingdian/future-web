@@ -38,6 +38,22 @@ export const TagLarge = (props: any) => {
 	);
 };
 
+export const TagRelative = (props: any) => {
+	const classes = useStyles();
+	const {
+		tag = '',
+	} = props;
+
+	return (
+		<div className={classes.root} style={{ padding: '0 0 16px' }}>
+			<div className={classes.tag}>
+				{tag}
+			</div>
+			<div className={classes.line} />
+		</div>
+	);
+};
+
 export const TagTopStory = (props: any) => {
 	const classes = useStyles();
 	const {
@@ -50,6 +66,21 @@ export const TagTopStory = (props: any) => {
 				{tag}
 			</div>
 			<div className={classes.line} />
+		</div>
+	);
+};
+
+export const TagFocus = (props: any) => {
+	const classes = useStyles();
+	const {
+		tag = '',
+	} = props;
+
+	return (
+		<div className={classes.root} style={{ fontSize: '10px', lineHeight: '10px', padding: '0 0 4px' }}>
+			<div className={classes.tag}>
+				{tag}
+			</div>
 		</div>
 	);
 };

@@ -3,11 +3,10 @@ import React from 'react';
 import {
 	Box, Typography,
 } from '@material-ui/core';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
+const useStyles = makeStyles(() => createStyles({
 	root: {
-		padding: theme.spacing(0, 1, 1),
 		width: '100%',
 		boxSizing: 'border-box',
 	},
@@ -20,14 +19,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		boxSizing: 'border-box',
 		borderBottom: '4px solid rgb(207, 92, 67)',
 	},
-	description: {
-		fontSize: 28,
-		lineHeight: '28px',
-		fontWeight: 200,
-		color: 'rgb(207, 92, 67)',
-		boxSizing: 'border-box',
-		padding: theme.spacing(0),
-	},
 }));
 
 export const Title = (props: any) => {
@@ -39,9 +30,6 @@ export const Title = (props: any) => {
 			<Typography className={classes.title}>
 				{title}
 			</Typography>
-			{/* <Typography className={classes.description}>
-				{description}
-			</Typography> */}
 		</Box>
 	);
 };

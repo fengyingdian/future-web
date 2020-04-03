@@ -1,100 +1,82 @@
-import { equals, prop } from 'ramda';
 import React from 'react';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Typography, Box } from '@material-ui/core';
+import moment from 'moment';
+import ArticleContent from './content';
 
-const isTextNode = (content: any) => equals('text', prop('type', content));
-const isImageNode = (content: any) => equals('image', prop('type', content));
-
-const useStyles = makeStyles(() => createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
-		cursor: 'pointer',
+		background: 'rgb(246, 239, 235)',
+		boxSizing: 'border-box',
+		padding: theme.spacing(2, 4),
 	},
-	text: {
-		fontSize: '14px',
-		color: '#121212',
-		lineHeight: '24px',
-		wordBreak: 'break-all',
+	tag: {
+		fontSize: 16,
+		fontWeight: 900,
+		margin: theme.spacing(2, 1, 0, 0),
+		color: 'rgb(207, 92, 67)',
 	},
-	image: {
-		width: '100%',
+	title: {
+		fontSize: 28,
+		fontWeight: 900,
+		margin: theme.spacing(2, 0),
+		color: '#000',
+	},
+	subtitle: {
+		fontSize: 16,
+		margin: theme.spacing(2, 0),
+		color: '#111',
+	},
+	cover: {
+		margin: theme.spacing(4, 6),
+		height: 0,
+		paddingTop: '40%',
+	},
+	content: {
+		margin: theme.spacing(4, 0),
 	},
 }));
 
-const TextNode = ({ text, appearance }: any) => {
-	const { color, size, weight } = appearance;
+const ArticleRender = (props: any) => {
 	const classes = useStyles();
 
-	return (
-		<p
-			id={'render-text'}
-			style={{
-				color,
-				fontSize: size,
-				fontWeight: weight,
-			}}
-			className={
-				classes.text
-			}
-		>
-			{text}
-		</p>
-	);
-};
-
-const ImageNode = (props: any) => {
-	const classes = useStyles();
-	const { url, appearance } = props;
-
-	return (
-		<img className={classes.image} width={appearance.width} alt={''} src={url} />
-	);
-};
-
-const ContentBlock = (props: any) => {
-	const { block } = props;
-	const { label = 'ignore' } = block;
-	if (label === 'ignore') {
-		return (<> </>);
-	}
-
-	return (
-		<>
-			{block.contents
-				.filter((content: any) => {
-					if (isTextNode(content)) {
-						return !!content.text.trim();
-					}
-
-					return true;
-				})
-				.map((content: any, index: any) => {
-					if (isTextNode(content)) {
-						const { text, appearance } = content;
-
-						return <TextNode key={index} text={text} appearance={appearance} />;
-					}
-					if (isImageNode(content)) {
-						const { url, appearance } = content;
-
-						return <ImageNode key={index} appearance={appearance} url={url} />;
-					}
-
-					return <div>{`UNSUPPORTED BLOCK TYPE:${content.type}`}</div>;
-				})}
-		</>
-	);
-};
-
-const ArticleContent = (props: any) => {
-	const { contents = [] } = props;
-	const classes = useStyles();
+	const {
+		tags = [],
+		title = '',
+		contents = [],
+		publisherName = '',
+		date = '',
+		// cover: {
+		// 	url = '',
+		// } = {},
+	} = props;
+	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 	return (
 		<div className={classes.root}>
-			{contents.map((item: any, index: any) => <ContentBlock key={index} block={item} />)}
+			<Box display={'flex'} flexDirection={'row'}>
+				{tags.map((tag: string) => (
+					<Typography className={classes.tag}>
+						{tag}
+					</Typography>
+				))}
+			</Box>
+			<Typography className={classes.title}>
+				{title}
+			</Typography>
+			<Typography className={classes.subtitle}>
+				{`${publisherName} · ${time}`}
+			</Typography>
+			{/* <CardMedia
+				className={classes.cover}
+				image={url}
+				title={title} /> */}
+			<div className={classes.content}>
+		  	<ArticleContent contents={contents} />
+			</div>
 		</div>
 	);
 };
 
-export default ArticleContent;
+export default ArticleRender;
