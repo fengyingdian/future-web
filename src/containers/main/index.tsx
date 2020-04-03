@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: '100%',
 	},
 	headerSectionRight: {
-		width: '318px',
+		width: '308px',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
