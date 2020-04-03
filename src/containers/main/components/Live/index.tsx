@@ -7,8 +7,8 @@ import {
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
-		borderTop: '10px solid #000',
-		margin: theme.spacing(0, 0, 2),
+		borderTop: '4px solid rgb(207, 92, 67)',
+		margin: theme.spacing(4, 0, 2),
 		padding: theme.spacing(4),
 		background: '#fff',
 	},
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tipsIcon: {
 		borderRadius: '50%',
-		background: '#f52828',
+		background: 'rgb(207, 92, 67)',
 		width: '16px',
 		minWidth: '16px',
 		height: '16px',

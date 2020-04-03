@@ -1,12 +1,14 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Title, ReadMore } from './section-block-title';
 import ResponsibleTagArticles from './responsible-tag-five-articles';
 
-const useStyles = makeStyles(() => createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
+		boxSizing: 'border-box',
+		padding: theme.spacing(1, 0),
 	},
 }));
 

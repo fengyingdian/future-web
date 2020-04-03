@@ -10,11 +10,10 @@ import Main from '../src/containers/main/index';
 export const Index = (props: any) => {
 	const classes = useStyles();
 	const { sections = [] } = props;
-	const menus = sections.map(({ categoryName: name, id = '' }: any) => ({ name, id }));
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			<Main menus={menus} sections={sections} />
+			<Main sections={sections} />
 		</Container>
 	);
 };

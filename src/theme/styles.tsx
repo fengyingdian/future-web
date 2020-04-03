@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
+		maxWidth: '1280px',
 	},
 	overflowLine1: {
 		display: '-webkit-box',

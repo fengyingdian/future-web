@@ -4,8 +4,7 @@ import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { TopDownAction } from '../../action-components/MountAction/top-down-action';
 import ResponsibleTagTripleSection from '../../components/ArticleSection/responsible-tag-five-section';
-import MenuBar from '../../components/MenuBar/index';
-import Header from '../../components/Title/index';
+import MenuHeader from '../../components/MenuHeader/index';
 import TopStoryCard from '../../components/ArticleCard/top-story-card';
 import Live from './components/Live/index';
 import Focus from './components/Focus/index';
@@ -20,23 +19,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		padding: '0',
 		background: '#f8f8f8',
 	},
-	title: {
-		margin: theme.spacing(1, 0, 1),
+	menuHeader: {
+		margin: theme.spacing(0, 0, 1),
 		opacity: (props: any) => props.opacity,
-	},
-	menuBar: {
 		width: '100%',
-		position: 'sticky',
-		left: 0,
-		top: 0,
-		zIndex: 20,
 	},
 	headerSection: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'flex-start',
-		maxWidth: '1280px',
 		padding: theme.spacing(0, 4, 0),
 		margin: theme.spacing(5, 0, 0),
 	},
@@ -57,13 +49,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		maxWidth: '1280px',
 		padding: theme.spacing(0, 4, 0),
 	},
 }));
 
 interface Props {
-  menus: any,
   sections: any,
 }
 
@@ -91,19 +81,16 @@ const Main = (props: Props) => {
 	});
 
 	const classes = useStyles({ opacity: state });
-	const { menus, sections } = props;
+	const { sections } = props;
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			<div id={'intro-page-top-header'} className={classes.title}>
+			<div id={'page-top-header'} className={classes.menuHeader}>
 				<NoSsr>
 					<TopDownAction>
-						<Header content={'人民数字'} />
+						<MenuHeader />
 					</TopDownAction>
 				</NoSsr>
-			</div>
-			<div className={classes.menuBar}>
-				<MenuBar menus={menus} />
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>

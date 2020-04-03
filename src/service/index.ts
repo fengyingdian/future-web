@@ -10,6 +10,14 @@ export const articleSectionUrl = () => `${fabulousService}/cat/v1/feed`;
 
 export const liveSectionUrl = () => 'http://sapp.flipboard.cn/fabulous/lives.json';
 
+export const menus = [
+	'首页',
+	'科技',
+	'时事',
+	'观点',
+	'经济',
+	'直播',
+];
 //
 // ─── FETCH HOME FEED ────────────────────────────────────────────────────────────
 //

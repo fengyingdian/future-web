@@ -10,17 +10,36 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: '100%',
 		padding: theme.spacing(3),
 		background: '#fff',
-		borderTop: '10px solid #000',
+		borderTop: '4px solid rgb(207, 92, 67)',
 		borderRadius: 0,
 		border: '',
+		transition: '0.3s',
+		'&:hover': {
+			transform: 'translateY(-3px)',
+			background: '#e8e8e8',
+			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
+			'& #title': {
+				// color: '#fff',
+			},
+			'& #excerpt': {
+				// color: '#e8e8e8',
+			},
+		},
+	},
+	header: {
+		fontSize: 32,
+		fontWeight: 900,
+		lineHeight: '32px',
+		height: '32px',
+		color: '#000',
 	},
 	media: {
 		height: 0,
 		paddingTop: '40%',
-		background: '#e8e8e8',
+		background: '#f8f8f8',
 	},
 	title: {
-		fontSize: 28,
+		fontSize: 32,
 		fontWeight: 900,
 		lineHeight: 1.5,
 		height: '84px',
@@ -61,7 +80,10 @@ const TopStoryCard = (props: any) => {
 	} = props;
 
 	return (
-		<Link href={`/articles?id=${id}`}>
+		<Link href={`/articles?id=${id}`} underline={'none'}>
+			<Typography className={classes.header}>
+				{'今日要闻'}
+			</Typography>
 			<Box className={classes.root}>
 				<CardMedia
 					className={classes.media}
@@ -69,10 +91,10 @@ const TopStoryCard = (props: any) => {
 					title={'Contemplative Reptile'}
 				/>
 				<TagTopStory tag={tag} />
-				<Typography className={classes.title}>
+				<Typography id={'title'} className={classes.title}>
 					{title}
 				</Typography>
-				<Typography className={classes.description}>
+				<Typography id={'excerpt'} className={classes.description}>
 					{description}
 				</Typography>
 				<Typography className={classes.info}>

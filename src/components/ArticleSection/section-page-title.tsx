@@ -7,7 +7,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		padding: theme.spacing(2, 1, 1),
+		padding: theme.spacing(0, 1, 1),
 		width: '100%',
 		boxSizing: 'border-box',
 	},
@@ -18,13 +18,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#000',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '10px solid #f52828',
+		borderBottom: '4px solid rgb(207, 92, 67)',
 	},
 	description: {
 		fontSize: 28,
 		lineHeight: '28px',
 		fontWeight: 200,
-		color: '#f52828',
+		color: 'rgb(207, 92, 67)',
 		boxSizing: 'border-box',
 		padding: theme.spacing(0),
 	},

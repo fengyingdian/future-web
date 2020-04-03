@@ -10,7 +10,7 @@ import ArticleCardLarge from '../ArticleCard/tag-normal-large-card';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
-		margin: theme.spacing(2, 0, 2),
+		margin: theme.spacing(1, 0, 2),
 	},
 	first: {
 		width: '100%',

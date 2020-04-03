@@ -5,6 +5,7 @@ import { Container } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Title } from '../../components/ArticleSection/section-page-title';
 import Page from './components/Page/index';
+import MenuHeader from '../../components/MenuHeader/index';
 import { fetchArticleSection } from '../../service/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -13,8 +14,17 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		maxWidth: '1280px',
-		padding: theme.spacing(0, 2),
+		maxWidth: '100%',
+		padding: '0',
+		background: '#f8f8f8',
+	},
+	sectionRoot: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'flex-start',
+		alignItems: 'center',
+		background: '#f8f8f8',
+		padding: theme.spacing(4, 3),
 	},
 }));
 
@@ -76,10 +86,13 @@ const Section = (props: any) => {
 				</title>
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
-				<Title title={name} />
-				{state.pages.map((pageArticles: any) => (
-					<Page articles={pageArticles} />
-				))}
+				<MenuHeader />
+				<Container maxWidth={false} className={classes.sectionRoot}>
+					<Title title={name} />
+					{state.pages.map((pageArticles: any) => (
+						<Page articles={pageArticles} />
+					))}
+				</Container>
 			</Container>
 		</Container>
 	);

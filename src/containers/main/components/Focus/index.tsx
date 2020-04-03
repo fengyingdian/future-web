@@ -7,7 +7,7 @@ import {
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
-		borderTop: '10px solid #000',
+		borderTop: '4px solid rgb(207, 92, 67)',
 		margin: theme.spacing(2, 0, 2),
 		padding: theme.spacing(2, 3, 2),
 		background: '#fff',
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	articleImage: {
 		minWidth: '100px',
 		height: '100px',
-		background: '#e8e8e8',
+		background: '#f8f8f8',
 	},
 	articleInfo: {
 		display: 'flex',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	articleTag: {
 		fontSize: 14,
 		fontWeight: 900,
-		color: '#f52828',
+		color: 'rgb(207, 92, 67)',
 	},
 	articleTitle: {
 		fontSize: 16,

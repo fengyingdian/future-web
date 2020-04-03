@@ -1,44 +1,68 @@
 import React from 'react';
-import {
-	Box, Typography, Link,
-} from '@material-ui/core';
+import { Box, Typography, Link } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { menus } from '../../service/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		margin: theme.spacing(0),
-		padding: theme.spacing(0),
+		padding: theme.spacing(0, 4),
 		width: '100%',
+		height: '100px',
 		boxSizing: 'border-box',
-		background: '#fff',
+		background: 'rgb(207, 92, 67)',
+	},
+	logo: {
+		minWidth: '200px',
+		fontSize: 28,
+		fontWeight: 900,
+		color: '#fff',
+	},
+	menuBox: {
+		flex: 1,
 	},
 	title: {
+		color: '#fff',
 		fontSize: 20,
 		fontWeight: 900,
-		boxSizing: 'border-box',
-		color: '#111',
-		padding: theme.spacing(2, 4),
+		padding: theme.spacing(0, 0, 0, 12),
 		'&:hover': {
-			color: '#f52828',
+			color: 'rgb(207, 92, 67)',
 		},
 	},
 }));
 
-const MenuBar = (props: any) => {
+const MenuHeader = () => {
 	const classes = useStyles();
-	const { menus = [] } = props;
 
 	return (
-		<Box display={'flex'} flexDirection={'row'} justifyContent={'center'} flexWrap={'wrap'} className={classes.root}>
-			{menus.map(({ name, id }: any) => (
-				<Link key={id} href={`/sections?id=${id}`}>
-					<Typography className={classes.title}>
-						{name}
-					</Typography>
-				</Link>
-			))}
+		<Box
+			display={'flex'}
+			flexDirection={'row'}
+			justifyContent={'space-between'}
+			alignItems={'center'}
+			flexWrap={'wrap'}
+			className={classes.root}>
+			<Typography className={classes.logo}>
+				{'人民数字联播网'}
+			</Typography>
+			<Box
+				display={'flex'}
+				flexDirection={'row'}
+				justifyContent={'flex-end'}
+				alignItems={'center'}
+				flexWrap={'wrap'}
+				className={classes.menuBox}>
+				{menus.map((name: any) => (
+					<Link key={name} href={`/sections?name=${name}`} underline={'none'}>
+						<Typography className={classes.title}>
+							{name}
+						</Typography>
+					</Link>
+				))}
+			</Box>
 		</Box>
 	);
 };
 
-export default MenuBar;
+export default MenuHeader;

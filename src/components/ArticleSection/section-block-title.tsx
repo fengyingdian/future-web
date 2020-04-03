@@ -19,19 +19,20 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#000',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '10px solid #f52828',
+		borderBottom: '4px solid rgb(207, 92, 67)',
 	},
 	readMoreRoot: {
-		width: '100%',
-		padding: theme.spacing(0, 1),
+		boxSizing: 'border-box',
+		margin: theme.spacing(2, 1),
+		padding: theme.spacing(2, 1),
+		background: '#fff',
 	},
 	readMoreBox: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		padding: '0 0 4px',
-		borderBottom: '4px solid #f52828',
+		borderBottom: '3px solid rgb(207, 92, 67)',
 	},
 	readMoreText: {
 		fontSize: 14,
@@ -58,8 +59,8 @@ export const ReadMore = (props: any) => {
 	const { name = '' } = props;
 
 	return (
-		<Box display={'flex'} flexDirection={'row-reverse'} justifyContent={'space-between'} className={classes.readMoreRoot}>
-			<Link href={`/sections?name=${name}`} className={classes.readMoreBox}>
+		<Box display={'flex'} flexDirection={'row'} justifyContent={'center'} className={classes.readMoreRoot}>
+			<Link href={`/sections?name=${name}`} className={classes.readMoreBox} underline={'none'}>
 				<Typography className={classes.readMoreText}>
 					{'查看更多'}
 				</Typography>
@@ -74,7 +75,7 @@ export const ReadMore = (props: any) => {
 					p-id={'16799'}
 					width={'20'}
 					height={'20'}>
-					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'#f52828'} />
+					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'rgb(207, 92, 67)'} />
 				</svg>
 			</Link>
 		</Box>
