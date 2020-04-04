@@ -51,10 +51,10 @@ export const fetchHomeFeed = () => axios.get(homeFeedUrl())
 // ─── FETCH ARTICLE SECTION ─────────────────────────────────────────────────────
 //
 
-export const fetchArticleSection = (name: string, pageKey: number = 0, limit: number = 20) => axios.get(articleSectionUrl(), {
+export const fetchArticleSection = (name: string, offset: number = 0, limit: number = 20) => axios.get(articleSectionUrl(), {
 	params: {
 		categoryName: name,
-		pageKey,
+		offset,
 		limit,
 	},
 })
@@ -62,12 +62,12 @@ export const fetchArticleSection = (name: string, pageKey: number = 0, limit: nu
 		if (response.status === 200 && response.data && response.data.status === 0) {
 			const {
 				articles = [],
-				pageKey: newPageKey,
+				offset: newoffset,
 			} = response.data;
 
 			return {
 				articles,
-				newPageKey,
+				newoffset,
 			};
 		}
 	})

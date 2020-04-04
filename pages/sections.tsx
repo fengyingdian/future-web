@@ -21,11 +21,11 @@ Index.getInitialProps = async ({ query = {} }: any) => {
 
 	const {
 		articles,
-		newPageKey: pageKey,
+		newoffset: offset,
 	}: any = await fetchArticleSection(name, 0, 20);
 
 	return {
-		name, articles, pageKey, limit: 20,
+		name, articles, offset, limit: 20,
 	};
 };
 

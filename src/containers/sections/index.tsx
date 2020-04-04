@@ -33,7 +33,7 @@ const Section = (props: any) => {
 	const {
 		name,
 		limit,
-		pageKey,
+		offset,
 		articles,
 	} = props;
 
@@ -41,7 +41,7 @@ const Section = (props: any) => {
 		pages: [
 			articles,
 		],
-		pageKey,
+		offset,
 	});
 
 	const isBottom = (bottomDistance: number) => {
@@ -55,14 +55,14 @@ const Section = (props: any) => {
 	const fetchData = async () => {
 		const {
 			articles: newArticles,
-			newPageKey,
-		}: any = await fetchArticleSection(name, state.pageKey, limit);
+			newoffset,
+		}: any = await fetchArticleSection(name, state.offset, limit);
 		setstate({
 			pages: [
 				...state.pages,
 				newArticles,
 			],
-			pageKey: newPageKey,
+			offset: newoffset,
 		});
 	};
 
@@ -82,7 +82,7 @@ const Section = (props: any) => {
 		<Container className={classes.root}>
 			<Head>
 				<title>
-					{`${name}-${limit}-${pageKey}`}
+					{`${name}-${limit}-${offset}`}
 				</title>
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
