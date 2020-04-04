@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		maxWidth: '1280px',
+		userSelect: 'none',
 	},
 	overflowLine1: {
 		display: '-webkit-box',

@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#111',
 		padding: theme.spacing(2, 4),
 		'&:hover': {
-			color: 'rgb(207, 92, 67)',
+			color: 'rgb(167, 56, 52)',
 		},
 	},
 }));

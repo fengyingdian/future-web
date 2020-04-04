@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		height: '100px',
 		boxSizing: 'border-box',
-		background: 'rgb(207, 92, 67)',
+		background: 'rgb(167, 56, 52)',
 	},
 	logo: {
 		minWidth: '200px',
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontWeight: 900,
 		padding: theme.spacing(0, 0, 0, 12),
 		'&:hover': {
-			color: 'rgb(207, 92, 67)',
+			color: 'rgb(167, 56, 52)',
 		},
 	},
 }));

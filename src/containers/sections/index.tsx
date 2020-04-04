@@ -89,8 +89,8 @@ const Section = (props: any) => {
 				<MenuHeader />
 				<Container maxWidth={false} className={classes.sectionRoot}>
 					<Title title={name} />
-					{state.pages.map((pageArticles: any) => (
-						<Page articles={pageArticles} />
+					{state.pages.map((pageArticles: any, index: number) => (
+						<Page key={index} articles={pageArticles} />
 					))}
 				</Container>
 			</Container>

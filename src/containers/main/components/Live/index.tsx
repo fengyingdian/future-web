@@ -8,7 +8,7 @@ import useCommonStyles from '../../../../theme/styles';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
-		borderTop: '4px solid rgb(207, 92, 67)',
+		borderTop: '4px solid rgb(167, 56, 52)',
 		margin: theme.spacing(4, 0, 2),
 		padding: theme.spacing(5.5, 5.5),
 		background: '#fff',
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			transform: 'translateY(-3px)',
 			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
 			'& #content': {
-				color: 'rgb(207, 92, 67)',
+				color: 'rgb(167, 56, 52)',
 			},
 			'& #excerpt': {
 				// color: '#e8e8e8',
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tipsIcon: {
 		borderRadius: '50%',
-		background: 'rgb(207, 92, 67)',
+		background: 'rgb(167, 56, 52)',
 		width: '12px',
 		minWidth: '12px',
 		height: '12px',

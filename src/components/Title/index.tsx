@@ -36,7 +36,7 @@ export const Header = (props: Props) => {
             font-weight: bold;
           }
           p:hover {
-            background: -webkit-gradient(linear,30% 20%,80% 80%,from(#6a38ec),to(rgb(207, 92, 67)));
+            background: -webkit-gradient(linear,30% 20%,80% 80%,from(#6a38ec),to(rgb(167, 56, 52)));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }

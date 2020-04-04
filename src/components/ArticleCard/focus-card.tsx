@@ -58,11 +58,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const ArticleCard = (props: any) => {
 	const classes = useStyles();
 	const {
-		overflowLine2,
-	} = useCommonStyles({ line: 2 });
-	const {
-		overflowLine1,
-	} = useCommonStyles({ line: 1 });
+		overflowLine1, overflowLine2,
+	} = useCommonStyles();
 
 	const {
 		cover: {

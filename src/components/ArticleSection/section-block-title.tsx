@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#000',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb(207, 92, 67)',
+		borderBottom: '4px solid rgb(167, 56, 52)',
 	},
 	readMoreRoot: {
 		boxSizing: 'border-box',
@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderBottom: '3px solid rgb(207, 92, 67)',
+		borderBottom: '3px solid rgb(167, 56, 52)',
 	},
 	readMoreText: {
 		fontSize: 14,
@@ -75,7 +75,7 @@ export const ReadMore = (props: any) => {
 					p-id={'16799'}
 					width={'20'}
 					height={'20'}>
-					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'rgb(207, 92, 67)'} />
+					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'rgb(167, 56, 52)'} />
 				</svg>
 			</Link>
 		</Box>

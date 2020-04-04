@@ -34,12 +34,12 @@ export const GradientText = (props: Props) => {
           p {
             text-align: center;
             font-weight: bold;
-            background: -webkit-gradient(linear,30% 20%,80% 80%,from(rgb(207, 92, 67)),to(#6a38ec));
+            background: -webkit-gradient(linear,30% 20%,80% 80%,from(rgb(167, 56, 52)),to(#6a38ec));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }
           p:hover {
-            background: -webkit-gradient(linear,30% 20%,80% 80%,from(#6a38ec),to(rgb(207, 92, 67)));
+            background: -webkit-gradient(linear,30% 20%,80% 80%,from(#6a38ec),to(rgb(167, 56, 52)));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
           }

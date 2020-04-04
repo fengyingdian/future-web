@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#000',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb(207, 92, 67)',
+		borderBottom: '4px solid rgb(167, 56, 52)',
 	},
 }));
 

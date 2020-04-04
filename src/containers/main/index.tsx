@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { TopDownAction } from '../../action-components/MountAction/top-down-action';
-import ResponsibleTagTripleSection from '../../components/ArticleSection/responsible-tag-five-section';
+import ResponsibleTagSection from '../../components/ArticleSection/responsible-tag-five-section';
 import MenuHeader from '../../components/MenuHeader/index';
 import TopStoryCard from '../../components/ArticleCard/top-story-card';
 import TopStoryBottomCard from '../../components/ArticleCard/top-story-bottom-card';
@@ -62,8 +62,7 @@ interface Props {
 const Main = (props: Props) => {
 	const [state, setState] = useState(1);
 
-	const bindScroll = (e: any) => {
-		console.log({ e });
+	const bindScroll = () => {
   	const header = document.getElementById('intro-page-top-header');
   	if (header) {
   	  const rect = header?.getBoundingClientRect();
@@ -96,7 +95,7 @@ const Main = (props: Props) => {
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
-					<TopStoryCard {...sections[0].posts[0]} />
+					<TopStoryCard articles={sections[0].posts} categoryName={sections[0].categoryName} />
 					<TopStoryBottomCard {...sections[0].posts[1]} />
 				</div>
 				<div className={classes.headerSectionRight}>
@@ -105,17 +104,9 @@ const Main = (props: Props) => {
 				</div>
 			</div>
 			<div className={classes.sections}>
-				{sections.map(({ categoryName, id = '', posts }: any, index: any) => {
-					if (index % 2 === 0) {
-						return (
-					    <ResponsibleTagTripleSection key={id} name={categoryName} id={id} articles={posts} />
-						);
-					}
-
-					return (
-					  <ResponsibleTagTripleSection key={id} name={categoryName} id={id} articles={posts} />
-					);
-				})}
+				{sections.map(({ categoryName, id = '', posts }: any) => (
+					<ResponsibleTagSection key={id} name={categoryName} id={id} articles={posts} />
+				))}
 			</div>
 		</Container>
   	);

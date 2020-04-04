@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 14,
 		fontWeight: 900,
 		margin: theme.spacing(0, 1, 0, 0),
-		color: 'rgb(207, 92, 67)',
+		color: 'rgb(167, 56, 52)',
 	},
 	line: {
 		flex: 1,
@@ -61,8 +61,8 @@ export const TagTopStory = (props: any) => {
 	} = props;
 
 	return (
-		<div className={classes.root} style={{ margin: '16px 0 12px' }}>
-			<div className={classes.tag} style={{ fontSize: '20px' }}>
+		<div className={classes.root} style={{ margin: '20px 0 12px' }}>
+			<div className={classes.tag} style={{ fontSize: '16px' }}>
 				{tag}
 			</div>
 			<div className={classes.line} />
