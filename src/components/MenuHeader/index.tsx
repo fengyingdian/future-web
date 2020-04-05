@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(0),
 		padding: theme.spacing(1, 0),
 		width: '100%',
-		height: 158,
+		height: 128,
 		boxSizing: 'border-box',
 		background: 'rgb(167, 56, 52)',
 		display: 'flex',
