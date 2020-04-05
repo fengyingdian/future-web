@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		maxWidth: '100%',
-		height: 701,
+		height: 690,
 		padding: theme.spacing(3),
 		background: '#fff',
 		borderTop: '4px solid rgb(167, 56, 52)',
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		// },
 	},
 	header: {
-		fontSize: 32,
+		fontSize: 28,
 		fontWeight: 900,
 		lineHeight: '32px',
 		height: 32,
@@ -77,7 +77,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 16,
 		lineHeight: 1.5,
 		margin: theme.spacing(2, 0, 0),
-		color: '#999',
+		color: '#898989',
 	},
 	publisher: {
 		fontSize: 12,
@@ -96,7 +96,7 @@ const TopStoryCard = (props: any) => {
 		index: 0,
 		content: {
 			...articles[0],
-			tag: articles[0].tags[0],
+			tag: articles[0].tags.length > 0 ? articles[0].tags[0] : [categoryName],
 			time: moment(articles[0].date).format('YYYY/MM/DD HH:MM:SS'),
 		},
 	});
@@ -119,7 +119,7 @@ const TopStoryCard = (props: any) => {
 				index,
 				content: {
 					...item,
-					tag: item.tags[0],
+					tag: item.tags.length > 0 ? item.tags[0] : [categoryName],
 					time: moment(item.date).format('YYYY/MM/DD HH:MM:SS'),
 				},
 			});
@@ -135,7 +135,7 @@ const TopStoryCard = (props: any) => {
 			<Box className={classes.root}>
 				<AutoPlaySwipeableViews
 					axis={'x'}
-					interval={3000}
+					interval={30000}
 					index={article.index}
 					onChangeIndex={handleChange}
 					enableMouseEvents>

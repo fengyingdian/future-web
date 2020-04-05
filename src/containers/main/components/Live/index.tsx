@@ -71,7 +71,7 @@ const Live = (props: any) => {
 	} = props;
 	const {
 		overflowLine1,
-	} = useCommonStyles({ line: 1 });
+	} = useCommonStyles();
 
 	return (
 		<Link href={'/lives'} className={classes.root} underline={'none'}>

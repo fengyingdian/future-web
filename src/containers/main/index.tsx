@@ -9,6 +9,7 @@ import TopStoryCard from '../../components/ArticleCard/top-story-card';
 import TopStoryBottomCard from '../../components/ArticleCard/top-story-bottom-card';
 import Live from './components/Live/index';
 import Focus from './components/Focus/index';
+import Footer from './components/Footer/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -17,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		maxWidth: '100%',
-		padding: '0',
+		padding: theme.spacing(0),
 		background: '#f8f8f8',
 	},
 	menuHeader: {
@@ -30,16 +31,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'flex-start',
+		maxWidth: theme.breakpoints.width('lg'),
 		width: '100%',
-		padding: theme.spacing(0, 5, 0),
+		padding: theme.spacing(0, 4, 0),
 		margin: theme.spacing(5, 0, 0),
 	},
 	headerSectionLeft: {
 		flex: 1,
-		maxWidth: '100%',
 	},
 	headerSectionRight: {
-		width: '308px',
+		maxWidth: 308,
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
@@ -51,12 +52,19 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		padding: theme.spacing(0, 4, 0),
+		maxWidth: theme.breakpoints.width('lg'),
+		padding: theme.spacing(0, 3, 0),
+	},
+	footer: {
+		width: '100%',
+   	padding: theme.spacing(4, 0, 0),
 	},
 }));
 
 interface Props {
+  menus: any,
   sections: any,
+  hotnews: any,
 }
 
 const Main = (props: Props) => {
@@ -82,14 +90,14 @@ const Main = (props: Props) => {
 	});
 
 	const classes = useStyles({ opacity: state });
-	const { sections } = props;
+	const { sections = [], hotnews = [], menus = [] } = props;
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
 			<div id={'page-top-header'} className={classes.menuHeader}>
 				<NoSsr>
 					<TopDownAction>
-						<MenuHeader />
+						<MenuHeader menus={menus} selected={'首页'} />
 					</TopDownAction>
 				</NoSsr>
 			</div>
@@ -100,13 +108,16 @@ const Main = (props: Props) => {
 				</div>
 				<div className={classes.headerSectionRight}>
 					<Live />
-					<Focus articles={sections[0].posts} />
+					<Focus articles={hotnews} />
 				</div>
 			</div>
 			<div className={classes.sections}>
 				{sections.map(({ categoryName, id = '', posts }: any) => (
 					<ResponsibleTagSection key={id} name={categoryName} id={id} articles={posts} />
 				))}
+			</div>
+			<div className={classes.footer}>
+				<Footer />
 			</div>
 		</Container>
   	);

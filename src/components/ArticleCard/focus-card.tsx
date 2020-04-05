@@ -64,9 +64,9 @@ const ArticleCard = (props: any) => {
 	const {
 		cover: {
 			url = '',
-		} = {}, title = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
+		} = {}, title = '', id = '', tags = [], categoryName = '', date = '', publisherName = '',
 	} = props;
-	const [tag] = tags;
+	const [tag] = tags.length > 0 ? tags : [categoryName];
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 	return (

@@ -1,34 +1,52 @@
 import React from 'react';
-import { Box, Typography, Link } from '@material-ui/core';
+import {
+	Container, Box, Typography, Link,
+} from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { menus } from '../../service/index';
+import { logoWithText } from '../../constants/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		margin: theme.spacing(0),
-		padding: theme.spacing(0, 4),
+		padding: theme.spacing(1, 0),
 		width: '100%',
-		height: '100px',
+		height: 158,
 		boxSizing: 'border-box',
 		background: 'rgb(167, 56, 52)',
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	innerBox: {
+		maxWidth: theme.breakpoints.width('lg'),
+		width: '100%',
+		padding: theme.spacing(0, 3),
+		boxSizing: 'border-box',
 	},
 	logo: {
-		minWidth: '200px',
-		fontSize: 28,
-		fontWeight: 900,
-		color: '#fff',
+		minWidth: 288,
+		width: 288,
 	},
 	menuBox: {
 		flex: 1,
+		margin: theme.spacing(0, 0, 0, 6),
 	},
 	title: {
 		color: '#fff',
-		fontSize: 20,
+		fontSize: 22,
 		fontWeight: 900,
-		padding: theme.spacing(0, 0, 0, 12),
+		lineHeight: '32px',
+		padding: theme.spacing(0),
 		'&:hover': {
 			color: '#111',
 		},
+	},
+	underline: {
+		width: 20,
+		height: 4,
+		background: '#fff',
+		marginTop: 4,
 	},
 }));
 
@@ -43,36 +61,55 @@ const herf = (name: string) => {
 	return `/sections?name=${name}`;
 };
 
-const MenuHeader = () => {
+const MenuHeader = (props: any) => {
 	const classes = useStyles();
+	const { menus = [], selected = '首页' } = props;
 
 	return (
-		<Box
-			display={'flex'}
-			flexDirection={'row'}
-			justifyContent={'space-between'}
-			alignItems={'center'}
-			flexWrap={'wrap'}
-			className={classes.root}>
-			<Typography className={classes.logo}>
-				{'人民数字联播网'}
-			</Typography>
+		<Container maxWidth={false} className={classes.root}>
 			<Box
 				display={'flex'}
 				flexDirection={'row'}
-				justifyContent={'flex-end'}
+				justifyContent={'space-between'}
 				alignItems={'center'}
+				alignContent={'center'}
 				flexWrap={'wrap'}
-				className={classes.menuBox}>
-				{menus.map((name: any) => (
-					<Link key={name} href={herf(name)} underline={'none'}>
-						<Typography className={classes.title}>
-							{name}
-						</Typography>
-					</Link>
-				))}
+				className={classes.innerBox}>
+				<Link href={herf('首页')} underline={'none'}>
+					<img
+						className={classes.logo}
+						src={logoWithText}
+						alt={''} />
+				</Link>
+				<Box
+					display={'flex'}
+					flexDirection={'row'}
+					justifyContent={'space-between'}
+					alignItems={'center'}
+					flexWrap={'nowrap'}
+					className={classes.menuBox}>
+					{menus.map(({ name, displayName }: any) => (
+						<Link key={name} href={herf(name)} underline={'none'}>
+							<Box
+								display={'flex'}
+								flexDirection={'column'}
+								justifyContent={'center'}
+								alignItems={'center'}
+								flexWrap={'nowrap'}>
+								<Typography className={classes.title}>
+									{displayName}
+								</Typography>
+								<div
+									className={classes.underline}
+									style={{
+										background: selected === displayName ? '#fff' : 'transparent',
+									}} />
+							</Box>
+						</Link>
+					))}
+				</Box>
 			</Box>
-		</Box>
+		</Container>
 	);
 };
 

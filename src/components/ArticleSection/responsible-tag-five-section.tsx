@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
 		boxSizing: 'border-box',
-		padding: theme.spacing(1, 0),
+		padding: theme.spacing(0),
 	},
 }));
 

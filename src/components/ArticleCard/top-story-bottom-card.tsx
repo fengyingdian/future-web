@@ -6,7 +6,7 @@ import {
 	Card, CardMedia, Link, Box,
 } from '@material-ui/core';
 import moment from 'moment';
-import { TagRelative } from './tag';
+import { TagLarge } from './tag';
 import useCommonStyles from '../../theme/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -44,26 +44,37 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	infoBox: {
 		flex: 1,
 		margin: theme.spacing(0, 3, 0, 0),
+		position: 'relative',
+		top: 0,
+		left: 0,
+	},
+	tag: {
+		width: '100%',
+		position: 'absolute',
+		top: 0,
+		left: 0,
 	},
 	title: {
-		fontSize: 20,
+		fontSize: 26,
 		fontWeight: 900,
 		lineHeight: 1.5,
 		color: '#000',
 		padding: theme.spacing(0),
 	},
 	excerpt: {
-		flex: 1,
 		fontSize: 16,
 		lineHeight: 1.5,
-		color: '#999',
+		color: '#898989',
 		margin: theme.spacing(2, 0, 0),
 	},
 	publisher: {
-		fontSize: 16,
+		fontSize: 12,
 		lineHeight: 1.5,
-		color: '#666',
+		color: '#000',
 		margin: theme.spacing(2, 0, 0),
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
 	},
 }));
 
@@ -71,9 +82,9 @@ const ArticleCard = (props: any) => {
 	const classes = useStyles();
 	// const {
 	// 	overflowLine1,
-	// } = useCommonStyles({ line: 1 });
+	// } = useCommonStyles();
 	const {
-		overflowLine2,
+		overflowLine1, overflowLine2,
 	} = useCommonStyles();
 
 	const {
@@ -81,7 +92,7 @@ const ArticleCard = (props: any) => {
 			url = '',
 		} = {}, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
 	} = props;
-	const [tag] = tags;
+	const [tag] = tags.length > 0 ? tags : [categoryName];
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 	return (
@@ -90,18 +101,20 @@ const ArticleCard = (props: any) => {
 				<Box
 					display={'flex'}
 					flexDirection={'column'}
-					justifyContent={'flex-start'}
+					justifyContent={'center'}
 					alignItems={'flex-start'}
 					flexWrap={'nowrap'}
 					className={classes.infoBox}>
-					{tag && (<TagRelative tag={tag} />)}
+					<div className={classes.tag}>
+						{tag && (<TagLarge tag={tag} />)}
+					</div>
 					<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
 						{title}
 					</Typography>
 					<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
 						{excerpt}
 					</Typography>
-					<Typography className={classes.publisher}>
+					<Typography className={`${classes.publisher} ${overflowLine1}`}>
 				    {`${publisherName} · ${time}`}
 					</Typography>
 				</Box>

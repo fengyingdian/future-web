@@ -37,40 +37,50 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	image: {
 		width: '50%',
-		height: 0,
-		paddingTop: '25%',
+		height: 320,
 	},
 	infoBox: {
 		flex: 1,
+		height: 320,
 		margin: theme.spacing(0, 0, 0, 3),
+		position: 'relative',
+		top: 0,
+		left: 0,
+	},
+	tag: {
+		width: '100%',
+		position: 'absolute',
+		top: 0,
+		left: 0,
 	},
 	title: {
-		fontSize: 36,
+		fontSize: 26,
 		fontWeight: 900,
 		lineHeight: 1.5,
 		color: '#000',
-		height: '108px',
 		padding: theme.spacing(0),
 	},
 	excerpt: {
-		fontSize: 24,
+		fontSize: 16,
 		lineHeight: 1.5,
-		height: '72px',
-		color: '#999',
+		color: '#898989',
 		margin: theme.spacing(2, 0, 0),
 	},
 	publisher: {
-		fontSize: 16,
+		fontSize: 12,
 		lineHeight: 1.5,
-		color: '#666',
+		color: '#000',
 		margin: theme.spacing(2, 0, 0),
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
 	},
 }));
 
 const ArticleCard = (props: any) => {
 	const classes = useStyles();
 	const {
-		overflowLine2,
+		overflowLine1, overflowLine2,
 	} = useCommonStyles({ line: 2 });
 
 	const {
@@ -78,7 +88,7 @@ const ArticleCard = (props: any) => {
 			url = '',
 		} = {}, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
 	} = props;
-	const [tag] = tags;
+	const [tag] = tags.length > 0 ? tags : [categoryName];
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 	return (
@@ -92,18 +102,20 @@ const ArticleCard = (props: any) => {
 				<Box
 					display={'flex'}
 					flexDirection={'column'}
-					justifyContent={'flex-start'}
+					justifyContent={'center'}
 					alignItems={'flex-start'}
 					flexWrap={'nowrap'}
 					className={classes.infoBox}>
-					{tag && (<TagLarge tag={tag} />)}
+					<div className={classes.tag}>
+					  {tag && (<TagLarge tag={tag} />)}
+					</div>
 					<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
 						{title}
 					</Typography>
 					<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
 						{excerpt}
 					</Typography>
-					<Typography className={classes.publisher}>
+					<Typography className={`${classes.publisher} ${overflowLine1}`}>
 				    {`${publisherName} · ${time}`}
 					</Typography>
 				</Box>

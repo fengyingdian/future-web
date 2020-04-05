@@ -3,13 +3,13 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		margin: theme.spacing(0, 0, 2),
+		margin: theme.spacing(0, 0),
 		padding: theme.spacing(0),
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		maxWidth: '1280px',
+		maxWidth: '100%',
 		userSelect: 'none',
 	},
 	overflowLine1: {

@@ -33,27 +33,27 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	image: {
 		height: 0,
-		paddingTop: '67%',
+		paddingTop: '65.6%',
 	},
 	title: {
 		fontSize: 18,
 		fontWeight: 900,
 		lineHeight: 1.5,
 		color: '#000',
-		height: '52px',
-		padding: theme.spacing(0),
+		height: '54px',
+		margin: theme.spacing(2, 0, 0),
 	},
 	excerpt: {
-		fontSize: 16,
+		fontSize: 14,
 		lineHeight: 1.5,
-		height: '48px',
-		color: '#999',
+		height: '42px',
+		color: '#898989',
 		margin: theme.spacing(2, 0, 0),
 	},
 	publisher: {
-		fontSize: 16,
+		fontSize: 12,
 		lineHeight: 1.5,
-		color: '#666',
+		color: '#000',
 		margin: theme.spacing(2, 0, 0),
 	},
 }));
@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const ArticleCard = (props: any) => {
 	const classes = useStyles();
 	const {
-		overflowLine2,
+		overflowLine1, overflowLine2,
 	} = useCommonStyles({ line: 2 });
 
 	const {
@@ -69,7 +69,7 @@ const ArticleCard = (props: any) => {
 			url = '',
 		} = {}, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
 	} = props;
-	const [tag] = tags;
+	const [tag] = tags.length > 0 ? tags : [categoryName];
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 	return (
@@ -87,7 +87,7 @@ const ArticleCard = (props: any) => {
 				<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
 					{excerpt}
 				</Typography>
-				<Typography className={classes.publisher}>
+				<Typography className={`${classes.publisher} ${overflowLine1}`}>
 					{`${publisherName} · ${time}`}
 				</Typography>
 			</Card>

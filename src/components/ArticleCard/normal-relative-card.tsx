@@ -54,13 +54,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flex: 1,
 		fontSize: 16,
 		lineHeight: 1.5,
-		color: '#999',
+		color: '#898989',
 		margin: theme.spacing(2, 0, 0),
 	},
 	publisher: {
-		fontSize: 16,
+		fontSize: 12,
 		lineHeight: 1.5,
-		color: '#666',
+		color: '#000',
 		margin: theme.spacing(2, 0, 0),
 	},
 }));
@@ -69,9 +69,9 @@ const ArticleCard = (props: any) => {
 	const classes = useStyles();
 	// const {
 	// 	overflowLine1,
-	// } = useCommonStyles({ line: 1 });
+	// } = useCommonStyles();
 	const {
-		overflowLine2,
+		overflowLine1, overflowLine2,
 	} = useCommonStyles({ line: 2 });
 
 	const {
@@ -79,7 +79,7 @@ const ArticleCard = (props: any) => {
 			url = '',
 		} = {}, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
 	} = props;
-	const [tag] = tags;
+	const [tag] = tags.length > 0 ? tags : [categoryName];
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 	return (
@@ -104,7 +104,7 @@ const ArticleCard = (props: any) => {
 					<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
 						{excerpt}
 					</Typography>
-					<Typography className={classes.publisher}>
+					<Typography className={`${classes.publisher} ${overflowLine1}`}>
 				    {`${publisherName} · ${time}`}
 					</Typography>
 				</Box>

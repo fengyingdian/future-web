@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	line: {
 		flex: 1,
-		background: '#999',
+		background: '#898989',
 		height: '1px',
 	},
 }));
@@ -30,7 +30,7 @@ export const TagLarge = (props: any) => {
 
 	return (
 		<div className={classes.root} style={{ margin: '0 0 16px' }}>
-			<div className={classes.tag} style={{ fontSize: '24px' }}>
+			<div className={classes.tag} style={{ fontSize: '16px' }}>
 				{tag}
 			</div>
 			<div className={classes.line} />
@@ -92,7 +92,7 @@ export const Tag = (props: any) => {
 	} = props;
 
 	return (
-		<div className={classes.root} style={{ padding: '16px 0' }}>
+		<div className={classes.root} style={{ padding: '16px 0 0' }}>
 			<div className={classes.tag}>
 				{tag}
 			</div>

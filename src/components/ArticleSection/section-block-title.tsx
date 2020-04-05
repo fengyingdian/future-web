@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	readMoreText: {
 		fontSize: 14,
 		fontWeight: 900,
-		color: '#111',
+		color: '#000',
 	},
 }));
 
@@ -73,8 +73,8 @@ export const ReadMore = (props: any) => {
 					version={'1.1'}
 					xmlns={'http://www.w3.org/2000/svg'}
 					p-id={'16799'}
-					width={'20'}
-					height={'20'}>
+					width={'22'}
+					height={'22'}>
 					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'rgb(167, 56, 52)'} />
 				</svg>
 			</Link>
