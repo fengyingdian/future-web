@@ -27,10 +27,21 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontWeight: 900,
 		padding: theme.spacing(0, 0, 0, 12),
 		'&:hover': {
-			color: 'rgb(167, 56, 52)',
+			color: '#111',
 		},
 	},
 }));
+
+const herf = (name: string) => {
+	if (name === '首页') {
+		return '/';
+	}
+	if (name === '直播') {
+		return '/lives?id=1';
+	}
+
+	return `/sections?name=${name}`;
+};
 
 const MenuHeader = () => {
 	const classes = useStyles();
@@ -54,7 +65,7 @@ const MenuHeader = () => {
 				flexWrap={'wrap'}
 				className={classes.menuBox}>
 				{menus.map((name: any) => (
-					<Link key={name} href={`/sections?name=${name}`} underline={'none'}>
+					<Link key={name} href={herf(name)} underline={'none'}>
 						<Typography className={classes.title}>
 							{name}
 						</Typography>
