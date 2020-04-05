@@ -6,7 +6,7 @@ import {
 import moment from 'moment';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import { TagTopStory } from './tag';
+import { TagLarge } from './tag';
 import useCommonStyles from '../../theme/styles';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
@@ -14,10 +14,10 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		display: 'flex',
-		flexDirection: 'column',
+		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		maxWidth: '100%',
-		height: 690,
+		height: 424,
 		padding: theme.spacing(3),
 		background: '#fff',
 		borderTop: '4px solid rgb(167, 56, 52)',
@@ -47,8 +47,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#000',
 	},
 	media: {
+		width: '100%',
 		height: 0,
-		paddingTop: 420,
+		paddingTop: 372,
 	},
 	fingerBox: {
 		position: 'absolute',
@@ -65,6 +66,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	infoBox: {
 		height: '100%',
+		margin: theme.spacing(0, 0, 0, 2),
+		position: 'relative',
+		top: 0,
+		left: 0,
+	},
+	tag: {
+		width: '100%',
+		position: 'absolute',
+		top: 0,
+		left: 0,
 	},
 	title: {
 		fontSize: 26,
@@ -73,7 +84,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#000',
 	},
 	excerpt: {
-		flex: 1,
 		fontSize: 16,
 		lineHeight: 1.5,
 		margin: theme.spacing(2, 0, 0),
@@ -83,6 +93,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 12,
 		margin: theme.spacing(2, 0, 0),
 		color: '#000',
+		position: 'absolute',
+		bottom: 0,
+		left: 0,
 	},
 }));
 
@@ -133,35 +146,23 @@ const TopStoryCard = (props: any) => {
 				{'今日要闻'}
 			</Typography>
 			<Box className={classes.root}>
-				<AutoPlaySwipeableViews
-					axis={'x'}
-					interval={30000}
-					index={article.index}
-					onChangeIndex={handleChange}
-					enableMouseEvents>
-					{articles.map((item: any) => (
-						<div key={item.title}>
-							<CardMedia
-								className={classes.media}
-								image={item.cover && item.cover.url}
-								title={article.content.title} />
-						</div>
-					))}
-				</AutoPlaySwipeableViews>
-				<Box
-					className={classes.fingerBox}
-					display={'flex'}
-					flexDirection={'row'}
-					justifyContent={'flex-start'}
-					alignItems={'center'}>
-					{articles.map((_: any, index: number) => (
-						<div
-							className={classes.finger}
-							style={{
-								background: article.index === index ? 'rgb(167, 56, 52)' : '#fff',
-							}} />
-					)) }
-				</Box>
+				<div style={{ width: '62%' }}>
+					<AutoPlaySwipeableViews
+						axis={'x'}
+						interval={30000}
+						index={article.index}
+						onChangeIndex={handleChange}
+						enableMouseEvents>
+						{articles.map((item: any) => (
+							<div key={item.title}>
+								<CardMedia
+									className={classes.media}
+									image={item.cover && item.cover.url}
+									title={article.content.title} />
+							</div>
+						))}
+					</AutoPlaySwipeableViews>
+				</div>
 				<Link
 					href={`/articles?category=${categoryName}&id=${article.content.id}`}
 					underline={'none'}
@@ -169,12 +170,14 @@ const TopStoryCard = (props: any) => {
 					<Box
 						display={'flex'}
 						flexDirection={'column'}
-						justifyContent={'flex-start'}
+						justifyContent={'center'}
 						alignItems={'flex-start'}
 						flexWrap={'nowrap'}
 						className={classes.infoBox}
 						style={{ transition: 'all .3s', opacity: state }}>
-						<TagTopStory tag={article.content.tag} />
+						<div className={classes.tag}>
+						  {article.content.tag && (<TagLarge tag={article.content.tag} />)}
+						</div>
 						<Typography className={`${classes.title} ${overflowLine2}`}>
 							{article.content.title}
 						</Typography>
