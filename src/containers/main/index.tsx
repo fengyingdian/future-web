@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: theme.breakpoints.width('lg'),
 		width: '100%',
 		padding: theme.spacing(0, 4, 0),
-		margin: theme.spacing(5, 0, 0),
+		margin: theme.spacing(2, 0, 0),
 	},
 	headerSectionLeft: {
 		flex: 1,
@@ -105,6 +105,7 @@ const Main = (props: Props) => {
 				<div className={classes.headerSectionLeft}>
 					<TopStoryCard articles={sections[0].posts} categoryName={sections[0].categoryName} />
 					<TopStoryBottomCard {...sections[0].posts[1]} />
+					<TopStoryBottomCard {...sections[0].posts[2]} />
 				</div>
 				<div className={classes.headerSectionRight}>
 					<Live />

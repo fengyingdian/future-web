@@ -53,7 +53,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	fingerBox: {
 		position: 'absolute',
-		top: 420,
+		bottom: 44,
 		left: 44,
 	},
 	finger: {
@@ -142,9 +142,6 @@ const TopStoryCard = (props: any) => {
 
 	return (
 		<>
-			<Typography className={classes.header}>
-				{'今日要闻'}
-			</Typography>
 			<Box className={classes.root}>
 				<div style={{ width: '62%' }}>
 					<AutoPlaySwipeableViews
@@ -163,6 +160,20 @@ const TopStoryCard = (props: any) => {
 						))}
 					</AutoPlaySwipeableViews>
 				</div>
+				<Box
+					className={classes.fingerBox}
+					display={'flex'}
+					flexDirection={'row'}
+					justifyContent={'flex-start'}
+					alignItems={'center'}>
+					{articles.map((_: any, index: number) => (
+						<div
+							className={classes.finger}
+							style={{
+								background: article.index === index ? 'rgb(167, 56, 52)' : '#fff',
+							}} />
+					)) }
+				</Box>
 				<Link
 					href={`/articles?category=${categoryName}&id=${article.content.id}`}
 					underline={'none'}

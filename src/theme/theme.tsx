@@ -22,6 +22,7 @@ const Theme = createMuiTheme({
 			'Source Han Serif SC',
 			'Source Han Serif CN',
 			'source-han-serif-sc',
+			'noto serif cjk sc',
 		].join(','),
 		fontSize: 12,
 	},

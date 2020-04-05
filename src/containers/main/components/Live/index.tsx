@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
 		borderTop: '4px solid rgb(167, 56, 52)',
-		margin: theme.spacing(4, 0, 2),
+		margin: theme.spacing(0, 0, 2),
 		padding: theme.spacing(5.5, 5.5),
 		background: '#fff',
 		transition: 'all .3s',
