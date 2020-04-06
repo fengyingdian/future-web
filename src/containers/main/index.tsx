@@ -115,6 +115,8 @@ const Main = (props: Props) => {
 
 	const [stream] = livestreams;
 
+	console.log({ sections });
+
 	return (
 		<Container maxWidth={false} className={classes.root}>
 			<div id={'page-top-header'} className={classes.menuHeader}>
@@ -136,10 +138,11 @@ const Main = (props: Props) => {
 				</div>
 			</div>
 			<div className={classes.sections}>
-				{sections.map(({ categoryName, id = '', posts }: any, index: any) => {
-					const { displayName = '' } = menus.find(({ name }: any) => name === categoryName);
-
-					return <ResponsibleTagSection key={index} name={displayName} id={id} articles={posts} />;
+				{menus.map(({ name, displayName }: any, index: any) => {
+					const result = sections.find(({ categoryName }: any) => name === categoryName);
+					if (result) {
+						return <ResponsibleTagSection key={index} name={name} displayName={displayName} articles={result.posts} />;
+					}
 				})}
 			</div>
 			<div className={classes.footer}>

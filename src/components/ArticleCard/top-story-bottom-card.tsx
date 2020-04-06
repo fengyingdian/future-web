@@ -92,9 +92,10 @@ const ArticleCard = (props: any) => {
 	const {
 		cover: {
 			url = '',
-		} = {}, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
+		} = {}, title = '', excerpt = '', id = '', categoryName = '', date = '', publisherName = '',
 	} = props;
-	const [tag] = tags.length > 0 ? tags : [categoryName];
+	// const [tag] = tags.length > 0 ? tags : [categoryName];
+	const tag = '要闻';
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 	return (

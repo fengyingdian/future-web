@@ -35,11 +35,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		color: '#fff',
 		fontSize: 22,
-
 		lineHeight: '32px',
-		padding: theme.spacing(0),
+		padding: theme.spacing(0, 1),
+		transition: 'all .3s',
 		'&:hover': {
-			color: '#111',
+			textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
 		},
 	},
 	underline: {

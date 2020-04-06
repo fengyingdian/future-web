@@ -39,6 +39,8 @@ const Section = (props: any) => {
 		menus,
 	} = props;
 
+	console.log({ menus, name });
+
 	const { displayName } = menus.find(({ name: menuName }: any) => name === menuName);
 
 	const [state, setstate] = useState({

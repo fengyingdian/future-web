@@ -110,7 +110,8 @@ const TopStoryCard = (props: any) => {
 		index: 0,
 		content: {
 			...articles[0],
-			tag: articles[0].tags.length > 0 ? articles[0].tags[0] : [categoryName],
+			// tag: articles[0].tags.length > 0 ? articles[0].tags[0] : [categoryName],
+			tag: '要闻',
 			time: moment(articles[0].date).format('YYYY/MM/DD HH:MM:SS'),
 		},
 	});
@@ -133,7 +134,8 @@ const TopStoryCard = (props: any) => {
 				index,
 				content: {
 					...item,
-					tag: item.tags.length > 0 ? item.tags[0] : [categoryName],
+					// tag: item.tags.length > 0 ? item.tags[0] : [categoryName],
+					tag: '要闻',
 					time: moment(item.date).format('YYYY/MM/DD HH:MM:SS'),
 				},
 			});
