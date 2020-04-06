@@ -36,7 +36,7 @@ export default class MyApp extends App {
 					<link rel={'SHORTCUT ICON'} href={'favicon.ico'} type={'image/icon'} />
 					<link rel={'ICON'} href={'favicon.ico'} type={'image/ico'} />
 					<link rel={'stylesheet'} href={'https://g.alicdn.com/de/prismplayer/2.8.2/skins/default/aliplayer-min.css'} />
-					<link rel={'stylesheet'} href={'https://sapp.flipboard.cn/fabulous/fonts/notoserifcjk.css'} />
+					{/* <link rel={'stylesheet'} href={'https://sapp.flipboard.cn/fabulous/fonts/notoserifcjk.css'} /> */}
 					<script type={'text/javascript'} src={'https://g.alicdn.com/de/prismplayer/2.8.2/aliplayer-h5-min.js'} />
 				</Head>
 				<ThemeProvider theme={Theme}>
