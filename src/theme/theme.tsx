@@ -19,14 +19,13 @@ const Theme = createMuiTheme({
 	},
 	typography: {
 		fontFamily: [
-			'notoserifcjksc-bold',
+			'notoserifcjksc-black',
 			'SimSun',
 			'STSong',
 			'Source Han Serif SC',
 			'Source Han Serif CN',
 			'source-han-serif-sc',
 		].join(','),
-		fontSize: 12,
 	},
 });
 

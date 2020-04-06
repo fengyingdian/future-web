@@ -42,7 +42,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tipsContent: {
 		fontSize: 32,
-		fontWeight: 900,
 		color: '#000',
 	},
 	infoBox: {

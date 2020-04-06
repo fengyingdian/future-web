@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		padding: theme.spacing(6, 4),
+		padding: theme.spacing(2, 4),
+		maxWidth: theme.breakpoints.width('lg'),
 	},
 }));
 

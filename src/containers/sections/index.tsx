@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		background: '#f8f8f8',
-		padding: theme.spacing(4, 3),
+		padding: theme.spacing(2, 3),
+		maxWidth: theme.breakpoints.width('lg'),
 	},
 }));
 
