@@ -24,6 +24,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		lineHeight: '12px',
 		height: 12,
 		padding: theme.spacing(0, 0.5),
+		margin: theme.spacing(0, 0, 0.5),
 		color: '#a4a4a4',
 	},
 	info: {
@@ -31,6 +32,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontWeight: 900,
 		color: '#d8d8d8',
 		margin: theme.spacing(2, 0, 0),
+		fontFamily: 'notoserifcjksc-medium',
 	},
 }));
 
