@@ -39,6 +39,8 @@ const Section = (props: any) => {
 		menus,
 	} = props;
 
+	const { displayName } = menus.find(({ name: menuName }: any) => name === menuName);
+
 	const [state, setstate] = useState({
 		pages: [
 			articles,
@@ -84,13 +86,13 @@ const Section = (props: any) => {
 		<Container className={classes.root}>
 			<Head>
 				<title>
-					{`${name}-${limit}-${offset}`}
+					{`${displayName}-人民数字联播网`}
 				</title>
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
 				<MenuHeader selected={name} menus={menus} />
 				<Container maxWidth={false} className={classes.sectionRoot}>
-					<Title title={name} />
+					<Title title={displayName} />
 					{state.pages.map((pageArticles: any, index: number) => (
 						<Page key={index} articles={pageArticles} />
 					))}

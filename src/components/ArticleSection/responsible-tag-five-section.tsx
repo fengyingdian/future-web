@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 }));
 
-const ResponsibleTagTripleSection = (props: any) => {
+const ResponsibleTagFiveSection = (props: any) => {
 	const classes = useStyles();
 	const { name = '', id = '', articles = [] } = props;
 	if (articles.length <= 0) {
@@ -28,4 +28,4 @@ const ResponsibleTagTripleSection = (props: any) => {
 	);
 };
 
-export default ResponsibleTagTripleSection;
+export default ResponsibleTagFiveSection;

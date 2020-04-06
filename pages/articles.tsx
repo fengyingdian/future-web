@@ -19,8 +19,9 @@ const Index = (props: any) => {
 Index.getInitialProps = async ({ query = {} }: any) => {
 	const { id = '', category: categoryName = '' } = query;
 
-	const result: any = await fetchArticleTranscode(id);
 	const menus: any = await fetchMenus();
+
+	const result: any = await fetchArticleTranscode(id);
 
 	return {
 		categoryName,

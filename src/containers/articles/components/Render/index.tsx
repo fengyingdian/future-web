@@ -56,11 +56,12 @@ const ArticleRender = (props: any) => {
 		publisherName = '',
 		date = '',
 		categoryName = '',
+		tags = [],
 		// cover: {
 		// 	url = '',
 		// } = {},
 	} = props;
-	const tags = props.tags.length > 0 ? props.tags : [categoryName];
+	const labels = tags.length > 0 ? tags : [categoryName];
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
 	return (
@@ -70,8 +71,8 @@ const ArticleRender = (props: any) => {
 			<Box
 				display={'flex'}
 				flexDirection={'row'}>
-				{tags.map((tag: string) => (
-					<Typography className={classes.tag}>
+				{labels.map((tag: string, index: number) => (
+					<Typography key={index} className={classes.tag}>
 						{tag}
 					</Typography>
 				))}

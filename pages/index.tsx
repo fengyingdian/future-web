@@ -9,11 +9,10 @@ import Main from '../src/containers/main/index';
 
 export const Index = (props: any) => {
 	const classes = useStyles();
-	const { sections = [], hotnews = [], menus } = props;
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
-			<Main sections={sections} hotnews={hotnews} menus={menus} />
+			<Main {...props} />
 		</Container>
 	);
 };

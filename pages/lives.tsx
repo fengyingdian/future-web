@@ -1,41 +1,32 @@
 /* eslint-disable max-len */
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import { fetchLiveSection } from '../src/service/index';
-import LiveSection from '../src/components/LiveSection/index';
+import { withRouter } from 'next/router';
+import useStyles from '../src/theme/styles';
+import { fetchMenus, fetchLiveSection } from '../src/service/index';
+import Live from '../src/containers/lives/index';
 
-interface LiveProps {
-  currentLive: any;
-  relativeLives: any;
-  id: any;
-}
+const Index = (props: any) => {
+	const classes = useStyles();
 
-interface LiveState { }
+	return (
+		<Container maxWidth={false} className={classes.root}>
+			<Live {...props} />
+		</Container>
+	);
+};
 
-class Live extends React.Component<LiveProps, LiveState> {
-	static async getInitialProps({ req, query }: any) {
-		const { id = '' } = query;
+Index.getInitialProps = async () => {
+	// const { name = '' } = query;
 
-		const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
-		const {
-			currentLive,
-			relativeLives,
-		}: any = await fetchLiveSection('1');
+	const menus: any = await fetchMenus();
 
-		return {
-			userAgent, currentLive, relativeLives, id,
-		};
-	}
+	const { streams = [] }: any = await fetchLiveSection();
 
-	render() {
-		const { currentLive, relativeLives, id } = this.props;
+	return {
+		menus,
+		streams,
+	};
+};
 
-		return (
-			<Container maxWidth={false}>
-				<LiveSection id={id} currentLive={currentLive} relativeLives={relativeLives} />
-			</Container>
-		);
-	}
-}
-
-export default Live;
+export default withRouter(Index);

@@ -76,8 +76,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 interface Props {
   menus: any,
-  sections: any,
+  carousel: any,
   hotnews: any,
+  livestreams: any,
+  sections: any,
 }
 
 const Main = (props: Props) => {
@@ -103,7 +105,15 @@ const Main = (props: Props) => {
 	});
 
 	const classes = useStyles({ opacity: state });
-	const { sections = [], hotnews = [], menus = [] } = props;
+	const {
+		menus = [],
+		carousel = [],
+		hotnews = [],
+		livestreams = [],
+		sections = [],
+	} = props;
+
+	const [stream] = livestreams;
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
@@ -116,19 +126,21 @@ const Main = (props: Props) => {
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
-					<TopStoryCard articles={sections[0].posts} categoryName={sections[0].categoryName} />
-					<TopStoryBottomCard {...sections[0].posts[1]} />
-					<TopStoryBottomCard {...sections[0].posts[2]} />
+					<TopStoryCard articles={carousel} categoryName={sections[0].categoryName} />
+					<TopStoryBottomCard {...hotnews[6]} />
+					<TopStoryBottomCard {...hotnews[7]} />
 				</div>
 				<div className={classes.headerSectionRight}>
-					<Live />
+					<Live {...stream} />
 					<Focus articles={hotnews} />
 				</div>
 			</div>
 			<div className={classes.sections}>
-				{sections.map(({ categoryName, id = '', posts }: any) => (
-					<ResponsibleTagSection key={id} name={categoryName} id={id} articles={posts} />
-				))}
+				{sections.map(({ categoryName, id = '', posts }: any, index: any) => {
+					const { displayName = '' } = menus.find(({ name }: any) => name === categoryName);
+
+					return <ResponsibleTagSection key={index} name={displayName} id={id} articles={posts} />;
+				})}
 			</div>
 			<div className={classes.footer}>
 				<Footer />

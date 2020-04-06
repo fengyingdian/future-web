@@ -50,14 +50,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		borderBottom: '1px solid #e8e8e8',
 		padding: theme.spacing(3.5, 0),
 	},
-	infoHost: {
+	description: {
 		fontSize: 24,
 		fontWeight: 200,
 		lineHeight: '36px',
 		color: '#000',
 		fontFamily: 'notoserifcjksc-extralight',
 	},
-	infoTitle: {
+	title: {
 		fontSize: 24,
 		color: '#000',
 	},
@@ -66,7 +66,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const Live = (props: any) => {
 	const classes = useStyles();
 	const {
-		host = '蔚来汽车', title = '北京NIO Day 发布会',
+		status = 'publish_done',
+		description = '蔚来汽车',
+		title = '北京NIO Day 发布会',
+
 	} = props;
 	const {
 		overflowLine1,
@@ -75,17 +78,26 @@ const Live = (props: any) => {
 	return (
 		<Link href={'/lives'} className={classes.root} underline={'none'}>
 			<div>
-				<div className={classes.tipsBox}>
-					<div className={classes.tipsIcon} />
-					<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-						{'直播中'}
-					</Typography>
-				</div>
+				{status === 'publish' && (
+					<div className={classes.tipsBox}>
+						<div className={classes.tipsIcon} />
+						<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
+							{'直播中'}
+						</Typography>
+					</div>
+				)}
+				{status === 'publish_done' && (
+					<div className={classes.tipsBox}>
+						<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
+							{'直播已结束'}
+						</Typography>
+					</div>
+				)}
 				<div className={classes.infoBox}>
-					<Typography className={`${classes.infoHost} ${overflowLine1}`}>
-						{host}
+					<Typography className={`${classes.description} ${overflowLine1}`}>
+						{description}
 					</Typography>
-					<Typography className={`${classes.infoTitle} ${overflowLine1}`}>
+					<Typography className={`${classes.title} ${overflowLine1}`}>
 						{title}
 					</Typography>
 				</div>

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(0),
 		padding: theme.spacing(1, 0),
 		width: '100%',
-		height: 128,
+		height: 120,
 		boxSizing: 'border-box',
 		background: 'rgb(167, 56, 52)',
 		display: 'flex',
@@ -55,7 +55,7 @@ const herf = (name: string) => {
 		return '/';
 	}
 	if (name === '直播') {
-		return '/lives?id=1';
+		return '/lives';
 	}
 
 	return `/sections?name=${name}`;
@@ -102,7 +102,7 @@ const MenuHeader = (props: any) => {
 								<div
 									className={classes.underline}
 									style={{
-										background: selected === displayName ? '#fff' : 'transparent',
+										background: selected === name ? '#fff' : 'transparent',
 									}} />
 							</Box>
 						</Link>

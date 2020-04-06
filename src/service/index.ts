@@ -10,7 +10,7 @@ export const menuUrl = () => `${fabulousService}/main/v1/categories`;
 
 export const articleSectionUrl = () => `${fabulousService}/cat/v1/feed`;
 
-export const liveSectionUrl = () => 'http://sapp.flipboard.cn/fabulous/lives.json';
+export const liveSectionUrl = () => `${fabulousService}/live/streams`;
 
 //
 // ─── FETCH MENU ─────────────────────────────────────────────────────────────────
@@ -23,12 +23,14 @@ export const fetchMenus = () => axios.get(menuUrl())
 				categories: menus = [],
 			} = response.data;
 
+			const sorted = menus.sort(({ order: first }: any, { order: second }: any) => first > second);
+
 			return [
 				{
 					name: '首页',
 					displayName: '首页',
 				},
-				...menus,
+				...sorted,
 				{
 					name: '直播',
 					displayName: '直播',
@@ -50,7 +52,7 @@ export const fetchMenus = () => axios.get(menuUrl())
 
 export const fetchHomeFeed = () => axios.get(homeFeedUrl())
 	.then((response: any) => {
-		if (response.status === 200 && response.data && response.data.status === 0) {
+		if (response.status === 200 && response.data) {
 			const {
 				carousel = [],
 				livestreams = [],
@@ -87,7 +89,7 @@ export const fetchArticleSection = (name: string, offset: number = 0, limit: num
 	},
 })
 	.then(response => {
-		if (response.status === 200 && response.data && response.data.status === 0) {
+		if (response.status === 200 && response.data) {
 			const {
 				articles = [],
 				offset: newoffset,
@@ -96,6 +98,26 @@ export const fetchArticleSection = (name: string, offset: number = 0, limit: num
 			return {
 				articles,
 				newoffset,
+			};
+		}
+	})
+	.catch((error: any) => {
+		console.log(error);
+	});
+
+//
+// ─── FETCH LIVE SECTION ─────────────────────────────────────────────────────────
+//
+
+export const fetchLiveSection = () => axios.get(liveSectionUrl())
+	.then((response: any) => {
+		if (response.status === 200 && response.data) {
+			const {
+				streams = [],
+			} = response.data;
+
+			return {
+				streams,
 			};
 		}
 	})
@@ -126,30 +148,6 @@ export const fetchArticleTranscode = (id: string) => axios.get(transcodeUrl(id))
 				publisherName,
 				date,
 				tags,
-			};
-		}
-
-		return [];
-	})
-	.catch((error: any) => {
-		console.log(error);
-	});
-
-
-//
-// ─── FETCH LIVE SECTION ─────────────────────────────────────────────────────────
-//
-
-export const fetchLiveSection = (id: string) => axios.get(liveSectionUrl())
-	.then((response: any) => {
-		if (response.status === 200) {
-			const { lives = [] } = response.data;
-			const currentLive = lives.find(({ id: liveId }: any) => String(liveId) === id);
-			const relativeLives = lives.filter(({ id: liveId }: any) => String(liveId) !== id);
-
-			return {
-				currentLive,
-				relativeLives,
 			};
 		}
 	})

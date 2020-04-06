@@ -169,6 +169,7 @@ const TopStoryCard = (props: any) => {
 					alignItems={'center'}>
 					{articles.map((_: any, index: number) => (
 						<div
+							key={index}
 							className={classes.finger}
 							style={{
 								background: article.index === index ? 'rgb(167, 56, 52)' : '#fff',

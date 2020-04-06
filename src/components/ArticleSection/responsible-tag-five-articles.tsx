@@ -52,7 +52,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 }));
 
-const ResponsibleTagTriple = (props: any) => {
+const ResponsibleTagFive = (props: any) => {
 	const classes = useStyles();
 	const { articles = [] } = props;
 	if (articles.length <= 0) {
@@ -76,8 +76,8 @@ const ResponsibleTagTriple = (props: any) => {
 				flexDirection={'row'}
 				flexWrap={'wrap'}
 				className={classes.othersRoot}>
-				{others.map((article: any) => (
-					<Grid id={article.id} className={classes.others}>
+				{others.map((article: any, index: number) => (
+					<Grid key={index} className={classes.others}>
 						<ArticleCard
 							{...article} />
 					</Grid>
@@ -87,4 +87,4 @@ const ResponsibleTagTriple = (props: any) => {
 	);
 };
 
-export default ResponsibleTagTriple;
+export default ResponsibleTagFive;
