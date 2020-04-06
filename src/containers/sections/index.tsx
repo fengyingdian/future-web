@@ -36,6 +36,7 @@ const Section = (props: any) => {
 		limit,
 		offset,
 		articles,
+		menus,
 	} = props;
 
 	const [state, setstate] = useState({
@@ -87,7 +88,7 @@ const Section = (props: any) => {
 				</title>
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
-				<MenuHeader />
+				<MenuHeader selected={name} menus={menus} />
 				<Container maxWidth={false} className={classes.sectionRoot}>
 					<Title title={name} />
 					{state.pages.map((pageArticles: any, index: number) => (

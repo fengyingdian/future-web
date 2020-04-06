@@ -33,6 +33,7 @@ const Article = (props: any) => {
 	const {
 		title,
 		categoryName,
+		menus,
 	} = props;
 
 	return (
@@ -43,7 +44,7 @@ const Article = (props: any) => {
 				</title>
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
-				<MenuHeader />
+				<MenuHeader selected={categoryName} menus={menus} />
 				<Container maxWidth={false} className={classes.sectionRoot}>
 					<Title title={categoryName} />
 					<ArticleContent {...props} />

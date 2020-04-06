@@ -21,8 +21,8 @@ export const Index = (props: any) => {
 Index.getInitialProps = async ({ req }: any) => {
 	const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
 
-	const menus = await fetchMenus();
-	const data = await fetchHomeFeed();
+	const menus: any = await fetchMenus();
+	const data: any = await fetchHomeFeed();
 
 	return { userAgent, ...data, menus };
 };
