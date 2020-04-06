@@ -149,7 +149,7 @@ const TopStoryCard = (props: any) => {
 				<div style={{ width: '62%' }}>
 					<AutoPlaySwipeableViews
 						axis={'x'}
-						interval={3000}
+						interval={4000}
 						index={article.index}
 						onChangeIndex={handleChange}
 						enableMouseEvents>

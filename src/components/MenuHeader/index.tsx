@@ -23,14 +23,25 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		padding: theme.spacing(0, 3),
 		boxSizing: 'border-box',
+		[theme.breakpoints.down(750)]: {
+			flexDirection: 'column',
+		  justifyContent: 'center',
+		},
 	},
 	logo: {
 		minWidth: 288,
 		width: 288,
+		[theme.breakpoints.down(750)]: {
+			width: 168,
+			minWidth: 168,
+		},
 	},
 	menuBox: {
 		flex: 1,
 		margin: theme.spacing(0, 0, 0, 6),
+		[theme.breakpoints.down(750)]: {
+			margin: theme.spacing(1, 0, 0),
+		},
 	},
 	title: {
 		color: '#fff',
@@ -41,6 +52,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		textAlign: 'center',
 		'&:hover': {
 			textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
+		},
+		[theme.breakpoints.down(750)]: {
+			fontSize: 18,
+			lineHeight: '24px',
 		},
 	},
 	underline: {
