@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => createStyles({
 		cursor: 'pointer',
 	},
 	text: {
-		fontSize: 14,
+		fontSize: 18,
 		color: '#121212',
 		lineHeight: 1.5,
 		wordBreak: 'break-all',
@@ -21,20 +21,11 @@ const useStyles = makeStyles(() => createStyles({
 	},
 }));
 
-const TextNode = ({ text }: any) => {
-	// const { color, size, weight } = appearance;
-	const classes = useStyles();
-
-	return (
-		<span
-			className={
-				classes.text
-			}
-		>
-			{text}
-		</span>
-	);
-};
+const TextNode = ({ text }: any) => (
+	<span>
+		{text}
+	</span>
+);
 
 const ImageNode = (props: any) => {
 	const classes = useStyles();
@@ -46,6 +37,7 @@ const ImageNode = (props: any) => {
 };
 
 const ContentBlock = (props: any) => {
+	const classes = useStyles();
 	const {
 		label = 'ignore',
 		contents = [],
@@ -56,7 +48,7 @@ const ContentBlock = (props: any) => {
 
 	return (
 		<>
-			<p id={label}>
+			<p id={label} className={classes.text}>
 				{contents
 					.filter((content: any) => {
 						if (isTextNode(content)) {
@@ -83,10 +75,15 @@ const ContentBlock = (props: any) => {
 			<style jsx>
 				{`
           #blockquote {
-            background: #f52828;
+            padding: 16px;
+            background: #f8f8f8;
           }
           #figurecaption {
-            background: yellow;
+            align-self: center;
+            color: #999;
+            font-size: 16px;
+            width: 100%;
+            text-align: center;
           }
       `}
 			</style>

@@ -6,7 +6,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Title } from '../../components/ArticleSection/section-article-title';
 import MenuHeader from '../../components/MenuHeader/index';
 import ArticleContent from './components/Render/index';
-import RelativeSection from '../../components/ArticleSection/responsible-tag-relative-section';
+// import RelativeSection from '../../components/ArticleSection/responsible-tag-relative-section';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		padding: theme.spacing(2, 4),
+		padding: theme.spacing(5.5, 4),
 		maxWidth: theme.breakpoints.width('lg'),
 	},
 }));
@@ -33,7 +33,6 @@ const Article = (props: any) => {
 	const {
 		title,
 		categoryName,
-		articles,
 	} = props;
 
 	return (
@@ -48,7 +47,7 @@ const Article = (props: any) => {
 				<Container maxWidth={false} className={classes.sectionRoot}>
 					<Title title={categoryName} />
 					<ArticleContent {...props} />
-				  <RelativeSection articles={articles} />
+				  {/* <RelativeSection articles={articles} /> */}
 				</Container>
 			</Container>
 		</Container>

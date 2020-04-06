@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	info: {
 		fontSize: 9,
-
 		color: '#d8d8d8',
 		margin: theme.spacing(2, 0, 0),
 		fontFamily: 'notoserifcjksc-medium',
