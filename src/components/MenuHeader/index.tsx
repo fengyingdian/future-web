@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		lineHeight: '32px',
 		padding: theme.spacing(0, 1),
 		transition: 'all .3s',
+		textAlign: 'center',
 		'&:hover': {
 			textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
 		},
