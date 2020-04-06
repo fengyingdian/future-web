@@ -56,12 +56,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		lineHeight: 1.5,
 		color: '#898989',
 		margin: theme.spacing(2, 0, 0),
+		fontFamily: 'notoserifcjksc-extralight',
 	},
 	publisher: {
 		fontSize: 12,
 		lineHeight: 1.5,
 		color: '#000',
 		margin: theme.spacing(2, 0, 0),
+		fontFamily: 'notoserifcjksc-medium',
 	},
 }));
 

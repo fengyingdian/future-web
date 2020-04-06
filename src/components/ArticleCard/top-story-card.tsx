@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		maxWidth: '100%',
-		height: 424,
+		height: 354,
 		padding: theme.spacing(3),
 		background: '#fff',
 		borderTop: '4px solid rgb(167, 56, 52)',
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	media: {
 		width: '100%',
 		height: 0,
-		paddingTop: 372,
+		paddingTop: 302,
 	},
 	fingerBox: {
 		position: 'absolute',
@@ -88,11 +88,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		lineHeight: 1.5,
 		margin: theme.spacing(2, 0, 0),
 		color: '#898989',
+		fontFamily: 'notoserifcjksc-extralight',
 	},
 	publisher: {
 		fontSize: 12,
 		margin: theme.spacing(2, 0, 0),
 		color: '#000',
+		fontFamily: 'notoserifcjksc-medium',
 		position: 'absolute',
 		bottom: 0,
 		left: 0,

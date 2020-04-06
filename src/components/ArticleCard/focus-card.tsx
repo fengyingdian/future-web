@@ -47,11 +47,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontWeight: 900,
 		color: '#000',
 		padding: '6px 0 4px',
+		fontFamily: 'notoserifcjksc-bold',
 	},
 	publisher: {
 		fontSize: 10,
 		lineHeight: 1.5,
 		color: '#000',
+		fontFamily: 'notoserifcjksc-medium',
 	},
 }));
 

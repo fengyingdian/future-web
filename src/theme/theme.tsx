@@ -19,10 +19,10 @@ const Theme = createMuiTheme({
 	},
 	typography: {
 		fontFamily: [
-			'Source Han Serif SC',
-			'Source Han Serif CN',
-			'source-han-serif-sc',
-			'noto serif cjk sc',
+			'notoserifcjksc-black',
+			'notoserifcjksc-bold',
+			'notoserifcjksc-medium',
+			'notoserifcjksc-extralight',
 		].join(','),
 		fontSize: 12,
 	},
