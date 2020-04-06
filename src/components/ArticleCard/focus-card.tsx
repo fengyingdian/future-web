@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		flex: 1,
 		fontSize: 13,
-		fontWeight: 900,
+
 		color: '#000',
 		padding: '6px 0 4px',
 		fontFamily: 'notoserifcjksc-bold',

@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tag: {
 		fontSize: 14,
-		fontWeight: 900,
+
 		margin: theme.spacing(0, 1, 0, 0),
 		color: 'rgb(167, 56, 52)',
 	},

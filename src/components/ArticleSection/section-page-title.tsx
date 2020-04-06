@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		fontSize: 28,
-		fontWeight: 900,
+
 		lineHeight: '28px',
 		color: '#000',
 		width: '100%',

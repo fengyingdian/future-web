@@ -13,13 +13,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tag: {
 		fontSize: 16,
-		fontWeight: 900,
+
 		margin: theme.spacing(2, 1, 0, 0),
 		color: 'rgb(167, 56, 52)',
 	},
 	title: {
 		fontSize: 28,
-		fontWeight: 900,
+
 		margin: theme.spacing(2, 0),
 		color: '#000',
 	},

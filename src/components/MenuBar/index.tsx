@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		fontSize: 20,
-		fontWeight: 900,
+
 		boxSizing: 'border-box',
 		color: '#111',
 		padding: theme.spacing(2, 4),

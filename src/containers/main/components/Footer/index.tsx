@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	link: {
 		fontSize: 12,
-		fontWeight: 900,
+
 		lineHeight: '12px',
 		height: 12,
 		padding: theme.spacing(0, 0.5),
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	info: {
 		fontSize: 9,
-		fontWeight: 900,
+
 		color: '#d8d8d8',
 		margin: theme.spacing(2, 0, 0),
 		fontFamily: 'notoserifcjksc-medium',

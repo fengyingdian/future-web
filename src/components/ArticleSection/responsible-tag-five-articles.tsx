@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		  padding: theme.spacing(0, 0, 2),
 		},
 		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(0, 0, 4),
-			padding: theme.spacing(0, 0, 4),
+			margin: theme.spacing(0, 1, 0),
+			padding: theme.spacing(0, 0, 2),
 		},
 		[theme.breakpoints.up('md')]: {
-			padding: theme.spacing(0, 1),
+			padding: theme.spacing(0, 0, 2),
 		},
 	},
 	othersRoot: {
@@ -36,15 +36,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
 			padding: theme.spacing(2, 0, 2),
+			width: '100%',
 		},
 		[theme.breakpoints.up('sm')]: {
+			flex: 1,
+			margin: theme.spacing(0, 0, 2),
 			padding: theme.spacing(0, 1, 0),
-			maxWidth: '50%',
+			minWidth: '50%',
 		},
 		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(0, 0, 0),
-			padding: theme.spacing(0, 1),
-			flex: 1,
+			padding: theme.spacing(0, 1, 0),
+			minWidth: '25%',
 		},
 	},
 }));

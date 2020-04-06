@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		color: '#fff',
 		fontSize: 22,
-		fontWeight: 900,
+
 		lineHeight: '32px',
 		padding: theme.spacing(0),
 		'&:hover': {

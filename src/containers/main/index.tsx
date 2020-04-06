@@ -35,17 +35,30 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		padding: theme.spacing(0, 4, 0),
 		margin: theme.spacing(2, 0, 0),
+		[theme.breakpoints.down(800)]: {
+			flexWrap: 'wrap',
+		},
 	},
 	headerSectionLeft: {
 		flex: 1,
 	},
 	headerSectionRight: {
-		maxWidth: 308,
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		margin: theme.spacing(0, 0, 0, 2),
+		[theme.breakpoints.down(800)]: {
+			width: '100%',
+			margin: theme.spacing(0),
+		},
+		[theme.breakpoints.up(800)]: {
+			margin: theme.spacing(0, 0, 0, 2),
+			maxWidth: '32%',
+		},
+		[theme.breakpoints.up('md')]: {
+			maxWidth: '30%',
+			margin: theme.spacing(0, 0, 0, 2),
+		},
 	},
 	sections: {
 		display: 'flex',

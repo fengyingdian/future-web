@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	header: {
 		fontSize: 28,
-		fontWeight: 900,
+
 		lineHeight: '32px',
 		height: 32,
 		color: '#000',
@@ -79,7 +79,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		fontSize: 26,
-		fontWeight: 900,
 		lineHeight: 1.5,
 		color: '#000',
 	},

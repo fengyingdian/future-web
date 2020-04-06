@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		fontSize: 20,
-		fontWeight: 900,
+
 		lineHeight: 1.5,
 		color: '#000',
 		padding: theme.spacing(0),

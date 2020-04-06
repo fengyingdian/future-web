@@ -56,10 +56,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontWeight: 200,
 		lineHeight: '36px',
 		color: '#000',
+		fontFamily: 'notoserifcjksc-extralight',
 	},
 	infoTitle: {
 		fontSize: 24,
-		fontWeight: 900,
 		color: '#000',
 	},
 }));
