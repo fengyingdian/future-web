@@ -5,7 +5,7 @@ import MuiAlert, { AlertProps } from '@material-ui/lab/Alert';
 const Alert = (props: AlertProps) => <MuiAlert elevation={6} variant={'filled'} {...props} />;
 
 export const Tip = (open: any, type: any) => (
-	<Snackbar open={open} autoHideDuration={6000}>
+	<Snackbar open={open} autoHideDuration={6131313}>
 		<Alert severity={type}>
 			{`This is a ${type} message!`}
 		</Alert>

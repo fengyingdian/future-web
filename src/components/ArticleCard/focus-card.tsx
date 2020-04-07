@@ -45,15 +45,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		flex: 1,
 		fontSize: 13,
-
-		color: '#000',
+		color: '#131313',
 		padding: '6px 0 4px',
-		fontFamily: 'notoserifcjksc-bold',
 	},
 	publisher: {
 		fontSize: 10,
 		lineHeight: 1.5,
-		color: '#000',
+		color: '#131313',
 		fontFamily: 'fangzheng-medium',
 	},
 }));

@@ -83,7 +83,7 @@ const ContentBlock = (props: any) => {
           }
           #figurecaption {
             align-self: center;
-            color: #999;
+            color: #666;
             font-size: 16px;
             width: 100%;
             text-align: center;

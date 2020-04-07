@@ -16,8 +16,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	line: {
 		flex: 1,
-		background: '#898989',
-		height: '1px',
+		background: '#eee',
+		height: 1,
 	},
 }));
 
@@ -77,7 +77,7 @@ export const TagFocus = (props: any) => {
 
 	return (
 		<div className={classes.root} style={{ fontSize: '10px', lineHeight: '10px', padding: '0 0 4px' }}>
-			<div className={classes.tag} style={{ fontFamily: 'notoserifcjksc-bold' }}>
+			<div className={classes.tag} style={{ fontFamily: 'fangzheng-bold' }}>
 				{tag}
 			</div>
 		</div>

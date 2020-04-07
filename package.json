@@ -3,7 +3,7 @@
   "version": "4.0.0",
   "private": true,
   "scripts": {
-    "dev": "next -p 3000",
+    "dev": "next -p 3131313",
     "build": "next build",
     "start": "NODE_ENV=production next start -p 80",
     "export": "next export",

@@ -42,26 +42,27 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	tipsContent: {
 		flex: 1,
 		fontSize: 32,
-
-		color: '#000',
+		color: '#131313',
 	},
 	infoBox: {
 		flex: 1,
 		width: '100%',
-		borderTop: '1px solid #e8e8e8',
-		borderBottom: '1px solid #e8e8e8',
+		borderTop: '1px solid #eee',
+		borderBottom: '1px solid #eee',
 		padding: theme.spacing(3.5, 0),
-	},
-	description: {
-		fontSize: 16,
-		fontWeight: 200,
-		lineHeight: 1.5,
-		color: '#000',
-		fontFamily: 'fangzheng-light',
 	},
 	title: {
 		fontSize: 20,
-		color: '#000',
+		lineHeight: 1.5,
+		color: '#131313',
+	},
+	description: {
+		fontSize: 16,
+
+		lineHeight: 1.5,
+		color: '#666',
+		fontFamily: 'fangzheng-light',
+		margin: theme.spacing(1, 0, 0),
 	},
 }));
 
@@ -70,11 +71,12 @@ const Live = (props: any) => {
 	const { stream = {}, isPlan = false } = props;
 	const {
 		status = 'publish_done',
-		description = '蔚来汽车',
-		title = '北京NIO Day 发布会',
+		description = '',
+		title = '',
 	} = stream;
 	const {
 		overflowLine1,
+		overflowLine2,
 	} = useCommonStyles();
 
 	return (
@@ -95,7 +97,7 @@ const Live = (props: any) => {
 						<div className={classes.tipsIcon} />
 					)}
 					<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-						{isPlan ? '即将直播' : (status === 'publish' ? '直播中' : '直播已结束')}
+						{isPlan ? '直播即将开始' : (status === 'publish' ? '直播中' : '直播已结束')}
 					</Typography>
 				</div>
 				<Box
@@ -104,11 +106,11 @@ const Live = (props: any) => {
 					justifyContent={'center'}
 					alignItems={'flex-start'}
 					className={classes.infoBox}>
-					<Typography className={`${classes.description} ${overflowLine1}`}>
-						{description}
-					</Typography>
 					<Typography className={`${classes.title} ${overflowLine1}`}>
 						{title}
+					</Typography>
+					<Typography className={`${classes.description} ${overflowLine2}`}>
+						{description}
 					</Typography>
 				</Box>
 			</Box>

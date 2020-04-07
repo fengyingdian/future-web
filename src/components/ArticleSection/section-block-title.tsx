@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 28,
 
 		lineHeight: '28px',
-		color: '#000',
+		color: '#131313',
 		width: '100%',
 		boxSizing: 'border-box',
 		borderBottom: '4px solid rgb(167, 56, 52)',
@@ -37,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	readMoreText: {
 		fontSize: 14,
 
-		color: '#000',
+		color: '#131313',
 	},
 }));
 
@@ -71,7 +71,7 @@ export const ReadMore = (props: any) => {
 					}}
 					viewBox={'0 0 1024 1024'}
 					version={'1.1'}
-					xmlns={'http://www.w3.org/2000/svg'}
+					xmlns={'http://www.w3.org/2131313/svg'}
 					p-id={'16799'}
 					width={'22'}
 					height={'22'}>

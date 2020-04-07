@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		padding: theme.spacing(0, 3),
 		boxSizing: 'border-box',
-		[theme.breakpoints.down(750)]: {
+		[theme.breakpoints.down(800)]: {
 			flexDirection: 'column',
 		  justifyContent: 'center',
 		},
@@ -38,22 +38,30 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	menuBox: {
 		flex: 1,
-		margin: theme.spacing(0, 0, 0, 6),
-		[theme.breakpoints.down(750)]: {
-			margin: theme.spacing(1, 0, 0),
+		margin: theme.spacing(1, 0, 0),
+		[theme.breakpoints.up(800)]: {
+			margin: theme.spacing(0, 0, 0, 12),
+		},
+		[theme.breakpoints.up(950)]: {
+			margin: theme.spacing(0, 0, 0, 17),
+		},
+		[theme.breakpoints.up(1100)]: {
+			margin: theme.spacing(0, 0, 0, 27),
 		},
 	},
 	title: {
 		color: '#fff',
-		fontSize: 22,
+		fontSize: 20,
 		lineHeight: '32px',
 		padding: theme.spacing(0, 1),
 		transition: 'all .3s',
 		textAlign: 'center',
+		// fontFamily: 'fangzheng-medium',
 		'&:hover': {
-			textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
+			// textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
+			fontFamily: 'fangzheng-m',
 		},
-		[theme.breakpoints.down(750)]: {
+		[theme.breakpoints.down(800)]: {
 			fontSize: 18,
 			lineHeight: '24px',
 		},

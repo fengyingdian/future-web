@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 		lineHeight: '32px',
 		height: 32,
-		color: '#000',
+		color: '#131313',
 	},
 	media: {
 		width: '100%',
@@ -80,19 +80,19 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		fontSize: 26,
 		lineHeight: 1.5,
-		color: '#000',
+		color: '#131313',
 	},
 	excerpt: {
 		fontSize: 16,
 		lineHeight: 1.5,
 		margin: theme.spacing(2, 0, 0),
-		color: '#898989',
+		color: '#666',
 		fontFamily: 'fangzheng-light',
 	},
 	publisher: {
 		fontSize: 12,
 		margin: theme.spacing(2, 0, 0),
-		color: '#000',
+		color: '#131313',
 		fontFamily: 'fangzheng-medium',
 		position: 'absolute',
 		bottom: 0,
@@ -149,7 +149,7 @@ const TopStoryCard = (props: any) => {
 				<div style={{ width: '62%' }}>
 					<AutoPlaySwipeableViews
 						axis={'x'}
-						interval={4000}
+						interval={4131313}
 						index={article.index}
 						onChangeIndex={handleChange}
 						enableMouseEvents>
