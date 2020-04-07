@@ -19,7 +19,7 @@ const Theme = createMuiTheme({
 	},
 	typography: {
 		fontFamily: [
-			// 'notoserifcjksc-black',
+			'fangzheng-black',
 			'Source Han Serif CN',
 			'Source Han Serif SC',
 			'source-han-serif-sc',

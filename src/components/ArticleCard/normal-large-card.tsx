@@ -9,6 +9,7 @@ import moment from 'moment';
 import { prop } from 'ramda';
 import { TagLarge } from './tag';
 import useCommonStyles from '../../theme/styles';
+import { largeCardCover } from '../../constants/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -66,14 +67,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		lineHeight: 1.5,
 		color: '#898989',
 		margin: theme.spacing(2, 0, 0),
-		fontFamily: 'notoserifcjksc-extralight',
+		fontFamily: 'fangzheng-light',
 	},
 	publisher: {
 		fontSize: 12,
 		lineHeight: 1.5,
 		color: '#000',
 		margin: theme.spacing(2, 0, 0),
-		fontFamily: 'notoserifcjksc-medium',
+		fontFamily: 'fangzheng-medium',
 		position: 'absolute',
 		bottom: 0,
 		left: 0,
@@ -93,14 +94,14 @@ const ArticleCard = (props: any) => {
 	const url = prop('url', cover);
 
 	const [tag] = tags.length > 0 ? tags : [categoryName];
-	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
+	const time = moment(date).format('YYYY/MM/DD');
 
 	return (
 		<Link href={`/articles?category=${categoryName}&id=${id}`} underline={'none'}>
 			<Card className={classes.root}>
 				<CardMedia
 					className={classes.image}
-					image={url}
+					image={url || largeCardCover}
 					title={title}
 				/>
 				<Box
@@ -120,7 +121,7 @@ const ArticleCard = (props: any) => {
 						{excerpt}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-				    {`${publisherName} · ${time}`}
+				    {`${publisherName}·${time}`}
 					</Typography>
 				</Box>
 			</Card>

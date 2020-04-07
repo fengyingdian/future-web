@@ -12,34 +12,35 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		boxSizing: 'border-box',
 	},
-	title: {
-		fontSize: 28,
-		fontWeight: 900,
-		lineHeight: '28px',
-		color: '#000',
-		width: '100%',
-		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb(167, 56, 52)',
-	},
 	tipsBox: {
 		width: '100%',
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		margin: theme.spacing(0, 0, 2),
+		boxSizing: 'border-box',
+		borderBottom: '4px solid rgb(167, 56, 52)',
 	},
 	tipsIcon: {
 		borderRadius: '50%',
 		background: 'rgb(167, 56, 52)',
-		width: '12px',
-		minWidth: '12px',
-		height: '12px',
+		width: 12,
+		minWidth: 12,
+		height: 12,
 		margin: theme.spacing(0, 1.5, 0, 0),
+		[theme.breakpoints.down('sm')]: {
+		  width: 8,
+			minWidth: 8,
+			height: 8,
+			margin: theme.spacing(0, 1, 0, 0),
+		},
 	},
 	tipsContent: {
-		fontSize: 32,
+		fontSize: 28,
 		color: '#000',
+		[theme.breakpoints.down('sm')]: {
+		  fontSize: 20,
+		},
 	},
 }));
 
@@ -57,19 +58,14 @@ export const Title = (props: any) => {
 			flexDirection={'column'}
 			justifyContent={'flex-start'}
 			className={classes.root}>
-			{status === 'publish' && (
-				<div className={classes.tipsBox}>
+			<div className={classes.tipsBox}>
+				{status === 'publish' && (
 					<div className={classes.tipsIcon} />
-					<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-						{'直播中'}
-					</Typography>
-				</div>
-			)}
-			{status === 'publish_done' && (
-				<Typography className={classes.title}>
-					{'直播已结束'}
+				)}
+				<Typography className={`${classes.tipsContent} ${overflowLine1}`}>
+					{status === 'publish' ? '直播中' : '直播已结束' }
 				</Typography>
-			)}
+			</div>
 		</Box>
 	);
 };

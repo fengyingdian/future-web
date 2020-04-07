@@ -16,8 +16,8 @@ const Index = (props: any) => {
 	);
 };
 
-Index.getInitialProps = async () => {
-	// const { name = '' } = query;
+Index.getInitialProps = async ({ query }: any) => {
+	const { sp = 'rtmp' } = query;
 
 	const menus: any = await fetchMenus();
 
@@ -26,6 +26,7 @@ Index.getInitialProps = async () => {
 	return {
 		menus,
 		streams,
+		sp,
 	};
 };
 

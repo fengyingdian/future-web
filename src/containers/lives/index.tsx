@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'center',
 		background: '#f8f8f8',
 		padding: theme.spacing(6, 3),
+		[theme.breakpoints.down('sm')]: {
+			padding: theme.spacing(6, 1),
+		},
 		maxWidth: theme.breakpoints.width('md'),
 	},
 }));
@@ -34,6 +37,7 @@ const Live = (props: any) => {
 		name = '直播',
 		menus = [],
 		streams = [],
+		sp = '',
 	} = props;
 
 	const [stream] = streams;
@@ -51,7 +55,7 @@ const Live = (props: any) => {
 				<MenuHeader selected={name} menus={menus} />
 				<Container maxWidth={false} className={classes.sectionRoot}>
 					<Title status={stream.status} />
-					<LiveSection {...stream} />
+					<LiveSection sp={sp} stream={stream} />
 				</Container>
 			</Container>
 		</Container>

@@ -3,14 +3,14 @@ import {
 	Container, Box, Typography, Link,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { logoWithText } from '../../constants/index';
+import { logoWithText } from '../../constants/logo';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		margin: theme.spacing(0),
-		padding: theme.spacing(1, 0),
+		padding: theme.spacing(0),
 		width: '100%',
-		height: 120,
+		height: 118,
 		boxSizing: 'border-box',
 		background: 'rgb(167, 56, 52)',
 		display: 'flex',
@@ -71,7 +71,7 @@ const herf = (name: string) => {
 		return '/';
 	}
 	if (name === '直播') {
-		return '/lives';
+		return '/lives?sp=rtmp';
 	}
 
 	return `/sections?name=${name}`;

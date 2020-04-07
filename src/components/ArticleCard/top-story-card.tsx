@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		maxWidth: '100%',
-		height: 354,
+		height: 424,
 		padding: theme.spacing(3),
 		background: '#fff',
 		borderTop: '4px solid rgb(167, 56, 52)',
@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	media: {
 		width: '100%',
 		height: 0,
-		paddingTop: 302,
+		paddingTop: 372,
 	},
 	fingerBox: {
 		position: 'absolute',
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	infoBox: {
 		height: '100%',
-		margin: theme.spacing(0, 0, 0, 2),
+		margin: theme.spacing(0, 0, 0, 3),
 		position: 'relative',
 		top: 0,
 		left: 0,
@@ -87,13 +87,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		lineHeight: 1.5,
 		margin: theme.spacing(2, 0, 0),
 		color: '#898989',
-		fontFamily: 'notoserifcjksc-extralight',
+		fontFamily: 'fangzheng-light',
 	},
 	publisher: {
 		fontSize: 12,
 		margin: theme.spacing(2, 0, 0),
 		color: '#000',
-		fontFamily: 'notoserifcjksc-medium',
+		fontFamily: 'fangzheng-medium',
 		position: 'absolute',
 		bottom: 0,
 		left: 0,
@@ -112,7 +112,7 @@ const TopStoryCard = (props: any) => {
 			...articles[0],
 			// tag: articles[0].tags.length > 0 ? articles[0].tags[0] : [categoryName],
 			tag: '要闻',
-			time: moment(articles[0].date).format('YYYY/MM/DD HH:MM:SS'),
+			time: moment(articles[0].date).format('YYYY/MM/DD'),
 		},
 	});
 
@@ -136,7 +136,7 @@ const TopStoryCard = (props: any) => {
 					...item,
 					// tag: item.tags.length > 0 ? item.tags[0] : [categoryName],
 					tag: '要闻',
-					time: moment(item.date).format('YYYY/MM/DD HH:MM:SS'),
+					time: moment(item.date).format('YYYY/MM/DD'),
 				},
 			});
 			setState(1);
@@ -200,7 +200,7 @@ const TopStoryCard = (props: any) => {
 							{article.content.excerpt}
 						</Typography>
 						<Typography className={`${classes.publisher} ${overflowLine1}`}>
-							{`${article.content.publisherName} · ${article.content.time}`}
+							{`${article.content.publisherName}·${article.content.time}`}
 						</Typography>
 					</Box>
 				</Link>

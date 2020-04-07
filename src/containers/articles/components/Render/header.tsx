@@ -17,13 +17,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tag: {
 		fontSize: 16,
-		fontWeight: 900,
+
 		margin: theme.spacing(4.25, 1, 0, 0),
 		color: 'rgb(167, 56, 52)',
 	},
 	title: {
-		fontSize: 28,
-		fontWeight: 900,
+		fontSize: 26,
 		lineHeight: '32px',
 		margin: theme.spacing(3, 0, 0),
 		color: '#000',
@@ -34,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(3, 0, 0),
 		borderBottom: '1px solid #f8f8f8',
 		color: '#000',
-		fontFamily: 'notoserifcjksc-medium',
+		fontFamily: 'fangzheng-medium',
 	},
 	cover: {
 		margin: theme.spacing(4, 6),
@@ -62,7 +61,7 @@ const ArticleRender = (props: any) => {
 		// } = {},
 	} = props;
 	const labels = tags.length > 0 ? tags : [categoryName];
-	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
+	const time = moment(date).format('YYYY/MM/DD');
 
 	return (
 		<Container
@@ -81,7 +80,7 @@ const ArticleRender = (props: any) => {
 				{title}
 			</Typography>
 			<Typography className={classes.subtitle}>
-				{`${publisherName} · ${time}`}
+				{`${publisherName}·${time}`}
 			</Typography>
 			{/* <CardMedia
 				className={classes.cover}

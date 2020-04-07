@@ -35,8 +35,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		// },
 	},
 	image: {
-		width: '74px',
-		height: '74px',
+		width: 73,
+		height: 73,
 	},
 	infoBox: {
 		flex: 1,
@@ -54,7 +54,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 10,
 		lineHeight: 1.5,
 		color: '#000',
-		fontFamily: 'notoserifcjksc-medium',
+		fontFamily: 'fangzheng-medium',
 	},
 }));
 
@@ -71,7 +71,7 @@ const ArticleCard = (props: any) => {
 	const url = prop('url', cover);
 
 	const tag = '要闻';
-	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
+	const time = moment(date).format('YYYY/MM/DD');
 
 	return (
 		<Link href={`/articles?category=${categoryName}&id=${id}`} underline={'none'} style={{ width: '100%' }}>
@@ -93,7 +93,7 @@ const ArticleCard = (props: any) => {
 						{title}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-				    {`${publisherName} · ${time}`}
+				    {`${publisherName}·${time}`}
 					</Typography>
 				</Box>
 			</Card>

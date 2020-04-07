@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'fangzheng-black';
+  font-style: normal;
+  font-weight: normal;
+  src: local('fangzheng-black'), url('https://sapp.flipboard.cn/fabulous/fonts/fangzheng-black.TTF') format('truetype');
+}
+@font-face {
+  font-family: 'fangzheng-bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('fangzheng-bold'), url('https://sapp.flipboard.cn/fabulous/fonts/fangzheng-bold.TTF') format('truetype');
+}
+@font-face {
+  font-family: 'fangzheng-medium';
+  font-style: normal;
+  font-weight: normal;
+  src: local('fangzheng-medium'), url('https://sapp.flipboard.cn/fabulous/fonts/fangzheng-medium.TTF') format('truetype');
+}
+@font-face {
+  font-family: 'fangzheng-light';
+  font-style: normal;
+  font-weight: normal;
+  src: local('fangzheng-light'), url('https://sapp.flipboard.cn/fabulous/fonts/fangzheng-light.TTF') format('truetype');
+}

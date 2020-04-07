@@ -1,23 +1,26 @@
 import { equals, prop } from 'ramda';
 import React from 'react';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const isTextNode = (content: any) => equals('text', prop('type', content));
 // const isImageNode = (content: any) => equals('png', prop('type', content));
 
-const useStyles = makeStyles(() => createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
 		cursor: 'pointer',
 	},
 	text: {
 		fontSize: 18,
-		color: '#121212',
-		lineHeight: 1.5,
+		color: '#666',
+		lineHeight: '32px',
+		margin: theme.spacing(0),
+		fontFamily: 'fangzheng-light',
 		wordBreak: 'break-all',
 	},
 	image: {
 		width: '100%',
+		margin: theme.spacing(2, 0, 0),
 	},
 }));
 

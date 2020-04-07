@@ -13,12 +13,12 @@ import useCommonStyles from '../../theme/styles';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
-		height: '292px',
+		height: 273,
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		alignItems: 'space-between',
-		margin: theme.spacing(3, 0),
+		margin: theme.spacing(2, 0, 0),
 		padding: theme.spacing(3),
 		borderTop: '4px solid rgb(167, 56, 52)',
 		transition: '0.3s',
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	image: {
 		width: '50%',
-		height: '240px',
+		height: 222,
 	},
 	infoBox: {
 		flex: 1,
@@ -67,14 +67,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		lineHeight: 1.5,
 		color: '#898989',
 		margin: theme.spacing(2, 0, 0),
-		fontFamily: 'notoserifcjksc-extralight',
+		fontFamily: 'fangzheng-light',
 	},
 	publisher: {
 		fontSize: 12,
 		lineHeight: 1.5,
 		color: '#000',
 		margin: theme.spacing(2, 0, 0),
-		fontFamily: 'notoserifcjksc-medium',
+		fontFamily: 'fangzheng-medium',
 		position: 'absolute',
 		bottom: 0,
 		left: 0,
@@ -91,13 +91,13 @@ const ArticleCard = (props: any) => {
 	} = useCommonStyles();
 
 	const {
-		cover = null, title = '', excerpt = '', id = '', categoryName = '', date = '', publisherName = '',
+		cover = null, tags, title = '', excerpt = '', id = '', categoryName = '', date = '', publisherName = '',
 	} = props;
 
 	const url = prop('url', cover);
 
-	const tag = '要闻';
-	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
+	const tag = tags.length > 0 ? tags : [categoryName];
+	const time = moment(date).format('YYYY/MM/DD');
 
 	return (
 		<Link href={`/articles?category=${categoryName}&id=${id}`} underline={'none'}>
@@ -119,7 +119,7 @@ const ArticleCard = (props: any) => {
 						{excerpt}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-				    {`${publisherName} · ${time}`}
+				    {`${publisherName}·${time}`}
 					</Typography>
 				</Box>
 				<CardMedia

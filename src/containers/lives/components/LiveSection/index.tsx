@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		fontSize: 28,
 		lineHeight: '40px',
-		fontWeight: 900,
+
 		color: '#000',
 		margin: theme.spacing(2, 0, 0),
 	},
@@ -48,11 +48,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const LiveSection = (props: any) => {
 	const classes = useStyles();
+	const { sp = '', stream = {} } = props;
 	const {
 		status = 'publish_done',
 		title = '',
 		description = '',
-	} = props;
+		play: {
+			lsd: {
+				rtmp = '',
+				m3u8 = '',
+			} = {},
+		} = {},
+	} = stream;
 
 	useEffect(() => {
 		if (Aliplayer) {
@@ -61,7 +68,7 @@ const LiveSection = (props: any) => {
 				width: '100%',
 				autoplay: true,
 				isLive: true,
-				source: '',
+				source: sp === 'm3u8' ? m3u8 : rtmp,
 			}, (() => {
 				console.log('player loaded', player);
 			}));

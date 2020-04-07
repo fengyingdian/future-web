@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		background: '#f8f8f8',
 	},
 	menuHeader: {
-		margin: theme.spacing(0, 0, 1),
+		margin: theme.spacing(0),
 		opacity: (props: any) => props.opacity,
 		width: '100%',
 	},
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: theme.breakpoints.width('lg'),
 		width: '100%',
 		padding: theme.spacing(0, 4, 0),
-		margin: theme.spacing(2, 0, 0),
+		margin: theme.spacing(5, 0, 0),
 		[theme.breakpoints.down(800)]: {
 			flexWrap: 'wrap',
 		},

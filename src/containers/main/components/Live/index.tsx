@@ -1,8 +1,6 @@
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import {
-	Link, Typography,
-} from '@material-ui/core';
+import { Link, Typography, Box } from '@material-ui/core';
 import useCommonStyles from '../../../../theme/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -10,8 +8,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		borderTop: '4px solid rgb(167, 56, 52)',
 		margin: theme.spacing(0, 0, 2),
-		padding: theme.spacing(5.5, 5.5),
+		padding: theme.spacing(5, 5.25),
 		background: '#fff',
+		height: 295,
 		transition: 'all .3s',
 		'&:hover': {
 			transform: 'translateY(-3px)',
@@ -41,24 +40,27 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(0, 1.5, 0, 0),
 	},
 	tipsContent: {
+		flex: 1,
 		fontSize: 32,
+
 		color: '#000',
 	},
 	infoBox: {
+		flex: 1,
 		width: '100%',
 		borderTop: '1px solid #e8e8e8',
 		borderBottom: '1px solid #e8e8e8',
 		padding: theme.spacing(3.5, 0),
 	},
 	description: {
-		fontSize: 24,
+		fontSize: 16,
 		fontWeight: 200,
-		lineHeight: '36px',
+		lineHeight: 1.5,
 		color: '#000',
-		fontFamily: 'notoserifcjksc-extralight',
+		fontFamily: 'fangzheng-light',
 	},
 	title: {
-		fontSize: 24,
+		fontSize: 20,
 		color: '#000',
 	},
 }));
@@ -76,8 +78,18 @@ const Live = (props: any) => {
 	} = useCommonStyles();
 
 	return (
-		<Link href={'/lives'} className={classes.root} underline={'none'}>
-			<div>
+		<Link
+			style={{
+				width: '100%',
+			}}
+			href={'/lives?sp=rtmp'}
+			underline={'none'}>
+			<Box
+				display={'flex'}
+				flexDirection={'column'}
+				justifyContent={'center'}
+				alignItems={'flex-start'}
+				className={classes.root}>
 				{status === 'publish' && (
 					<div className={classes.tipsBox}>
 						<div className={classes.tipsIcon} />
@@ -93,15 +105,20 @@ const Live = (props: any) => {
 						</Typography>
 					</div>
 				)}
-				<div className={classes.infoBox}>
+				<Box
+					display={'flex'}
+					flexDirection={'column'}
+					justifyContent={'center'}
+					alignItems={'flex-start'}
+					className={classes.infoBox}>
 					<Typography className={`${classes.description} ${overflowLine1}`}>
 						{description}
 					</Typography>
 					<Typography className={`${classes.title} ${overflowLine1}`}>
 						{title}
 					</Typography>
-				</div>
-			</div>
+				</Box>
+			</Box>
 		</Link>
 	);
 };
