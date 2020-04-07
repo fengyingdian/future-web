@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import {
@@ -8,6 +10,7 @@ import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import { TagLarge } from './tag';
 import useCommonStyles from '../../theme/styles';
+import { leftArrow, rightArrow } from '../../constants';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -46,6 +49,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		height: 32,
 		color: '#131313',
 	},
+	mediaBox: {
+		width: '62%',
+		position: 'relative',
+		top: 0,
+		left: 0,
+	},
 	media: {
 		width: '100%',
 		height: 0,
@@ -57,14 +66,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		left: 44,
 	},
 	finger: {
-		width: 8,
-		minWidth: 8,
-		height: 8,
-		margin: '0 17px 0 0',
+		width: 4,
+		minWidth: 4,
+		height: 4,
+		margin: theme.spacing(0, 1, 0, 0),
 		background: '#fff',
 		transition: 'all .5s',
 	},
 	infoBox: {
+		flex: 1,
 		height: '100%',
 		margin: theme.spacing(0, 0, 0, 3),
 		position: 'relative',
@@ -97,6 +107,20 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		position: 'absolute',
 		bottom: 0,
 		left: 0,
+	},
+	leftArrow: {
+		width: 24,
+		height: 43,
+		position: 'absolute',
+		top: 163,
+		left: 0,
+	},
+	rightArrow: {
+		width: 24,
+		height: 43,
+		position: 'absolute',
+		top: 163,
+		right: 0,
 	},
 }));
 
@@ -144,9 +168,12 @@ const TopStoryCard = (props: any) => {
 	};
 
 	return (
-		<>
+		<Link
+			href={`/articles?category=${categoryName}&id=${article.content.id}`}
+			underline={'none'}
+			style={{ flex: 1 }}>
 			<Box className={classes.root}>
-				<div style={{ width: '62%' }}>
+				<div className={classes.mediaBox}>
 					<AutoPlaySwipeableViews
 						axis={'x'}
 						interval={4131313}
@@ -162,6 +189,24 @@ const TopStoryCard = (props: any) => {
 							</div>
 						))}
 					</AutoPlaySwipeableViews>
+					<img
+						onClick={(e: any) => {
+							e.stopPropagation();
+							e.preventDefault();
+							handleChange(article.index > 0 ? article.index - 1 : articles.length - 1);
+						}}
+						src={leftArrow}
+						alt={''}
+						className={classes.leftArrow} />
+					<img
+						onClick={(e: any) => {
+							e.stopPropagation();
+							e.preventDefault();
+							handleChange(article.index < articles.length - 1 ? article.index + 1 : 0);
+						}}
+						src={rightArrow}
+						alt={''}
+						className={classes.rightArrow} />
 				</div>
 				<Box
 					className={classes.fingerBox}
@@ -178,34 +223,29 @@ const TopStoryCard = (props: any) => {
 							}} />
 					)) }
 				</Box>
-				<Link
-					href={`/articles?category=${categoryName}&id=${article.content.id}`}
-					underline={'none'}
-					style={{ flex: 1 }}>
-					<Box
-						display={'flex'}
-						flexDirection={'column'}
-						justifyContent={'center'}
-						alignItems={'flex-start'}
-						flexWrap={'nowrap'}
-						className={classes.infoBox}
-						style={{ transition: 'all .3s', opacity: state }}>
-						<div className={classes.tag}>
+				<Box
+					display={'flex'}
+					flexDirection={'column'}
+					justifyContent={'center'}
+					alignItems={'flex-start'}
+					flexWrap={'nowrap'}
+					className={classes.infoBox}
+					style={{ transition: 'all .3s', opacity: state }}>
+					<div className={classes.tag}>
 						  {article.content.tag && (<TagLarge tag={article.content.tag} />)}
-						</div>
-						<Typography className={`${classes.title} ${overflowLine2}`}>
-							{article.content.title}
-						</Typography>
-						<Typography className={`${classes.excerpt} ${overflowLine2}`}>
-							{article.content.excerpt}
-						</Typography>
-						<Typography className={`${classes.publisher} ${overflowLine1}`}>
-							{`${article.content.publisherName}·${article.content.time}`}
-						</Typography>
-					</Box>
-				</Link>
+					</div>
+					<Typography className={`${classes.title} ${overflowLine2}`}>
+						{article.content.title}
+					</Typography>
+					<Typography className={`${classes.excerpt} ${overflowLine2}`}>
+						{article.content.excerpt}
+					</Typography>
+					<Typography className={`${classes.publisher} ${overflowLine1}`}>
+						{`${article.content.publisherName}·${article.content.time}`}
+					</Typography>
+				</Box>
 			</Box>
-		</>
+		</Link>
 	);
 };
 
