@@ -6,6 +6,7 @@ import {
 	Card, CardMedia, Link, Box,
 } from '@material-ui/core';
 import moment from 'moment';
+import { prop } from 'ramda';
 import { TagFocus } from './tag';
 import useCommonStyles from '../../theme/styles';
 
@@ -64,11 +65,11 @@ const ArticleCard = (props: any) => {
 	} = useCommonStyles();
 
 	const {
-		cover: {
-			url = '',
-		} = {}, title = '', id = '', categoryName = '', date = '', publisherName = '',
+		cover = null, title = '', id = '', categoryName = '', date = '', publisherName = '',
 	} = props;
-	// const [tag] = tags.length > 0 ? tags : [categoryName];
+
+	const url = prop('url', cover);
+
 	const tag = '要闻';
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 
