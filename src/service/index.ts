@@ -92,7 +92,7 @@ export const fetchArticleSection = (name: string, offset: number = 0, limit: num
 		if (response.status === 200 && response.data) {
 			const {
 				articles = [],
-				offset: newoffset,
+				offset: newoffset = 0,
 			} = response.data;
 
 			return {

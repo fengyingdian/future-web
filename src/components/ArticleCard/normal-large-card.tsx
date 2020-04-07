@@ -6,6 +6,7 @@ import {
 	Card, CardMedia, Link, Box,
 } from '@material-ui/core';
 import moment from 'moment';
+import { prop } from 'ramda';
 import { TagLarge } from './tag';
 import useCommonStyles from '../../theme/styles';
 
@@ -86,10 +87,11 @@ const ArticleCard = (props: any) => {
 	} = useCommonStyles({ line: 2 });
 
 	const {
-		cover: {
-			url = '',
-		} = {}, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
+		cover = null, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
 	} = props;
+
+	const url = prop('url', cover);
+
 	const [tag] = tags.length > 0 ? tags : [categoryName];
 	const time = moment(date).format('YYYY/MM/DD HH:mm:ss');
 

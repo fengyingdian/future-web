@@ -157,7 +157,7 @@ const TopStoryCard = (props: any) => {
 							<div key={item.title}>
 								<CardMedia
 									className={classes.media}
-									image={item.cover && item.cover.url}
+									image={(item.cover && item.cover.url) || ''}
 									title={article.content.title} />
 							</div>
 						))}

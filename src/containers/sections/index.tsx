@@ -39,8 +39,6 @@ const Section = (props: any) => {
 		menus,
 	} = props;
 
-	console.log({ menus, name });
-
 	const { displayName } = menus.find(({ name: menuName }: any) => name === menuName);
 
 	const [state, setstate] = useState({
@@ -63,13 +61,15 @@ const Section = (props: any) => {
 			articles: newArticles,
 			newoffset,
 		}: any = await fetchArticleSection(name, state.offset, limit);
-		setstate({
-			pages: [
-				...state.pages,
-				newArticles,
-			],
-			offset: newoffset,
-		});
+		if (articles.length === limit) {
+			setstate({
+				pages: [
+					...state.pages,
+					newArticles,
+				],
+				offset: newoffset,
+			});
+		}
 	};
 
 	const bindScroll = () => {

@@ -115,8 +115,6 @@ const Main = (props: Props) => {
 
 	const [stream] = livestreams;
 
-	console.log({ sections });
-
 	return (
 		<Container maxWidth={false} className={classes.root}>
 			<div id={'page-top-header'} className={classes.menuHeader}>
