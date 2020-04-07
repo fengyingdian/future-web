@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tag: {
 		fontSize: 14,
-
 		margin: theme.spacing(0, 1, 0, 0),
 		color: 'rgb(167, 56, 52)',
 	},
@@ -93,6 +92,22 @@ export const Tag = (props: any) => {
 
 	return (
 		<div className={classes.root} style={{ padding: '16px 0 0' }}>
+			<div className={classes.tag}>
+				{tag}
+			</div>
+			<div className={classes.line} />
+		</div>
+	);
+};
+
+export const TagNoCover = (props: any) => {
+	const classes = useStyles();
+	const {
+		tag = '',
+	} = props;
+
+	return (
+		<div className={classes.root} style={{ padding: '0' }}>
 			<div className={classes.tag}>
 				{tag}
 			</div>

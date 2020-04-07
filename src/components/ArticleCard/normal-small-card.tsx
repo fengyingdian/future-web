@@ -7,19 +7,24 @@ import {
 } from '@material-ui/core';
 import moment from 'moment';
 import { prop } from 'ramda';
-import { Tag } from './tag';
+import { Tag, TagNoCover } from './tag';
 import useCommonStyles from '../../theme/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		maxWidth: '100%',
-		margin: theme.spacing(0, 0, 0),
+		width: '100%',
+		margin: theme.spacing(0),
 		padding: theme.spacing(3),
+		boxSizing: 'border-box',
 		transition: '0.3s',
 		boxShadow: '0 0 0',
 		border: 0,
 		borderRadius: 0,
 		background: '#fff',
+		// display: 'flex',
+		// flexDirection: 'column',
+		// justifyContent: 'center',
+		// alignItems: 'flex-start',
 		'&:hover': {
 			transform: 'translateY(-3px)',
 			background: '#e8e8e8',
@@ -34,11 +39,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	image: {
 		height: 0,
-		paddingTop: '65.6%',
+		paddingTop: '56%',
 	},
 	title: {
 		fontSize: 18,
-
 		lineHeight: 1.5,
 		color: '#000',
 		height: '54px',
@@ -61,8 +65,36 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 }));
 
+const useExtraStyles = makeStyles(() => createStyles({
+	root: {
+		display: 'flex',
+		flexDirection: 'column',
+		justifyContent: 'center',
+		alignItems: 'flex-start',
+		width: '100%',
+		height: '100%',
+		minHeight: 250,
+		position: 'relative',
+		top: 0,
+		left: 0,
+	},
+	tag: {
+		width: '100%',
+		position: 'absolute',
+		top: 0,
+		left: 0,
+	},
+	publisher: {
+		position: 'absolute',
+		left: 0,
+		bottom: 0,
+	},
+}));
+
 const ArticleCard = (props: any) => {
 	const classes = useStyles();
+	const extraClasses = useExtraStyles();
+
 	const {
 		overflowLine1, overflowLine2,
 	} = useCommonStyles({ line: 2 });
@@ -78,23 +110,47 @@ const ArticleCard = (props: any) => {
 
 	return (
 		<Link href={`/articles?category=${categoryName}&id=${id}`} underline={'none'}>
-			<Card className={classes.root}>
-				<CardMedia
-					className={classes.image}
-					image={url}
-					title={title}
-				/>
-				{tag && (<Tag tag={tag} />)}
-				<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
-					{title}
-				</Typography>
-				<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
-					{excerpt}
-				</Typography>
-				<Typography className={`${classes.publisher} ${overflowLine1}`}>
-					{`${publisherName} · ${time}`}
-				</Typography>
-			</Card>
+			{url && (
+				<Card className={classes.root}>
+					<CardMedia
+						className={classes.image}
+						image={url}
+						title={title}
+					/>
+					{tag && (<Tag tag={tag} />)}
+					<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
+						{title}
+					</Typography>
+					<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
+						{excerpt}
+					</Typography>
+					<Typography className={`${classes.publisher} ${overflowLine1}`}>
+						{`${publisherName} · ${time}`}
+					</Typography>
+				</Card>
+			)}
+			{!url && (
+				<div
+					className={classes.root}
+					style={{
+						height: '100%',
+					}}>
+					<div className={extraClasses.root}>
+						<div className={extraClasses.tag}>
+							{tag && (<TagNoCover tag={tag} />)}
+						</div>
+						<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
+							{title}
+						</Typography>
+						<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
+							{excerpt}
+						</Typography>
+						<Typography className={`${classes.publisher} ${overflowLine1} ${extraClasses.publisher}`}>
+							{`${publisherName} · ${time}`}
+						</Typography>
+					</div>
+				</div>
+			)}
 		</Link>
 	);
 };
