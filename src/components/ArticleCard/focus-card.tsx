@@ -63,12 +63,12 @@ const ArticleCard = (props: any) => {
 	} = useCommonStyles();
 
 	const {
-		cover = null, title = '', id = '', categoryName = '', date = '', publisherName = '',
+		tags = [], cover = null, title = '', id = '', categoryName = '', date = '', publisherName = '',
 	} = props;
 
 	const url = prop('url', cover);
 
-	const tag = '要闻';
+	const [tag] = tags.length > 0 ? tags : [categoryName];
 	const time = moment(date).format('YYYY/MM/DD');
 
 	return (

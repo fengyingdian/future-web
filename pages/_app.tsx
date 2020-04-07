@@ -33,8 +33,8 @@ export default class MyApp extends App {
 					<meta name={'referrer'} content={'origin'} />
 					<meta name={'renderer'} content={'webkit'} />
 					<meta name={'wap-font-scale'} content={'no'} />
-					<link rel={'SHORTCUT ICON'} href={'favicon.ico'} type={'image/icon'} />
-					<link rel={'ICON'} href={'favicon.ico'} type={'image/ico'} />
+					<link rel={'SHORTCUT ICON'} href={'https://sapp.flipboard.cn/fabulous/assets/favicon.ico'} type={'image/icon'} />
+					<link rel={'ICON'} href={'https://sapp.flipboard.cn/fabulous/assets/favicon.ico'} type={'image/ico'} />
 					<link rel={'shortcut icon'} href={'/1616.ico'} />
 					<link rel={'stylesheet'} href={'https://g.alicdn.com/de/prismplayer/2.8.2/skins/default/aliplayer-min.css'} />
 					<link rel={'stylesheet'} href={'https://sapp.flipboard.cn/fabulous/fonts/fangzheng.css'} />

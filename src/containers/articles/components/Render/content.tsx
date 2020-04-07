@@ -11,10 +11,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		cursor: 'pointer',
 	},
 	text: {
-		fontSize: 18,
+		fontSize: 16,
 		color: '#666',
-		lineHeight: '32px',
-		margin: theme.spacing(0),
+		lineHeight: 2,
 		fontFamily: 'fangzheng-light',
 		wordBreak: 'break-all',
 	},
@@ -51,7 +50,12 @@ const ContentBlock = (props: any) => {
 
 	return (
 		<>
-			<p id={label} className={classes.text}>
+			<p
+				id={label}
+				className={classes.text}
+				style={{
+					margin: '0 0 28px',
+				}}>
 				{contents
 					.filter((content: any) => {
 						if (isTextNode(content)) {

@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 12,
 		width: '100%',
 		margin: theme.spacing(3, 0, 0),
-		borderBottom: '1px solid #f8f8f8',
+		borderBottom: '1px solid #eee',
 		color: '#131313',
 		fontFamily: 'fangzheng-medium',
 	},

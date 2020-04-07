@@ -176,7 +176,7 @@ const TopStoryCard = (props: any) => {
 				<div className={classes.mediaBox}>
 					<AutoPlaySwipeableViews
 						axis={'x'}
-						interval={4131313}
+						interval={3000}
 						index={article.index}
 						onChangeIndex={handleChange}
 						enableMouseEvents>
