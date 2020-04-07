@@ -10,6 +10,7 @@ import TopStoryBottomCard from '../../components/ArticleCard/top-story-bottom-ca
 import Live from './components/Live/index';
 import Focus from './components/Focus/index';
 import Footer from './components/Footer/index';
+import { getStream } from '../../utils/live';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -113,19 +114,7 @@ const Main = (props: Props) => {
 		sections = [],
 	} = props;
 
-	const stream = (() => {
-		if (livestreams.length) {
-			const publishing = livestreams.filter(({ status = 'publish' }: any) => status === 'publish');
-			if (publishing.length) {
-				return publishing[0];
-			}
-
-			return livestreams[0];
-		}
-
-		return {};
-	})();
-
+	const { stream = {}, isPlan = false } = getStream(livestreams);
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
@@ -143,7 +132,7 @@ const Main = (props: Props) => {
 					<TopStoryBottomCard {...hotnews[7]} />
 				</div>
 				<div className={classes.headerSectionRight}>
-					<Live {...stream} />
+					<Live stream={stream} isPlan={isPlan} />
 					<Focus articles={hotnews} />
 				</div>
 			</div>

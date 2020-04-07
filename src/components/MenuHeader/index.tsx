@@ -71,7 +71,7 @@ const herf = (name: string) => {
 		return '/';
 	}
 	if (name === '直播') {
-		return '/lives?sp=rtmp';
+		return '/lives?sp=m3u8';
 	}
 
 	return `/sections?name=${name}`;

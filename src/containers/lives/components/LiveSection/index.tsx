@@ -5,6 +5,7 @@ import {
 	Box, Container, Typography, CardMedia,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { liveBkCover } from '../../../../constants/index';
 
 declare const Aliplayer: any;
 
@@ -97,7 +98,7 @@ const LiveSection = (props: any) => {
 						style={{
 							height: '100%',
 						}}
-						image={'https://flipboard-cn-webapp.oss-cn-hangzhou.aliyuncs.com/assets/bk-a.jpg'} />
+						image={liveBkCover} />
 				)}
 			</Box>
 			<Typography className={classes.title}>

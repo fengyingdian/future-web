@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 export const Title = (props: any) => {
 	const classes = useStyles();
-	const { status = 'publish_done' } = props;
+	const { status = 'publish_done', isPlan = false } = props;
 
 	const {
 		overflowLine1,
@@ -63,7 +63,7 @@ export const Title = (props: any) => {
 					<div className={classes.tipsIcon} />
 				)}
 				<Typography className={`${classes.tipsContent} ${overflowLine1}`}>
-					{status === 'publish' ? '直播中' : '直播已结束' }
+					{isPlan ? '即将直播' : (status === 'publish' ? '直播中' : '直播已结束') }
 				</Typography>
 			</div>
 		</Box>

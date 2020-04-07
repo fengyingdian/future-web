@@ -67,11 +67,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const Live = (props: any) => {
 	const classes = useStyles();
+	const { stream = {}, isPlan = false } = props;
 	const {
 		status = 'publish_done',
 		description = '蔚来汽车',
 		title = '北京NIO Day 发布会',
-	} = props;
+	} = stream;
 	const {
 		overflowLine1,
 	} = useCommonStyles();
@@ -81,7 +82,7 @@ const Live = (props: any) => {
 			style={{
 				width: '100%',
 			}}
-			href={'/lives?sp=rtmp'}
+			href={'/lives?sp=m3u8'}
 			underline={'none'}>
 			<Box
 				display={'flex'}
@@ -89,21 +90,14 @@ const Live = (props: any) => {
 				justifyContent={'center'}
 				alignItems={'flex-start'}
 				className={classes.root}>
-				{status === 'publish' && (
-					<div className={classes.tipsBox}>
+				<div className={classes.tipsBox}>
+					{status === 'publish' && (
 						<div className={classes.tipsIcon} />
-						<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-							{'直播中'}
-						</Typography>
-					</div>
-				)}
-				{status === 'publish_done' && (
-					<div className={classes.tipsBox}>
-						<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-							{'直播已结束'}
-						</Typography>
-					</div>
-				)}
+					)}
+					<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
+						{isPlan ? '即将直播' : (status === 'publish' ? '直播中' : '直播已结束')}
+					</Typography>
+				</div>
 				<Box
 					display={'flex'}
 					flexDirection={'column'}

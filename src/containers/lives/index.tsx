@@ -6,6 +6,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Title } from './components/LiveSection/title';
 import MenuHeader from '../../components/MenuHeader/index';
 import LiveSection from './components/LiveSection/index';
+import { getStream } from '../../utils/live';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -40,18 +41,10 @@ const Live = (props: any) => {
 		sp = '',
 	} = props;
 
-	const stream = (() => {
-		if (streams.length) {
-			const publishing = streams.filter(({ status = 'publish' }: any) => status === 'publish');
-			if (publishing.length) {
-				return publishing[0];
-			}
-
-			return streams[0];
-		}
-
-		return {};
-	})();
+	const {
+		stream = {},
+		isPlan = false,
+	} = getStream(streams);
 
 	useEffect(() => () => { });
 
@@ -65,7 +58,7 @@ const Live = (props: any) => {
 			<Container maxWidth={false} className={classes.root}>
 				<MenuHeader selected={name} menus={menus} />
 				<Container maxWidth={false} className={classes.sectionRoot}>
-					<Title status={stream.status} />
+					<Title status={stream.status} isPlan={isPlan} />
 					<LiveSection sp={sp} stream={stream} />
 				</Container>
 			</Container>
