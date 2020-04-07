@@ -40,7 +40,18 @@ const Live = (props: any) => {
 		sp = '',
 	} = props;
 
-	const [stream] = streams;
+	const stream = (() => {
+		if (streams.length) {
+			const publishing = streams.filter(({ status = 'publish' }: any) => status === 'publish');
+			if (publishing.length) {
+				return publishing[0];
+			}
+
+			return streams[0];
+		}
+
+		return {};
+	})();
 
 	useEffect(() => () => { });
 

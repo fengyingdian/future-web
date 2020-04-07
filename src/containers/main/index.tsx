@@ -113,7 +113,19 @@ const Main = (props: Props) => {
 		sections = [],
 	} = props;
 
-	const [stream] = livestreams;
+	const stream = (() => {
+		if (livestreams.length) {
+			const publishing = livestreams.filter(({ status = 'publish' }: any) => status === 'publish');
+			if (publishing.length) {
+				return publishing[0];
+			}
+
+			return livestreams[0];
+		}
+
+		return {};
+	})();
+
 
 	return (
 		<Container maxWidth={false} className={classes.root}>

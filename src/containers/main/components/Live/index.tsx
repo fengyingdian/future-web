@@ -71,7 +71,6 @@ const Live = (props: any) => {
 		status = 'publish_done',
 		description = '蔚来汽车',
 		title = '北京NIO Day 发布会',
-
 	} = props;
 	const {
 		overflowLine1,
