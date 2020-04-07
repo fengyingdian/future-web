@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(0, 0, 2),
 		padding: theme.spacing(5, 5.25),
 		background: '#fff',
-		height: 295,
+		height: 291,
 		transition: 'all .3s',
 		'&:hover': {
 			transform: 'translateY(-3px)',
