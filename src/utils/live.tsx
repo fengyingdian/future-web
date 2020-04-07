@@ -3,7 +3,7 @@ export const getStream = (livestreams: any) => {
 		const publishing = livestreams.filter(({ status = 'publish' }: any) => status === 'publish');
 		if (publishing.length) {
 			return {
-				strem: publishing[0],
+				stream: publishing[0],
 				isPlan: false,
 			};
 		}
