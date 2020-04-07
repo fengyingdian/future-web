@@ -10,7 +10,7 @@ export const getStream = (livestreams: any) => {
 		const planing = livestreams.filter(({ plan }: any) => !!plan && new Date(plan).getTime() > new Date().getTime());
 		if (planing.length) {
 			// eslint-disable-next-line max-len
-			const sorted = planing.sort(({ plan: planA }: any, { plan: planB }: any) => new Date(planA).getTime() < new Date(planB).getTime());
+			const sorted = planing.sort(({ plan: planA }: any, { plan: planB }: any) => new Date(planA).getTime() > new Date(planB).getTime());
 
 			return {
 				stream: sorted[0],

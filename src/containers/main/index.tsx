@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { TopDownAction } from '../../action-components/MountAction/top-down-action';
 import ResponsibleTagSection from '../../components/ArticleSection/responsible-tag-five-section';
 import MenuHeader from '../../components/MenuHeader/index';
 import TopStoryCard from '../../components/ArticleCard/top-story-card';
@@ -120,9 +119,7 @@ const Main = (props: Props) => {
 		<Container maxWidth={false} className={classes.root}>
 			<div id={'page-top-header'} className={classes.menuHeader}>
 				<NoSsr>
-					<TopDownAction>
-						<MenuHeader menus={menus} selected={'首页'} />
-					</TopDownAction>
+					<MenuHeader menus={menus} selected={'首页'} />
 				</NoSsr>
 			</div>
 			<div className={classes.headerSection}>
