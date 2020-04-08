@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 
 const LiveSection = (props: any) => {
 	const classes = useStyles();
-	const { sp = '', stream = {} } = props;
+	const { stream = {} } = props;
 	const {
 		status = 'publish_done',
 		title = '',
@@ -56,7 +56,7 @@ const LiveSection = (props: any) => {
 		play: {
 			lsd: {
 				rtmp = '',
-				m3u8 = '',
+				// m3u8 = '',
 			} = {},
 		} = {},
 	} = stream;
@@ -68,12 +68,15 @@ const LiveSection = (props: any) => {
 				width: '100%',
 				autoplay: true,
 				isLive: true,
-				source: sp === 'm3u8' ? m3u8 : rtmp,
+				// source: sp === 'm3u8' ? m3u8 : rtmp,
+				source: 'https://video1.flipboard.cn/prod/1586278173_lsd.m3u8?auth_key=1586335433-0-0-49a61bf8b124daec59accc23d6a54f27',
 			}, (() => {
 				console.log('player loaded', player);
 			}));
 		}
 	});
+
+	console.log({ rtmp });
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
