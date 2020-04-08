@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		border: 0,
 		borderRadius: 0,
 		background: '#fff',
+		height: 105,
 		// '&:hover': {
 		// 	background: '#e8e8e8',
 		// 	// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',

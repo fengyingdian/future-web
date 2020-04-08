@@ -76,8 +76,8 @@ export const TagFocus = (props: any) => {
 	} = props;
 
 	return (
-		<div className={classes.root} style={{ fontSize: '10px', lineHeight: '10px', padding: '0 0 4px' }}>
-			<div className={classes.tag} style={{ fontFamily: 'fangzheng-bold' }}>
+		<div className={classes.root}>
+			<div className={classes.tag} style={{ fontSize: '10px', lineHeight: '10px', fontFamily: 'fangzheng-bold' }}>
 				{tag}
 			</div>
 		</div>

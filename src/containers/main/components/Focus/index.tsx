@@ -39,7 +39,7 @@ const Focus = (props: any) => {
 					<div
 						key={article.id}
 						className={classes.article}
-						style={{ borderBottom: `${index < 5 ? '1px solid #d8d8d8' : ''}` }}>
+						style={{ borderBottom: `${index < 5 ? '1px solid #eee' : ''}` }}>
 						<ArticleCard {...article} />
 					</div>
 				))}
