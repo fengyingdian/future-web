@@ -21,36 +21,23 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		maxWidth: '100%',
 		height: 424,
-		padding: theme.spacing(3),
 		background: '#fff',
-		borderTop: '4px solid rgb(167, 56, 52)',
+		borderTop: '4px solid rgb( 206, 65, 39)',
 		borderRadius: 0,
 		border: '',
 		transition: '0.3s',
 		position: 'relative',
 		top: 0,
 		left: 0,
-		// '&:hover': {
-		// 	transform: 'translateY(-3px)',
-		// 	background: '#e8e8e8',
-		// 	// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
-		// 	'& #title': {
-		// 		// color: '#fff',
-		// 	},
-		// 	'& #excerpt': {
-		// 		// color: '#e8e8e8',
-		// 	},
-		// },
-	},
-	header: {
-		fontSize: 28,
-
-		lineHeight: '32px',
-		height: 32,
-		color: '#131313',
+		[theme.breakpoints.down(800)]: {
+			padding: theme.spacing(2.5),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(3),
+		},
 	},
 	mediaBox: {
-		width: '62%',
+		width: '60%',
 		position: 'relative',
 		top: 0,
 		left: 0,
@@ -58,7 +45,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	media: {
 		width: '100%',
 		height: 0,
-		paddingTop: 372,
+		[theme.breakpoints.down(800)]: {
+			paddingTop: 380,
+		},
+		[theme.breakpoints.up(800)]: {
+			paddingTop: 372,
+		},
 	},
 	fingerBox: {
 		position: 'absolute',
@@ -76,7 +68,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	infoBox: {
 		flex: 1,
 		height: '100%',
-		margin: theme.spacing(0, 0, 0, 3),
+		[theme.breakpoints.down(800)]: {
+			margin: theme.spacing(0, 0, 0, 2),
+		},
+		[theme.breakpoints.up(800)]: {
+			margin: theme.spacing(0, 0, 0, 3),
+		},
 		position: 'relative',
 		top: 0,
 		left: 0,
@@ -88,7 +85,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		left: 0,
 	},
 	title: {
-		fontSize: 26,
+		fontSize: 28,
 		lineHeight: 1.5,
 		color: '#131313',
 	},
@@ -145,7 +142,7 @@ const TopStoryCard = (props: any) => {
 	const classes = useStyles();
 
 	const {
-		overflowLine1, overflowLine2,
+		overflowLine1, overflowLine3, overflowLine4,
 	} = useCommonStyles();
 
 	const handleChange = (index: number) => {
@@ -219,7 +216,7 @@ const TopStoryCard = (props: any) => {
 							key={index}
 							className={classes.finger}
 							style={{
-								background: article.index === index ? 'rgb(167, 56, 52)' : '#fff',
+								background: article.index === index ? 'rgb( 206, 65, 39)' : '#fff',
 							}} />
 					)) }
 				</Box>
@@ -234,10 +231,10 @@ const TopStoryCard = (props: any) => {
 					<div className={classes.tag}>
 						  {article.content.tag && (<TagLarge tag={article.content.tag} />)}
 					</div>
-					<Typography className={`${classes.title} ${overflowLine2}`}>
+					<Typography className={`${classes.title} ${overflowLine4}`}>
 						{article.content.title}
 					</Typography>
-					<Typography className={`${classes.excerpt} ${overflowLine2}`}>
+					<Typography className={`${classes.excerpt} ${overflowLine3}`}>
 						{article.content.excerpt}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>

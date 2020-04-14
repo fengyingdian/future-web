@@ -16,7 +16,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'center',
 		width: '100%',
 		background: '#fff',
-		padding: theme.spacing(1, 3),
+		[theme.breakpoints.down(800)]: {
+			padding: theme.spacing(0, 2),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(1, 3),
+		},
 	},
 	article: {
 		width: '100%',

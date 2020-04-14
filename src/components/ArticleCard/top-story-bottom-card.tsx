@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'space-between',
 		margin: theme.spacing(2, 0, 0),
 		padding: theme.spacing(3),
-		borderTop: '4px solid rgb(167, 56, 52)',
+		borderTop: '4px solid rgb( 206, 65, 39)',
 		transition: '0.3s',
 		boxShadow: '0 0 0',
 		border: 0,
@@ -37,9 +37,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 				// color: '#e8e8e8',
 			},
 		},
+		[theme.breakpoints.down(800)]: {
+			display: 'none',
+		},
 	},
 	image: {
-		width: '50%',
+		width: '38%',
 		height: 222,
 	},
 	infoBox: {
@@ -57,7 +60,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		fontSize: 26,
-
 		lineHeight: 1.5,
 		color: '#131313',
 		padding: theme.spacing(0),

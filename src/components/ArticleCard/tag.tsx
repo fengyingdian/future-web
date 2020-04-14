@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	tag: {
 		fontSize: 14,
 		margin: theme.spacing(0, 1, 0, 0),
-		color: 'rgb(167, 56, 52)',
+		color: 'rgb( 206, 65, 39)',
 	},
 	line: {
 		flex: 1,

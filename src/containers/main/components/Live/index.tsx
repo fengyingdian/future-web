@@ -6,21 +6,30 @@ import useCommonStyles from '../../../../theme/styles';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
-		borderTop: '4px solid rgb(167, 56, 52)',
+		borderTop: '4px solid rgb( 206, 65, 39)',
 		margin: theme.spacing(0, 0, 2),
-		padding: theme.spacing(5, 5.25),
+		padding: theme.spacing(5, 3.5),
 		background: '#fff',
-		height: 295,
 		transition: 'all .3s',
 		'&:hover': {
 			transform: 'translateY(-3px)',
 			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
 			'& #content': {
-				color: 'rgb(167, 56, 52)',
+				color: 'rgb( 206, 65, 39)',
 			},
 			'& #excerpt': {
 				// color: '#e8e8e8',
 			},
+		},
+		[theme.breakpoints.down(800)]: {
+			padding: theme.spacing(5, 8.25),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(5, 3.5),
+			height: 295,
+		},
+		[theme.breakpoints.up('md')]: {
+			padding: theme.spacing(5, 5.25),
 		},
 	},
 	tipsBox: {
@@ -33,7 +42,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tipsIcon: {
 		borderRadius: '50%',
-		background: 'rgb(167, 56, 52)',
+		background: 'rgb( 206, 65, 39)',
 		width: '12px',
 		minWidth: '12px',
 		height: '12px',
@@ -41,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tipsContent: {
 		flex: 1,
-		fontSize: 32,
+		fontSize: 30,
 		color: '#131313',
 	},
 	infoBox: {
@@ -49,7 +58,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		borderTop: '1px solid #eee',
 		borderBottom: '1px solid #eee',
-		padding: theme.spacing(3.5, 0),
+		[theme.breakpoints.down(800)]: {
+			padding: theme.spacing(3, 0),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(3.5, 0),
+		},
 	},
 	title: {
 		fontSize: 20,
@@ -58,7 +72,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	description: {
 		fontSize: 16,
-
 		lineHeight: 1.5,
 		color: '#666',
 		fontFamily: 'fangzheng-light',
@@ -106,7 +119,7 @@ const Live = (props: any) => {
 					justifyContent={'center'}
 					alignItems={'flex-start'}
 					className={classes.infoBox}>
-					<Typography className={`${classes.title} ${overflowLine1}`}>
+					<Typography className={`${classes.title} ${overflowLine2}`}>
 						{title}
 					</Typography>
 					<Typography className={`${classes.description} ${overflowLine2}`}>

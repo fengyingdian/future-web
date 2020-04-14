@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 16,
 
 		margin: theme.spacing(4.25, 1, 0, 0),
-		color: 'rgb(167, 56, 52)',
+		color: 'rgb( 206, 65, 39)',
 	},
 	title: {
 		fontSize: 26,

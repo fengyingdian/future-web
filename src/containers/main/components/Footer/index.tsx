@@ -8,6 +8,7 @@ import useCommonStyles from '../../../../theme/styles';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
+		margin: theme.spacing(0),
 		padding: theme.spacing(4, 0),
 		background: '#fff',
 		display: 'flex',

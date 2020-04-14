@@ -36,6 +36,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		WebkitBoxOrient: 'vertical',
 		WebkitLineClamp: 3,
 	},
+	overflowLine4: {
+		display: '-webkit-box',
+		overflow: 'hidden',
+		wordBreak: 'break-word',
+		whiteSpace: 'pre-line',
+		WebkitBoxOrient: 'vertical',
+		WebkitLineClamp: 4,
+	},
 }));
 
 export default useStyles;

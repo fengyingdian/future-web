@@ -18,8 +18,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		margin: theme.spacing(0, 0, 0),
-		padding: theme.spacing(3),
+		margin: theme.spacing(0),
 		transition: '0.3s',
 		boxShadow: '0 0 0',
 		border: 0,
@@ -35,6 +34,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			'& #excerpt': {
 				// color: '#e8e8e8',
 			},
+		},
+		[theme.breakpoints.down(800)]: {
+		  padding: theme.spacing(2),
+		},
+		[theme.breakpoints.up(800)]: {
+		  padding: theme.spacing(3),
 		},
 	},
 	image: {
@@ -57,7 +62,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		fontSize: 26,
-
 		lineHeight: 1.5,
 		color: '#131313',
 		padding: theme.spacing(0),
@@ -84,8 +88,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 const ArticleCard = (props: any) => {
 	const classes = useStyles();
 	const {
-		overflowLine1, overflowLine2,
-	} = useCommonStyles({ line: 2 });
+		overflowLine1, overflowLine3,
+	} = useCommonStyles();
 
 	const {
 		cover = null, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',
@@ -114,10 +118,10 @@ const ArticleCard = (props: any) => {
 					<div className={classes.tag}>
 					  {tag && (<TagLarge tag={tag} />)}
 					</div>
-					<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
+					<Typography id={'title'} className={`${classes.title} ${overflowLine3}`}>
 						{title}
 					</Typography>
-					<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
+					<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine3}`}>
 						{excerpt}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>

@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => createStyles({
 		color: '#131313',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb(167, 56, 52)',
+		borderBottom: '4px solid rgb( 206, 65, 39)',
 	},
 }));
 

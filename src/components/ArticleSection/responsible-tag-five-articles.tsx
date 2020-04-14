@@ -10,7 +10,10 @@ import ArticleCardLarge from '../ArticleCard/normal-large-card';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
-		margin: theme.spacing(1, 0, 2),
+		margin: theme.spacing(1, 0, 0),
+		[theme.breakpoints.up('md')]: {
+			margin: theme.spacing(1, 0, 2),
+		},
 	},
 	first: {
 		width: '100%',
@@ -45,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			minWidth: '50%',
 		},
 		[theme.breakpoints.up('md')]: {
-			margin: theme.spacing(0, 0, 0),
+			margin: theme.spacing(0),
 			padding: theme.spacing(0, 1, 0),
 			minWidth: '25%',
 		},

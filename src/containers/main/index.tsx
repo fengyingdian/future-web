@@ -33,10 +33,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'flex-start',
 		maxWidth: theme.breakpoints.width('lg'),
 		width: '100%',
-		padding: theme.spacing(0, 4, 0),
 		margin: theme.spacing(5, 0, 0),
 		[theme.breakpoints.down(800)]: {
 			flexWrap: 'wrap',
+			padding: theme.spacing(0, 2.5, 0),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(0, 3.5, 0),
+		},
+		[theme.breakpoints.up('md')]: {
+			padding: theme.spacing(0, 4, 0),
 		},
 	},
 	headerSectionLeft: {
@@ -49,7 +55,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'center',
 		[theme.breakpoints.down(800)]: {
 			width: '100%',
-			margin: theme.spacing(0),
+			margin: theme.spacing(3, 0, 0),
 		},
 		[theme.breakpoints.up(800)]: {
 			margin: theme.spacing(0, 0, 0, 2),
@@ -66,11 +72,19 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		maxWidth: theme.breakpoints.width('lg'),
-		padding: theme.spacing(0, 3, 0),
+		[theme.breakpoints.down(800)]: {
+			padding: theme.spacing(0, 1.5, 0),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(0, 2.5, 0),
+		},
+		[theme.breakpoints.up('md')]: {
+			padding: theme.spacing(0, 3, 0),
+		},
 	},
 	footer: {
 		width: '100%',
-   	padding: theme.spacing(4, 0, 0),
+   	padding: theme.spacing(6, 0, 0),
 	},
 }));
 

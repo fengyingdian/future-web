@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		height: 118,
 		boxSizing: 'border-box',
-		background: 'rgb(167, 56, 52)',
+		background: 'rgb( 206, 65, 39)',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	logo: {
 		minWidth: 288,
 		width: 288,
-		[theme.breakpoints.down(750)]: {
+		[theme.breakpoints.down(800)]: {
 			width: 168,
 			minWidth: 168,
 		},
@@ -56,10 +56,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		padding: theme.spacing(0, 1),
 		transition: 'all .3s',
 		textAlign: 'center',
-		// fontFamily: 'fangzheng-medium',
 		'&:hover': {
 			// textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
-			fontFamily: 'fangzheng-m',
+			fontFamily: 'fangzheng-medium',
 		},
 		[theme.breakpoints.down(800)]: {
 			fontSize: 18,
@@ -69,8 +68,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	underline: {
 		width: 20,
 		height: 4,
-		background: '#fff',
 		marginTop: 4,
+		background: '#fff',
 	},
 }));
 

@@ -14,25 +14,32 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		fontSize: 28,
-
 		lineHeight: '28px',
 		color: '#131313',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb(167, 56, 52)',
+		borderBottom: '4px solid rgb( 206, 65, 39)',
 	},
 	readMoreRoot: {
 		boxSizing: 'border-box',
-		margin: theme.spacing(2, 1),
+		margin: theme.spacing(3, 1, 2),
 		padding: theme.spacing(2, 1),
 		background: '#fff',
+		[theme.breakpoints.up('sm')]: {
+			margin: theme.spacing(0, 1, 2),
+			padding: theme.spacing(2, 1),
+		},
+		[theme.breakpoints.up('md')]: {
+			margin: theme.spacing(3, 1, 2),
+		  padding: theme.spacing(2, 1),
+		},
 	},
 	readMoreBox: {
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderBottom: '3px solid rgb(167, 56, 52)',
+		borderBottom: '3px solid rgb( 206, 65, 39)',
 	},
 	readMoreText: {
 		fontSize: 14,
@@ -75,7 +82,7 @@ export const ReadMore = (props: any) => {
 					p-id={'16799'}
 					width={'22'}
 					height={'22'}>
-					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'rgb(167, 56, 52)'} />
+					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'rgb( 206, 65, 39)'} />
 				</svg>
 			</Link>
 		</Box>

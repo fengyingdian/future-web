@@ -75,7 +75,7 @@ const ArticleCard = (props: any) => {
 	// } = useCommonStyles();
 	const {
 		overflowLine1, overflowLine2,
-	} = useCommonStyles({ line: 2 });
+	} = useCommonStyles();
 
 	const {
 		cover = null, title = '', excerpt = '', id = '', tags = [''], categoryName = '', date = '', publisherName = '',

@@ -18,13 +18,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#131313',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb(167, 56, 52)',
+		borderBottom: '4px solid rgb( 206, 65, 39)',
 	},
 	description: {
 		fontSize: 28,
 		lineHeight: '28px',
 
-		color: 'rgb(167, 56, 52)',
+		color: 'rgb( 206, 65, 39)',
 		boxSizing: 'border-box',
 		padding: theme.spacing(0),
 	},
