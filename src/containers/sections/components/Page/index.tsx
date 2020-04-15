@@ -1,11 +1,17 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import ResponsibleArticles from '../../../../components/ArticleSection/responsible-tag-five-articles';
 
-const useStyles = makeStyles(() => createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
+	},
+	section: {
+		margin: theme.spacing(0, 0, 2),
+		[theme.breakpoints.up('sm')]: {
+			margin: theme.spacing(0),
+		},
 	},
 }));
 
@@ -24,10 +30,18 @@ const Page = (props: any) => {
 
 	return (
 		<div className={classes.root}>
-			<ResponsibleArticles articles={firstArticles} />
-			<ResponsibleArticles articles={seconArticles} />
-			<ResponsibleArticles articles={thirdArticles} />
-			<ResponsibleArticles articles={fourtArticles} />
+			<div className={classes.section}>
+			  <ResponsibleArticles articles={firstArticles} />
+			</div>
+			<div className={classes.section}>
+			  <ResponsibleArticles articles={seconArticles} />
+			</div>
+			<div className={classes.section}>
+			  <ResponsibleArticles articles={thirdArticles} />
+			</div>
+			<div className={classes.section}>
+			  <ResponsibleArticles articles={fourtArticles} />
+			</div>
 		</div>
 	);
 };
