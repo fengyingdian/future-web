@@ -7,21 +7,20 @@ import {
 } from '@material-ui/core';
 import moment from 'moment';
 import { prop } from 'ramda';
-import { TagNoCover } from './tag';
+import { TagSmall } from './tag';
 import useCommonStyles from '../../theme/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
 		margin: theme.spacing(0),
-		padding: theme.spacing(0, 3, 3),
+		padding: theme.spacing(0, 2, 2),
 		boxSizing: 'border-box',
 		transition: '0.3s',
 		boxShadow: '0 0 0',
 		border: 0,
 		borderRadius: 0,
 		background: '#fff',
-		minHeight: 400,
 		'&:hover': {
 			transform: 'translateY(-3px)',
 			background: '#e8e8e8',
@@ -33,8 +32,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 				// color: '#e8e8e8',
 			},
 		},
-		[theme.breakpoints.down(800)]: {
-			padding: theme.spacing(0, 2, 2),
+		[theme.breakpoints.up('sm')]: {
+			minHeight: 0,
+		},
+		[theme.breakpoints.up('sm')]: {
+			minHeight: 400,
 		},
 		[theme.breakpoints.up(800)]: {
 			padding: theme.spacing(0, 3, 3),
@@ -43,7 +45,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	image: {
 		width: '100%',
 		height: 0,
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			paddingTop: '56%',
+			margin: theme.spacing(2, 0, 0),
+		},
+		[theme.breakpoints.up('sm')]: {
 			paddingTop: '40%',
 			margin: theme.spacing(2, 0, 0),
 		},
@@ -59,11 +65,15 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flex: 1,
 		width: '100%',
 		height: '100%',
-		minHeight: 200,
+		margin: theme.spacing(2, 0, 0),
 		position: 'relative',
 		top: 0,
 		left: 0,
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			minHeight: 0,
+		},
+		[theme.breakpoints.up('sm')]: {
+			minHeight: 200,
 			margin: theme.spacing(2, 0, 0),
 		},
 		[theme.breakpoints.up(800)]: {
@@ -72,32 +82,49 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tag: {
 		width: '100%',
-		position: 'absolute',
-		top: 0,
-		left: 0,
+		[theme.breakpoints.down('sm')]: {
+			margin: theme.spacing(0, 0, 2),
+		},
+		[theme.breakpoints.up('sm')]: {
+  		position: 'absolute',
+			top: 0,
+			left: 0,
+		},
 	},
 	title: {
-		fontSize: 18,
+		fontSize: 16,
 		lineHeight: 1.5,
 		color: '#131313',
 		margin: theme.spacing(0),
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 18,
+		},
 	},
 	excerpt: {
-		fontSize: 14,
+		fontSize: 12,
 		lineHeight: 1.5,
 		color: '#666',
 		margin: theme.spacing(2, 0, 0),
 		fontFamily: 'fangzheng-light',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 14,
+		},
 	},
 	publisher: {
-		fontSize: 12,
+		fontSize: 10,
 		lineHeight: 1.5,
 		color: '#131313',
 		margin: theme.spacing(0),
 		fontFamily: 'fangzheng-medium',
-		position: 'absolute',
-		left: 0,
-		bottom: 0,
+		[theme.breakpoints.down('sm')]: {
+			margin: theme.spacing(2, 0, 0),
+		},
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 12,
+			position: 'absolute',
+			left: 0,
+			bottom: 0,
+		},
 	},
 }));
 
@@ -145,7 +172,7 @@ const ArticleCard = (props: any) => {
 						height: '100%',
 					}}>
 					<div className={classes.tag}>
-						{tag && (<TagNoCover tag={tag} />)}
+						{tag && (<TagSmall tag={tag} />)}
 					</div>
 					<Typography id={'title'} className={`${classes.title} ${url ? overflowLine2 : overflowLine4}`}>
 						{title}

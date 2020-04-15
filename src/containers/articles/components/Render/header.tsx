@@ -9,31 +9,51 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		background: '#fff',
 		boxSizing: 'border-box',
-		padding: theme.spacing(0, 6.5),
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'flex-start',
+		[theme.breakpoints.down('sm')]: {
+			padding: theme.spacing(0, 3),
+		},
+		[theme.breakpoints.up('sm')]: {
+			padding: theme.spacing(0, 4),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(0, 5.5),
+		},
+		[theme.breakpoints.up('md')]: {
+			padding: theme.spacing(0, 6.5),
+		},
 	},
 	tag: {
-		fontSize: 16,
-
+		fontSize: 12,
 		margin: theme.spacing(4.25, 1, 0, 0),
 		color: 'rgb( 206, 65, 39)',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 16,
+		},
 	},
 	title: {
-		fontSize: 26,
+		fontSize: 18,
 		lineHeight: '32px',
 		margin: theme.spacing(3, 0, 0),
 		color: '#131313',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 26,
+		},
 	},
 	subtitle: {
-		fontSize: 12,
+		fontSize: 10,
 		width: '100%',
-		margin: theme.spacing(3, 0, 0),
+		padding: theme.spacing(3, 0, 3),
 		borderBottom: '1px solid #eee',
 		color: '#131313',
 		fontFamily: 'fangzheng-medium',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 12,
+			padding: theme.spacing(3, 0, 4),
+		},
 	},
 	cover: {
 		margin: theme.spacing(4, 6),

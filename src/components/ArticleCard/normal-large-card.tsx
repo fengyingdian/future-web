@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import moment from 'moment';
 import { prop } from 'ramda';
-import { TagLarge } from './tag';
+import { TagTopStory } from './tag';
 import useCommonStyles from '../../theme/styles';
 import { largeCardCover } from '../../constants/index';
 
@@ -35,7 +35,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 				// color: '#e8e8e8',
 			},
 		},
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			flexDirection: 'column',
+			padding: theme.spacing(2),
+		},
+		[theme.breakpoints.up('sm')]: {
+			flexDirection: 'row',
 		  padding: theme.spacing(2),
 		},
 		[theme.breakpoints.up(800)]: {
@@ -43,45 +48,70 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 	},
 	image: {
-		width: '50%',
-		height: 320,
+		width: '100%',
+		height: 0,
+		paddingTop: '56%',
+		[theme.breakpoints.up('sm')]: {
+			width: '50%',
+			height: 320,
+			paddingTop: 0,
+		},
 	},
 	infoBox: {
 		flex: 1,
 		height: 320,
-		margin: theme.spacing(0, 0, 0, 3),
+		margin: theme.spacing(0),
 		position: 'relative',
 		top: 0,
 		left: 0,
+		[theme.breakpoints.down('sm')]: {
+		  width: '100%',
+		},
+		[theme.breakpoints.up('sm')]: {
+		  margin: theme.spacing(0, 0, 0, 3),
+		},
 	},
 	tag: {
 		width: '100%',
-		position: 'absolute',
-		top: 0,
-		left: 0,
+		margin: theme.spacing(2, 0, 0),
+		[theme.breakpoints.up('sm')]: {
+			margin: theme.spacing(0),
+			position: 'absolute',
+			top: 0,
+			left: 0,
+		},
 	},
 	title: {
-		fontSize: 26,
+		fontSize: 16,
 		lineHeight: 1.5,
 		color: '#131313',
 		padding: theme.spacing(0),
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 26,
+		},
 	},
 	excerpt: {
-		fontSize: 16,
+		fontSize: 12,
 		lineHeight: 1.5,
 		color: '#666',
 		margin: theme.spacing(2, 0, 0),
 		fontFamily: 'fangzheng-light',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 16,
+		},
 	},
 	publisher: {
-		fontSize: 12,
+		fontSize: 10,
 		lineHeight: 1.5,
 		color: '#131313',
 		margin: theme.spacing(2, 0, 0),
 		fontFamily: 'fangzheng-medium',
-		position: 'absolute',
-		bottom: 0,
-		left: 0,
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 12,
+			position: 'absolute',
+			bottom: 0,
+			left: 0,
+		},
 	},
 }));
 
@@ -116,7 +146,7 @@ const ArticleCard = (props: any) => {
 					flexWrap={'nowrap'}
 					className={classes.infoBox}>
 					<div className={classes.tag}>
-					  {tag && (<TagLarge tag={tag} />)}
+					  {tag && (<TagTopStory tag={tag} />)}
 					</div>
 					<Typography id={'title'} className={`${classes.title} ${overflowLine3}`}>
 						{title}

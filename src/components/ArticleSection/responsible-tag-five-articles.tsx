@@ -10,7 +10,10 @@ import ArticleCardLarge from '../ArticleCard/normal-large-card';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
-		margin: theme.spacing(1, 0, 0),
+		margin: theme.spacing(0),
+		[theme.breakpoints.up('sm')]: {
+			margin: theme.spacing(1, 0, 0),
+		},
 		[theme.breakpoints.up('md')]: {
 			margin: theme.spacing(1, 0, 2),
 		},
@@ -20,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
 			margin: theme.spacing(0, 1, 0),
-		  padding: theme.spacing(0, 0, 2),
+		  padding: theme.spacing(0, 0, 0),
 		},
 		[theme.breakpoints.up('sm')]: {
 			margin: theme.spacing(0, 1, 0),
@@ -38,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
-			padding: theme.spacing(2, 1, 2),
+			padding: theme.spacing(2, 1, 0),
 			width: '100%',
 		},
 		[theme.breakpoints.up('sm')]: {

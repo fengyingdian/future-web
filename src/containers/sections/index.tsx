@@ -24,8 +24,19 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		background: '#f8f8f8',
-		padding: theme.spacing(2, 3),
 		maxWidth: theme.breakpoints.width('lg'),
+		[theme.breakpoints.down('sm')]: {
+			padding: theme.spacing(2, 1, 0),
+		},
+		[theme.breakpoints.up('sm')]: {
+			padding: theme.spacing(2, 1.5, 0),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(2, 2.5, 0),
+		},
+		[theme.breakpoints.up('md')]: {
+			padding: theme.spacing(2, 3, 0),
+		},
 	},
 }));
 

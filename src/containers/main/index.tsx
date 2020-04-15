@@ -34,7 +34,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: theme.breakpoints.width('lg'),
 		width: '100%',
 		margin: theme.spacing(5, 0, 0),
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			flexWrap: 'wrap',
+			padding: theme.spacing(0, 2, 0),
+		},
+		[theme.breakpoints.up('sm')]: {
 			flexWrap: 'wrap',
 			padding: theme.spacing(0, 2.5, 0),
 		},
@@ -53,7 +57,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			width: '100%',
+			margin: theme.spacing(2, 0, 0),
+		},
+		[theme.breakpoints.up('sm')]: {
 			width: '100%',
 			margin: theme.spacing(3, 0, 0),
 		},
@@ -72,7 +80,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		maxWidth: theme.breakpoints.width('lg'),
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			padding: theme.spacing(0, 1, 0),
+		},
+		[theme.breakpoints.up('sm')]: {
 			padding: theme.spacing(0, 1.5, 0),
 		},
 		[theme.breakpoints.up(800)]: {
@@ -84,7 +95,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	footer: {
 		width: '100%',
-   	padding: theme.spacing(6, 0, 0),
+		padding: theme.spacing(8, 0, 0),
+		[theme.breakpoints.up('sm')]: {
+			padding: theme.spacing(6, 0, 0),
+		},
 	},
 }));
 

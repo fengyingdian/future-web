@@ -11,15 +11,22 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		cursor: 'pointer',
 	},
 	text: {
-		fontSize: 16,
+		fontSize: 12,
+		lineHeight: 1.5,
 		color: '#666',
-		lineHeight: 2,
 		fontFamily: 'fangzheng-light',
 		wordBreak: 'break-all',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 16,
+			lineHeight: 2,
+		},
 	},
 	image: {
 		width: '100%',
-		margin: theme.spacing(2, 0, 0),
+		margin: theme.spacing(1, 0, 0),
+		[theme.breakpoints.up('sm')]: {
+			margin: theme.spacing(2, 0, 0),
+		},
 	},
 }));
 

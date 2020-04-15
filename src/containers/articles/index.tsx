@@ -23,7 +23,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		padding: theme.spacing(5.5, 4),
+		[theme.breakpoints.down('sm')]: {
+			padding: theme.spacing(2, 2),
+		},
+		[theme.breakpoints.up('sm')]: {
+			padding: theme.spacing(3.5, 3),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(4.5, 3.5),
+		},
+		[theme.breakpoints.up('md')]: {
+			padding: theme.spacing(5.5, 4),
+		},
 	},
 }));
 
@@ -35,6 +46,8 @@ const Article = (props: any) => {
 		menus,
 	} = props;
 
+	const { displayName } = menus.find(({ name: menuName }: any) => categoryName === menuName);
+
 	return (
 		<Container className={classes.root}>
 			<Head>
@@ -45,7 +58,7 @@ const Article = (props: any) => {
 			<Container maxWidth={false} className={classes.root}>
 				<MenuHeader selected={categoryName} menus={menus} />
 				<Container maxWidth={'md'} className={classes.sectionRoot}>
-					<Title title={categoryName} />
+					<Title title={displayName} />
 					<ArticleContent {...props} />
 				  {/* <RelativeSection articles={articles} /> */}
 				</Container>

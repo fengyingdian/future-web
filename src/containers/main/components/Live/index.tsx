@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
 		borderTop: '4px solid rgb( 206, 65, 39)',
-		margin: theme.spacing(0, 0, 2),
 		padding: theme.spacing(5, 3.5),
 		background: '#fff',
 		transition: 'all .3s',
@@ -21,7 +20,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 				// color: '#e8e8e8',
 			},
 		},
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			margin: theme.spacing(0, 0, 1),
+			padding: theme.spacing(4.5, 2),
+		},
+		[theme.breakpoints.up('sm')]: {
+			margin: theme.spacing(0, 0, 2),
 			padding: theme.spacing(5, 8.25),
 		},
 		[theme.breakpoints.up(800)]: {
@@ -50,15 +54,21 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tipsContent: {
 		flex: 1,
-		fontSize: 30,
+		fontSize: 26,
 		color: '#131313',
+   	[theme.breakpoints.up('sm')]: {
+			fontSize: 30,
+		},
 	},
 	infoBox: {
 		flex: 1,
 		width: '100%',
 		borderTop: '1px solid #eee',
 		borderBottom: '1px solid #eee',
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			padding: theme.spacing(2, 0),
+		},
+		[theme.breakpoints.up('sm')]: {
 			padding: theme.spacing(3, 0),
 		},
 		[theme.breakpoints.up(800)]: {
@@ -66,9 +76,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 	},
 	title: {
-		fontSize: 20,
+		fontSize: 18,
 		lineHeight: 1.5,
 		color: '#131313',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 20,
+		},
 	},
 	description: {
 		fontSize: 16,
@@ -110,7 +123,7 @@ const Live = (props: any) => {
 						<div className={classes.tipsIcon} />
 					)}
 					<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-						{isPlan ? '直播即将开始' : (status === 'publish' ? '直播中' : '直播已结束')}
+						{isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直直播已结束')}
 					</Typography>
 				</div>
 				<Box

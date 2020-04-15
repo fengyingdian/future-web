@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import moment from 'moment';
 import { prop } from 'ramda';
-import { TagLarge } from './tag';
+import { TagTopStory } from './tag';
 import useCommonStyles from '../../theme/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -112,7 +112,7 @@ const ArticleCard = (props: any) => {
 					flexWrap={'nowrap'}
 					className={classes.infoBox}>
 					<div className={classes.tag}>
-						{tag && (<TagLarge tag={tag} />)}
+						{tag && (<TagTopStory tag={tag} />)}
 					</div>
 					<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
 						{title}

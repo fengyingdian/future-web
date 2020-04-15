@@ -12,18 +12,19 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		boxSizing: 'border-box',
 	},
 	title: {
-		fontSize: 28,
-
+		fontSize: 24,
 		lineHeight: '28px',
 		color: '#131313',
 		width: '100%',
 		boxSizing: 'border-box',
 		borderBottom: '4px solid rgb( 206, 65, 39)',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 28,
+		},
 	},
 	description: {
-		fontSize: 28,
+		fontSize: 24,
 		lineHeight: '28px',
-
 		color: 'rgb( 206, 65, 39)',
 		boxSizing: 'border-box',
 		padding: theme.spacing(0),

@@ -33,7 +33,7 @@ export const fetchMenus = () => axios.get(menuUrl())
 				...sorted,
 				{
 					name: '直播',
-					displayName: '直播',
+					displayName: '时客',
 				},
 			];
 		}

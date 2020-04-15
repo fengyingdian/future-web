@@ -6,8 +6,11 @@ import ArticleCard from '../../../../components/ArticleCard/focus-card';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
-		margin: theme.spacing(0, 0, 2),
+		margin: theme.spacing(0),
 		padding: theme.spacing(1, 0, 0),
+		[theme.breakpoints.up('sm')]: {
+			padding: theme.spacing(0, 0, 2),
+		},
 	},
 	articleRoot: {
 		display: 'flex',

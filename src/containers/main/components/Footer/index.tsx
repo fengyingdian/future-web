@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	link: {
 		fontSize: 12,
-
 		lineHeight: '12px',
 		height: 12,
 		padding: theme.spacing(0, 0.5),

@@ -8,7 +8,7 @@ import {
 import moment from 'moment';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
-import { TagLarge } from './tag';
+import { TagTopStory } from './tag';
 import useCommonStyles from '../../theme/styles';
 import { leftArrow, rightArrow } from '../../constants';
 
@@ -17,10 +17,8 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		display: 'flex',
-		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		maxWidth: '100%',
-		height: 424,
 		background: '#fff',
 		borderTop: '4px solid rgb( 206, 65, 39)',
 		borderRadius: 0,
@@ -29,7 +27,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		position: 'relative',
 		top: 0,
 		left: 0,
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			flexDirection: 'column',
+			padding: theme.spacing(2),
+		},
+		[theme.breakpoints.up('sm')]: {
+			flexDirection: 'row',
+			height: 424,
 			padding: theme.spacing(2.5),
 		},
 		[theme.breakpoints.up(800)]: {
@@ -37,7 +41,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 	},
 	mediaBox: {
-		width: '60%',
+		[theme.breakpoints.down('sm')]: {
+		  width: '100%',
+		},
+		[theme.breakpoints.up('sm')]: {
+		  width: '60%',
+		},
 		position: 'relative',
 		top: 0,
 		left: 0,
@@ -45,7 +54,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	media: {
 		width: '100%',
 		height: 0,
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			paddingTop: '56%',
+		},
+		[theme.breakpoints.up('sm')]: {
 			paddingTop: 380,
 		},
 		[theme.breakpoints.up(800)]: {
@@ -54,8 +66,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	fingerBox: {
 		position: 'absolute',
-		bottom: 44,
-		left: 44,
+		left: theme.spacing(3),
+		bottom: theme.spacing(3),
 	},
 	finger: {
 		width: 4,
@@ -68,7 +80,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	infoBox: {
 		flex: 1,
 		height: '100%',
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
+			margin: theme.spacing(2, 0, 0),
+		},
+		[theme.breakpoints.up('sm')]: {
 			margin: theme.spacing(0, 0, 0, 2),
 		},
 		[theme.breakpoints.up(800)]: {
@@ -80,43 +95,54 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tag: {
 		width: '100%',
-		position: 'absolute',
-		top: 0,
-		left: 0,
+		[theme.breakpoints.up('sm')]: {
+			position: 'absolute',
+			top: 0,
+			left: 0,
+		},
 	},
 	title: {
-		fontSize: 28,
+		fontSize: 18,
 		lineHeight: 1.5,
 		color: '#131313',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 28,
+		},
 	},
 	excerpt: {
-		fontSize: 16,
+		fontSize: 12,
 		lineHeight: 1.5,
 		margin: theme.spacing(2, 0, 0),
 		color: '#666',
 		fontFamily: 'fangzheng-light',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 16,
+		},
 	},
 	publisher: {
-		fontSize: 12,
+		fontSize: 10,
 		margin: theme.spacing(2, 0, 0),
 		color: '#131313',
 		fontFamily: 'fangzheng-medium',
-		position: 'absolute',
-		bottom: 0,
-		left: 0,
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 12,
+			position: 'absolute',
+			left: 0,
+			bottom: 0,
+		},
 	},
 	leftArrow: {
 		width: 24,
-		height: 43,
+		height: 42,
 		position: 'absolute',
-		top: 163,
+		top: 'calc(50% - 21px)',
 		left: 0,
 	},
 	rightArrow: {
 		width: 24,
-		height: 43,
+		height: 42,
 		position: 'absolute',
-		top: 163,
+		top: 'calc(50% - 21px)',
 		right: 0,
 	},
 }));
@@ -173,7 +199,7 @@ const TopStoryCard = (props: any) => {
 				<div className={classes.mediaBox}>
 					<AutoPlaySwipeableViews
 						axis={'x'}
-						interval={3000}
+						interval={30000}
 						index={article.index}
 						onChangeIndex={handleChange}
 						enableMouseEvents>
@@ -204,22 +230,22 @@ const TopStoryCard = (props: any) => {
 						src={rightArrow}
 						alt={''}
 						className={classes.rightArrow} />
+					<Box
+						className={classes.fingerBox}
+						display={'flex'}
+						flexDirection={'row'}
+						justifyContent={'flex-start'}
+						alignItems={'center'}>
+						{articles.map((_: any, index: number) => (
+							<div
+								key={index}
+								className={classes.finger}
+								style={{
+									background: article.index === index ? 'rgb( 206, 65, 39)' : '#fff',
+								}} />
+						)) }
+					</Box>
 				</div>
-				<Box
-					className={classes.fingerBox}
-					display={'flex'}
-					flexDirection={'row'}
-					justifyContent={'flex-start'}
-					alignItems={'center'}>
-					{articles.map((_: any, index: number) => (
-						<div
-							key={index}
-							className={classes.finger}
-							style={{
-								background: article.index === index ? 'rgb( 206, 65, 39)' : '#fff',
-							}} />
-					)) }
-				</Box>
 				<Box
 					display={'flex'}
 					flexDirection={'column'}
@@ -229,7 +255,7 @@ const TopStoryCard = (props: any) => {
 					className={classes.infoBox}
 					style={{ transition: 'all .3s', opacity: state }}>
 					<div className={classes.tag}>
-						{article.content.tag && (<TagLarge tag={article.content.tag} />)}
+						{article.content.tag && (<TagTopStory tag={article.content.tag} />)}
 					</div>
 					<Typography className={`${classes.title} ${overflowLine4}`}>
 						{article.content.title}

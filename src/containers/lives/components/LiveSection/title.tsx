@@ -65,7 +65,7 @@ export const Title = (props: any) => {
 					<div className={classes.tipsIcon} />
 				)}
 				<Typography className={`${classes.tipsContent} ${overflowLine1}`}>
-					{isPlan ? '直播即将开始' : (status === 'publish' ? '直播中' : '直播已结束') }
+					{isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直播已结束') }
 				</Typography>
 			</div>
 		</Box>
