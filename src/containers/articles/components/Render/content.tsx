@@ -99,6 +99,11 @@ const ContentBlock = (props: any) => {
             width: 100%;
             text-align: center;
           }
+          @media only screen and (max-width: 600px) {
+            #figurecaption {
+              font-size: 12px;
+            }
+          }
       `}
 			</style>
 		</>
