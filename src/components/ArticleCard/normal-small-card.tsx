@@ -21,22 +21,22 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		border: 0,
 		borderRadius: 0,
 		background: '#fff',
-		'&:hover': {
-			transform: 'translateY(-3px)',
-			background: '#e8e8e8',
-			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
-			'& #title': {
-				// color: '#fff',
-			},
-			'& #excerpt': {
-				// color: '#e8e8e8',
-			},
-		},
 		[theme.breakpoints.up('sm')]: {
 			minHeight: 0,
 		},
 		[theme.breakpoints.up('sm')]: {
 			minHeight: 400,
+			'&:hover': {
+				transform: 'translateY(-3px)',
+				background: '#e8e8e8',
+				// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
+				'& #title': {
+				// color: '#fff',
+				},
+				'& #excerpt': {
+				// color: '#e8e8e8',
+				},
+			},
 		},
 		[theme.breakpoints.up(800)]: {
 			padding: theme.spacing(0, 3, 3),

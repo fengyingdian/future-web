@@ -24,24 +24,24 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		border: 0,
 		borderRadius: 0,
 		background: '#fff',
-		'&:hover': {
-			transform: 'translateY(-3px)',
-			background: '#e8e8e8',
-			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
-			'& #title': {
-				// color: '#fff',
-			},
-			'& #excerpt': {
-				// color: '#e8e8e8',
-			},
-		},
 		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column',
 			padding: theme.spacing(2),
 		},
 		[theme.breakpoints.up('sm')]: {
 			flexDirection: 'row',
-		  padding: theme.spacing(2),
+			padding: theme.spacing(2),
+			'&:hover': {
+				transform: 'translateY(-3px)',
+				background: '#e8e8e8',
+				// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
+				'& #title': {
+					// color: '#fff',
+				},
+				'& #excerpt': {
+					// color: '#e8e8e8',
+				},
+			},
 		},
 		[theme.breakpoints.up(800)]: {
 		  padding: theme.spacing(3),
@@ -59,7 +59,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	infoBox: {
 		flex: 1,
-		height: 320,
 		margin: theme.spacing(0),
 		position: 'relative',
 		top: 0,
@@ -68,6 +67,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		  width: '100%',
 		},
 		[theme.breakpoints.up('sm')]: {
+			height: 320,
 		  margin: theme.spacing(0, 0, 0, 3),
 		},
 	},
