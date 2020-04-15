@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
-			margin: theme.spacing(0, 0, 0),
+			margin: theme.spacing(0, 1, 0),
 		  padding: theme.spacing(0, 0, 2),
 		},
 		[theme.breakpoints.up('sm')]: {
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: '100%',
 		boxSizing: 'border-box',
 		[theme.breakpoints.down('sm')]: {
-			padding: theme.spacing(2, 0, 2),
+			padding: theme.spacing(2, 1, 2),
 			width: '100%',
 		},
 		[theme.breakpoints.up('sm')]: {

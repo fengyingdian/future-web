@@ -97,28 +97,33 @@ interface Props {
 }
 
 const Main = (props: Props) => {
-	const [state, setState] = useState(1);
+	const [skeleton, setSkeleton] = useState(true);
 
 	const bindScroll = () => {
-  	const header = document.getElementById('intro-page-top-header');
-  	if (header) {
-  	  const rect = header?.getBoundingClientRect();
-			const { bottom, height } = rect;
-			const pos = bottom / height;
-  		const opacity = pos ** 3;
-			if (opacity > 0 && opacity < 3) {
-				setState(opacity);
-  		}
-  	}
+  	// const header = document.getElementById('intro-page-top-header');
+  	// if (header) {
+  	//   const rect = header?.getBoundingClientRect();
+		// 	const { bottom, height } = rect;
+		// 	const pos = bottom / height;
+  	// 	const opacity = pos ** 3;
+		// 	if (opacity > 0 && opacity < 3) {
+		// 		setState(opacity);
+  	// 	}
+  	// }
 	};
 
 	useEffect(() => {
 		window.addEventListener('scroll', bindScroll, false);
 
+		(document as any).fonts.ready.then((e: any) => {
+			console.log('fonts ready home page', e);
+			setSkeleton(false);
+		});
+
 		return () => window.removeEventListener('scroll', bindScroll, false);
 	});
 
-	const classes = useStyles({ opacity: state });
+	const classes = useStyles({ opacity: 1 });
 	const {
 		menus = [],
 		carousel = [],
@@ -133,12 +138,12 @@ const Main = (props: Props) => {
 		<Container maxWidth={false} className={classes.root}>
 			<div id={'page-top-header'} className={classes.menuHeader}>
 				<NoSsr>
-					<MenuHeader menus={menus} selected={'首页'} />
+					<MenuHeader menus={menus} selected={'首页'} skeleton={skeleton} />
 				</NoSsr>
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
-					<TopStoryCard articles={carousel} categoryName={sections[0].categoryName} />
+					<TopStoryCard articles={carousel} categoryName={sections[0].categoryName} skeleton={skeleton} />
 					<TopStoryBottomCard {...hotnews[6]} />
 					<TopStoryBottomCard {...hotnews[7]} />
 				</div>

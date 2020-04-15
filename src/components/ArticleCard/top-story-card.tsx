@@ -229,7 +229,7 @@ const TopStoryCard = (props: any) => {
 					className={classes.infoBox}
 					style={{ transition: 'all .3s', opacity: state }}>
 					<div className={classes.tag}>
-						  {article.content.tag && (<TagLarge tag={article.content.tag} />)}
+						{article.content.tag && (<TagLarge tag={article.content.tag} />)}
 					</div>
 					<Typography className={`${classes.title} ${overflowLine4}`}>
 						{article.content.title}

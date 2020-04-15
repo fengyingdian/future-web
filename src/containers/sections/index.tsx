@@ -81,6 +81,10 @@ const Section = (props: any) => {
 	useEffect(() => {
 		window.addEventListener('scroll', bindScroll);
 
+		(document as any).fonts.ready.then((e: any) => {
+			console.log('fonts ready section page', e);
+		});
+
 		return () => window.removeEventListener('scroll', bindScroll);
 	});
 

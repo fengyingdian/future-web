@@ -3,6 +3,7 @@ import {
 	Container, Box, Typography, Link,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import { Skeleton } from '@material-ui/lab';
 import { logoWithText } from '../../constants/logo';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
@@ -71,6 +72,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		marginTop: 4,
 		background: '#fff',
 	},
+	skeleton: {
+		width: '100%',
+		padding: theme.spacing(4),
+	},
 }));
 
 const herf = (name: string) => {
@@ -86,7 +91,17 @@ const herf = (name: string) => {
 
 const MenuHeader = (props: any) => {
 	const classes = useStyles();
-	const { menus = [], selected = '首页' } = props;
+	const { menus = [], selected = '首页', skeleton } = props;
+
+	if (skeleton) {
+		return (
+			<div className={classes.skeleton}>
+				<Skeleton />
+				<Skeleton animation={false} />
+				<Skeleton animation={'wave'} />
+			</div>
+		);
+	}
 
 	return (
 		<Container maxWidth={false} className={classes.root}>
