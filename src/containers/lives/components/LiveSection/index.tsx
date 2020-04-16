@@ -33,16 +33,25 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		left: 0,
 	},
 	title: {
-		fontSize: 26,
-		lineHeight: '40px',
+		fontSize: 18,
+		lineHeight: '30px',
 		color: '#131313',
-		margin: theme.spacing(2, 0, 0.25),
+		margin: theme.spacing(1.5, 0, 0),
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 26,
+			lineHeight: '40px',
+			margin: theme.spacing(2, 0, 0.25),
+		},
 	},
 	description: {
-		fontSize: 18,
-		lineHeight: '32px',
+		fontSize: 14,
+		lineHeight: '22px',
 		color: '#666',
 		fontFamily: 'fangzheng-light',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 18,
+			lineHeight: '32px',
+		},
 	},
 }));
 

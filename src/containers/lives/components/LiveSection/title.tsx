@@ -24,24 +24,24 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	tipsIcon: {
 		borderRadius: '50%',
 		background: 'rgb( 206, 65, 39)',
-		width: 12,
-		minWidth: 12,
-		height: 12,
-		margin: theme.spacing(0, 1.5, 0, 0),
-		[theme.breakpoints.down('sm')]: {
-		  width: 8,
-			minWidth: 8,
-			height: 8,
-			margin: theme.spacing(0, 1, 0, 0),
+		width: 8,
+		minWidth: 8,
+		height: 8,
+		margin: theme.spacing(0, 1, 0, 0),
+		[theme.breakpoints.up('sm')]: {
+			width: 12,
+			minWidth: 12,
+			height: 12,
+			margin: theme.spacing(0, 1.5, 0, 0),
 		},
 	},
 	tipsContent: {
-		fontSize: 28,
-		lineHeight: '28px',
+		fontSize: 20,
+		lineHeight: '20px',
 		color: '#131313',
-		[theme.breakpoints.down('sm')]: {
-			fontSize: 20,
-			lineHeight: '20px',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 28,
+			lineHeight: '28px',
 		},
 	},
 }));

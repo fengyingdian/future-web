@@ -24,11 +24,19 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		background: '#f8f8f8',
-		padding: theme.spacing(6, 3),
-		[theme.breakpoints.down('sm')]: {
-			padding: theme.spacing(6, 1),
-		},
 		maxWidth: theme.breakpoints.width('md'),
+		[theme.breakpoints.down('sm')]: {
+			padding: theme.spacing(2, 2),
+		},
+		[theme.breakpoints.up('sm')]: {
+			padding: theme.spacing(3, 2.5),
+		},
+		[theme.breakpoints.up(800)]: {
+			padding: theme.spacing(4.5, 3.5),
+		},
+		[theme.breakpoints.up('md')]: {
+			padding: theme.spacing(6, 3),
+		},
 	},
 }));
 
@@ -46,13 +54,15 @@ const Live = (props: any) => {
 		isPlan = false,
 	} = getStream(streams);
 
+	const { displayName } = menus.find(({ name: menuName }: any) => name === menuName);
+
 	useEffect(() => () => { });
 
 	return (
 		<Container className={classes.root}>
 			<Head>
 				<title>
-					{`${name}-人民数字联播网`}
+					{`${displayName}-人民数字联播网`}
 				</title>
 			</Head>
 			<Container maxWidth={false} className={classes.root}>

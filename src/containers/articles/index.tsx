@@ -27,13 +27,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			padding: theme.spacing(2, 2),
 		},
 		[theme.breakpoints.up('sm')]: {
-			padding: theme.spacing(3.5, 3),
+			padding: theme.spacing(2, 2.5),
 		},
 		[theme.breakpoints.up(800)]: {
-			padding: theme.spacing(4.5, 3.5),
+			padding: theme.spacing(2, 3.5),
 		},
 		[theme.breakpoints.up('md')]: {
-			padding: theme.spacing(5.5, 4),
+			padding: theme.spacing(2, 4),
 		},
 	},
 }));
