@@ -46,6 +46,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		flex: 1,
 		fontSize: 13,
+		lineHeight: '20px',
 		color: '#131313',
 		padding: '6px 0 4px',
 	},
