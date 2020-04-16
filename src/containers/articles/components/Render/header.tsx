@@ -29,14 +29,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	tag: {
 		fontSize: 12,
 		margin: theme.spacing(4.25, 1, 0, 0),
-		color: 'rgb( 206, 65, 39)',
+		color: '#CE4127',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 16,
 		},
 	},
 	title: {
 		fontSize: 18,
-		lineHeight: '32px',
+		lineHeight: 1.5,
 		margin: theme.spacing(3, 0, 0),
 		color: '#131313',
 		[theme.breakpoints.up('sm')]: {
@@ -100,7 +100,11 @@ const ArticleRender = (props: any) => {
 				{title}
 			</Typography>
 			<Typography className={classes.subtitle}>
-				{`${publisherName}·${time}`}
+				<span style={{ fontFamily: 'fangzheng-bold' }}>
+					{publisherName}
+				</span>
+				{'·'}
+				{time}
 			</Typography>
 			{/* <CardMedia
 				className={classes.cover}

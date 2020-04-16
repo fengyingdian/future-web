@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		maxWidth: '100%',
 		background: '#fff',
-		borderTop: '4px solid rgb( 206, 65, 39)',
+		borderTop: '4px solid #CE4127',
 		borderRadius: 0,
 		border: '',
 		transition: '0.3s',
@@ -61,13 +61,17 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			paddingTop: 374,
 		},
 		[theme.breakpoints.up(800)]: {
-			paddingTop: 368,
+			paddingTop: 366,
 		},
 	},
 	fingerBox: {
 		position: 'absolute',
-		left: theme.spacing(3),
-		bottom: theme.spacing(3),
+		left: theme.spacing(1.25),
+		bottom: theme.spacing(1.25),
+		[theme.breakpoints.up('sm')]: {
+			left: theme.spacing(2.25),
+			bottom: theme.spacing(2.25),
+		},
 	},
 	finger: {
 		width: 4,
@@ -96,6 +100,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	tag: {
 		width: '100%',
 		[theme.breakpoints.up('sm')]: {
+			margin: theme.spacing(-0.5, 0, 0),
 			position: 'absolute',
 			top: 0,
 			left: 0,
@@ -112,16 +117,17 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	excerpt: {
 		fontSize: 12,
 		lineHeight: 1.5,
-		margin: theme.spacing(2, 0, 0),
+		margin: theme.spacing(1, 0, 0),
 		color: '#666',
 		fontFamily: 'fangzheng-light',
 		[theme.breakpoints.up('sm')]: {
+			margin: theme.spacing(1.5, 0, 0),
 			fontSize: 16,
 		},
 	},
 	publisher: {
 		fontSize: 10,
-		margin: theme.spacing(2, 0, 0),
+		margin: theme.spacing(2, 0, -0.5),
 		color: '#131313',
 		fontFamily: 'fangzheng-medium',
 		[theme.breakpoints.up('sm')]: {
@@ -131,19 +137,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			bottom: 0,
 		},
 	},
-	leftArrow: {
-		width: 24,
-		height: 42,
+	arrow: {
+		width: 16,
+		height: 28,
 		position: 'absolute',
-		top: 'calc(50% - 21px)',
-		left: 0,
-	},
-	rightArrow: {
-		width: 24,
-		height: 42,
-		position: 'absolute',
-		top: 'calc(50% - 21px)',
-		right: 0,
+		top: 'calc(50% - 14px)',
+		[theme.breakpoints.up(800)]: {
+			width: 24,
+			height: 42,
+			top: 'calc(50% - 21px)',
+		},
 	},
 }));
 
@@ -220,7 +223,8 @@ const TopStoryCard = (props: any) => {
 						}}
 						src={leftArrow}
 						alt={''}
-						className={classes.leftArrow} />
+						className={classes.arrow}
+						style={{ left: 0 }} />
 					<img
 						onClick={(e: any) => {
 							e.stopPropagation();
@@ -229,7 +233,8 @@ const TopStoryCard = (props: any) => {
 						}}
 						src={rightArrow}
 						alt={''}
-						className={classes.rightArrow} />
+						className={classes.arrow}
+						style={{ right: 0 }} />
 					<Box
 						className={classes.fingerBox}
 						display={'flex'}
@@ -241,7 +246,7 @@ const TopStoryCard = (props: any) => {
 								key={index}
 								className={classes.finger}
 								style={{
-									background: article.index === index ? 'rgb( 206, 65, 39)' : '#fff',
+									background: article.index === index ? '#CE4127' : '#fff',
 								}} />
 						)) }
 					</Box>
@@ -264,7 +269,11 @@ const TopStoryCard = (props: any) => {
 						{article.content.excerpt}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-						{`${article.content.publisherName}·${article.content.time}`}
+						<span style={{ fontFamily: 'fangzheng-bold' }}>
+							{article.content.publisherName}
+						</span>
+						{'·'}
+						{article.content.time}
 					</Typography>
 				</Box>
 			</Box>

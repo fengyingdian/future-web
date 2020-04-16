@@ -11,16 +11,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	tag: {
 		fontSize: 12,
-		margin: theme.spacing(0, 1, 0, 0),
-		color: 'rgb( 206, 65, 39)',
+		margin: theme.spacing(0, 2, 0, 0),
+		color: '#CE4127',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 14,
 		},
 	},
 	largeTag: {
    	fontSize: 12,
-		margin: theme.spacing(0, 1, 0, 0),
-		color: 'rgb( 206, 65, 39)',
+		margin: theme.spacing(0, 2, 0, 0),
+		color: '#CE4127',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 16,
 		},
@@ -104,7 +104,7 @@ export const TagFocus = (props: any) => {
 
 	return (
 		<div className={classes.root}>
-			<div className={classes.tag} style={{ fontSize: '10px', lineHeight: '10px', fontFamily: 'fangzheng-bold' }}>
+			<div className={classes.tag} style={{ fontSize: '11px', lineHeight: '10px', fontFamily: 'fangzheng-bold' }}>
 				{tag}
 			</div>
 		</div>

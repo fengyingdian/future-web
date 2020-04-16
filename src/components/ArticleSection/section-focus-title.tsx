@@ -14,13 +14,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		fontSize: 24,
-		lineHeight: '28px',
+		lineHeight: '22px',
 		color: '#131313',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb( 206, 65, 39)',
+		borderBottom: '4px solid #CE4127',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 28,
+			lineHeight: '24px',
 		},
 	},
 }));

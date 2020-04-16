@@ -7,25 +7,29 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
-		padding: theme.spacing(0, 1, 1),
+		padding: theme.spacing(0, 1, 2),
 		width: '100%',
 		boxSizing: 'border-box',
+		[theme.breakpoints.up('sm')]: {
+		  padding: theme.spacing(0, 1, 1),
+		},
 	},
 	title: {
 		fontSize: 24,
-		lineHeight: '28px',
+		lineHeight: '22px',
 		color: '#131313',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb( 206, 65, 39)',
+		borderBottom: '4px solid #CE4127',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 28,
+			lineHeight: '24px',
 		},
 	},
 	description: {
 		fontSize: 24,
 		lineHeight: '28px',
-		color: 'rgb( 206, 65, 39)',
+		color: '#CE4127',
 		boxSizing: 'border-box',
 		padding: theme.spacing(0),
 	},

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	text: {
 		fontSize: 12,
-		lineHeight: 1.5,
+		lineHeight: 2,
 		color: '#666',
 		fontFamily: 'fangzheng-light',
 		wordBreak: 'break-all',

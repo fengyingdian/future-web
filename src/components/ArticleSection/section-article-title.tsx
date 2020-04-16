@@ -3,21 +3,24 @@ import React from 'react';
 import {
 	Box, Typography,
 } from '@material-ui/core';
-import { makeStyles, createStyles } from '@material-ui/core/styles';
+import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => createStyles({
+const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
 		boxSizing: 'border-box',
 	},
 	title: {
-		fontSize: 28,
-
-		lineHeight: '28px',
+		fontSize: 24,
+		lineHeight: '22px',
 		color: '#131313',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb( 206, 65, 39)',
+		borderBottom: '4px solid #CE4127',
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 28,
+			lineHeight: '24px',
+		},
 	},
 }));
 

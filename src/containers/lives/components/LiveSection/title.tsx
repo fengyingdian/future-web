@@ -19,11 +19,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb( 206, 65, 39)',
+		borderBottom: '4px solid #CE4127',
 	},
 	tipsIcon: {
 		borderRadius: '50%',
-		background: 'rgb( 206, 65, 39)',
+		background: '#CE4127',
 		width: 8,
 		minWidth: 8,
 		height: 8,

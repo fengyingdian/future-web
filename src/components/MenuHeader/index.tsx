@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		height: 118,
 		boxSizing: 'border-box',
-		background: 'rgb( 206, 65, 39)',
+		background: '#CE4127',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
@@ -52,8 +52,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	title: {
 		color: '#fff',
-		fontSize: 20,
-		lineHeight: '32px',
+		fontSize: 16,
+		lineHeight: '22px',
 		padding: theme.spacing(0, 1),
 		transition: 'all .3s',
 		textAlign: 'center',
@@ -61,16 +61,23 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			// textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
 			fontFamily: 'fangzheng-medium',
 		},
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.up('sm')]: {
 			fontSize: 18,
 			lineHeight: '24px',
 		},
+		[theme.breakpoints.up(800)]: {
+			fontSize: 20,
+			lineHeight: '32px',
+		},
 	},
 	underline: {
-		width: 20,
+		width: 16,
 		height: 4,
-		marginTop: 4,
+		marginTop: 2,
 		background: '#fff',
+		[theme.breakpoints.up('sm')]: {
+		  width: 14,
+		},
 	},
 	skeleton: {
 		width: '100%',

@@ -64,18 +64,22 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		top: 0,
 		left: 0,
 		[theme.breakpoints.down('sm')]: {
-		  width: '100%',
+			width: '100%',
+			margin: theme.spacing(0),
 		},
 		[theme.breakpoints.up('sm')]: {
 			height: 320,
+			margin: theme.spacing(0, 0, 0, 2),
+		},
+		[theme.breakpoints.up(800)]: {
 		  margin: theme.spacing(0, 0, 0, 3),
 		},
 	},
 	tag: {
 		width: '100%',
-		margin: theme.spacing(2, 0, 0),
+		margin: theme.spacing(1.8, 0, 0),
 		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(0),
+			margin: theme.spacing(-0.5, 0, 0),
 			position: 'absolute',
 			top: 0,
 			left: 0,
@@ -94,17 +98,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 12,
 		lineHeight: 1.5,
 		color: '#666',
-		margin: theme.spacing(2, 0, 0),
+		margin: theme.spacing(1, 0, 0),
 		fontFamily: 'fangzheng-light',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 16,
+			margin: theme.spacing(1.5, 0, 0),
 		},
 	},
 	publisher: {
 		fontSize: 10,
 		lineHeight: 1.5,
 		color: '#131313',
-		margin: theme.spacing(2, 0, 0),
+		margin: theme.spacing(2, 0, -0.5),
 		fontFamily: 'fangzheng-medium',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 12,
@@ -155,7 +160,11 @@ const ArticleCard = (props: any) => {
 						{excerpt}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-				    {`${publisherName}·${time}`}
+						<span style={{ fontFamily: 'fangzheng-bold' }}>
+							{publisherName}
+						</span>
+						{'·'}
+						{time}
 					</Typography>
 				</Box>
 			</Card>

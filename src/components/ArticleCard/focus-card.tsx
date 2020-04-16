@@ -53,6 +53,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	publisher: {
 		fontSize: 10,
 		lineHeight: 1.5,
+		margin: theme.spacing(0, 0, -0.5),
 		color: '#131313',
 		fontFamily: 'fangzheng-medium',
 	},
@@ -93,7 +94,11 @@ const ArticleCard = (props: any) => {
 						{title}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-				    {`${publisherName}·${time}`}
+						<span style={{ fontFamily: 'fangzheng-bold' }}>
+							{publisherName}
+						</span>
+						{'·'}
+						{time}
 					</Typography>
 				</Box>
 			</Card>

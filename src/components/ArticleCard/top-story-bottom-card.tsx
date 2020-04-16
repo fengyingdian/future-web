@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'space-between',
 		margin: theme.spacing(2, 0, 0),
 		padding: theme.spacing(3),
-		borderTop: '4px solid rgb( 206, 65, 39)',
+		borderTop: '4px solid #CE4127',
 		transition: '0.3s',
 		boxShadow: '0 0 0',
 		border: 0,
@@ -57,6 +57,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		position: 'absolute',
 		top: 0,
 		left: 0,
+		margin: theme.spacing(-0.5, 0, 0),
 	},
 	title: {
 		fontSize: 26,
@@ -68,7 +69,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 16,
 		lineHeight: 1.5,
 		color: '#666',
-		margin: theme.spacing(2, 0, 0),
+		margin: theme.spacing(1.5, 0, 0),
 		fontFamily: 'fangzheng-light',
 	},
 	publisher: {
@@ -121,7 +122,11 @@ const ArticleCard = (props: any) => {
 						{excerpt}
 					</Typography>
 					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-				    {`${publisherName}·${time}`}
+						<span style={{ fontFamily: 'fangzheng-bold' }}>
+							{publisherName}
+						</span>
+						{'·'}
+						{time}
 					</Typography>
 				</Box>
 				<CardMedia
