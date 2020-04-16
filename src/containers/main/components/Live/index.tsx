@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 		[theme.breakpoints.up(800)]: {
 			padding: theme.spacing(5, 3.5),
-			height: 295,
+			height: 297,
 		},
 		[theme.breakpoints.up('md')]: {
 			padding: theme.spacing(5, 5.25),

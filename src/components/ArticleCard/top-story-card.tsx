@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 		[theme.breakpoints.up('sm')]: {
 			flexDirection: 'row',
-			height: 424,
+			height: 418,
 			padding: theme.spacing(2.5),
 		},
 		[theme.breakpoints.up(800)]: {
@@ -58,10 +58,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			paddingTop: '56%',
 		},
 		[theme.breakpoints.up('sm')]: {
-			paddingTop: 380,
+			paddingTop: 374,
 		},
 		[theme.breakpoints.up(800)]: {
-			paddingTop: 372,
+			paddingTop: 368,
 		},
 	},
 	fingerBox: {

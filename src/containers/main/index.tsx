@@ -129,8 +129,8 @@ const Main = (props: Props) => {
 	useEffect(() => {
 		window.addEventListener('scroll', bindScroll, false);
 
-		(document as any).fonts.ready.then((e: any) => {
-			console.log('fonts ready home page', e);
+		(document as any).fonts.ready.then(() => {
+			// console.log('fonts ready home page');
 			setSkeleton(false);
 		});
 
