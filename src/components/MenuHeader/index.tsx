@@ -24,9 +24,20 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		padding: theme.spacing(0, 3),
 		boxSizing: 'border-box',
-		[theme.breakpoints.down(800)]: {
+		[theme.breakpoints.down('sm')]: {
 			flexDirection: 'column',
-		  justifyContent: 'center',
+			justifyContent: 'center',
+			padding: theme.spacing(0, 2),
+		},
+		[theme.breakpoints.up('sm')]: {
+			flexDirection: 'column',
+			justifyContent: 'center',
+			padding: theme.spacing(0, 3),
+		},
+		[theme.breakpoints.up(800)]: {
+			flexDirection: 'row',
+			justifyContent: 'center',
+			padding: theme.spacing(0, 3),
 		},
 	},
 	logo: {
@@ -39,7 +50,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	menuBox: {
 		flex: 1,
-		margin: theme.spacing(1, 0, 0),
+		[theme.breakpoints.down(800)]: {
+			margin: theme.spacing(1, 0, 0),
+		},
 		[theme.breakpoints.up(800)]: {
 			margin: theme.spacing(0, 0, 0, 12),
 		},
@@ -54,9 +67,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#fff',
 		fontSize: 16,
 		lineHeight: '22px',
-		padding: theme.spacing(0, 1),
 		transition: 'all .3s',
 		textAlign: 'center',
+		padding: theme.spacing(0, 1),
 		'&:hover': {
 			// textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
 			fontFamily: 'fangzheng-medium',
