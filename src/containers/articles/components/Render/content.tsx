@@ -1,5 +1,5 @@
 import { equals, prop } from 'ramda';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const isTextNode = (content: any) => equals('text', prop('type', content));
@@ -23,6 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	image: {
 		width: '100%',
+		background: 'eee',
 		margin: theme.spacing(1, 0, 0),
 		[theme.breakpoints.up('sm')]: {
 			margin: theme.spacing(2, 0, 0),
@@ -41,7 +42,7 @@ const ImageNode = (props: any) => {
 	const { url, appearance } = props;
 
 	return (
-		<img className={classes.image} width={appearance.width} alt={''} src={url} />
+		<img className={classes.image} width={appearance.width} alt={''} src={url} data-src={url} />
 	);
 };
 
@@ -113,6 +114,15 @@ const ContentBlock = (props: any) => {
 const ArticleContent = (props: any) => {
 	const { contents = [] } = props;
 	const classes = useStyles();
+
+	const bindScroll = () => {
+	};
+
+	useEffect(() => {
+		window.addEventListener('scroll', bindScroll, false);
+
+		return () => window.removeEventListener('scroll', bindScroll, false);
+	});
 
 	return (
 		<div className={classes.root}>
