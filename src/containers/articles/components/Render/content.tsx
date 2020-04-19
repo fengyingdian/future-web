@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	image: {
 		maxWidth: '100%',
-		background: '#eee',
+		background: '#f8f8f8',
 		outline: 'none',
 		border: '',
 		margin: theme.spacing(1, 0, 0),
