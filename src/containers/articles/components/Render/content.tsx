@@ -11,45 +11,64 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		cursor: 'pointer',
 	},
-	text: {
-		fontSize: 12,
-		lineHeight: 2,
-		color: '#666',
-		fontFamily: 'fangzheng-light',
+	paragraph: {
 		wordBreak: 'break-all',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 16,
 			lineHeight: 2,
 		},
 	},
+	imageBox: {
+		display: 'flex',
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'cneter',
+	},
 	image: {
 		maxWidth: '100%',
-		background: 'eee',
+		background: '#eee',
+		outline: 'none',
+		border: '',
 		margin: theme.spacing(1, 0, 0),
 		[theme.breakpoints.up('sm')]: {
 			margin: theme.spacing(2, 0, 0),
 		},
 	},
+	text: {
+		fontSize: 12,
+		lineHeight: 2,
+		color: '#666',
+		fontFamily: 'fangzheng-light',
+	},
 }));
 
-const TextNode = ({ text }: any) => (
-	<span>
-		{text}
-	</span>
-);
+const TextNode = ({ text }: any) => {
+	const classes = useStyles();
+
+	return (
+		<span className={classes.text}>
+			{text}
+		</span>
+	);
+};
 
 const ImageNode = (props: any) => {
 	const classes = useStyles();
 	const { url, appearance } = props;
 
 	return (
-		<img
-			className={classes.image}
-			width={appearance.width}
-			height={appearance.height}
-			alt={''}
-			data-src={url}
-			data-lazyload={'true'} />
+		<span className={classes.imageBox}>
+			<img
+				className={classes.image}
+				width={appearance.width}
+				height={appearance.height}
+				style={{
+					alignSelf: 'center',
+				}}
+				alt={''}
+				data-src={url}
+				data-lazyload={'true'} />
+		</span>
 	);
 };
 
@@ -67,7 +86,7 @@ const ContentBlock = (props: any) => {
 		<>
 			<p
 				id={label}
-				className={classes.text}
+				className={classes.paragraph}
 				style={{
 					margin: '0 0 28px',
 				}}>
@@ -128,7 +147,6 @@ const ArticleContent = (props: any) => {
 		if (images.length < 1) {
 			return;
 		}
-		console.log({ images });
 		Array.prototype.forEach.call(images, (img: any) => {
 			if (!img.dataset.src) {
 				return;
