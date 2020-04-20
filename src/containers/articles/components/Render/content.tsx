@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		maxWidth: '100%',
 		background: '#f8f8f8',
 		outline: 'none',
-		border: '',
+		border: '0',
 		margin: theme.spacing(1, 0, 0),
 		[theme.breakpoints.up('sm')]: {
 			margin: theme.spacing(2, 0, 0),
@@ -54,16 +54,22 @@ const TextNode = ({ text }: any) => {
 
 const ImageNode = (props: any) => {
 	const classes = useStyles();
-	const { url, appearance } = props;
+	const {
+		url, appearance: {
+			width = 100,
+			height = 100,
+		} = {},
+	} = props;
 
 	return (
 		<span className={classes.imageBox}>
 			<img
 				className={classes.image}
-				width={appearance.width}
+				width={width}
 				// height={appearance.height}
 				style={{
-					alignSelf: 'center',
+					height: 0,
+					paddingTop: `${height / width * 100}%`,
 				}}
 				alt={''}
 				data-src={url}
@@ -153,13 +159,17 @@ const ArticleContent = (props: any) => {
 			}
 			const rect = img.getBoundingClientRect();
 			if (rect.bottom >= 0 && rect.top < clientHeight) {
+				// load image from CDN
 				const image = new Image();
 				image.onload = () => {
 					img.src = image.src;
+					// reset img attributions
+					img.style.height = 'auto';
+					img.style.paddingTop = '0';
+					img.removeAttribute('data-src');
+					img.removeAttribute('data-lazyload');
 				};
 				image.src = img.dataset.src;
-				img.removeAttribute('data-src');
-				img.removeAttribute('data-lazyload');
 			}
 		});
 	};
