@@ -61,7 +61,7 @@ const ImageNode = (props: any) => {
 			<img
 				className={classes.image}
 				width={appearance.width}
-				height={appearance.height}
+				// height={appearance.height}
 				style={{
 					alignSelf: 'center',
 				}}
