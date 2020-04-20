@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
@@ -87,6 +88,26 @@ const Section = (props: any) => {
 		if (isBottom(200)) {
 			fetchData();
 		}
+		const { clientHeight = 0 } = document.documentElement;
+		const images = document.querySelectorAll('img[data-src][data-lazyload]');
+		if (images.length < 1) {
+			return;
+		}
+		Array.prototype.forEach.call(images, (img: any) => {
+			if (!img.dataset.src) {
+				return;
+			}
+			const rect = img.getBoundingClientRect();
+			if (rect.bottom >= 0 && rect.top < clientHeight) {
+				const image = new Image();
+				image.onload = () => {
+					img.src = image.src;
+				};
+				image.src = img.dataset.src;
+				img.removeAttribute('data-src');
+				img.removeAttribute('data-lazyload');
+			}
+		});
 	};
 
 	useEffect(() => {

@@ -154,10 +154,10 @@ const ArticleContent = (props: any) => {
 			const rect = img.getBoundingClientRect();
 			if (rect.bottom >= 0 && rect.top < clientHeight) {
 				const image = new Image();
-				image.src = img.dataset.src;
 				image.onload = () => {
 					img.src = image.src;
 				};
+				image.src = img.dataset.src;
 				img.removeAttribute('data-src');
 				img.removeAttribute('data-lazyload');
 			}
