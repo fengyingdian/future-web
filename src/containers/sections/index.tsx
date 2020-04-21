@@ -113,9 +113,9 @@ const Section = (props: any) => {
 	useEffect(() => {
 		window.addEventListener('scroll', bindScroll);
 
-		(document as any).fonts.ready.then(() => {
-			console.log('fonts ready section page');
-		});
+		// (document as any).fonts.ready.then(() => {
+		// 	console.log('fonts ready section page');
+		// });
 
 		return () => window.removeEventListener('scroll', bindScroll);
 	});

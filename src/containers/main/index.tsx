@@ -1,5 +1,5 @@
 /* eslint-disable max-len */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import ResponsibleTagSection from '../../components/ArticleSection/responsible-tag-five-section';
@@ -111,7 +111,7 @@ interface Props {
 }
 
 const Main = (props: Props) => {
-	const [skeleton, setSkeleton] = useState(true);
+	// const [skeleton, setSkeleton] = useState(true);
 
 	const bindScroll = () => {
   	// const header = document.getElementById('intro-page-top-header');
@@ -129,10 +129,10 @@ const Main = (props: Props) => {
 	useEffect(() => {
 		window.addEventListener('scroll', bindScroll, false);
 
-		(document as any).fonts.ready.then(() => {
-			// console.log('fonts ready home page');
-			setSkeleton(false);
-		});
+		// (document as any).fonts.ready.then(() => {
+		// 	// console.log('fonts ready home page');
+		// 	setSkeleton(false);
+		// });
 
 		return () => window.removeEventListener('scroll', bindScroll, false);
 	});
@@ -152,12 +152,12 @@ const Main = (props: Props) => {
 		<Container maxWidth={false} className={classes.root}>
 			<div id={'page-top-header'} className={classes.menuHeader}>
 				<NoSsr>
-					<MenuHeader menus={menus} selected={'首页'} skeleton={skeleton} />
+					<MenuHeader menus={menus} selected={'首页'} />
 				</NoSsr>
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
-					<TopStoryCard articles={carousel} categoryName={sections[0].categoryName} skeleton={skeleton} />
+					<TopStoryCard articles={carousel} categoryName={sections[0].categoryName} />
 					<TopStoryBottomCard {...hotnews[6]} />
 					<TopStoryBottomCard {...hotnews[7]} />
 				</div>
