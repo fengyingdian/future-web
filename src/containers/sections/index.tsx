@@ -60,7 +60,7 @@ const Section = (props: any) => {
 		offset,
 	});
 
-	const isBottom = (bottomDistance: number) => {
+	const isReachedBottom = (bottomDistance: number) => {
 		const clientHeight = document.documentElement.scrollTop === 0 ? document.body.clientHeight : document.documentElement.clientHeight;
 		const scrollTop = document.documentElement.scrollTop === 0 ? document.body.scrollTop : document.documentElement.scrollTop;
 		const scrollHeight = document.documentElement.scrollTop === 0 ? document.body.scrollHeight : document.documentElement.scrollHeight;
@@ -85,7 +85,7 @@ const Section = (props: any) => {
 	};
 
 	const bindScroll = () => {
-		if (isBottom(200)) {
+		if (isReachedBottom(200)) {
 			fetchData();
 		}
 		const { clientHeight = 0 } = document.documentElement;
