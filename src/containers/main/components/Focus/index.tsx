@@ -43,11 +43,11 @@ const Focus = (props: any) => {
 		<div className={classes.root}>
 			<Title title={title} />
 			<div className={classes.articleRoot}>
-				{articles.slice(0, 6).map((article: any, index: number) => (
+				{articles.slice(0, 5).map((article: any, index: number) => (
 					<div
 						key={article.id}
 						className={classes.article}
-						style={{ borderBottom: `${index < 5 ? '1px solid #eee' : ''}` }}>
+						style={{ borderBottom: `${index < 4 ? '1px solid #eee' : ''}` }}>
 						<ArticleCard {...article} />
 					</div>
 				))}

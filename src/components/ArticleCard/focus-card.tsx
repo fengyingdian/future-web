@@ -49,14 +49,14 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flex: 1,
 		fontSize: 13,
 		lineHeight: '20px',
-		color: '#131313',
+		color: 'rgb(102, 102, 102)',
 		padding: '6px 0 4px',
 	},
 	publisher: {
 		fontSize: 10,
 		lineHeight: 1.5,
 		margin: theme.spacing(0, 0, -0.5),
-		color: '#131313',
+		color: 'rgb(163, 9, 10)',
 		fontFamily: 'fangzheng-medium',
 	},
 }));

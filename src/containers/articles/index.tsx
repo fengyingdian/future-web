@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'center',
 		maxWidth: '100%',
 		padding: '0',
-		background: '#f8f8f8',
+		background: 'rgb(163, 9, 10)',
 	},
 	sectionRoot: {
 		display: 'flex',

@@ -12,15 +12,27 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	tag: {
 		fontSize: 12,
 		margin: theme.spacing(0, 2, 0, 0),
-		color: '#CE4127',
+		color: 'rgb(163,9,10)',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 14,
 		},
 	},
+	topStoryTag: {
+   	fontSize: 12,
+		color: '#fff',
+		background: 'rgb(163,9,10)',
+		padding: theme.spacing(0, 1),
+		[theme.breakpoints.up('sm')]: {
+			fontSize: 16,
+			height: 24,
+			lineHeight: '24px',
+		},
+	},
 	largeTag: {
    	fontSize: 12,
-		margin: theme.spacing(0, 2, 0, 0),
-		color: '#CE4127',
+		color: '#fff',
+		background: 'rgb(163,9,10)',
+		padding: theme.spacing(0, 1),
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 16,
 		},
@@ -56,10 +68,10 @@ export const TagTopStory = (props: any) => {
 
 	return (
 		<div className={classes.root} style={{ margin: '0 0 16px' }}>
-			<div className={classes.largeTag}>
+			<div
+				className={classes.topStoryTag}>
 				{tag}
 			</div>
-			<div className={classes.line} />
 		</div>
 	);
 };
@@ -71,8 +83,8 @@ export const TagLarge = (props: any) => {
 	} = props;
 
 	return (
-		<div className={classes.root} style={{ margin: '20px 0 12px' }}>
-			<div className={classes.tag} style={{ fontSize: '16px' }}>
+		<div className={classes.root} style={{ margin: '0 0 12px' }}>
+			<div className={classes.tag}>
 				{tag}
 			</div>
 			<div className={classes.line} />

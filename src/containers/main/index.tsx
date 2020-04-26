@@ -5,9 +5,10 @@ import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import ResponsibleTagSection from '../../components/ArticleSection/responsible-tag-five-section';
 import MenuHeader from '../../components/MenuHeader/index';
-import TopStoryCard from '../../components/ArticleCard/top-story-card';
+import TopStoryCard from '../../components/ArticleCard/top-story-full-image-card';
+import TopStoryAdvertiseCard from '../../components/AdvertiseCard/top-story-bottom-card';
 import TopStoryBottomCard from '../../components/ArticleCard/top-story-bottom-card';
-import Live from './components/Live/index';
+import Live from './components/Live/MediaCard';
 import Focus from './components/Focus/index';
 import Footer from './components/Footer/index';
 import { getStream } from '../../utils/live';
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'center',
 		maxWidth: '100%',
 		padding: theme.spacing(0),
-		background: '#f8f8f8',
+		background: 'rgb(163, 9, 10)',
 	},
 	menuHeader: {
 		margin: theme.spacing(0),
@@ -30,21 +31,20 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	headerSection: {
 		display: 'flex',
-		flexDirection: 'row',
+		flexDirection: 'column',
 		justifyContent: 'center',
 		alignItems: 'flex-start',
 		maxWidth: theme.breakpoints.width('lg'),
 		width: '100%',
 		margin: theme.spacing(5, 0, 0),
 		[theme.breakpoints.down('sm')]: {
-			flexWrap: 'wrap',
 			padding: theme.spacing(0, 2, 0),
 		},
 		[theme.breakpoints.up('sm')]: {
-			flexWrap: 'wrap',
 			padding: theme.spacing(0, 2.5, 0),
 		},
 		[theme.breakpoints.up(800)]: {
+			flexDirection: 'row',
 			padding: theme.spacing(0, 3.5, 0),
 		},
 		[theme.breakpoints.up('md')]: {
@@ -53,6 +53,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	headerSectionLeft: {
 		flex: 1,
+		[theme.breakpoints.down(800)]: {
+			width: '100%',
+		},
 	},
 	headerSectionRight: {
 		display: 'flex',
@@ -151,8 +154,8 @@ const Main = (props: Props) => {
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
 					<TopStoryCard articles={carousel} categoryName={sections[0].categoryName} />
+					<TopStoryAdvertiseCard />
 					<TopStoryBottomCard {...hotnews[6]} />
-					<TopStoryBottomCard {...hotnews[7]} />
 				</div>
 				<div className={classes.headerSectionRight}>
 					<Live stream={stream} isPlan={isPlan} />

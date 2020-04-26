@@ -7,21 +7,21 @@ import {
 } from '@material-ui/core';
 import moment from 'moment';
 import { prop } from 'ramda';
-import { TagTopStory } from './tag';
+import { TagLarge } from './tag';
 import useCommonStyles from '../../theme/styles';
 import { defaultCoverImage } from '../../constants/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
-		height: 273,
+		height: 302,
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
 		alignItems: 'space-between',
 		margin: theme.spacing(2, 0, 0),
 		padding: theme.spacing(3),
-		borderTop: '4px solid #CE4127',
+		borderTop: '4px solid rgb(243, 44, 41)',
 		transition: '0.3s',
 		boxShadow: '0 0 0',
 		border: 0,
@@ -64,20 +64,20 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		fontSize: 26,
 		lineHeight: 1.5,
-		color: '#131313',
+		color: 'rgb(163, 9 ,10)',
 		padding: theme.spacing(0),
 	},
 	excerpt: {
 		fontSize: 16,
 		lineHeight: 1.5,
-		color: '#666',
+		color: 'rgb(102, 102, 102)',
 		margin: theme.spacing(1.5, 0, 0),
 		fontFamily: 'fangzheng-light',
 	},
 	publisher: {
 		fontSize: 12,
 		lineHeight: 1.5,
-		color: '#131313',
+		color: 'rgb(163, 9, 10)',
 		margin: theme.spacing(2, 0, 0),
 		fontFamily: 'fangzheng-medium',
 		position: 'absolute',
@@ -115,7 +115,7 @@ const ArticleCard = (props: any) => {
 					flexWrap={'nowrap'}
 					className={classes.infoBox}>
 					<div className={classes.tag}>
-						{tag && (<TagTopStory tag={tag} />)}
+						{tag && (<TagLarge tag={tag} />)}
 					</div>
 					<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
 						{title}

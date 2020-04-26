@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		height: 118,
 		boxSizing: 'border-box',
-		background: '#CE4127',
+		background: 'linear-gradient(to right, rgb(194, 22, 23), rgb(162, 9, 10))',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',

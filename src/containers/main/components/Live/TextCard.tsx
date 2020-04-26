@@ -6,7 +6,7 @@ import useCommonStyles from '../../../../theme/styles';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		width: '100%',
-		borderTop: '4px solid #CE4127',
+		borderTop: '4px solid rgb(243, 44, 41)',
 		padding: theme.spacing(5, 3.5),
 		background: '#fff',
 		transition: 'all .3s',
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			transform: 'translateY(-3px)',
 			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
 			'& #content': {
-				color: '#CE4127',
+				color: 'rgb(163,9,10)',
 			},
 			'& #excerpt': {
 				// color: '#e8e8e8',

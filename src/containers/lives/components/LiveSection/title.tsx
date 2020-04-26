@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid #CE4127',
+		borderBottom: '4px solid rgb(243, 44, 41)',
 	},
 	tipsIcon: {
 		borderRadius: '50%',
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	tipsContent: {
 		fontSize: 20,
 		lineHeight: '20px',
-		color: '#131313',
+		color: '#fff',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 28,
 			lineHeight: '28px',

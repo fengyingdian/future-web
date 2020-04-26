@@ -17,35 +17,32 @@ const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		display: 'flex',
+		flexDirection: 'column',
 		justifyContent: 'flex-start',
+		width: '100%',
 		maxWidth: '100%',
 		background: '#fff',
-		borderTop: '4px solid rgb(243, 44, 41)',
 		borderRadius: 0,
 		border: '',
 		transition: '0.3s',
+		padding: theme.spacing(0),
 		position: 'relative',
 		top: 0,
 		left: 0,
 		[theme.breakpoints.down('sm')]: {
-			flexDirection: 'column',
-			padding: theme.spacing(2),
+			height: 424,
 		},
 		[theme.breakpoints.up('sm')]: {
-			flexDirection: 'row',
-			height: 418,
-			padding: theme.spacing(2.5),
+			height: 424,
 		},
 		[theme.breakpoints.up(800)]: {
-			padding: theme.spacing(3),
 		},
 	},
 	mediaBox: {
+		width: '100%',
 		[theme.breakpoints.down('sm')]: {
-		  width: '100%',
 		},
 		[theme.breakpoints.up('sm')]: {
-		  width: '60%',
 		},
 		position: 'relative',
 		top: 0,
@@ -53,88 +50,60 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	},
 	media: {
 		width: '100%',
-		height: 0,
+		height: 424,
 		[theme.breakpoints.down('sm')]: {
-			paddingTop: '56%',
 		},
 		[theme.breakpoints.up('sm')]: {
-			paddingTop: 374,
 		},
 		[theme.breakpoints.up(800)]: {
-			paddingTop: 366,
 		},
-	},
-	fingerBox: {
-		position: 'absolute',
-		left: theme.spacing(1.25),
-		bottom: theme.spacing(1.25),
-		[theme.breakpoints.up('sm')]: {
-			left: theme.spacing(2.25),
-			bottom: theme.spacing(2.25),
-		},
-	},
-	finger: {
-		width: 4,
-		minWidth: 4,
-		height: 4,
-		margin: theme.spacing(0, 1, 0, 0),
-		background: '#fff',
-		transition: 'all .5s',
 	},
 	infoBox: {
-		flex: 1,
+		width: '100%',
+		boxSizing: 'border-box',
+		background: 'linear-gradient(rgba(0,0,0,0), rgba(0,0,0,.6))',
 		[theme.breakpoints.down('sm')]: {
-			margin: theme.spacing(2, 0, 0),
+			padding: theme.spacing(2),
 		},
 		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(0, 0, 0, 2),
+			padding: theme.spacing(2),
 		},
 		[theme.breakpoints.up(800)]: {
-			margin: theme.spacing(0, 0, 0, 3),
+			padding: theme.spacing(2),
 		},
-		position: 'relative',
-		top: 0,
+		position: 'absolute',
+		bottom: 0,
 		left: 0,
 	},
 	tag: {
 		width: '100%',
 		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(-0.5, 0, 0),
-			position: 'absolute',
-			top: 0,
-			left: 0,
 		},
 	},
 	title: {
 		fontSize: 18,
 		lineHeight: 1.5,
-		color: '#131313',
+		color: '#fff',
+		display: '-webkit-box',
+		overflow: 'hidden',
+		wordBreak: 'break-word',
+		whiteSpace: 'pre-line',
+		WebkitBoxOrient: 'vertical',
+		WebkitLineClamp: 3,
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 28,
+			WebkitLineClamp: 2,
 		},
-	},
-	excerpt: {
-		fontSize: 12,
-		lineHeight: 1.5,
-		margin: theme.spacing(1, 0, 0),
-		color: '#666',
-		fontFamily: 'fangzheng-light',
-		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(1.5, 0, 0),
-			fontSize: 16,
+		[theme.breakpoints.up(800)]: {
+			fontSize: 28,
+			WebkitLineClamp: 1,
 		},
 	},
 	publisher: {
 		fontSize: 10,
-		margin: theme.spacing(2, 0, -0.5),
-		color: '#131313',
+		margin: theme.spacing(1, 0, 0),
+		color: '#fff',
 		fontFamily: 'fangzheng-medium',
-		[theme.breakpoints.up('sm')]: {
-			fontSize: 12,
-			position: 'absolute',
-			left: 0,
-			bottom: 0,
-		},
 	},
 	arrow: {
 		width: 16,
@@ -170,7 +139,7 @@ const TopStoryCard = (props: any) => {
 	const classes = useStyles();
 
 	const {
-		overflowLine1, overflowLine3, overflowLine4,
+		overflowLine1, overflowLine2,
 	} = useCommonStyles();
 
 	const handleChange = (index: number) => {
@@ -214,60 +183,23 @@ const TopStoryCard = (props: any) => {
 							</div>
 						))}
 					</AutoPlaySwipeableViews>
-					<img
-						onClick={(e: any) => {
-							e.stopPropagation();
-							e.preventDefault();
-							handleChange(article.index > 0 ? article.index - 1 : articles.length - 1);
-						}}
-						src={leftArrow}
-						alt={''}
-						className={classes.arrow}
-						style={{ left: 0 }} />
-					<img
-						onClick={(e: any) => {
-							e.stopPropagation();
-							e.preventDefault();
-							handleChange(article.index < articles.length - 1 ? article.index + 1 : 0);
-						}}
-						src={rightArrow}
-						alt={''}
-						className={classes.arrow}
-						style={{ right: 0 }} />
-					<Box
-						className={classes.fingerBox}
-						display={'flex'}
-						flexDirection={'row'}
-						justifyContent={'flex-start'}
-						alignItems={'center'}>
-						{articles.map((_: any, index: number) => (
-							<div
-								key={index}
-								className={classes.finger}
-								style={{
-									background: article.index === index ? '#CE4127' : '#fff',
-								}} />
-						)) }
-					</Box>
 				</div>
 				<Box
 					display={'flex'}
 					flexDirection={'column'}
-					justifyContent={'center'}
+					justifyContent={'flex-end'}
 					alignItems={'flex-start'}
 					flexWrap={'nowrap'}
-					className={classes.infoBox}
-					style={{ transition: 'all .3s', opacity: state }}>
-					<div className={classes.tag}>
+					className={classes.infoBox}>
+					<div className={classes.tag} style={{ transition: 'all .3s', opacity: state }}>
 						{article.content.tag && (<TagTopStory tag={article.content.tag} />)}
 					</div>
-					<Typography className={`${classes.title} ${overflowLine4}`}>
+					<Typography className={`${classes.title} ${overflowLine2}`} style={{ transition: 'all .3s', opacity: state }}>
 						{article.content.title}
 					</Typography>
-					<Typography className={`${classes.excerpt} ${overflowLine3}`}>
-						{article.content.excerpt}
-					</Typography>
-					<Typography className={`${classes.publisher} ${overflowLine1}`}>
+					<Typography
+						className={`${classes.publisher} ${overflowLine1}`}
+						style={{ transition: 'all .3s', opacity: state }}>
 						<span style={{ fontFamily: 'fangzheng-bold' }}>
 							{article.content.publisherName}
 						</span>
@@ -275,6 +207,26 @@ const TopStoryCard = (props: any) => {
 						{article.content.time}
 					</Typography>
 				</Box>
+				<img
+					onClick={(e: any) => {
+						e.stopPropagation();
+						e.preventDefault();
+						handleChange(article.index > 0 ? article.index - 1 : articles.length - 1);
+					}}
+					src={leftArrow}
+					alt={''}
+					className={classes.arrow}
+					style={{ left: 0 }} />
+				<img
+					onClick={(e: any) => {
+						e.stopPropagation();
+						e.preventDefault();
+						handleChange(article.index < articles.length - 1 ? article.index + 1 : 0);
+					}}
+					src={rightArrow}
+					alt={''}
+					className={classes.arrow}
+					style={{ right: 0 }} />
 			</Box>
 		</Link>
 	);

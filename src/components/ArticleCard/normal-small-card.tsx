@@ -95,7 +95,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		fontSize: 16,
 		lineHeight: 1.5,
-		color: '#131313',
+		color: 'rgb(163, 9, 10)',
 		margin: theme.spacing(0),
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 18,
@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	excerpt: {
 		fontSize: 12,
 		lineHeight: 1.5,
-		color: '#666',
+		color: 'rgb(102, 102, 102)',
 		margin: theme.spacing(1, 0, 0),
 		fontFamily: 'fangzheng-light',
 		[theme.breakpoints.up('sm')]: {
@@ -115,7 +115,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	publisher: {
 		fontSize: 10,
 		lineHeight: 1.5,
-		color: '#131313',
+		color: 'rgb(163, 9, 10)',
 		fontFamily: 'fangzheng-medium',
 		[theme.breakpoints.down('sm')]: {
 			margin: theme.spacing(2, 0, -0.5),

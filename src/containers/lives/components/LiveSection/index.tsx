@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		fontSize: 18,
 		lineHeight: '30px',
-		color: '#131313',
+		color: '#444',
 		margin: theme.spacing(1.5, 0, 0),
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 26,

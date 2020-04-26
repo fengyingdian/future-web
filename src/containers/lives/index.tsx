@@ -16,14 +16,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		alignItems: 'center',
 		maxWidth: '100%',
 		padding: '0',
-		background: '#f8f8f8',
+		background: 'rgb(163, 9, 10)',
 	},
 	sectionRoot: {
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		background: '#f8f8f8',
 		maxWidth: theme.breakpoints.width('md'),
 		[theme.breakpoints.down('sm')]: {
 			padding: theme.spacing(2, 2),

@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		margin: theme.spacing(0),
 		padding: theme.spacing(4, 0),
-		background: '#fff',
+		background: 'rgb(192, 21, 22)',
 		display: 'flex',
 		flexDirection: 'column',
 		justifyContent: 'center',
@@ -25,11 +25,11 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		height: 12,
 		padding: theme.spacing(0, 0.5),
 		margin: theme.spacing(0, 0, 0.5),
-		color: '#a4a4a4',
+		color: 'rgb(242, 126, 127)',
 	},
 	info: {
 		fontSize: 9,
-		color: '#d8d8d8',
+		color: 'rgb(242, 126, 127)',
 		margin: theme.spacing(2, 0, 0),
 		fontFamily: 'fangzheng-medium',
 	},
@@ -59,7 +59,7 @@ const Footer = () => {
 						key={index}
 						className={`${classes.link} ${overflowLine1}`}
 						style={{
-							borderRight: index < links.length - 1 ? '1px solid #d8d8d8' : '',
+							borderRight: index < links.length - 1 ? '1px solid rgb(242, 126, 127)' : '',
 						}}>
 						{link}
 					</Typography>

@@ -17,10 +17,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		fontSize: 24,
 		lineHeight: '22px',
-		color: '#131313',
+		color: '#fff',
 		width: '100%',
 		boxSizing: 'border-box',
-		borderBottom: '4px solid #CE4127',
+		borderBottom: '4px solid rgb(243, 44, 41)',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 28,
 			lineHeight: '24px',
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	description: {
 		fontSize: 24,
 		lineHeight: '28px',
-		color: '#CE4127',
+		color: 'rgb(163,9,10)',
 		boxSizing: 'border-box',
 		padding: theme.spacing(0),
 	},

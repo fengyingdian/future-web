@@ -7,7 +7,7 @@ import {
 } from '@material-ui/core';
 import moment from 'moment';
 import { prop } from 'ramda';
-import { TagTopStory } from './tag';
+import { TagLarge } from './tag';
 import useCommonStyles from '../../theme/styles';
 import { largeCardCover, defaultCoverImage } from '../../constants/index';
 
@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	title: {
 		fontSize: 16,
 		lineHeight: 1.5,
-		color: '#131313',
+		color: 'rgb(163, 9, 10)',
 		padding: theme.spacing(0),
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 26,
@@ -98,7 +98,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	excerpt: {
 		fontSize: 12,
 		lineHeight: 1.5,
-		color: '#666',
+		color: 'rgb(102, 102, 102)',
 		margin: theme.spacing(1, 0, 0),
 		fontFamily: 'fangzheng-light',
 		[theme.breakpoints.up('sm')]: {
@@ -109,7 +109,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	publisher: {
 		fontSize: 10,
 		lineHeight: 1.5,
-		color: '#131313',
+		color: 'rgb(163, 9, 10)',
 		margin: theme.spacing(2, 0, -0.5),
 		fontFamily: 'fangzheng-medium',
 		[theme.breakpoints.up('sm')]: {
@@ -154,7 +154,7 @@ const ArticleCard = (props: any) => {
 					flexWrap={'nowrap'}
 					className={classes.infoBox}>
 					<div className={classes.tag}>
-					  {tag && (<TagTopStory tag={tag} />)}
+					  {tag && (<TagLarge tag={tag} />)}
 					</div>
 					<Typography id={'title'} className={`${classes.title} ${overflowLine3}`}>
 						{title}

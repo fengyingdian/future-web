@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	tag: {
 		fontSize: 12,
 		margin: theme.spacing(4.25, 1, 0, 0),
-		color: '#CE4127',
+		color: 'rgb(163,9,10)',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 16,
 		},
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		fontSize: 18,
 		lineHeight: 1.5,
 		margin: theme.spacing(3, 0, 0),
-		color: '#131313',
+		color: '#444',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 26,
 		},
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		width: '100%',
 		padding: theme.spacing(3, 0, 3),
 		borderBottom: '1px solid #eee',
-		color: '#131313',
+		color: 'rgb(163, 9, 10)',
 		fontFamily: 'fangzheng-medium',
 		[theme.breakpoints.up('sm')]: {
 			fontSize: 12,
