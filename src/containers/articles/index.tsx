@@ -15,8 +15,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		justifyContent: 'flex-start',
 		alignItems: 'center',
 		maxWidth: '100%',
-		padding: '0',
 		background: 'rgb(163, 9, 10)',
+		padding: theme.spacing(0, 0, 2),
 	},
 	sectionRoot: {
 		display: 'flex',

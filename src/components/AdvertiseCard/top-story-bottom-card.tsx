@@ -4,7 +4,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import {
 	Card, CardMedia, Link,
 } from '@material-ui/core';
-import { defaultCoverImage } from '../../constants/index';
+import { advertiseStrip } from '../../constants/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -39,23 +39,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	image: {
 		width: '100%',
 		height: '100%',
-		background: '#ddd',
 	},
 }));
 
-const ArticleCard = (props: any) => {
+const ArticleCard = () => {
 	const classes = useStyles();
-
-	const { cover = '' } = props;
 
 	return (
 		<Link href={'/'} underline={'none'}>
 			<Card className={classes.root}>
 				<CardMedia
 					className={classes.image}
-					image={defaultCoverImage}
-					data-src={cover}
-					data-lazyload
+					image={advertiseStrip}
 					title={'advertise-cover'} />
 			</Card>
 		</Link>
