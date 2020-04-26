@@ -163,9 +163,9 @@ const ArticleContent = (props: any) => {
 				const image = new Image();
 				image.onload = () => {
 					img.src = image.src;
-					// reset img attributions
-					img.style.height = 'auto';
+					img.style.height = `${Math.round(rect.height)}px`;
 					img.style.paddingTop = '0';
+					// reset img attributions
 					img.removeAttribute('data-src');
 					img.removeAttribute('data-lazyload');
 				};
