@@ -6,7 +6,7 @@
 /*   By: break <break@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 16:34:28 by break             #+#    #+#             */
-/*   Updated: 2020/04/26 19:10:36 by break            ###   ########.fr       */
+/*   Updated: 2020/04/26 19:27:29 by break            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ export const livePreviewCover = 'https://sapp.flipboard.cn/fabulous/assets/live-
 
 export const livePlayButton = 'https://sapp.flipboard.cn/fabulous/assets/live-play-button.png';
 
-export const advertiseStrip = 'https://sapp.flipboard.cn/fabulous/assets/advertise-strip.jpeg';
+// in case advertise test, use no CDN
+// eslint-disable-next-line max-len
+export const advertiseStrip = 'https://flipboard-cn-webapp.oss-cn-hangzhou.aliyuncs.com/fabulous/assets/advertise-strip.jpeg';
 
 export const leftArrow = 'https://sapp.flipboard.cn/fabulous/assets/left-arrow.png';
 
