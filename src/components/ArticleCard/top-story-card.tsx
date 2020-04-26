@@ -211,7 +211,7 @@ const TopStoryCard = (props: any) => {
 								<CardMedia
 									className={classes.media}
 									image={(item.cover && item.cover.url) || ''}
-									title={article.content.title} />
+									title={'article-cover'} />
 							</div>
 						))}
 					</AutoPlaySwipeableViews>

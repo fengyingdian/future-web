@@ -6,7 +6,7 @@
 /*   By: break <break@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 16:34:28 by break             #+#    #+#             */
-/*   Updated: 2020/04/16 16:40:17 by break            ###   ########.fr       */
+/*   Updated: 2020/04/26 14:02:16 by break            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ export const liveBkCover = 'https://sapp.flipboard.cn/fabulous/assets/live-bk-co
 export const leftArrow = 'https://sapp.flipboard.cn/fabulous/assets/left-arrow.png';
 
 export const rightArrow = 'https://sapp.flipboard.cn/fabulous/assets/right-arrow.png';
+
+export const defaultCoverImage = '';
 
 export default {};

@@ -8,6 +8,7 @@ import { Title } from '../../components/ArticleSection/section-page-title';
 import Page from './components/Page/index';
 import MenuHeader from '../../components/MenuHeader/index';
 import { fetchArticleSection } from '../../service/index';
+import { lazyload } from '../../utils/image';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -88,29 +89,14 @@ const Section = (props: any) => {
 		if (isReachedBottom(200)) {
 			fetchData();
 		}
-		const { clientHeight = 0 } = document.documentElement;
-		const images = document.querySelectorAll('img[data-src][data-lazyload]');
-		if (images.length < 1) {
-			return;
-		}
-		Array.prototype.forEach.call(images, (img: any) => {
-			if (!img.dataset.src) {
-				return;
-			}
-			const rect = img.getBoundingClientRect();
-			if (rect.bottom >= 0 && rect.top < clientHeight) {
-				const image = new Image();
-				image.onload = () => {
-					img.src = image.src;
-				};
-				image.src = img.dataset.src;
-				img.removeAttribute('data-src');
-				img.removeAttribute('data-lazyload');
-			}
-		});
+		lazyload();
 	};
 
 	useEffect(() => {
+		// init
+		lazyload();
+
+		// listener
 		window.addEventListener('scroll', bindScroll);
 
 		// (document as any).fonts.ready.then(() => {

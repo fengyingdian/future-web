@@ -9,7 +9,7 @@ import moment from 'moment';
 import { prop } from 'ramda';
 import { TagTopStory } from './tag';
 import useCommonStyles from '../../theme/styles';
-import { largeCardCover } from '../../constants/index';
+import { largeCardCover, defaultCoverImage } from '../../constants/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -50,6 +50,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	image: {
 		width: '100%',
 		height: 0,
+		background: '#f8f8f8',
 		paddingTop: '56%',
 		[theme.breakpoints.up('sm')]: {
 			width: '50%',
@@ -140,8 +141,10 @@ const ArticleCard = (props: any) => {
 			<Card className={classes.root}>
 				<CardMedia
 					className={classes.image}
-					image={url || largeCardCover}
-					title={title}
+					image={defaultCoverImage}
+					data-src={url || largeCardCover}
+					data-lazyload
+					title={'article-cover'}
 				/>
 				<Box
 					display={'flex'}

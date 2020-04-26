@@ -9,6 +9,7 @@ import moment from 'moment';
 import { prop } from 'ramda';
 import { TagFocus } from './tag';
 import useCommonStyles from '../../theme/styles';
+import { defaultCoverImage } from '../../constants/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 	image: {
 		width: 73,
 		height: 73,
+		background: '#f8f8f8',
 	},
 	infoBox: {
 		flex: 1,
@@ -79,8 +81,10 @@ const ArticleCard = (props: any) => {
 			<Card className={classes.root}>
 				<CardMedia
 					className={classes.image}
-					image={url}
-					title={title}
+					image={defaultCoverImage}
+					data-src={url}
+					data-lazyload
+					title={'article-cover'}
 				/>
 				<Box
 					display={'flex'}

@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
 import React, { useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
@@ -10,6 +11,7 @@ import Live from './components/Live/index';
 import Focus from './components/Focus/index';
 import Footer from './components/Footer/index';
 import { getStream } from '../../utils/live';
+import { lazyload } from '../../utils/image';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -113,28 +115,19 @@ interface Props {
 const Main = (props: Props) => {
 	// const [skeleton, setSkeleton] = useState(true);
 
-	const bindScroll = () => {
-  	// const header = document.getElementById('intro-page-top-header');
-  	// if (header) {
-  	//   const rect = header?.getBoundingClientRect();
-		// 	const { bottom, height } = rect;
-		// 	const pos = bottom / height;
-  	// 	const opacity = pos ** 3;
-		// 	if (opacity > 0 && opacity < 3) {
-		// 		setState(opacity);
-  	// 	}
-  	// }
-	};
-
 	useEffect(() => {
-		window.addEventListener('scroll', bindScroll, false);
+		// init
+		lazyload();
+
+		// listener
+		window.addEventListener('scroll', lazyload, false);
 
 		// (document as any).fonts.ready.then(() => {
 		// 	// console.log('fonts ready home page');
 		// 	setSkeleton(false);
 		// });
 
-		return () => window.removeEventListener('scroll', bindScroll, false);
+		return () => window.removeEventListener('scroll', lazyload, false);
 	});
 
 	const classes = useStyles({ opacity: 1 });
