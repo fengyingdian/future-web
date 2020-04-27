@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		[theme.breakpoints.up(800)]: {
 			padding: theme.spacing(0, 5.5),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			padding: theme.spacing(0, 6.5),
 		},
 	},

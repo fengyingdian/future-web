@@ -9,7 +9,6 @@ import { advertiseStrip } from '../../constants/index';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
-		height: 138,
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
@@ -32,13 +31,18 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 				// color: '#e8e8e8',
 			},
 		},
-		[theme.breakpoints.down(800)]: {
-			display: 'none',
-		},
+		height: 0,
+		paddingTop: '16%',
+		position: 'relative',
+		top: 0,
+		left: 0,
 	},
 	image: {
 		width: '100%',
 		height: '100%',
+		position: 'absolute',
+		top: 0,
+		left: 0,
 	},
 }));
 

@@ -22,7 +22,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		color: '#fff',
 		background: 'rgb(163,9,10)',
 		padding: theme.spacing(0, 1),
-		[theme.breakpoints.up('sm')]: {
+		[theme.breakpoints.down(800)]: {
+			fontSize: 12,
+			height: 20,
+			lineHeight: '20px',
+		},
+		[theme.breakpoints.up(800)]: {
 			fontSize: 16,
 			height: 24,
 			lineHeight: '24px',

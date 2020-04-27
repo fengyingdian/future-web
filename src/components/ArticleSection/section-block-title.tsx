@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			margin: theme.spacing(0, 1, 2),
 			padding: theme.spacing(2, 1),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			margin: theme.spacing(3, 1, 2),
 		  padding: theme.spacing(2, 1),
 		},

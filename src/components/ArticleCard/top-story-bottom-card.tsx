@@ -14,7 +14,6 @@ import { defaultCoverImage } from '../../constants/index';
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
 		maxWidth: '100%',
-		height: 302,
 		display: 'flex',
 		flexDirection: 'row',
 		justifyContent: 'flex-start',
@@ -41,11 +40,23 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		[theme.breakpoints.down(800)]: {
 			display: 'none',
 		},
+		[theme.breakpoints.up(800)]: {
+			display: 'flex',
+			height: 232,
+		},
+		[theme.breakpoints.up(1024)]: {
+			height: 302,
+		},
 	},
 	image: {
 		width: '38%',
-		height: 222,
 		background: '#f8f8f8',
+		[theme.breakpoints.up(800)]: {
+			height: 180,
+		},
+		[theme.breakpoints.up(1024)]: {
+			height: 250,
+		},
 	},
 	infoBox: {
 		flex: 1,
@@ -62,17 +73,27 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		margin: theme.spacing(-0.5, 0, 0),
 	},
 	title: {
-		fontSize: 26,
 		lineHeight: 1.5,
 		color: 'rgb(163, 9 ,10)',
 		padding: theme.spacing(0),
+		[theme.breakpoints.up(800)]: {
+			fontSize: 20,
+		},
+		[theme.breakpoints.up(1024)]: {
+			height: 26,
+		},
 	},
 	excerpt: {
-		fontSize: 16,
 		lineHeight: 1.5,
 		color: 'rgb(102, 102, 102)',
 		margin: theme.spacing(1.5, 0, 0),
 		fontFamily: 'fangzheng-light',
+		[theme.breakpoints.up(800)]: {
+			fontSize: 14,
+		},
+		[theme.breakpoints.up(1024)]: {
+			height: 16,
+		},
 	},
 	publisher: {
 		fontSize: 12,

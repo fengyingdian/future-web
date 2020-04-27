@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		[theme.breakpoints.up(800)]: {
 			padding: theme.spacing(2, 2.5, 0),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			padding: theme.spacing(2, 3, 0),
 		},
 	},
@@ -95,14 +95,21 @@ const Section = (props: any) => {
 		// init
 		lazyload();
 
-		// listener
-		window.addEventListener('scroll', bindScroll);
+		// listener scroll
+		window.addEventListener('scroll', bindScroll, false);
+
+		// listener resize
+		window.addEventListener('resize', lazyload, false);
 
 		// (document as any).fonts.ready.then(() => {
-		// 	console.log('fonts ready section page');
+		// 	// console.log('fonts ready home page');
+		// 	setSkeleton(false);
 		// });
 
-		return () => window.removeEventListener('scroll', bindScroll);
+		return () => {
+			window.removeEventListener('scroll', bindScroll, false);
+			window.removeEventListener('resize', lazyload, false);
+		};
 	});
 
 	return (

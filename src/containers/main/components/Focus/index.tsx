@@ -36,18 +36,19 @@ const Focus = (props: any) => {
 	const classes = useStyles();
 	const {
 		title = '聚焦',
-		articles,
+		articles = [],
+		clientWidth = 0,
 	} = props;
 
 	return (
 		<div className={classes.root}>
 			<Title title={title} />
 			<div className={classes.articleRoot}>
-				{articles.slice(0, 5).map((article: any, index: number) => (
+				{articles.slice(0, clientWidth > 1024 ? 5 : 4).map((article: any, index: number) => (
 					<div
 						key={article.id}
 						className={classes.article}
-						style={{ borderBottom: `${index < 4 ? '1px solid #eee' : ''}` }}>
+						style={{ borderBottom: `${index < (clientWidth > 1024 ? 4 : 3) ? '1px solid #eee' : ''}` }}>
 						<ArticleCard {...article} />
 					</div>
 				))}

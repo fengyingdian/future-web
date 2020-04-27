@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		[theme.breakpoints.up(800)]: {
 			padding: theme.spacing(2, 3.5),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			padding: theme.spacing(2, 4),
 		},
 	},
@@ -57,7 +57,7 @@ const Article = (props: any) => {
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
 				<MenuHeader selected={categoryName} menus={menus} />
-				<Container maxWidth={'md'} className={classes.sectionRoot}>
+				<Container maxWidth={1024} className={classes.sectionRoot}>
 					<Title title={displayName} />
 					<ArticleContent {...props} />
 				  {/* <RelativeSection articles={articles} /> */}

@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		[theme.breakpoints.up('sm')]: {
 			margin: theme.spacing(1, 0, 0),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			margin: theme.spacing(1, 0, 2),
 		},
 	},
@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			margin: theme.spacing(0, 1, 0),
 			padding: theme.spacing(0, 0, 2),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			padding: theme.spacing(0, 0, 2),
 		},
 	},
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			padding: theme.spacing(0, 1, 0),
 			minWidth: '50%',
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			margin: theme.spacing(0),
 			padding: theme.spacing(0, 1, 0),
 			minWidth: '25%',

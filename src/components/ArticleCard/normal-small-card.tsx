@@ -59,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			paddingTop: '40%',
 			margin: theme.spacing(3, 0, 0),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			paddingTop: '64%',
 		},
 	},

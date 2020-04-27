@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		maxWidth: theme.breakpoints.width('md'),
+		maxWidth: theme.breakpoints.width(1024),
 		[theme.breakpoints.down('sm')]: {
 			padding: theme.spacing(2, 2),
 		},
@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		[theme.breakpoints.up(800)]: {
 			padding: theme.spacing(4.5, 3.5),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			padding: theme.spacing(6, 3),
 		},
 	},

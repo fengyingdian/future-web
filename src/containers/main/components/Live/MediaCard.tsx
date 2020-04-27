@@ -5,6 +5,7 @@ import {
 } from '@material-ui/core';
 import useCommonStyles from '../../../../theme/styles';
 import { livePreviewCover, livePlayButton } from '../../../../constants/index';
+import { getLiveCardHeight } from '../../../../utils/live';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
 	root: {
@@ -12,9 +13,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		padding: theme.spacing(0),
 		background: '#f8f8f8',
 		transition: 'all .3s',
-		position: 'relative',
-		top: 0,
-		left: 0,
 		'&:hover': {
 			transform: 'translateY(-3px)',
 			// boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
@@ -36,16 +34,21 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			margin: theme.spacing(0, 0, 3.25),
 		},
 		[theme.breakpoints.up(800)]: {
-			padding: theme.spacing(0),
-			height: 297,
+			height: 0,
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			padding: theme.spacing(0),
 		},
+		position: 'relative',
+		top: 0,
+		left: 0,
 	},
 	image: {
 		width: '100%',
 		height: '100%',
+		position: 'absolute',
+		top: 0,
+		left: 0,
 	},
 	maskBox: {
 		width: '100%',
@@ -92,8 +95,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }));
 
 const Live = (props: any) => {
+	const { stream = {}, isPlan = false, clientWidth = 0 } = props;
+
+	const paddingTop = (() => {
+		if (clientWidth) {
+			return getLiveCardHeight(clientWidth);
+		}
+
+		return 297;
+	})();
 	const classes = useStyles();
-	const { stream = {}, isPlan = false } = props;
 	const {
 		status = 'publish_done',
 	} = stream;
@@ -113,6 +124,9 @@ const Live = (props: any) => {
 				flexDirection={'column'}
 				justifyContent={'center'}
 				alignItems={'flex-start'}
+				style={{
+					paddingTop,
+				}}
 				className={classes.root}>
 				<CardMedia
 					className={classes.image}

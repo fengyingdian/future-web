@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, NoSsr } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import ResponsibleTagSection from '../../components/ArticleSection/responsible-tag-five-section';
@@ -47,7 +47,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 			flexDirection: 'row',
 			padding: theme.spacing(0, 3.5, 0),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			padding: theme.spacing(0, 4, 0),
 		},
 	},
@@ -72,9 +72,9 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		},
 		[theme.breakpoints.up(800)]: {
 			margin: theme.spacing(0, 0, 0, 2),
-			maxWidth: '32%',
+			maxWidth: '30%',
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			maxWidth: '30%',
 			margin: theme.spacing(0, 0, 0, 2),
 		},
@@ -94,7 +94,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		[theme.breakpoints.up(800)]: {
 			padding: theme.spacing(0, 2.5, 0),
 		},
-		[theme.breakpoints.up('md')]: {
+		[theme.breakpoints.up(1024)]: {
 			padding: theme.spacing(0, 3, 0),
 		},
 	},
@@ -117,20 +117,33 @@ interface Props {
 
 const Main = (props: Props) => {
 	// const [skeleton, setSkeleton] = useState(true);
+	const [clientWidth, setClientWidth] = useState(0);
+
+	const onResize = () => {
+		setClientWidth(document.documentElement.clientWidth);
+
+		lazyload();
+	};
 
 	useEffect(() => {
 		// init
-		lazyload();
+		onResize();
 
-		// listener
+		// listener scroll
 		window.addEventListener('scroll', lazyload, false);
+
+		// listener resize
+		window.addEventListener('resize', onResize, false);
 
 		// (document as any).fonts.ready.then(() => {
 		// 	// console.log('fonts ready home page');
 		// 	setSkeleton(false);
 		// });
 
-		return () => window.removeEventListener('scroll', lazyload, false);
+		return () => {
+			window.removeEventListener('scroll', lazyload, false);
+			window.removeEventListener('resize', onResize, false);
+		};
 	});
 
 	const classes = useStyles({ opacity: 1 });
@@ -153,13 +166,21 @@ const Main = (props: Props) => {
 			</div>
 			<div className={classes.headerSection}>
 				<div className={classes.headerSectionLeft}>
-					<TopStoryCard articles={carousel} categoryName={sections[0].categoryName} />
+					<TopStoryCard
+						articles={carousel}
+						categoryName={sections[0].categoryName}
+						clientWidth={clientWidth} />
 					<TopStoryAdvertiseCard />
 					<TopStoryBottomCard {...hotnews[6]} />
 				</div>
 				<div className={classes.headerSectionRight}>
-					<Live stream={stream} isPlan={isPlan} />
-					<Focus articles={hotnews} />
+					<Live
+						stream={stream}
+						isPlan={isPlan}
+						clientWidth={clientWidth} />
+					<Focus
+						articles={hotnews}
+						clientWidth={clientWidth} />
 				</div>
 			</div>
 			<div className={classes.sections}>
