@@ -23,7 +23,6 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 		flexDirection: 'column',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		maxWidth: theme.breakpoints.width(1024),
 		[theme.breakpoints.down('sm')]: {
 			padding: theme.spacing(2, 2),
 		},
@@ -66,7 +65,7 @@ const Live = (props: any) => {
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
 				<MenuHeader selected={name} menus={menus} />
-				<Container maxWidth={false} className={classes.sectionRoot}>
+				<Container maxWidth={'md'} className={classes.sectionRoot}>
 					<Title status={stream.status} isPlan={isPlan} />
 					<LiveSection sp={sp} stream={stream} />
 				</Container>

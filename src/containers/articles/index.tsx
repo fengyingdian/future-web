@@ -57,7 +57,7 @@ const Article = (props: any) => {
 			</Head>
 			<Container maxWidth={false} className={classes.root}>
 				<MenuHeader selected={categoryName} menus={menus} />
-				<Container maxWidth={1024} className={classes.sectionRoot}>
+				<Container maxWidth={'md'} className={classes.sectionRoot}>
 					<Title title={displayName} />
 					<ArticleContent {...props} />
 				  {/* <RelativeSection articles={articles} /> */}
