@@ -10,7 +10,7 @@ export const calcLiveCardHeight = ({
 	rightSideRestHeight = 491,
 	clientWidth = 801,
 }) => {
-	if (clientWidth > 800) {
+	if (clientWidth >= 800) {
 		return topStoryHeight + topStoryBottomHeight + ((1 - rightSideRate) * clientWidth - 64) * advertiseStripHeightRate + leftSideRestHeight - rightSideRestHeight;
 	}
 
