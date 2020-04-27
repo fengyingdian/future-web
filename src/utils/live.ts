@@ -18,12 +18,12 @@ export const calcLiveCardHeight = ({
 };
 
 export const getLiveCardHeight = (clientWidth: number) => {
-	if (clientWidth >= 800 && clientWidth <= 1024) {
+	if (clientWidth >= 800 && clientWidth < 1024) {
 		return calcLiveCardHeight({
 			clientWidth,
 		});
 	}
-	if (clientWidth > 1024) {
+	if (clientWidth >= 1024) {
 		return calcLiveCardHeight({
 			topStoryBottomHeight: 302,
 			rightSideRestHeight: 598,
