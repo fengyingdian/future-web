@@ -29,7 +29,7 @@ module.exports = {
     'semi': ['error', 'always'],
     'no-nested-ternary': 'off',
 
-    'indent': ['error', 'tab'],
+    //'indent': ['error', 'tab'],
     'react/no-unused-state': 'off',
 
     'radix': 'error',

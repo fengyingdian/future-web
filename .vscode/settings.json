@@ -1,7 +1,4 @@
 {
-  "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
   "eslint.validate": [
     "javascript",
     "typescript",
@@ -15,7 +12,23 @@
     "source.fixAll.eslint": true
   },
   "eslint.codeAction.disableRuleComment": {},
-  "editor.tabSize": 2,
-  "editor.detectIndentation": false,
   "editor.fontSize": 14,
+  "files.trimTrailingWhitespace": true,
+  "editor.renderWhitespace": "all",
+  "editor.comments.insertSpace": false,
+  "editor.useTabStops": false,
+  "editor.tabSize": 2,
+
+// Insert spaces when pressing Tab. This setting is overriden
+// based on the file contents when `editor.detectIndentation` is true.
+  "editor.insertSpaces": true,
+
+// When opening a file, `editor.tabSize` and `editor.insertSpaces`
+// will be detected based on the file contents. Set to false to keep
+// the values you've explicitly set, above.
+
+  "editor.detectIndentation": true,
+	"workbench.editor.showTabs": false,
+	"editor.highlightActiveIndentGuide": false,
+	"editor.renderIndentGuides": false,
 }
