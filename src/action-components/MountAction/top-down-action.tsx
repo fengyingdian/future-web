@@ -10,25 +10,25 @@ interface State {
 }
 
 export class TopDownAction extends React.Component<Props, State> {
-	constructor(props: Props) {
-		super(props);
-		this.state = {
-			isShow: false,
-		};
-	}
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      isShow: false,
+    };
+  }
 
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState({
-				isShow: true,
-			});
-		});
-	}
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        isShow: true,
+      });
+    });
+  }
 
-	render() {
-		const { isShow } = this.state;
+  render() {
+    const { isShow } = this.state;
 
-		return (
+    return (
 			<div>
 				{this.props.children}
 				<style jsx>
@@ -41,8 +41,8 @@ export class TopDownAction extends React.Component<Props, State> {
           `}
 				</style>
 			</div>
-		);
-	}
+    );
+  }
 }
 
 export default {};

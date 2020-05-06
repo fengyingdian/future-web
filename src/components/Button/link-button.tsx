@@ -5,10 +5,10 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-	root: {
-		margin: theme.spacing(6, 0, 3),
-		fontSize: 18,
-	},
+  root: {
+    margin: theme.spacing(6, 0, 3),
+    fontSize: 18,
+  },
 }));
 
 type Props = {
@@ -17,14 +17,14 @@ type Props = {
 };
 
 export const LinkButton = (props: Props) => {
-	const classes = useStyles();
-	const { link = '', title = '' } = props;
+  const classes = useStyles();
+  const { link = '', title = '' } = props;
 
-	return (
+  return (
 		<Typography className={classes.root} color={'textSecondary'}>
 			<Link href={link}>{title}</Link>
 		</Typography>
-	);
+  );
 };
 
 export default {};

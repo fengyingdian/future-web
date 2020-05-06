@@ -7,27 +7,27 @@ import { fetchMenus, fetchLiveSection } from '../src/service/index';
 import Live from '../src/containers/lives/index';
 
 const Index = (props: any) => {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	return (
+  return (
 		<Container maxWidth={false} className={classes.root}>
 			<Live {...props} />
 		</Container>
-	);
+  );
 };
 
 Index.getInitialProps = async ({ query }: any) => {
-	const { sp = 'rtmp' } = query;
+  const { sp = 'rtmp' } = query;
 
-	const menus: any = await fetchMenus();
+  const menus: any = await fetchMenus();
 
-	const { streams = [] }: any = await fetchLiveSection();
+  const { streams = [] }: any = await fetchLiveSection();
 
-	return {
-		menus,
-		streams,
-		sp,
-	};
+  return {
+    menus,
+    streams,
+    sp,
+  };
 };
 
 export default withRouter(Index);

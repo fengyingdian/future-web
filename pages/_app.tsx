@@ -11,18 +11,18 @@ import { Box } from '@material-ui/core';
 import Theme from '../src/theme/theme';
 
 export default class MyApp extends App {
-	componentDidMount() {
-		// Remove the server-side injected CSS.
-		const jssStyles = document.querySelector('#jss-server-side');
-		if (jssStyles) {
+  componentDidMount() {
+    // Remove the server-side injected CSS.
+    const jssStyles = document.querySelector('#jss-server-side');
+    if (jssStyles) {
       jssStyles.parentElement!.removeChild(jssStyles);
-		}
-	}
+    }
+  }
 
-	render() {
-		const { Component, pageProps } = this.props;
+  render() {
+    const { Component, pageProps } = this.props;
 
-		return (
+    return (
 			<>
 				<Head>
 					<title>{'人民数字联播网'}</title>
@@ -51,6 +51,6 @@ export default class MyApp extends App {
 					</Box>
 				</ThemeProvider>
 			</>
-		);
-	}
+    );
+  }
 }

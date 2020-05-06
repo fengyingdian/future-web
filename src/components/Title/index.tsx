@@ -3,16 +3,16 @@ import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-	gradient: {
-		margin: theme.spacing(4, 0, 4),
-		padding: theme.spacing(0),
-		fontSize: 40,
-		lineHeight: '48px',
-		[theme.breakpoints.up('sm')]: {
-			fontSize: 40,
-			lineHeight: '48px',
-		},
-	},
+  gradient: {
+    margin: theme.spacing(4, 0, 4),
+    padding: theme.spacing(0),
+    fontSize: 40,
+    lineHeight: '48px',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 40,
+      lineHeight: '48px',
+    },
+  },
 }));
 
 interface Props {
@@ -20,10 +20,10 @@ interface Props {
 }
 
 export const Header = (props: Props) => {
-	const { content = '' } = props;
-	const classes = useStyles();
+  const { content = '' } = props;
+  const classes = useStyles();
 
-	return (
+  return (
 		<>
 			<p className={classes.gradient}>
 				{content}
@@ -43,7 +43,7 @@ export const Header = (props: Props) => {
         `}
 			</style>
 		</>
-	);
+  );
 };
 
 export default Header;

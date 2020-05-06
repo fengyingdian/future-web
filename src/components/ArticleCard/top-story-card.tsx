@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import {
-	Link, Typography, Box, CardMedia,
+  Link, Typography, Box, CardMedia,
 } from '@material-ui/core';
 import moment from 'moment';
 import SwipeableViews from 'react-swipeable-views';
@@ -15,184 +15,184 @@ import { leftArrow, rightArrow } from '../../constants';
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-	root: {
-		display: 'flex',
-		justifyContent: 'flex-start',
-		maxWidth: '100%',
-		background: '#fff',
-		borderTop: '4px solid rgb(243, 44, 41)',
-		borderRadius: 0,
-		border: '',
-		transition: '0.3s',
-		position: 'relative',
-		top: 0,
-		left: 0,
-		[theme.breakpoints.down('sm')]: {
-			flexDirection: 'column',
-			padding: theme.spacing(2),
-		},
-		[theme.breakpoints.up('sm')]: {
-			flexDirection: 'row',
-			height: 418,
-			padding: theme.spacing(2.5),
-		},
-		[theme.breakpoints.up(800)]: {
-			padding: theme.spacing(3),
-		},
-	},
-	mediaBox: {
-		[theme.breakpoints.down('sm')]: {
+  root: {
+    display: 'flex',
+    justifyContent: 'flex-start',
+    maxWidth: '100%',
+    background: '#fff',
+    borderTop: '4px solid rgb(243, 44, 41)',
+    borderRadius: 0,
+    border: '',
+    transition: '0.3s',
+    position: 'relative',
+    top: 0,
+    left: 0,
+    [theme.breakpoints.down('sm')]: {
+      flexDirection: 'column',
+      padding: theme.spacing(2),
+    },
+    [theme.breakpoints.up('sm')]: {
+      flexDirection: 'row',
+      height: 418,
+      padding: theme.spacing(2.5),
+    },
+    [theme.breakpoints.up(800)]: {
+      padding: theme.spacing(3),
+    },
+  },
+  mediaBox: {
+    [theme.breakpoints.down('sm')]: {
 		  width: '100%',
-		},
-		[theme.breakpoints.up('sm')]: {
+    },
+    [theme.breakpoints.up('sm')]: {
 		  width: '60%',
-		},
-		position: 'relative',
-		top: 0,
-		left: 0,
-	},
-	media: {
-		width: '100%',
-		height: 0,
-		[theme.breakpoints.down('sm')]: {
-			paddingTop: '56%',
-		},
-		[theme.breakpoints.up('sm')]: {
-			paddingTop: 374,
-		},
-		[theme.breakpoints.up(800)]: {
-			paddingTop: 366,
-		},
-	},
-	fingerBox: {
-		position: 'absolute',
-		left: theme.spacing(1.25),
-		bottom: theme.spacing(1.25),
-		[theme.breakpoints.up('sm')]: {
-			left: theme.spacing(2.25),
-			bottom: theme.spacing(2.25),
-		},
-	},
-	finger: {
-		width: 4,
-		minWidth: 4,
-		height: 4,
-		margin: theme.spacing(0, 1, 0, 0),
-		background: '#fff',
-		transition: 'all .5s',
-	},
-	infoBox: {
-		flex: 1,
-		[theme.breakpoints.down('sm')]: {
-			margin: theme.spacing(2, 0, 0),
-		},
-		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(0, 0, 0, 2),
-		},
-		[theme.breakpoints.up(800)]: {
-			margin: theme.spacing(0, 0, 0, 3),
-		},
-		position: 'relative',
-		top: 0,
-		left: 0,
-	},
-	tag: {
-		width: '100%',
-		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(-0.5, 0, 0),
-			position: 'absolute',
-			top: 0,
-			left: 0,
-		},
-	},
-	title: {
-		fontSize: 18,
-		lineHeight: 1.5,
-		color: '#131313',
-		[theme.breakpoints.up('sm')]: {
-			fontSize: 28,
-		},
-	},
-	excerpt: {
-		fontSize: 12,
-		lineHeight: 1.5,
-		margin: theme.spacing(1, 0, 0),
-		color: '#666',
-		fontFamily: 'fangzheng-light',
-		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(1.5, 0, 0),
-			fontSize: 16,
-		},
-	},
-	publisher: {
-		fontSize: 10,
-		margin: theme.spacing(2, 0, -0.5),
-		color: '#131313',
-		fontFamily: 'fangzheng-medium',
-		[theme.breakpoints.up('sm')]: {
-			fontSize: 12,
-			position: 'absolute',
-			left: 0,
-			bottom: 0,
-		},
-	},
-	arrow: {
-		width: 16,
-		height: 28,
-		position: 'absolute',
-		top: 'calc(50% - 14px)',
-		[theme.breakpoints.up(800)]: {
-			width: 24,
-			height: 42,
-			top: 'calc(50% - 21px)',
-		},
-	},
+    },
+    position: 'relative',
+    top: 0,
+    left: 0,
+  },
+  media: {
+    width: '100%',
+    height: 0,
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: '56%',
+    },
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: 374,
+    },
+    [theme.breakpoints.up(800)]: {
+      paddingTop: 366,
+    },
+  },
+  fingerBox: {
+    position: 'absolute',
+    left: theme.spacing(1.25),
+    bottom: theme.spacing(1.25),
+    [theme.breakpoints.up('sm')]: {
+      left: theme.spacing(2.25),
+      bottom: theme.spacing(2.25),
+    },
+  },
+  finger: {
+    width: 4,
+    minWidth: 4,
+    height: 4,
+    margin: theme.spacing(0, 1, 0, 0),
+    background: '#fff',
+    transition: 'all .5s',
+  },
+  infoBox: {
+    flex: 1,
+    [theme.breakpoints.down('sm')]: {
+      margin: theme.spacing(2, 0, 0),
+    },
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(0, 0, 0, 2),
+    },
+    [theme.breakpoints.up(800)]: {
+      margin: theme.spacing(0, 0, 0, 3),
+    },
+    position: 'relative',
+    top: 0,
+    left: 0,
+  },
+  tag: {
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(-0.5, 0, 0),
+      position: 'absolute',
+      top: 0,
+      left: 0,
+    },
+  },
+  title: {
+    fontSize: 18,
+    lineHeight: 1.5,
+    color: '#131313',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 28,
+    },
+  },
+  excerpt: {
+    fontSize: 12,
+    lineHeight: 1.5,
+    margin: theme.spacing(1, 0, 0),
+    color: '#666',
+    fontFamily: 'fangzheng-light',
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(1.5, 0, 0),
+      fontSize: 16,
+    },
+  },
+  publisher: {
+    fontSize: 10,
+    margin: theme.spacing(2, 0, -0.5),
+    color: '#131313',
+    fontFamily: 'fangzheng-medium',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 12,
+      position: 'absolute',
+      left: 0,
+      bottom: 0,
+    },
+  },
+  arrow: {
+    width: 16,
+    height: 28,
+    position: 'absolute',
+    top: 'calc(50% - 14px)',
+    [theme.breakpoints.up(800)]: {
+      width: 24,
+      height: 42,
+      top: 'calc(50% - 21px)',
+    },
+  },
 }));
 
 const TopStoryCard = (props: any) => {
-	const { articles = [], categoryName } = props;
-	if (articles.length <= 0) {
-		return (<> </>);
-	}
+  const { articles = [], categoryName } = props;
+  if (articles.length <= 0) {
+    return (<> </>);
+  }
 
-	const [article, setArticle] = useState({
-		index: 0,
-		content: {
-			...articles[0],
-			// tag: articles[0].tags.length > 0 ? articles[0].tags[0] : [categoryName],
-			tag: '要闻',
-			time: moment(articles[0].date).format('YYYY/MM/DD'),
-		},
-	});
+  const [article, setArticle] = useState({
+    index: 0,
+    content: {
+      ...articles[0],
+      // tag: articles[0].tags.length > 0 ? articles[0].tags[0] : [categoryName],
+      tag: '要闻',
+      time: moment(articles[0].date).format('YYYY/MM/DD'),
+    },
+  });
 
-	const [state, setState] = useState(1);
+  const [state, setState] = useState(1);
 
-	const classes = useStyles();
+  const classes = useStyles();
 
-	const {
-		overflowLine1, overflowLine3, overflowLine4,
-	} = useCommonStyles();
+  const {
+    overflowLine1, overflowLine3, overflowLine4,
+  } = useCommonStyles();
 
-	const handleChange = (index: number) => {
-		const item = articles[index];
+  const handleChange = (index: number) => {
+    const item = articles[index];
 
-		setState(0);
+    setState(0);
 
-		setTimeout(() => {
-			setArticle({
-				index,
-				content: {
-					...item,
-					// tag: item.tags.length > 0 ? item.tags[0] : [categoryName],
-					tag: '要闻',
-					time: moment(item.date).format('YYYY/MM/DD'),
-				},
-			});
-			setState(1);
-		}, 300);
-	};
+    setTimeout(() => {
+      setArticle({
+        index,
+        content: {
+          ...item,
+          // tag: item.tags.length > 0 ? item.tags[0] : [categoryName],
+          tag: '要闻',
+          time: moment(item.date).format('YYYY/MM/DD'),
+        },
+      });
+      setState(1);
+    }, 300);
+  };
 
-	return (
+  return (
 		<Link
 			href={`/articles?category=${categoryName}&id=${article.content.id}`}
 			underline={'none'}
@@ -216,9 +216,9 @@ const TopStoryCard = (props: any) => {
 					</AutoPlaySwipeableViews>
 					<img
 						onClick={(e: any) => {
-							e.stopPropagation();
-							e.preventDefault();
-							handleChange(article.index > 0 ? article.index - 1 : articles.length - 1);
+						  e.stopPropagation();
+						  e.preventDefault();
+						  handleChange(article.index > 0 ? article.index - 1 : articles.length - 1);
 						}}
 						src={leftArrow}
 						alt={''}
@@ -226,9 +226,9 @@ const TopStoryCard = (props: any) => {
 						style={{ left: 0 }} />
 					<img
 						onClick={(e: any) => {
-							e.stopPropagation();
-							e.preventDefault();
-							handleChange(article.index < articles.length - 1 ? article.index + 1 : 0);
+						  e.stopPropagation();
+						  e.preventDefault();
+						  handleChange(article.index < articles.length - 1 ? article.index + 1 : 0);
 						}}
 						src={rightArrow}
 						alt={''}
@@ -245,7 +245,7 @@ const TopStoryCard = (props: any) => {
 								key={index}
 								className={classes.finger}
 								style={{
-									background: article.index === index ? '#CE4127' : '#fff',
+								  background: article.index === index ? '#CE4127' : '#fff',
 								}} />
 						)) }
 					</Box>
@@ -277,7 +277,7 @@ const TopStoryCard = (props: any) => {
 				</Box>
 			</Box>
 		</Link>
-	);
+  );
 };
 
 export default TopStoryCard;

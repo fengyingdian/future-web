@@ -1,60 +1,60 @@
 /* eslint-disable max-len */
 import React from 'react';
 import {
-	Box, Typography,
+  Box, Typography,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import useCommonStyles from '../../../../theme/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-	root: {
-		padding: theme.spacing(0),
-		width: '100%',
-		boxSizing: 'border-box',
-	},
-	tipsBox: {
-		width: '100%',
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'flex-start',
-		alignItems: 'center',
-		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb(243, 44, 41)',
-	},
-	tipsIcon: {
-		borderRadius: '50%',
-		background: '#CE4127',
-		width: 8,
-		minWidth: 8,
-		height: 8,
-		margin: theme.spacing(0, 1, 0, 0),
-		[theme.breakpoints.up('sm')]: {
-			width: 12,
-			minWidth: 12,
-			height: 12,
-			margin: theme.spacing(0, 1.5, 0, 0),
-		},
-	},
-	tipsContent: {
-		fontSize: 20,
-		lineHeight: '20px',
-		color: '#fff',
-		[theme.breakpoints.up('sm')]: {
-			fontSize: 28,
-			lineHeight: '28px',
-		},
-	},
+  root: {
+    padding: theme.spacing(0),
+    width: '100%',
+    boxSizing: 'border-box',
+  },
+  tipsBox: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    boxSizing: 'border-box',
+    borderBottom: '4px solid rgb(243, 44, 41)',
+  },
+  tipsIcon: {
+    borderRadius: '50%',
+    background: '#CE4127',
+    width: 8,
+    minWidth: 8,
+    height: 8,
+    margin: theme.spacing(0, 1, 0, 0),
+    [theme.breakpoints.up('sm')]: {
+      width: 12,
+      minWidth: 12,
+      height: 12,
+      margin: theme.spacing(0, 1.5, 0, 0),
+    },
+  },
+  tipsContent: {
+    fontSize: 20,
+    lineHeight: '20px',
+    color: '#fff',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 28,
+      lineHeight: '28px',
+    },
+  },
 }));
 
 export const Title = (props: any) => {
-	const classes = useStyles();
-	const { status = 'publish_done', isPlan = false } = props;
+  const classes = useStyles();
+  const { status = 'publish_done', isPlan = false } = props;
 
-	const {
-		overflowLine1,
-	} = useCommonStyles();
+  const {
+    overflowLine1,
+  } = useCommonStyles();
 
-	return (
+  return (
 		<Box
 			display={'flex'}
 			flexDirection={'column'}
@@ -69,7 +69,7 @@ export const Title = (props: any) => {
 				</Typography>
 			</div>
 		</Box>
-	);
+  );
 };
 
 export default {};

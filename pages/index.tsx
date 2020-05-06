@@ -8,22 +8,22 @@ import { fetchMenus, fetchHomeFeed } from '../src/service/index';
 import Main from '../src/containers/main/index';
 
 export const Index = (props: any) => {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	return (
+  return (
 		<Container maxWidth={false} className={classes.root}>
 			<Main {...props} />
 		</Container>
-	);
+  );
 };
 
 Index.getInitialProps = async ({ req }: any) => {
-	const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
+  const userAgent = req ? req.headers['user-agent'] : navigator.userAgent;
 
-	const menus: any = await fetchMenus();
-	const data: any = await fetchHomeFeed();
+  const menus: any = await fetchMenus();
+  const data: any = await fetchHomeFeed();
 
-	return { userAgent, ...data, menus };
+  return { userAgent, ...data, menus };
 };
 
 export default withRouter(Index);

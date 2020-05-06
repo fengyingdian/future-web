@@ -1,77 +1,77 @@
 /* eslint-disable max-len */
 import React from 'react';
 import {
-	Box, Typography, Link,
+  Box, Typography, Link,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-	root: {
-		margin: theme.spacing(0),
-		padding: theme.spacing(2, 1, 2),
-		width: '100%',
-		boxSizing: 'border-box',
-		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(0, 0, 1),
-		},
-	},
-	title: {
-		fontSize: 24,
-		lineHeight: '22px',
-		color: '#fff',
-		width: '100%',
-		boxSizing: 'border-box',
-		borderBottom: '4px solid rgb(243, 44, 41)',
-		[theme.breakpoints.up('sm')]: {
-			fontSize: 28,
-			lineHeight: '24px',
-		},
-	},
-	readMoreRoot: {
-		boxSizing: 'border-box',
-		margin: theme.spacing(2, 1, 0),
-		padding: theme.spacing(2, 1),
-		background: '#fff',
-		[theme.breakpoints.up('sm')]: {
-			margin: theme.spacing(0, 1, 2),
-			padding: theme.spacing(2, 1),
-		},
-		[theme.breakpoints.up(1024)]: {
-			margin: theme.spacing(3, 1, 2),
+  root: {
+    margin: theme.spacing(0),
+    padding: theme.spacing(2, 1, 2),
+    width: '100%',
+    boxSizing: 'border-box',
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(0, 0, 1),
+    },
+  },
+  title: {
+    fontSize: 24,
+    lineHeight: '22px',
+    color: '#fff',
+    width: '100%',
+    boxSizing: 'border-box',
+    borderBottom: '4px solid rgb(243, 44, 41)',
+    [theme.breakpoints.up('sm')]: {
+      fontSize: 28,
+      lineHeight: '24px',
+    },
+  },
+  readMoreRoot: {
+    boxSizing: 'border-box',
+    margin: theme.spacing(2, 1, 0),
+    padding: theme.spacing(2, 1),
+    background: '#fff',
+    [theme.breakpoints.up('sm')]: {
+      margin: theme.spacing(0, 1, 2),
+      padding: theme.spacing(2, 1),
+    },
+    [theme.breakpoints.up(1024)]: {
+      margin: theme.spacing(3, 1, 2),
 		  padding: theme.spacing(2, 1),
-		},
-	},
-	readMoreBox: {
-		display: 'flex',
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center',
-		borderBottom: '3px solid #CE4127',
-	},
-	readMoreText: {
-		fontSize: 14,
-		color: 'rgb(102, 102, 102)',
-	},
+    },
+  },
+  readMoreBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBottom: '3px solid #CE4127',
+  },
+  readMoreText: {
+    fontSize: 14,
+    color: 'rgb(102, 102, 102)',
+  },
 }));
 
 export const Title = (props: any) => {
-	const classes = useStyles();
-	const { title = '' } = props;
+  const classes = useStyles();
+  const { title = '' } = props;
 
-	return (
+  return (
 		<Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} className={classes.root}>
 			<Typography className={classes.title}>
 				{title}
 			</Typography>
 		</Box>
-	);
+  );
 };
 
 export const ReadMore = (props: any) => {
-	const classes = useStyles();
-	const { name = '' } = props;
+  const classes = useStyles();
+  const { name = '' } = props;
 
-	return (
+  return (
 		<Box display={'flex'} flexDirection={'row'} justifyContent={'center'} className={classes.readMoreRoot}>
 			<Link href={`/sections?name=${name}`} className={classes.readMoreBox} underline={'none'}>
 				<Typography className={classes.readMoreText}>
@@ -80,7 +80,7 @@ export const ReadMore = (props: any) => {
 				<svg
 					className={'icon'}
 					style={{
-						transform: 'translateX(5px)',
+					  transform: 'translateX(5px)',
 					}}
 					viewBox={'0 0 1024 1024'}
 					version={'1.1'}
@@ -92,7 +92,7 @@ export const ReadMore = (props: any) => {
 				</svg>
 			</Link>
 		</Box>
-	);
+  );
 };
 
 export default {};

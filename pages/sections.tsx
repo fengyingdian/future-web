@@ -7,32 +7,32 @@ import { fetchMenus, fetchArticleSection } from '../src/service/index';
 import Section from '../src/containers/sections/index';
 
 const Index = (props: any) => {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	return (
+  return (
 		<Container maxWidth={false} className={classes.root}>
 			<Section {...props} />
 		</Container>
-	);
+  );
 };
 
 Index.getInitialProps = async ({ query = {} }: any) => {
-	const { name = '' } = query;
+  const { name = '' } = query;
 
-	const menus: any = await fetchMenus();
+  const menus: any = await fetchMenus();
 
-	const {
-		articles,
-		newoffset: offset,
-	}: any = await fetchArticleSection(name, 0, 20);
+  const {
+    articles,
+    newoffset: offset,
+  }: any = await fetchArticleSection(name, 0, 20);
 
-	return {
-		menus,
-		name,
-		offset,
-		limit: 20,
-		articles,
-	};
+  return {
+    menus,
+    name,
+    offset,
+    limit: 20,
+    articles,
+  };
 };
 
 export default withRouter(Index);

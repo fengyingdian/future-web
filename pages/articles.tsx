@@ -7,27 +7,27 @@ import { fetchMenus, fetchArticleTranscode } from '../src/service/index';
 import Article from '../src/containers/articles/index';
 
 const Index = (props: any) => {
-	const classes = useStyles();
+  const classes = useStyles();
 
-	return (
+  return (
 		<Container maxWidth={false} className={classes.root}>
 			<Article {...props} />
 		</Container>
-	);
+  );
 };
 
 Index.getInitialProps = async ({ query = {} }: any) => {
-	const { id = '', category: categoryName = '' } = query;
+  const { id = '', category: categoryName = '' } = query;
 
-	const menus: any = await fetchMenus();
+  const menus: any = await fetchMenus();
 
-	const result: any = await fetchArticleTranscode(id);
+  const result: any = await fetchArticleTranscode(id);
 
-	return {
-		categoryName,
-		menus,
-		...result,
-	};
+  return {
+    categoryName,
+    menus,
+    ...result,
+  };
 };
 
 export default withRouter(Index);

@@ -4,43 +4,43 @@ import { Title } from '../../../../components/ArticleSection/section-focus-title
 import ArticleCard from '../../../../components/ArticleCard/focus-card';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
-	root: {
-		width: '100%',
-		margin: theme.spacing(0),
-		padding: theme.spacing(1, 0, 0),
-		[theme.breakpoints.up('sm')]: {
-			padding: theme.spacing(0, 0, 2),
-		},
-	},
-	articleRoot: {
-		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'flex-start',
-		alignItems: 'center',
-		width: '100%',
-		background: '#fff',
-		[theme.breakpoints.down(800)]: {
-			padding: theme.spacing(0, 2),
-		},
-		[theme.breakpoints.up(800)]: {
-			padding: theme.spacing(1, 3),
-		},
-	},
-	article: {
-		width: '100%',
-		padding: theme.spacing(0),
-	},
+  root: {
+    width: '100%',
+    margin: theme.spacing(0),
+    padding: theme.spacing(1, 0, 0),
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(0, 0, 2),
+    },
+  },
+  articleRoot: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '100%',
+    background: '#fff',
+    [theme.breakpoints.down(800)]: {
+      padding: theme.spacing(0, 2),
+    },
+    [theme.breakpoints.up(800)]: {
+      padding: theme.spacing(1, 3),
+    },
+  },
+  article: {
+    width: '100%',
+    padding: theme.spacing(0),
+  },
 }));
 
 const Focus = (props: any) => {
-	const classes = useStyles();
-	const {
-		title = '聚焦',
-		articles = [],
-		clientWidth = 0,
-	} = props;
+  const classes = useStyles();
+  const {
+    title = '聚焦',
+    articles = [],
+    clientWidth = 0,
+  } = props;
 
-	return (
+  return (
 		<div className={classes.root}>
 			<Title title={title} />
 			<div className={classes.articleRoot}>
@@ -54,7 +54,7 @@ const Focus = (props: any) => {
 				))}
 			</div>
 		</div>
-	);
+  );
 };
 
 export default Focus;
