@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     lineHeight: '64px',
     height: 64,
     textAlign: 'center',
-   	[theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('sm')]: {
       fontSize: 20,
     },
   },
@@ -113,35 +113,35 @@ const Live = (props: any) => {
   } = useCommonStyles();
 
   return (
-		<Link
-			style={{
-			  width: '100%',
-			}}
-			href={'/lives?sp=m3u8'}
-			underline={'none'}>
-			<Box
-				display={'flex'}
-				flexDirection={'column'}
-				justifyContent={'center'}
-				alignItems={'flex-start'}
-				style={{
-				  paddingTop,
-				}}
-				className={classes.root}>
-				<CardMedia
-					className={classes.image}
-					image={livePreviewCover}
-					title={'live-cover'} />
-				<div className={classes.maskBox}>
-					<div className={classes.tipsBox}>
-						<img className={classes.tipsIcon} src={livePlayButton} alt={''} />
-						<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-							{isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直直播已结束')}
-						</Typography>
-					</div>
-				</div>
-			</Box>
-		</Link>
+    <Link
+      style={{
+        width: '100%',
+      }}
+      href={'/lives?sp=m3u8'}
+      underline={'none'}>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        justifyContent={'center'}
+        alignItems={'flex-start'}
+        style={{
+          paddingTop,
+        }}
+        className={classes.root}>
+        <CardMedia
+          className={classes.image}
+          image={livePreviewCover}
+          title={'live-cover'} />
+        <div className={classes.maskBox}>
+          <div className={classes.tipsBox}>
+            <img className={classes.tipsIcon} src={livePlayButton} alt={''} />
+            <Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
+              {isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直直播已结束')}
+            </Typography>
+          </div>
+        </div>
+      </Box>
+    </Link>
   );
 };
 

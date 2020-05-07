@@ -29,20 +29,20 @@ const Page = (props: any) => {
   const fourtArticles = articles.slice(15, 20);
 
   return (
-		<div className={classes.root}>
-			<div className={classes.section}>
-			  <ResponsibleArticles articles={firstArticles} />
-			</div>
-			<div className={classes.section}>
-			  <ResponsibleArticles articles={seconArticles} />
-			</div>
-			<div className={classes.section}>
-			  <ResponsibleArticles articles={thirdArticles} />
-			</div>
-			<div className={classes.section}>
-			  <ResponsibleArticles articles={fourtArticles} />
-			</div>
-		</div>
+    <div className={classes.root}>
+      <div className={classes.section}>
+        <ResponsibleArticles articles={firstArticles} />
+      </div>
+      <div className={classes.section}>
+        <ResponsibleArticles articles={seconArticles} />
+      </div>
+      <div className={classes.section}>
+        <ResponsibleArticles articles={thirdArticles} />
+      </div>
+      <div className={classes.section}>
+        <ResponsibleArticles articles={fourtArticles} />
+      </div>
+    </div>
   );
 };
 

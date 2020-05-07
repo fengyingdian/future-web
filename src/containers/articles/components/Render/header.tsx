@@ -84,42 +84,42 @@ const ArticleRender = (props: any) => {
   const time = moment(date).format('YYYY/MM/DD');
 
   return (
-		<Container
-			maxWidth={false}
-			className={classes.root}>
-			<Box
-				display={'flex'}
-				flexDirection={'row'}>
-				{labels.map((tag: string, index: number) => (
-					<Typography key={index} className={classes.tag}>
-						{tag}
-					</Typography>
-				))}
-			</Box>
-			<Typography className={classes.title}>
-				{title}
-			</Typography>
-			<Typography className={classes.subtitle}>
-				<span style={{ fontFamily: 'fangzheng-bold' }}>
-					{publisherName}
-				</span>
-				{'·'}
-				{time}
-			</Typography>
-			{/* <CardMedia
+    <Container
+      maxWidth={false}
+      className={classes.root}>
+      <Box
+        display={'flex'}
+        flexDirection={'row'}>
+        {labels.map((tag: string, index: number) => (
+          <Typography key={index} className={classes.tag}>
+            {tag}
+          </Typography>
+        ))}
+      </Box>
+      <Typography className={classes.title}>
+        {title}
+      </Typography>
+      <Typography className={classes.subtitle}>
+        <span style={{ fontFamily: 'fangzheng-bold' }}>
+          {publisherName}
+        </span>
+        {'·'}
+        {time}
+      </Typography>
+      {/* <CardMedia
 				className={classes.cover}
 				image={url}
 				title={title} /> */}
-			<Box
-				display={'flex'}
-				flexDirection={'column'}
-				justifyItems={'flex-start'}
-				alignItems={'center'}
-				alignSelf={'center'}
-				className={classes.content}>
-		  	<ArticleContent contents={contents} />
-			</Box>
-		</Container>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        justifyItems={'flex-start'}
+        alignItems={'center'}
+        alignSelf={'center'}
+        className={classes.content}>
+        <ArticleContent contents={contents} />
+      </Box>
+    </Container>
   );
 };
 

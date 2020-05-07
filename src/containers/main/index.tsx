@@ -158,44 +158,44 @@ const Main = (props: Props) => {
   const { stream = {}, isPlan = false } = getStream(livestreams);
 
   return (
-		<Container maxWidth={false} className={classes.root}>
-			<div id={'page-top-header'} className={classes.menuHeader}>
-				<NoSsr>
-					<MenuHeader menus={menus} selected={'首页'} />
-				</NoSsr>
-			</div>
-			<div className={classes.headerSection}>
-				<div className={classes.headerSectionLeft}>
-					<TopStoryCard
-						articles={carousel}
-						categoryName={sections[0].categoryName}
-						clientWidth={clientWidth} />
-					<TopStoryAdvertiseCard />
-					<TopStoryBottomCard {...hotnews[6]} />
-				</div>
-				<div className={classes.headerSectionRight}>
-					<Live
-						stream={stream}
-						isPlan={isPlan}
-						clientWidth={clientWidth} />
-					<Focus
-						articles={hotnews}
-						clientWidth={clientWidth} />
-				</div>
-			</div>
-			<div className={classes.sections}>
-				{menus.map(({ name, displayName }: any, index: any) => {
-				  const result = sections.find(({ categoryName }: any) => name === categoryName);
-				  if (result) {
-				    return <ResponsibleTagSection key={index} name={name} displayName={displayName} articles={result.posts} />;
-				  }
-				})}
-			</div>
-			<div className={classes.footer}>
-				<Footer />
-			</div>
-		</Container>
-  	);
+    <Container maxWidth={false} className={classes.root}>
+      <div id={'page-top-header'} className={classes.menuHeader}>
+        <NoSsr>
+          <MenuHeader menus={menus} selected={'首页'} />
+        </NoSsr>
+      </div>
+      <div className={classes.headerSection}>
+        <div className={classes.headerSectionLeft}>
+          <TopStoryCard
+            articles={carousel}
+            categoryName={sections[0].categoryName}
+            clientWidth={clientWidth} />
+          <TopStoryAdvertiseCard />
+          <TopStoryBottomCard {...hotnews[6]} />
+        </div>
+        <div className={classes.headerSectionRight}>
+          <Live
+            stream={stream}
+            isPlan={isPlan}
+            clientWidth={clientWidth} />
+          <Focus
+            articles={hotnews}
+            clientWidth={clientWidth} />
+        </div>
+      </div>
+      <div className={classes.sections}>
+        {menus.map(({ name, displayName }: any, index: any) => {
+          const result = sections.find(({ categoryName }: any) => name === categoryName);
+          if (result) {
+            return <ResponsibleTagSection key={index} name={name} displayName={displayName} articles={result.posts} />;
+          }
+        })}
+      </div>
+      <div className={classes.footer}>
+        <Footer />
+      </div>
+    </Container>
+  );
 };
 
 export default Main;

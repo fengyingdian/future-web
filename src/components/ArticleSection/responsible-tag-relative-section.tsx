@@ -20,12 +20,12 @@ const ResponsibleTagRelativeSection = (props: any) => {
   }
 
   return (
-		<div className={classes.root}>
-			<Title title={'大家都在看'} />
-			{articles.map((article: any) => (
-				<ArticleCard {...article} />
-			))}
-		</div>
+    <div className={classes.root}>
+      <Title title={'大家都在看'} />
+      {articles.map((article: any) => (
+        <ArticleCard {...article} />
+      ))}
+    </div>
   );
 };
 

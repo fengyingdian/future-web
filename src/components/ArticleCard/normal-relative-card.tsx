@@ -89,35 +89,35 @@ const ArticleCard = (props: any) => {
   const time = moment(date).format('YYYY/MM/DD');
 
   return (
-		<Link href={`/articles?category=${categoryName}&id=${id}`} underline={'none'}>
-			<Card className={classes.root}>
-				<CardMedia
-					className={classes.image}
-					image={defaultCoverImage}
-					data-src={url}
-					data-lazyload
-					title={'article-cover'}
-				/>
-				<Box
-					display={'flex'}
-					flexDirection={'column'}
-					justifyContent={'flex-start'}
-					alignItems={'flex-start'}
-					flexWrap={'nowrap'}
-					className={classes.infoBox}>
-					{tag && (<TagRelative tag={tag} />)}
-					<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
-						{title}
-					</Typography>
-					<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
-						{excerpt}
-					</Typography>
-					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-				    {`${publisherName}·${time}`}
-					</Typography>
-				</Box>
-			</Card>
-		</Link>
+    <Link href={`/articles?category=${categoryName}&id=${id}`} underline={'none'}>
+      <Card className={classes.root}>
+        <CardMedia
+          className={classes.image}
+          image={defaultCoverImage}
+          data-src={url}
+          data-lazyload
+          title={'article-cover'}
+        />
+        <Box
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'flex-start'}
+          alignItems={'flex-start'}
+          flexWrap={'nowrap'}
+          className={classes.infoBox}>
+          {tag && (<TagRelative tag={tag} />)}
+          <Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
+            {title}
+          </Typography>
+          <Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
+            {excerpt}
+          </Typography>
+          <Typography className={`${classes.publisher} ${overflowLine1}`}>
+            {`${publisherName}·${time}`}
+          </Typography>
+        </Box>
+      </Card>
+    </Link>
   );
 };
 

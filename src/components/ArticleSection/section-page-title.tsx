@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     width: '100%',
     boxSizing: 'border-box',
     [theme.breakpoints.up('sm')]: {
-		  padding: theme.spacing(0, 1, 1),
+      padding: theme.spacing(0, 1, 1),
     },
   },
   title: {
@@ -40,14 +40,14 @@ export const Title = (props: any) => {
   const { title = '' } = props;
 
   return (
-		<Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} className={classes.root}>
-			<Typography className={classes.title}>
-				{title}
-			</Typography>
-			{/* <Typography className={classes.description}>
+    <Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} className={classes.root}>
+      <Typography className={classes.title}>
+        {title}
+      </Typography>
+      {/* <Typography className={classes.description}>
 				{description}
 			</Typography> */}
-		</Box>
+    </Box>
   );
 };
 

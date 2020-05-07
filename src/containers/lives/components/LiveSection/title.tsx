@@ -55,20 +55,20 @@ export const Title = (props: any) => {
   } = useCommonStyles();
 
   return (
-		<Box
-			display={'flex'}
-			flexDirection={'column'}
-			justifyContent={'flex-start'}
-			className={classes.root}>
-			<div className={classes.tipsBox}>
-				{status === 'publish' && (
-					<div className={classes.tipsIcon} />
-				)}
-				<Typography className={`${classes.tipsContent} ${overflowLine1}`}>
-					{isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直播已结束') }
-				</Typography>
-			</div>
-		</Box>
+    <Box
+      display={'flex'}
+      flexDirection={'column'}
+      justifyContent={'flex-start'}
+      className={classes.root}>
+      <div className={classes.tipsBox}>
+        {status === 'publish' && (
+          <div className={classes.tipsIcon} />
+        )}
+        <Typography className={`${classes.tipsContent} ${overflowLine1}`}>
+          {isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直播已结束')}
+        </Typography>
+      </div>
+    </Box>
   );
 };
 

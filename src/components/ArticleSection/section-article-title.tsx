@@ -29,11 +29,11 @@ export const Title = (props: any) => {
   const { title = '' } = props;
 
   return (
-		<Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} className={classes.root}>
-			<Typography className={classes.title}>
-				{title}
-			</Typography>
-		</Box>
+    <Box display={'flex'} flexDirection={'column'} justifyContent={'flex-start'} className={classes.root}>
+      <Typography className={classes.title}>
+        {title}
+      </Typography>
+    </Box>
   );
 };
 

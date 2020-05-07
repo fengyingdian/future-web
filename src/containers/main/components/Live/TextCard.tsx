@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     flex: 1,
     fontSize: 26,
     color: '#131313',
-   	[theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up('sm')]: {
       fontSize: 30,
     },
   },
@@ -106,41 +106,41 @@ const Live = (props: any) => {
   } = useCommonStyles();
 
   return (
-		<Link
-			style={{
-			  width: '100%',
-			}}
-			href={'/lives?sp=m3u8'}
-			underline={'none'}>
-			<Box
-				display={'flex'}
-				flexDirection={'column'}
-				justifyContent={'center'}
-				alignItems={'flex-start'}
-				className={classes.root}>
-				<div className={classes.tipsBox}>
-					{status === 'publish' && (
-						<div className={classes.tipsIcon} />
-					)}
-					<Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-						{isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直直播已结束')}
-					</Typography>
-				</div>
-				<Box
-					display={'flex'}
-					flexDirection={'column'}
-					justifyContent={'center'}
-					alignItems={'flex-start'}
-					className={classes.infoBox}>
-					<Typography className={`${classes.title} ${overflowLine2}`}>
-						{title}
-					</Typography>
-					<Typography className={`${classes.description} ${overflowLine2}`}>
-						{description}
-					</Typography>
-				</Box>
-			</Box>
-		</Link>
+    <Link
+      style={{
+        width: '100%',
+      }}
+      href={'/lives?sp=m3u8'}
+      underline={'none'}>
+      <Box
+        display={'flex'}
+        flexDirection={'column'}
+        justifyContent={'center'}
+        alignItems={'flex-start'}
+        className={classes.root}>
+        <div className={classes.tipsBox}>
+          {status === 'publish' && (
+            <div className={classes.tipsIcon} />
+          )}
+          <Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
+            {isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直直播已结束')}
+          </Typography>
+        </div>
+        <Box
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'center'}
+          alignItems={'flex-start'}
+          className={classes.infoBox}>
+          <Typography className={`${classes.title} ${overflowLine2}`}>
+            {title}
+          </Typography>
+          <Typography className={`${classes.description} ${overflowLine2}`}>
+            {description}
+          </Typography>
+        </Box>
+      </Box>
+    </Link>
   );
 };
 

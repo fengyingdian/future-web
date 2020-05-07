@@ -22,11 +22,11 @@ const ResponsibleTagFiveSection = (props: any) => {
   }
 
   return (
-		<div className={classes.root}>
-			<Title title={displayName} />
-			<ResponsibleTagArticles articles={articles} />
-			<ReadMore id={id} name={name} />
-		</div>
+    <div className={classes.root}>
+      <Title title={displayName} />
+      <ResponsibleTagArticles articles={articles} />
+      <ReadMore id={id} name={name} />
+    </div>
   );
 };
 

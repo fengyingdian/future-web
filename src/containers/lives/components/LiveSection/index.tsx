@@ -85,37 +85,37 @@ const LiveSection = (props: any) => {
   });
 
   return (
-		<Container maxWidth={false} className={classes.root}>
-			<Box
-				display={'flex'}
-				flexDirection={'clomun'}
-				alignItems={'center'}
-				justifyContent={'center'}
-				flexWrap={'wrap'}
-				className={classes.vedioBox}>
-				<div
-					className={`${classes.vedio} prism-player`}
-					id={'J_prismPlayer'}
-					style={{
-					  height: '100%',
-					  display: status === 'publish_done' ? 'none' : '',
-					}} />
-				{status === 'publish_done' && (
-					<CardMedia
-						className={classes.vedio}
-						style={{
-						  height: '100%',
-						}}
-						image={liveBkCover} />
-				)}
-			</Box>
-			<Typography className={classes.title}>
-				{title}
-			</Typography>
-			<Typography className={classes.description}>
-				{description}
-			</Typography>
-		</Container>
+    <Container maxWidth={false} className={classes.root}>
+      <Box
+        display={'flex'}
+        flexDirection={'clomun'}
+        alignItems={'center'}
+        justifyContent={'center'}
+        flexWrap={'wrap'}
+        className={classes.vedioBox}>
+        <div
+          className={`${classes.vedio} prism-player`}
+          id={'J_prismPlayer'}
+          style={{
+            height: '100%',
+            display: status === 'publish_done' ? 'none' : '',
+          }} />
+        {status === 'publish_done' && (
+          <CardMedia
+            className={classes.vedio}
+            style={{
+              height: '100%',
+            }}
+            image={liveBkCover} />
+        )}
+      </Box>
+      <Typography className={classes.title}>
+        {title}
+      </Typography>
+      <Typography className={classes.description}>
+        {description}
+      </Typography>
+    </Container>
   );
 };
 

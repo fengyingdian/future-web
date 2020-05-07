@@ -11,9 +11,9 @@ export const Index = (props: any) => {
   const classes = useStyles();
 
   return (
-		<Container maxWidth={false} className={classes.root}>
-			<Main {...props} />
-		</Container>
+    <Container maxWidth={false} className={classes.root}>
+      <Main {...props} />
+    </Container>
   );
 };
 
