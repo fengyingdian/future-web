@@ -50,14 +50,14 @@ const ArticleCard = () => {
   const classes = useStyles();
 
   return (
-		<Link href={'/'} underline={'none'}>
-			<Card className={classes.root}>
-				<CardMedia
-					className={classes.image}
-					image={advertiseStrip}
-					title={'advertise-cover'} />
-			</Card>
-		</Link>
+    <Link href={'/'} underline={'none'}>
+      <Card className={classes.root}>
+        <CardMedia
+          className={classes.image}
+          image={advertiseStrip}
+          title={'advertise-cover'} />
+      </Card>
+    </Link>
   );
 };
 

@@ -21,9 +21,9 @@ export const LinkButton = (props: Props) => {
   const { link = '', title = '' } = props;
 
   return (
-		<Typography className={classes.root} color={'textSecondary'}>
-			<Link href={link}>{title}</Link>
-		</Typography>
+    <Typography className={classes.root} color={'textSecondary'}>
+      <Link href={link}>{title}</Link>
+    </Typography>
   );
 };
 

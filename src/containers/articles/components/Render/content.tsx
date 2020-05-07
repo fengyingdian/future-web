@@ -46,9 +46,9 @@ const TextNode = ({ text }: any) => {
   const classes = useStyles();
 
   return (
-		<span className={classes.text}>
-			{text}
-		</span>
+    <span className={classes.text}>
+      {text}
+    </span>
   );
 };
 
@@ -62,19 +62,19 @@ const ImageNode = (props: any) => {
   } = props;
 
   return (
-		<span className={classes.imageBox}>
-			<img
-				className={classes.image}
-				width={width}
-				// height={appearance.height}
-				style={{
-				  height: 0,
-				  paddingTop: `${height / width * 100}%`,
-				}}
-				alt={''}
-				data-src={url}
-				data-lazyload={'true'} />
-		</span>
+    <span className={classes.imageBox}>
+      <img
+        className={classes.image}
+        width={width}
+        // height={appearance.height}
+        style={{
+          height: 0,
+          paddingTop: `${height / width * 100}%`,
+        }}
+        alt={''}
+        data-src={url}
+        data-lazyload={'true'} />
+    </span>
   );
 };
 
@@ -89,38 +89,38 @@ const ContentBlock = (props: any) => {
   }
 
   return (
-		<>
-			<p
-				id={label}
-				className={classes.paragraph}
-				style={{
-				  margin: '0 0 28px',
-				}}>
-				{contents
-				  .filter((content: any) => {
-				    if (isTextNode(content)) {
-				      return !!content.text.trim();
-				    }
+    <>
+      <p
+        id={label}
+        className={classes.paragraph}
+        style={{
+          margin: '0 0 28px',
+        }}>
+        {contents
+          .filter((content: any) => {
+            if (isTextNode(content)) {
+              return !!content.text.trim();
+            }
 
-				    return true;
-				  })
-				  .map((content: any, index: any) => {
-				    if (isTextNode(content)) {
-				      const { text, appearance } = content;
+            return true;
+          })
+          .map((content: any, index: any) => {
+            if (isTextNode(content)) {
+              const { text, appearance } = content;
 
-				      return <TextNode key={index} text={text} appearance={appearance} />;
-				    }
-				    if (label === 'figure') {
-				      const { url, appearance } = content;
+              return <TextNode key={index} text={text} appearance={appearance} />;
+            }
+            if (label === 'figure') {
+              const { url, appearance } = content;
 
-				      return <ImageNode key={index} appearance={appearance} url={url} />;
-				    }
+              return <ImageNode key={index} appearance={appearance} url={url} />;
+            }
 
-				    return <div>{`UNSUPPORTED BLOCK TYPE:${content.type}`}</div>;
-				  })}
-			</p>
-			<style jsx>
-				{`
+            return <div>{`UNSUPPORTED BLOCK TYPE:${content.type}`}</div>;
+          })}
+      </p>
+      <style jsx>
+        {`
           #blockquote {
             padding: 16px;
             background: #f8f8f8;
@@ -138,8 +138,8 @@ const ContentBlock = (props: any) => {
             }
           }
       `}
-			</style>
-		</>
+      </style>
+    </>
   );
 };
 
@@ -183,9 +183,9 @@ const ArticleContent = (props: any) => {
   });
 
   return (
-		<div className={classes.root}>
-			{contents.map((item: any, index: any) => <ContentBlock key={index} {...item} />)}
-		</div>
+    <div className={classes.root}>
+      {contents.map((item: any, index: any) => <ContentBlock key={index} {...item} />)}
+    </div>
   );
 };
 

@@ -10,9 +10,9 @@ const Index = (props: any) => {
   const classes = useStyles();
 
   return (
-		<Container maxWidth={false} className={classes.root}>
-			<Article {...props} />
-		</Container>
+    <Container maxWidth={false} className={classes.root}>
+      <Article {...props} />
+    </Container>
   );
 };
 

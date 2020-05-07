@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     boxSizing: 'border-box',
     [theme.breakpoints.down('sm')]: {
       margin: theme.spacing(0, 1, 0),
-		  padding: theme.spacing(0, 0, 0),
+      padding: theme.spacing(0, 0, 0),
     },
     [theme.breakpoints.up('sm')]: {
       margin: theme.spacing(0, 1, 0),
@@ -68,28 +68,28 @@ const ResponsibleTagFive = (props: any) => {
   const others = articles.slice(1, 5);
 
   return (
-		<Box
-			display={'flex'}
-			flexDirection={'row'}
-			flexWrap={'wrap'}
-			className={classes.root}>
-			<Grid className={classes.first}>
-				<ArticleCardLarge
-					{...first} />
-			</Grid>
-			<Box
-				display={'flex'}
-				flexDirection={'row'}
-				flexWrap={'wrap'}
-				className={classes.othersRoot}>
-				{others.map((article: any, index: number) => (
-					<Grid key={index} className={classes.others}>
-						<ArticleCard
-							{...article} />
-					</Grid>
-				))}
-			</Box>
-		</Box>
+    <Box
+      display={'flex'}
+      flexDirection={'row'}
+      flexWrap={'wrap'}
+      className={classes.root}>
+      <Grid className={classes.first}>
+        <ArticleCardLarge
+          {...first} />
+      </Grid>
+      <Box
+        display={'flex'}
+        flexDirection={'row'}
+        flexWrap={'wrap'}
+        className={classes.othersRoot}>
+        {others.map((article: any, index: number) => (
+          <Grid key={index} className={classes.others}>
+            <ArticleCard
+              {...article} />
+          </Grid>
+        ))}
+      </Box>
+    </Box>
   );
 };
 

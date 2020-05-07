@@ -57,20 +57,20 @@ const Live = (props: any) => {
   useEffect(() => () => { });
 
   return (
-		<Container className={classes.root}>
-			<Head>
-				<title>
-					{`${displayName}-人民数字联播网`}
-				</title>
-			</Head>
-			<Container maxWidth={false} className={classes.root}>
-				<MenuHeader selected={name} menus={menus} />
-				<Container maxWidth={'md'} className={classes.sectionRoot}>
-					<Title status={stream.status} isPlan={isPlan} />
-					<LiveSection sp={sp} stream={stream} />
-				</Container>
-			</Container>
-		</Container>
+    <Container className={classes.root}>
+      <Head>
+        <title>
+          {`${displayName}-人民数字联播网`}
+        </title>
+      </Head>
+      <Container maxWidth={false} className={classes.root}>
+        <MenuHeader selected={name} menus={menus} />
+        <Container maxWidth={'md'} className={classes.sectionRoot}>
+          <Title status={stream.status} isPlan={isPlan} />
+          <LiveSection sp={sp} stream={stream} />
+        </Container>
+      </Container>
+    </Container>
   );
 };
 

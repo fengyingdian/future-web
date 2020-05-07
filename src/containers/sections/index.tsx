@@ -113,22 +113,22 @@ const Section = (props: any) => {
   });
 
   return (
-		<Container className={classes.root}>
-			<Head>
-				<title>
-					{`${displayName}-人民数字联播网`}
-				</title>
-			</Head>
-			<Container maxWidth={false} className={classes.root}>
-				<MenuHeader selected={name} menus={menus} />
-				<Container maxWidth={false} className={classes.sectionRoot}>
-					<Title title={displayName} />
-					{state.pages.map((pageArticles: any, index: number) => (
-						<Page key={index} articles={pageArticles} />
-					))}
-				</Container>
-			</Container>
-		</Container>
+    <Container className={classes.root}>
+      <Head>
+        <title>
+          {`${displayName}-人民数字联播网`}
+        </title>
+      </Head>
+      <Container maxWidth={false} className={classes.root}>
+        <MenuHeader selected={name} menus={menus} />
+        <Container maxWidth={false} className={classes.sectionRoot}>
+          <Title title={displayName} />
+          {state.pages.map((pageArticles: any, index: number) => (
+            <Page key={index} articles={pageArticles} />
+          ))}
+        </Container>
+      </Container>
+    </Container>
   );
 };
 

@@ -42,10 +42,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
   mediaBox: {
     [theme.breakpoints.down('sm')]: {
-		  width: '100%',
+      width: '100%',
     },
     [theme.breakpoints.up('sm')]: {
-		  width: '60%',
+      width: '60%',
     },
     position: 'relative',
     top: 0,
@@ -193,90 +193,90 @@ const TopStoryCard = (props: any) => {
   };
 
   return (
-		<Link
-			href={`/articles?category=${categoryName}&id=${article.content.id}`}
-			underline={'none'}
-			style={{ flex: 1 }}>
-			<Box className={classes.root}>
-				<div className={classes.mediaBox}>
-					<AutoPlaySwipeableViews
-						axis={'x'}
-						interval={4000}
-						index={article.index}
-						onChangeIndex={handleChange}
-						enableMouseEvents>
-						{articles.map((item: any) => (
-							<div key={item.title}>
-								<CardMedia
-									className={classes.media}
-									image={(item.cover && item.cover.url) || ''}
-									title={'article-cover'} />
-							</div>
-						))}
-					</AutoPlaySwipeableViews>
-					<img
-						onClick={(e: any) => {
-						  e.stopPropagation();
-						  e.preventDefault();
-						  handleChange(article.index > 0 ? article.index - 1 : articles.length - 1);
-						}}
-						src={leftArrow}
-						alt={''}
-						className={classes.arrow}
-						style={{ left: 0 }} />
-					<img
-						onClick={(e: any) => {
-						  e.stopPropagation();
-						  e.preventDefault();
-						  handleChange(article.index < articles.length - 1 ? article.index + 1 : 0);
-						}}
-						src={rightArrow}
-						alt={''}
-						className={classes.arrow}
-						style={{ right: 0 }} />
-					<Box
-						className={classes.fingerBox}
-						display={'flex'}
-						flexDirection={'row'}
-						justifyContent={'flex-start'}
-						alignItems={'center'}>
-						{articles.map((_: any, index: number) => (
-							<div
-								key={index}
-								className={classes.finger}
-								style={{
-								  background: article.index === index ? '#CE4127' : '#fff',
-								}} />
-						)) }
-					</Box>
-				</div>
-				<Box
-					display={'flex'}
-					flexDirection={'column'}
-					justifyContent={'center'}
-					alignItems={'flex-start'}
-					flexWrap={'nowrap'}
-					className={classes.infoBox}
-					style={{ transition: 'all .3s', opacity: state }}>
-					<div className={classes.tag}>
-						{article.content.tag && (<TagTopStory tag={article.content.tag} />)}
-					</div>
-					<Typography className={`${classes.title} ${overflowLine4}`}>
-						{article.content.title}
-					</Typography>
-					<Typography className={`${classes.excerpt} ${overflowLine3}`}>
-						{article.content.excerpt}
-					</Typography>
-					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-						<span style={{ fontFamily: 'fangzheng-bold' }}>
-							{article.content.publisherName}
-						</span>
-						{'·'}
-						{article.content.time}
-					</Typography>
-				</Box>
-			</Box>
-		</Link>
+    <Link
+      href={`/articles?category=${categoryName}&id=${article.content.id}`}
+      underline={'none'}
+      style={{ flex: 1 }}>
+      <Box className={classes.root}>
+        <div className={classes.mediaBox}>
+          <AutoPlaySwipeableViews
+            axis={'x'}
+            interval={4000}
+            index={article.index}
+            onChangeIndex={handleChange}
+            enableMouseEvents>
+            {articles.map((item: any) => (
+              <div key={item.title}>
+                <CardMedia
+                  className={classes.media}
+                  image={(item.cover && item.cover.url) || ''}
+                  title={'article-cover'} />
+              </div>
+            ))}
+          </AutoPlaySwipeableViews>
+          <img
+            onClick={(e: any) => {
+              e.stopPropagation();
+              e.preventDefault();
+              handleChange(article.index > 0 ? article.index - 1 : articles.length - 1);
+            }}
+            src={leftArrow}
+            alt={''}
+            className={classes.arrow}
+            style={{ left: 0 }} />
+          <img
+            onClick={(e: any) => {
+              e.stopPropagation();
+              e.preventDefault();
+              handleChange(article.index < articles.length - 1 ? article.index + 1 : 0);
+            }}
+            src={rightArrow}
+            alt={''}
+            className={classes.arrow}
+            style={{ right: 0 }} />
+          <Box
+            className={classes.fingerBox}
+            display={'flex'}
+            flexDirection={'row'}
+            justifyContent={'flex-start'}
+            alignItems={'center'}>
+            {articles.map((_: any, index: number) => (
+              <div
+                key={index}
+                className={classes.finger}
+                style={{
+                  background: article.index === index ? '#CE4127' : '#fff',
+                }} />
+            ))}
+          </Box>
+        </div>
+        <Box
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'center'}
+          alignItems={'flex-start'}
+          flexWrap={'nowrap'}
+          className={classes.infoBox}
+          style={{ transition: 'all .3s', opacity: state }}>
+          <div className={classes.tag}>
+            {article.content.tag && (<TagTopStory tag={article.content.tag} />)}
+          </div>
+          <Typography className={`${classes.title} ${overflowLine4}`}>
+            {article.content.title}
+          </Typography>
+          <Typography className={`${classes.excerpt} ${overflowLine3}`}>
+            {article.content.excerpt}
+          </Typography>
+          <Typography className={`${classes.publisher} ${overflowLine1}`}>
+            <span style={{ fontFamily: 'fangzheng-bold' }}>
+              {article.content.publisherName}
+            </span>
+            {'·'}
+            {article.content.time}
+          </Typography>
+        </Box>
+      </Box>
+    </Link>
   );
 };
 

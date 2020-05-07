@@ -24,13 +24,13 @@ export const Header = (props: Props) => {
   const classes = useStyles();
 
   return (
-		<>
-			<p className={classes.gradient}>
-				{content}
-			</p>
+    <>
+      <p className={classes.gradient}>
+        {content}
+      </p>
 
-			<style jsx>
-				{`
+      <style jsx>
+        {`
           p {
             text-align: center;
             font-weight: bold;
@@ -41,8 +41,8 @@ export const Header = (props: Props) => {
             -webkit-text-fill-color: transparent;
           }
         `}
-			</style>
-		</>
+      </style>
+    </>
   );
 };
 

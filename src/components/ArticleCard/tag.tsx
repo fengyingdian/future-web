@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
   },
   topStoryTag: {
-   	fontSize: 12,
+    fontSize: 12,
     color: '#fff',
     background: 'rgb(163,9,10)',
     padding: theme.spacing(0, 1),
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
   },
   largeTag: {
-   	fontSize: 12,
+    fontSize: 12,
     color: '#fff',
     background: 'rgb(163,9,10)',
     padding: theme.spacing(0, 1),
@@ -56,12 +56,12 @@ export const Tag = (props: any) => {
   } = props;
 
   return (
-		<div className={classes.root} style={{ padding: '16px 0 0' }}>
-			<div className={classes.tag}>
-				{tag}
-			</div>
-			<div className={classes.line} />
-		</div>
+    <div className={classes.root} style={{ padding: '16px 0 0' }}>
+      <div className={classes.tag}>
+        {tag}
+      </div>
+      <div className={classes.line} />
+    </div>
   );
 };
 
@@ -72,12 +72,12 @@ export const TagTopStory = (props: any) => {
   } = props;
 
   return (
-		<div className={classes.root} style={{ margin: '0 0 16px' }}>
-			<div
-				className={classes.topStoryTag}>
-				{tag}
-			</div>
-		</div>
+    <div className={classes.root} style={{ margin: '0 0 16px' }}>
+      <div
+        className={classes.topStoryTag}>
+        {tag}
+      </div>
+    </div>
   );
 };
 
@@ -88,12 +88,12 @@ export const TagLarge = (props: any) => {
   } = props;
 
   return (
-		<div className={classes.root} style={{ margin: '0 0 12px' }}>
-			<div className={classes.tag}>
-				{tag}
-			</div>
-			<div className={classes.line} />
-		</div>
+    <div className={classes.root} style={{ margin: '0 0 12px' }}>
+      <div className={classes.tag}>
+        {tag}
+      </div>
+      <div className={classes.line} />
+    </div>
   );
 };
 
@@ -104,12 +104,12 @@ export const TagSmall = (props: any) => {
   } = props;
 
   return (
-		<div className={classes.root} style={{ padding: '0' }}>
-			<div className={classes.tag}>
-				{tag}
-			</div>
-			<div className={classes.line} />
-		</div>
+    <div className={classes.root} style={{ padding: '0' }}>
+      <div className={classes.tag}>
+        {tag}
+      </div>
+      <div className={classes.line} />
+    </div>
   );
 };
 
@@ -120,11 +120,11 @@ export const TagFocus = (props: any) => {
   } = props;
 
   return (
-		<div className={classes.root}>
-			<div className={classes.tag} style={{ fontSize: '11px', lineHeight: '10px', fontFamily: 'fangzheng-bold' }}>
-				{tag}
-			</div>
-		</div>
+    <div className={classes.root}>
+      <div className={classes.tag} style={{ fontSize: '11px', lineHeight: '10px', fontFamily: 'fangzheng-bold' }}>
+        {tag}
+      </div>
+    </div>
   );
 };
 
@@ -135,13 +135,13 @@ export const TagRelative = (props: any) => {
   } = props;
 
   return (
-		<div className={classes.root} style={{ padding: '0 0 16px' }}>
-			<div className={classes.tag}>
-				{tag}
-			</div>
-			<div className={classes.line} />
-		</div>
+    <div className={classes.root} style={{ padding: '0 0 16px' }}>
+      <div className={classes.tag}>
+        {tag}
+      </div>
+      <div className={classes.line} />
+    </div>
   );
 };
 
-export default { };
+export default {};

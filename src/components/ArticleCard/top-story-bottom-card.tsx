@@ -126,40 +126,40 @@ const ArticleCard = (props: any) => {
   const time = moment(date).format('YYYY/MM/DD');
 
   return (
-		<Link href={`/articles?category=${categoryName}&id=${id}`} underline={'none'}>
-			<Card className={classes.root}>
-				<Box
-					display={'flex'}
-					flexDirection={'column'}
-					justifyContent={'center'}
-					alignItems={'flex-start'}
-					flexWrap={'nowrap'}
-					className={classes.infoBox}>
-					<div className={classes.tag}>
-						{tag && (<TagLarge tag={tag} />)}
-					</div>
-					<Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
-						{title}
-					</Typography>
-					<Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
-						{excerpt}
-					</Typography>
-					<Typography className={`${classes.publisher} ${overflowLine1}`}>
-						<span style={{ fontFamily: 'fangzheng-bold' }}>
-							{publisherName}
-						</span>
-						{'·'}
-						{time}
-					</Typography>
-				</Box>
-				<CardMedia
-					className={classes.image}
-					image={defaultCoverImage}
-					data-src={url}
-					data-lazyload
-					title={title} />
-			</Card>
-		</Link>
+    <Link href={`/articles?category=${categoryName}&id=${id}`} underline={'none'}>
+      <Card className={classes.root}>
+        <Box
+          display={'flex'}
+          flexDirection={'column'}
+          justifyContent={'center'}
+          alignItems={'flex-start'}
+          flexWrap={'nowrap'}
+          className={classes.infoBox}>
+          <div className={classes.tag}>
+            {tag && (<TagLarge tag={tag} />)}
+          </div>
+          <Typography id={'title'} className={`${classes.title} ${overflowLine2}`}>
+            {title}
+          </Typography>
+          <Typography id={'excerpt'} className={`${classes.excerpt} ${overflowLine2}`}>
+            {excerpt}
+          </Typography>
+          <Typography className={`${classes.publisher} ${overflowLine1}`}>
+            <span style={{ fontFamily: 'fangzheng-bold' }}>
+              {publisherName}
+            </span>
+            {'·'}
+            {time}
+          </Typography>
+        </Box>
+        <CardMedia
+          className={classes.image}
+          image={defaultCoverImage}
+          data-src={url}
+          data-lazyload
+          title={title} />
+      </Card>
+    </Link>
   );
 };
 

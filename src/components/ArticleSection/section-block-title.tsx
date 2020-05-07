@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
     [theme.breakpoints.up(1024)]: {
       margin: theme.spacing(3, 1, 2),
-		  padding: theme.spacing(2, 1),
+      padding: theme.spacing(2, 1),
     },
   },
   readMoreBox: {
@@ -59,11 +59,11 @@ export const Title = (props: any) => {
   const { title = '' } = props;
 
   return (
-		<Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} className={classes.root}>
-			<Typography className={classes.title}>
-				{title}
-			</Typography>
-		</Box>
+    <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'} className={classes.root}>
+      <Typography className={classes.title}>
+        {title}
+      </Typography>
+    </Box>
   );
 };
 
@@ -72,26 +72,26 @@ export const ReadMore = (props: any) => {
   const { name = '' } = props;
 
   return (
-		<Box display={'flex'} flexDirection={'row'} justifyContent={'center'} className={classes.readMoreRoot}>
-			<Link href={`/sections?name=${name}`} className={classes.readMoreBox} underline={'none'}>
-				<Typography className={classes.readMoreText}>
-					{'查看更多'}
-				</Typography>
-				<svg
-					className={'icon'}
-					style={{
-					  transform: 'translateX(5px)',
-					}}
-					viewBox={'0 0 1024 1024'}
-					version={'1.1'}
-					xmlns={'http://www.w3.org/2131313/svg'}
-					p-id={'16799'}
-					width={'22'}
-					height={'22'}>
-					<path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'#CE4127'} />
-				</svg>
-			</Link>
-		</Box>
+    <Box display={'flex'} flexDirection={'row'} justifyContent={'center'} className={classes.readMoreRoot}>
+      <Link href={`/sections?name=${name}`} className={classes.readMoreBox} underline={'none'}>
+        <Typography className={classes.readMoreText}>
+          {'查看更多'}
+        </Typography>
+        <svg
+          className={'icon'}
+          style={{
+            transform: 'translateX(5px)',
+          }}
+          viewBox={'0 0 1024 1024'}
+          version={'1.1'}
+          xmlns={'http://www.w3.org/2131313/svg'}
+          p-id={'16799'}
+          width={'22'}
+          height={'22'}>
+          <path d={'M320.662 291.061L703.339 512 320.661 732.938z'} p-id={'16800'} fill={'#CE4127'} />
+        </svg>
+      </Link>
+    </Box>
   );
 };
 

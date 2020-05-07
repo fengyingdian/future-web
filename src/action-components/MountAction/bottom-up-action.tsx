@@ -29,18 +29,18 @@ export class BottomUpAction extends React.Component<Props, State> {
     const { isShow } = this.state;
 
     return (
-			<div>
-				{this.props.children}
-				<style jsx>
-					{`
+      <div>
+        {this.props.children}
+        <style jsx>
+          {`
             div {
               transition: transform 1s, opacity 1s;
               opacity: ${isShow ? 1 : 0};
               transform: translateY(${isShow ? 0 : '200%'});
             }
           `}
-				</style>
-			</div>
+        </style>
+      </div>
     );
   }
 }

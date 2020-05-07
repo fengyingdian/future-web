@@ -49,21 +49,21 @@ const Article = (props: any) => {
   const { displayName } = menus.find(({ name: menuName }: any) => categoryName === menuName);
 
   return (
-		<Container className={classes.root}>
-			<Head>
-				<title>
-					{title}
-				</title>
-			</Head>
-			<Container maxWidth={false} className={classes.root}>
-				<MenuHeader selected={categoryName} menus={menus} />
-				<Container maxWidth={'md'} className={classes.sectionRoot}>
-					<Title title={displayName} />
-					<ArticleContent {...props} />
-				  {/* <RelativeSection articles={articles} /> */}
-				</Container>
-			</Container>
-		</Container>
+    <Container className={classes.root}>
+      <Head>
+        <title>
+          {title}
+        </title>
+      </Head>
+      <Container maxWidth={false} className={classes.root}>
+        <MenuHeader selected={categoryName} menus={menus} />
+        <Container maxWidth={'md'} className={classes.sectionRoot}>
+          <Title title={displayName} />
+          <ArticleContent {...props} />
+          {/* <RelativeSection articles={articles} /> */}
+        </Container>
+      </Container>
+    </Container>
   );
 };
 
