@@ -89,7 +89,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   title: {
     fontSize: 16,
     lineHeight: 1.5,
-    color: 'rgb(163, 9, 10)',
+    color: 'rgb(4, 4, 4)',
     padding: theme.spacing(0),
     [theme.breakpoints.up('sm')]: {
       fontSize: 26,
@@ -109,7 +109,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   publisher: {
     fontSize: 10,
     lineHeight: 1.5,
-    color: 'rgb(163, 9, 10)',
+    color: 'rgb(4, 4, 4)',
     margin: theme.spacing(2, 0, -0.5),
     fontFamily: 'fangzheng-medium',
     [theme.breakpoints.up('sm')]: {
