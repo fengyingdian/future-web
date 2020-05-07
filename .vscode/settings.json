@@ -25,7 +25,7 @@
   // will be detected based on the file contents. Set to false to keep
   // the values you've explicitly set, above.
   "editor.detectIndentation": true,
-  "workbench.editor.showTabs": false,
+  "workbench.editor.showTabs": true,
   "editor.highlightActiveIndentGuide": false,
   "editor.renderIndentGuides": false,
 }
