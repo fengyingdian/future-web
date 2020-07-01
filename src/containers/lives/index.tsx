@@ -1,12 +1,14 @@
 /* eslint-disable max-len */
-import React, { useEffect } from 'react';
+import React from 'react';
 import Head from 'next/head';
 import { Container } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { Title } from './components/LiveSection/title';
 import MenuHeader from '../../components/MenuHeader/index';
 import LiveSection from './components/LiveSection/index';
+import useWechatSdk from '../../hooks/useWechatSdk';
 import { getStream } from '../../utils/live';
+import { WECAHT_SHARE_TITLE } from '../../constants';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -52,20 +54,20 @@ const Live = (props: any) => {
     isPlan = false,
   } = getStream(streams);
 
-  const { displayName } = menus.find(({ name: menuName }: any) => name === menuName);
+  // const { displayName = '' } = menus.find(({ name: menuName }: any) => name === menuName) || {};
 
-  useEffect(() => () => { });
+  useWechatSdk({ title: `时客直播_${WECAHT_SHARE_TITLE}`});
 
   return (
     <Container className={classes.root}>
       <Head>
         <title>
-          {`${displayName}-人民数字联播网`}
+          {'时客直播'}
         </title>
       </Head>
       <Container maxWidth={false} className={classes.root}>
         <MenuHeader selected={name} menus={menus} />
-        <Container maxWidth={'md'} className={classes.sectionRoot}>
+        <Container maxWidth="md" className={classes.sectionRoot}>
           <Title status={stream.status} isPlan={isPlan} />
           <LiveSection sp={sp} stream={stream} />
         </Container>

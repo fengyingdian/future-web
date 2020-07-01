@@ -4,7 +4,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 // import { Skeleton } from '@material-ui/lab';
-import { logoWithText } from '../../constants/logo';
+import { LOGO_WITH_TEXT } from '../../constants/logo';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     transition: 'all .3s',
     textAlign: 'center',
     padding: theme.spacing(0, 1),
+    fontFamily: 'inherit',
     '&:hover': {
       // textShadow: '#f8f8f8 0.1em 0.1em 0.2em',
       fontFamily: 'fangzheng-medium',
@@ -126,42 +127,47 @@ const MenuHeader = (props: any) => {
   return (
     <Container maxWidth={false} className={classes.root}>
       <Box
-        display={'flex'}
-        flexDirection={'row'}
-        justifyContent={'space-between'}
-        alignItems={'center'}
-        alignContent={'center'}
-        flexWrap={'wrap'}
-        className={classes.innerBox}>
-        <Link href={herf('首页')} underline={'none'}>
+        display="flex"
+        flexDirection="row"
+        justifyContent="space-between"
+        alignItems="center"
+        alignContent="center"
+        flexWrap="wrap"
+        className={classes.innerBox}
+      >
+        <Link href={herf('首页')} underline="none">
           <img
             className={classes.logo}
-            src={logoWithText}
-            alt={''} />
+            src={LOGO_WITH_TEXT}
+            alt=""
+          />
         </Link>
         <Box
-          display={'flex'}
-          flexDirection={'row'}
-          justifyContent={'space-between'}
-          alignItems={'center'}
-          flexWrap={'nowrap'}
-          className={classes.menuBox}>
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-between"
+          alignItems="center"
+          flexWrap="nowrap"
+          className={classes.menuBox}
+        >
           {menus.map(({ name, displayName }: any) => (
-            <Link key={name} href={herf(name)} underline={'none'}>
+            <Link key={name} href={herf(name)} underline="none">
               <Box
-                display={'flex'}
-                flexDirection={'column'}
-                justifyContent={'center'}
-                alignItems={'center'}
-                flexWrap={'nowrap'}>
-                <Typography className={classes.title}>
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+                flexWrap="nowrap"
+              >
+                <Typography id={'font-black'} className={classes.title}>
                   {displayName}
                 </Typography>
                 <div
                   className={classes.underline}
                   style={{
                     background: selected === name ? '#fff' : 'transparent',
-                  }} />
+                  }}
+                />
               </Box>
             </Link>
           ))}

@@ -4,10 +4,20 @@ import {
   Link, Typography, Box, CardMedia,
 } from '@material-ui/core';
 import useCommonStyles from '../../../../theme/styles';
-import { livePreviewCover, livePlayButton } from '../../../../constants/index';
-import { getLiveCardHeight } from '../../../../utils/live';
+import { LIVE_PREVIEW_COVER, LIVE_PLAY_BUTTON } from '../../../../constants/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
+  link: {
+    flex: 1,
+    width: '100%',
+    boxSizing: 'border-box',
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(0, 0, 1),
+    },
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(0, 0, 3.25),
+    },
+  },
   root: {
     width: '100%',
     padding: theme.spacing(0),
@@ -25,19 +35,13 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
     [theme.breakpoints.down('sm')]: {
       height: 297,
-      padding: theme.spacing(0),
-      margin: theme.spacing(0, 0, 1),
     },
     [theme.breakpoints.up('sm')]: {
       height: 297,
-      padding: theme.spacing(0),
-      margin: theme.spacing(0, 0, 3.25),
     },
     [theme.breakpoints.up(800)]: {
-      height: 0,
-    },
-    [theme.breakpoints.up(1024)]: {
-      padding: theme.spacing(0),
+      height: '100%',
+      minHeight: 200,
     },
     position: 'relative',
     top: 0,
@@ -88,6 +92,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     lineHeight: '64px',
     height: 64,
     textAlign: 'center',
+    fontFamily: 'inherit',
     [theme.breakpoints.up('sm')]: {
       fontSize: 20,
     },
@@ -95,15 +100,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
 }));
 
 const Live = (props: any) => {
-  const { stream = {}, isPlan = false, clientWidth = 0 } = props;
+  const { stream = {}, isPlan = false } = props;
 
-  const paddingTop = (() => {
-    if (clientWidth) {
-      return getLiveCardHeight(clientWidth);
-    }
-
-    return 297;
-  })();
   const classes = useStyles();
   const {
     status = 'publish_done',
@@ -114,29 +112,28 @@ const Live = (props: any) => {
 
   return (
     <Link
-      style={{
-        width: '100%',
-      }}
-      href={'/lives?sp=m3u8'}
-      underline={'none'}>
+      id="header-live"
+      href="/lives?sp=m3u8"
+      underline="none"
+      className={classes.link}
+    >
       <Box
-        display={'flex'}
-        flexDirection={'column'}
-        justifyContent={'center'}
-        alignItems={'flex-start'}
-        style={{
-          paddingTop,
-        }}
-        className={classes.root}>
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="flex-start"
+        className={classes.root}
+      >
         <CardMedia
           className={classes.image}
-          image={livePreviewCover}
-          title={'live-cover'} />
+          image={LIVE_PREVIEW_COVER}
+          title="live-cover"
+        />
         <div className={classes.maskBox}>
           <div className={classes.tipsBox}>
-            <img className={classes.tipsIcon} src={livePlayButton} alt={''} />
-            <Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
-              {isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直直播已结束')}
+            <img className={classes.tipsIcon} src={LIVE_PLAY_BUTTON} alt="" />
+            <Typography id="content" className={`${classes.tipsContent} ${overflowLine1}`}>
+              {isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直播已结束')}
             </Typography>
           </div>
         </div>

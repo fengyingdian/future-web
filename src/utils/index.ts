@@ -1,6 +1,14 @@
-declare const navigator: any;
 
-// I dont know if this works, test needed
-export const isIEBrowser = +(navigator.userAgent.match(/MSIE (\d+)/) && RegExp.$1);
+// get userAgent system
+export const getSystem = () => {
+  const { userAgent: ua } = navigator || {};
+  if (/iPhone/.test(ua)) {
+    return 'IOS';
+  }
+  if (/Android/.test(ua)) {
+    return 'Android';
+  }
+  return 'others';
+};
 
 export { };

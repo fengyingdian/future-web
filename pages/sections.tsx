@@ -5,9 +5,12 @@ import { withRouter } from 'next/router';
 import useStyles from '../src/theme/styles';
 import { fetchMenus, fetchArticleSection } from '../src/service/index';
 import Section from '../src/containers/sections/index';
+import useFonts from '../src/hooks/useFonts';
 
 const Index = (props: any) => {
   const classes = useStyles();
+
+  useFonts();
 
   return (
     <Container maxWidth={false} className={classes.root}>

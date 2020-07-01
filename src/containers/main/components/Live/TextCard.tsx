@@ -110,28 +110,31 @@ const Live = (props: any) => {
       style={{
         width: '100%',
       }}
-      href={'/lives?sp=m3u8'}
-      underline={'none'}>
+      href="/lives?sp=m3u8"
+      underline="none"
+    >
       <Box
-        display={'flex'}
-        flexDirection={'column'}
-        justifyContent={'center'}
-        alignItems={'flex-start'}
-        className={classes.root}>
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="flex-start"
+        className={classes.root}
+      >
         <div className={classes.tipsBox}>
           {status === 'publish' && (
             <div className={classes.tipsIcon} />
           )}
-          <Typography id={'content'} className={`${classes.tipsContent} ${overflowLine1}`}>
+          <Typography id="content" className={`${classes.tipsContent} ${overflowLine1}`}>
             {isPlan ? '时客直播即将开始' : (status === 'publish' ? '时客直播中' : '时客直直播已结束')}
           </Typography>
         </div>
         <Box
-          display={'flex'}
-          flexDirection={'column'}
-          justifyContent={'center'}
-          alignItems={'flex-start'}
-          className={classes.infoBox}>
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="flex-start"
+          className={classes.infoBox}
+        >
           <Typography className={`${classes.title} ${overflowLine2}`}>
             {title}
           </Typography>

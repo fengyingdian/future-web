@@ -3,10 +3,11 @@ import React from 'react';
 import Head from 'next/head';
 import { Container } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Title } from '../../components/ArticleSection/section-article-title';
+import { Title } from '../../components/ArticleSection/ArticleSectionTitle';
 import MenuHeader from '../../components/MenuHeader/index';
 import ArticleContent from './components/Render/header';
-// import RelativeSection from '../../components/ArticleSection/responsible-tag-relative-section';
+import useWechatSdk from '../../hooks/useWechatSdk';
+import { WECAHT_SHARE_TITLE } from '../../constants';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -46,7 +47,9 @@ const Article = (props: any) => {
     menus,
   } = props;
 
-  const { displayName } = menus.find(({ name: menuName }: any) => categoryName === menuName);
+  useWechatSdk({ title: `${title}_${WECAHT_SHARE_TITLE}` });
+
+  const { displayName = '首页' } = menus.find(({ name: menuName }: any) => categoryName === menuName) || {};
 
   return (
     <Container className={classes.root}>
@@ -57,7 +60,7 @@ const Article = (props: any) => {
       </Head>
       <Container maxWidth={false} className={classes.root}>
         <MenuHeader selected={categoryName} menus={menus} />
-        <Container maxWidth={'md'} className={classes.sectionRoot}>
+        <Container maxWidth="md" className={classes.sectionRoot}>
           <Title title={displayName} />
           <ArticleContent {...props} />
           {/* <RelativeSection articles={articles} /> */}

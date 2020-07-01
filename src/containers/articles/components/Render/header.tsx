@@ -30,6 +30,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     fontSize: 12,
     margin: theme.spacing(4.25, 1, 0, 0),
     color: 'rgb(163,9,10)',
+    fontFamily: 'inherit',
     [theme.breakpoints.up('sm')]: {
       fontSize: 16,
     },
@@ -38,7 +39,8 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     fontSize: 18,
     lineHeight: 1.5,
     margin: theme.spacing(3, 0, 0),
-    color: '#444',
+    color: 'rgb(4, 4, 4)',
+    fontFamily: 'inherit',
     [theme.breakpoints.up('sm')]: {
       fontSize: 26,
     },
@@ -86,10 +88,12 @@ const ArticleRender = (props: any) => {
   return (
     <Container
       maxWidth={false}
-      className={classes.root}>
+      className={classes.root}
+    >
       <Box
-        display={'flex'}
-        flexDirection={'row'}>
+        display="flex"
+        flexDirection="row"
+      >
         {labels.map((tag: string, index: number) => (
           <Typography key={index} className={classes.tag}>
             {tag}
@@ -103,20 +107,17 @@ const ArticleRender = (props: any) => {
         <span style={{ fontFamily: 'fangzheng-bold' }}>
           {publisherName}
         </span>
-        {'·'}
+        ·
         {time}
       </Typography>
-      {/* <CardMedia
-				className={classes.cover}
-				image={url}
-				title={title} /> */}
       <Box
-        display={'flex'}
-        flexDirection={'column'}
-        justifyItems={'flex-start'}
-        alignItems={'center'}
-        alignSelf={'center'}
-        className={classes.content}>
+        display="flex"
+        flexDirection="column"
+        justifyItems="flex-start"
+        alignItems="center"
+        alignSelf="center"
+        className={classes.content}
+      >
         <ArticleContent contents={contents} />
       </Box>
     </Container>

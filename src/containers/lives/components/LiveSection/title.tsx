@@ -39,6 +39,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     fontSize: 20,
     lineHeight: '20px',
     color: '#fff',
+    fontFamily: 'inherit',
     [theme.breakpoints.up('sm')]: {
       fontSize: 28,
       lineHeight: '28px',
@@ -56,10 +57,11 @@ export const Title = (props: any) => {
 
   return (
     <Box
-      display={'flex'}
-      flexDirection={'column'}
-      justifyContent={'flex-start'}
-      className={classes.root}>
+      display="flex"
+      flexDirection="column"
+      justifyContent="flex-start"
+      className={classes.root}
+    >
       <div className={classes.tipsBox}>
         {status === 'publish' && (
           <div className={classes.tipsIcon} />

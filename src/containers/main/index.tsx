@@ -1,18 +1,20 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable max-len */
-import React, { useState, useEffect } from 'react';
-import { Container, NoSsr } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
+import { Container } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import ResponsibleTagSection from '../../components/ArticleSection/responsible-tag-five-section';
+import ResponsibleTagSection from '../../components/ArticleSection/ResponsibleSection';
 import MenuHeader from '../../components/MenuHeader/index';
-import TopStoryCard from '../../components/ArticleCard/top-story-full-image-card';
-import TopStoryAdvertiseCard from '../../components/AdvertiseCard/top-story-bottom-card';
-import TopStoryBottomCard from '../../components/ArticleCard/top-story-bottom-card';
+import TopStoryCard from '../../components/ArticleCard/TopStoryCard';
+import TopStoryAdvertiseCard from '../../components/AdvertiseCard/HomePageTopCard';
+import TopStoryBottomCard from '../../components/ArticleCard/TopStoryBttomCard';
 import Live from './components/Live/MediaCard';
 import Focus from './components/Focus/index';
 import Footer from './components/Footer/index';
 import { getStream } from '../../utils/live';
 import { lazyload } from '../../utils/image';
+import useWechatSdk from '../../hooks/useWechatSdk';
+import tracking from '../../tracking/index';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -34,9 +36,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'flex-start',
+    flexWrap: 'wrap',
     maxWidth: theme.breakpoints.width('lg'),
     width: '100%',
-    margin: theme.spacing(5, 0, 0),
+    margin: theme.spacing(2, 0, 0),
     [theme.breakpoints.down('sm')]: {
       padding: theme.spacing(0, 2, 0),
     },
@@ -50,6 +53,10 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     [theme.breakpoints.up(1024)]: {
       padding: theme.spacing(0, 4, 0),
     },
+  },
+  headerSectionTop: {
+    width: '100%',
+    margin: theme.spacing(0, 0, 2),
   },
   headerSectionLeft: {
     flex: 1,
@@ -116,37 +123,48 @@ interface Props {
 }
 
 const Main = (props: Props) => {
-  // const [skeleton, setSkeleton] = useState(true);
   const [clientWidth, setClientWidth] = useState(0);
 
-  const onResize = () => {
-    setClientWidth(document.documentElement.clientWidth);
+  useWechatSdk({});
 
-    lazyload();
+  const initResize = () => {
+    if (document) {
+      const headerLeft = document.querySelector('#header-left') as HTMLElement;
+      const headerRight = document.querySelector('#header-right') as HTMLElement;
+      return () => {
+        const { clientWidth: width = 0 } = document.documentElement;
+        if (headerLeft && headerRight) {
+          headerRight.style.height = width >= 800 ? `${headerLeft.getBoundingClientRect().height}px` : 'auto';
+        }
+        setClientWidth(width);
+        lazyload();
+      };
+    }
+    return () => {};
   };
 
   useEffect(() => {
+    tracking.enter();
+
+    const resizing = initResize();
+
     // init
-    onResize();
+    resizing();
 
     // listener scroll
     window.addEventListener('scroll', lazyload, false);
 
     // listener resize
-    window.addEventListener('resize', onResize, false);
-
-    // (document as any).fonts.ready.then(() => {
-    // 	// console.log('fonts ready home page');
-    // 	setSkeleton(false);
-    // });
+    window.addEventListener('resize', resizing, false);
 
     return () => {
       window.removeEventListener('scroll', lazyload, false);
-      window.removeEventListener('resize', onResize, false);
+      window.removeEventListener('resize', resizing, false);
     };
   });
 
   const classes = useStyles({ opacity: 1 });
+
   const {
     menus = [],
     carousel = [],
@@ -159,28 +177,30 @@ const Main = (props: Props) => {
 
   return (
     <Container maxWidth={false} className={classes.root}>
-      <div id={'page-top-header'} className={classes.menuHeader}>
-        <NoSsr>
-          <MenuHeader menus={menus} selected={'首页'} />
-        </NoSsr>
+      <div id="page-top-header" className={classes.menuHeader}>
+        <MenuHeader menus={menus} selected="首页" />
       </div>
       <div className={classes.headerSection}>
-        <div className={classes.headerSectionLeft}>
+        <div id="header-top" className={classes.headerSectionTop}>
+          <TopStoryAdvertiseCard />
+        </div>
+        <div id="header-left" className={classes.headerSectionLeft}>
           <TopStoryCard
             articles={carousel}
             categoryName={sections[0].categoryName}
-            clientWidth={clientWidth} />
-          <TopStoryAdvertiseCard />
-          <TopStoryBottomCard {...hotnews[6]} />
+          />
+          <TopStoryBottomCard {...hotnews[0]} />
+          <TopStoryBottomCard {...hotnews[1]} />
         </div>
-        <div className={classes.headerSectionRight}>
+        <div id="header-right" className={classes.headerSectionRight}>
           <Live
             stream={stream}
             isPlan={isPlan}
-            clientWidth={clientWidth} />
+          />
           <Focus
+            clientWidth={clientWidth}
             articles={hotnews}
-            clientWidth={clientWidth} />
+          />
         </div>
       </div>
       <div className={classes.sections}>

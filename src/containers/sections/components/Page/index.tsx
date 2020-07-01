@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import ResponsibleArticles from '../../../../components/ArticleSection/responsible-tag-five-articles';
+import ResponsibleArticles from '../../../../components/ArticleSection/ResponsibleSectionArticles';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -23,25 +23,18 @@ const Page = (props: any) => {
     return (<> </>);
   }
 
-  const firstArticles = articles.slice(0, 5);
-  const seconArticles = articles.slice(5, 10);
-  const thirdArticles = articles.slice(10, 15);
-  const fourtArticles = articles.slice(15, 20);
+  const sections = [];
+  for (let i = 0; i < articles.length; i += 5) {
+    sections.push(articles.slice(i, i + 5));
+  }
 
   return (
     <div className={classes.root}>
-      <div className={classes.section}>
-        <ResponsibleArticles articles={firstArticles} />
-      </div>
-      <div className={classes.section}>
-        <ResponsibleArticles articles={seconArticles} />
-      </div>
-      <div className={classes.section}>
-        <ResponsibleArticles articles={thirdArticles} />
-      </div>
-      <div className={classes.section}>
-        <ResponsibleArticles articles={fourtArticles} />
-      </div>
+      {sections.length && sections.map(((sectionArticles: any, index: number) => (
+        <div key={index} className={classes.section}>
+          <ResponsibleArticles articles={sectionArticles} />
+        </div>
+      )))}
     </div>
   );
 };

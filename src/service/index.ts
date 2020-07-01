@@ -1,16 +1,16 @@
 /* eslint-disable max-len */
 import axios from 'axios';
-import { fabulousService } from '../constants/index';
+import { FABULOUS_SERVICE } from '../constants/index';
 
 export const transcodeUrl = (id: string) => `https://s.flipchina.cn/flit/trans/items/${id}`;
 
-export const homeFeedUrl = () => `${fabulousService}/main/v1/homepage`;
+export const homeFeedUrl = () => `${FABULOUS_SERVICE}/main/v1/homepage`;
 
-export const menuUrl = () => `${fabulousService}/main/v1/categories`;
+export const menuUrl = () => `${FABULOUS_SERVICE}/main/v1/categories`;
 
-export const articleSectionUrl = () => `${fabulousService}/cat/v1/feed`;
+export const articleSectionUrl = () => `${FABULOUS_SERVICE}/cat/v1/feed`;
 
-export const liveSectionUrl = () => `${fabulousService}/live/streams`;
+export const liveSectionUrl = () => `${FABULOUS_SERVICE}/live/streams`;
 
 //
 // ─── FETCH MENU ─────────────────────────────────────────────────────────────────

@@ -5,7 +5,7 @@ import {
   Box, Container, Typography, CardMedia,
 } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { liveBkCover } from '../../../../constants/index';
+import { LIVE_BK_COVER } from '../../../../constants/index';
 
 declare const Aliplayer: any;
 
@@ -37,6 +37,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     lineHeight: '30px',
     color: '#444',
     margin: theme.spacing(1.5, 0, 0),
+    fontFamily: 'inherit',
     [theme.breakpoints.up('sm')]: {
       fontSize: 26,
       lineHeight: '40px',
@@ -87,26 +88,29 @@ const LiveSection = (props: any) => {
   return (
     <Container maxWidth={false} className={classes.root}>
       <Box
-        display={'flex'}
-        flexDirection={'clomun'}
-        alignItems={'center'}
-        justifyContent={'center'}
-        flexWrap={'wrap'}
-        className={classes.vedioBox}>
+        display="flex"
+        flexDirection="clomun"
+        alignItems="center"
+        justifyContent="center"
+        flexWrap="wrap"
+        className={classes.vedioBox}
+      >
         <div
           className={`${classes.vedio} prism-player`}
-          id={'J_prismPlayer'}
+          id="J_prismPlayer"
           style={{
             height: '100%',
             display: status === 'publish_done' ? 'none' : '',
-          }} />
+          }}
+        />
         {status === 'publish_done' && (
           <CardMedia
             className={classes.vedio}
             style={{
               height: '100%',
             }}
-            image={liveBkCover} />
+            image={LIVE_BK_COVER}
+          />
         )}
       </Box>
       <Typography className={classes.title}>

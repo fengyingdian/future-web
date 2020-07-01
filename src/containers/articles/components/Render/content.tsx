@@ -1,124 +1,157 @@
-/* eslint-disable no-param-reassign */
-import { equals, prop } from 'ramda';
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   content.tsx                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: break <jixueqing@flipboard.cn>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/05/27 12:16:47 by break             #+#    #+#             */
+/*   Updated: 2020/05/27 14:25:27 by break            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+import { ContentBlock } from '@flipnode/fleural/dist/common/ContentBlock';
+import { ImageNode as ImageNodeType, isTextNode, isImageNode } from '@flipnode/fleural/dist/common/RenderNode';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React, { useEffect } from 'react';
-import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 
-const isTextNode = (content: any) => equals('text', prop('type', content));
-// const isImageNode = (content: any) => equals('png', prop('type', content));
+declare module 'react' {
+  interface StyleHTMLAttributes<T> extends React.HTMLAttributes<T> {
+    jsx?: boolean;
+    global?: boolean;
+  }
+}
 
-const useStyles = makeStyles((theme: Theme) => createStyles({
-  root: {
-    width: '100%',
-    cursor: 'pointer',
-  },
-  paragraph: {
-    wordBreak: 'break-all',
-    [theme.breakpoints.up('sm')]: {
-      fontSize: 16,
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      width: '100%',
+    },
+    paragraph: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-start',
+      alignItems: 'flex-start',
+      wordBreak: 'break-all',
+    },
+    imageBox: {
+      alignSelf: 'center',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'cneter',
+    },
+    image: {
+      maxWidth: '100%',
+      background: '#f8f8f8',
+      outline: 'none',
+      border: '0',
+      margin: theme.spacing(1, 0, 0),
+      [theme.breakpoints.up('sm')]: {
+        margin: theme.spacing(2, 0, 0),
+      },
+    },
+    text: {
+      fontSize: 14,
       lineHeight: 2,
+      [theme.breakpoints.up('sm')]: {
+        fontSize: 18,
+        lineHeight: 2,
+      },
+      color: '#666',
+      fontFamily: 'fangzheng-light',
     },
-  },
-  imageBox: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'cneter',
-  },
-  image: {
-    maxWidth: '100%',
-    background: '#f8f8f8',
-    outline: 'none',
-    border: '0',
-    margin: theme.spacing(1, 0, 0),
-    [theme.breakpoints.up('sm')]: {
-      margin: theme.spacing(2, 0, 0),
-    },
-  },
-  text: {
-    fontSize: 12,
-    lineHeight: 2,
-    color: '#666',
-    fontFamily: 'fangzheng-light',
-  },
-}));
+  }),
+);
 
-const TextNode = ({ text }: any) => {
+type TextProps = { text: string };
+
+const TextNode: React.FC<TextProps> = ({ text }) => {
   const classes = useStyles();
-
+  // const {
+  //   b = false,
+  // } = appearance;
   return (
-    <span className={classes.text}>
+    <span
+      className={classes.text}
+      // style={{
+      //   fontFamily: b ? 'fangzheng-bold' : 'fangzheng-light',
+      //   color: b ? '#040404' : '#666',
+      // }}
+    >
       {text}
     </span>
   );
 };
 
-const ImageNode = (props: any) => {
+export type Optional<T extends object, K extends keyof T = keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
+
+type ImageNodeProps = Optional<Pick<ImageNodeType, 'url' | 'appearance' | 'imageData'>, 'imageData'>;
+
+const ImageNode: React.FC<ImageNodeProps> = (props) => {
   const classes = useStyles();
-  const {
-    url, appearance: {
-      width = 100,
-      height = 100,
-    } = {},
-  } = props;
+  const { url, appearance: { width = 100, height = 100 } = {} } = props;
 
   return (
-    <span className={classes.imageBox}>
+    <div className={classes.imageBox}>
       <img
         className={classes.image}
         width={width}
-        // height={appearance.height}
         style={{
           height: 0,
-          paddingTop: `${height / width * 100}%`,
+          paddingTop: `${(height / width) * 100}%`,
         }}
         alt={''}
         data-src={url}
-        data-lazyload={'true'} />
-    </span>
+        data-lazyload
+      />
+    </div>
   );
 };
 
-const ContentBlock = (props: any) => {
+type ParagraphProps = Pick<ContentBlock, 'appearance' | 'contents' | 'label'>;
+
+const Paragraph: React.FC<ParagraphProps> = (props) => {
   const classes = useStyles();
-  const {
-    label = 'ignore',
-    contents = [],
-  } = props;
+  const { label = 'ignore', contents = [] } = props;
   if (label === 'ignore') {
-    return (<> </>);
+    return null;
   }
 
   return (
     <>
-      <p
+      <div
         id={label}
         className={classes.paragraph}
         style={{
           margin: '0 0 28px',
-        }}>
+          display: label === 'body' ? 'block' : 'flex',
+        }}
+      >
         {contents
-          .filter((content: any) => {
+          .filter((content) => {
             if (isTextNode(content)) {
               return !!content.text.trim();
             }
 
             return true;
           })
-          .map((content: any, index: any) => {
+          .map((content, index) => {
             if (isTextNode(content)) {
-              const { text, appearance } = content;
+              const { text } = content;
 
-              return <TextNode key={index} text={text} appearance={appearance} />;
+              return <TextNode key={index} text={text} />;
             }
             if (label === 'figure') {
-              const { url, appearance } = content;
-
-              return <ImageNode key={index} appearance={appearance} url={url} />;
+              if (isImageNode(content)) {
+                const { url, appearance } = content;
+                return <ImageNode key={index} appearance={appearance} url={url} />;
+              }
             }
 
-            return <div>{`UNSUPPORTED BLOCK TYPE:${content.type}`}</div>;
+            return <div>{`UNSUPPORTED RENDER NODE TYPE:${content.type}`}</div>;
           })}
-      </p>
+      </div>
       <style jsx>
         {`
           #blockquote {
@@ -137,13 +170,17 @@ const ContentBlock = (props: any) => {
               font-size: 12px;
             }
           }
-      `}
+        `}
       </style>
     </>
   );
 };
 
-const ArticleContent = (props: any) => {
+type ArticleProps = {
+  contents: Array<ContentBlock>;
+};
+
+const ArticleContent: React.FC<ArticleProps> = (props) => {
   const { contents = [] } = props;
   const classes = useStyles();
 
@@ -153,7 +190,7 @@ const ArticleContent = (props: any) => {
     if (images.length < 1) {
       return;
     }
-    Array.prototype.forEach.call(images, (img: any) => {
+    Array.prototype.forEach.call(images, (img: HTMLImageElement) => {
       if (!img.dataset.src) {
         return;
       }
@@ -163,7 +200,7 @@ const ArticleContent = (props: any) => {
         const image = new Image();
         image.onload = () => {
           img.src = image.src;
-          img.style.height = `${Math.round(rect.height)}px`;
+          img.style.height = 'auto';
           img.style.paddingTop = '0';
           // reset img attributions
           img.removeAttribute('data-src');
@@ -184,7 +221,9 @@ const ArticleContent = (props: any) => {
 
   return (
     <div className={classes.root}>
-      {contents.map((item: any, index: any) => <ContentBlock key={index} {...item} />)}
+      {contents.map((item, index) => (
+        <Paragraph key={index} {...item} />
+      ))}
     </div>
   );
 };

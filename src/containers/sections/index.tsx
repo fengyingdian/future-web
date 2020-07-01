@@ -4,11 +4,13 @@ import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import { Container } from '@material-ui/core';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
-import { Title } from '../../components/ArticleSection/section-page-title';
+import { Title } from '../../components/ArticleSection/PageSectionTitle';
 import Page from './components/Page/index';
 import MenuHeader from '../../components/MenuHeader/index';
 import { fetchArticleSection } from '../../service/index';
 import { lazyload } from '../../utils/image';
+import useWechatSdk from '../../hooks/useWechatSdk';
+import { WECAHT_SHARE_TITLE } from '../../constants';
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -51,13 +53,14 @@ const Section = (props: any) => {
     menus,
   } = props;
 
-  const { displayName } = menus.find(({ name: menuName }: any) => name === menuName);
+  const { displayName = '' } = menus.find(({ name: menuName }: any) => name === menuName) || {};
 
   const [state, setstate] = useState({
-    pages: [
-      articles,
+    pageArticles: [
+      ...articles,
     ],
     offset,
+    isBottom: false,
   });
 
   const isReachedBottom = (bottomDistance: number) => {
@@ -73,23 +76,26 @@ const Section = (props: any) => {
       articles: newArticles,
       newoffset,
     }: any = await fetchArticleSection(name, state.offset, limit);
-    if (articles.length === limit) {
+    if (newArticles.length) {
       setstate({
-        pages: [
-          ...state.pages,
-          newArticles,
+        pageArticles: [
+          ...state.pageArticles,
+          ...newArticles,
         ],
         offset: newoffset,
+        isBottom: newArticles.length < limit,
       });
     }
   };
 
   const bindScroll = () => {
-    if (isReachedBottom(200)) {
+    if (isReachedBottom(200) && !state.isBottom) {
       fetchData();
     }
     lazyload();
   };
+
+  useWechatSdk({ title: `${displayName}_${WECAHT_SHARE_TITLE}` });
 
   useEffect(() => {
     // init
@@ -116,16 +122,14 @@ const Section = (props: any) => {
     <Container className={classes.root}>
       <Head>
         <title>
-          {`${displayName}-人民数字联播网`}
+          {`${displayName}`}
         </title>
       </Head>
       <Container maxWidth={false} className={classes.root}>
         <MenuHeader selected={name} menus={menus} />
         <Container maxWidth={false} className={classes.sectionRoot}>
           <Title title={displayName} />
-          {state.pages.map((pageArticles: any, index: number) => (
-            <Page key={index} articles={pageArticles} />
-          ))}
+          <Page articles={state.pageArticles} />
         </Container>
       </Container>
     </Container>

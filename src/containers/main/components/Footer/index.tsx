@@ -26,6 +26,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     padding: theme.spacing(0, 0.5),
     margin: theme.spacing(0, 0, 0.5),
     color: 'rgb(242, 126, 127)',
+    fontFamily: 'inherit',
   },
   info: {
     fontSize: 9,
@@ -50,26 +51,28 @@ const Footer = () => {
     <Container maxWidth={false} className={classes.root}>
       <Box
         className={classes.linksBox}
-        display={'flex'}
-        flexDirection={'row'}
-        justifyContent={'center'}
-        alignItems={'center'}>
+        display="flex"
+        flexDirection="row"
+        justifyContent="center"
+        alignItems="center"
+      >
         {links.map((link: string, index: number) => (
           <Typography
             key={index}
             className={`${classes.link} ${overflowLine1}`}
             style={{
               borderRight: index < links.length - 1 ? '1px solid rgb(242, 126, 127)' : '',
-            }}>
+            }}
+          >
             {link}
           </Typography>
         ))}
       </Box>
       <Typography className={`${classes.info} ${overflowLine1}`}>
-        {'互联网信息服务许可证'}
+        互联网信息服务许可证
       </Typography>
       <Typography className={`${classes.info} ${overflowLine1}`}>
-        {'Copyright © 2014~2017 人民数字联播网 京ICP备11038424号-2'}
+        Copyright © 2014~2020 人民数字联播网 京ICP备11038424号-2
       </Typography>
     </Container>
   );
