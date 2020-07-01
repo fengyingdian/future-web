@@ -51,16 +51,16 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   menuBox: {
     flex: 1,
     [theme.breakpoints.down(800)]: {
-      margin: theme.spacing(1, 0, 0),
+      margin: theme.spacing(0, 0, 0),
     },
     [theme.breakpoints.up(800)]: {
-      margin: theme.spacing(0, 0, 0, 12),
+      margin: theme.spacing(0, 12, 0),
     },
     [theme.breakpoints.up(950)]: {
-      margin: theme.spacing(0, 0, 0, 17),
+      margin: theme.spacing(0, 17, 0),
     },
     [theme.breakpoints.up(1100)]: {
-      margin: theme.spacing(0, 0, 0, 27),
+      margin: theme.spacing(0, 27, 0),
     },
   },
   title: {
@@ -129,19 +129,12 @@ const MenuHeader = (props: any) => {
       <Box
         display="flex"
         flexDirection="row"
-        justifyContent="space-between"
+        justifyContent="center"
         alignItems="center"
         alignContent="center"
         flexWrap="wrap"
         className={classes.innerBox}
       >
-        <Link href={herf('首页')} underline="none">
-          <img
-            className={classes.logo}
-            src={LOGO_WITH_TEXT}
-            alt=""
-          />
-        </Link>
         <Box
           display="flex"
           flexDirection="row"

@@ -25,7 +25,7 @@ export default class MyApp extends App {
     return (
       <>
         <Head>
-          <title>人民数字联播网</title>
+          <title>Flipboard China</title>
           <meta name="theme-color" content={Theme.palette.primary.main} />
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
@@ -33,12 +33,13 @@ export default class MyApp extends App {
           <meta name="referrer" content="origin" />
           <meta name="renderer" content="webkit" />
           <meta name="wap-font-scale" content="no" />
-          <link rel="SHORTCUT ICON" href="https://sapp.flipboard.cn/fabulous/assets/favicon.ico" type="image/icon" />
-          <link rel="ICON" href="https://sapp.flipboard.cn/fabulous/assets/favicon.ico" type="image/ico" />
-          <link rel="shortcut icon" href="https://sapp.flipboard.cn/fabulous/assets/favicon.ico" />
+          <link rel="SHORTCUT ICON" href="http://s.flipboard.cn/assets/logo/favicon.ico" type="image/icon" />
+          <link rel="ICON" href="http://s.flipboard.cn/assets/logo/favicon.ico" type="image/ico" />
+          <link rel="shortcut icon" href="http://s.flipboard.cn/assets/logo/favicon.ico" />
           <link rel="stylesheet" href="https://g.alicdn.com/de/prismplayer/2.8.2/skins/default/aliplayer-min.css" />
           <link rel="stylesheet" href="https://sapp.flipboard.cn/fabulous/fonts/fangzheng.css" />
           <script type="text/javascript" src="https://g.alicdn.com/de/prismplayer/2.8.2/aliplayer-h5-min.js" />
+          <script data-ad-client="ca-pub-5018007571358298" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" />
         </Head>
         <ThemeProvider theme={Theme}>
           <Box

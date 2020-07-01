@@ -6,11 +6,10 @@
 /*   By: break <jixueqing@flipboard.cn>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/27 12:16:47 by break             #+#    #+#             */
-/*   Updated: 2020/05/27 14:25:27 by break            ###   ########.fr       */
+/*   Updated: 2020/07/01 16:27:45 by break            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-import { ContentBlock } from '@flipnode/fleural/dist/common/ContentBlock';
 import { ImageNode as ImageNodeType, isTextNode, isImageNode } from '@flipnode/fleural/dist/common/RenderNode';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import React, { useEffect } from 'react';
@@ -66,29 +65,17 @@ const useStyles = makeStyles((theme: Theme) =>
 
 type TextProps = { text: string };
 
-const TextNode: React.FC<TextProps> = ({ text }) => {
+const TextNode: any = ({ text }) => {
   const classes = useStyles();
-  // const {
-  //   b = false,
-  // } = appearance;
+
   return (
-    <span
-      className={classes.text}
-      // style={{
-      //   fontFamily: b ? 'fangzheng-bold' : 'fangzheng-light',
-      //   color: b ? '#040404' : '#666',
-      // }}
-    >
+    <span className={classes.text} >
       {text}
     </span>
   );
 };
 
-export type Optional<T extends object, K extends keyof T = keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
-
-type ImageNodeProps = Optional<Pick<ImageNodeType, 'url' | 'appearance' | 'imageData'>, 'imageData'>;
-
-const ImageNode: React.FC<ImageNodeProps> = (props) => {
+const ImageNode: any = (props) => {
   const classes = useStyles();
   const { url, appearance: { width = 100, height = 100 } = {} } = props;
 
@@ -109,9 +96,7 @@ const ImageNode: React.FC<ImageNodeProps> = (props) => {
   );
 };
 
-type ParagraphProps = Pick<ContentBlock, 'appearance' | 'contents' | 'label'>;
-
-const Paragraph: React.FC<ParagraphProps> = (props) => {
+const Paragraph: any = (props) => {
   const classes = useStyles();
   const { label = 'ignore', contents = [] } = props;
   if (label === 'ignore') {
@@ -176,11 +161,7 @@ const Paragraph: React.FC<ParagraphProps> = (props) => {
   );
 };
 
-type ArticleProps = {
-  contents: Array<ContentBlock>;
-};
-
-const ArticleContent: React.FC<ArticleProps> = (props) => {
+const ArticleContent: any = (props) => {
   const { contents = [] } = props;
   const classes = useStyles();
 

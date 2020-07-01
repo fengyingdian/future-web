@@ -6,15 +6,12 @@ import { withRouter } from 'next/router';
 import useStyles from '../src/theme/styles';
 import { fetchMenus, fetchHomeFeed } from '../src/service/index';
 import Main from '../src/containers/main/index';
-import useZhugeIoSdk from '../src/hooks/useZhugeIoSdk';
 import useFonts from '../src/hooks/useFonts';
 
 export const Index = (props: any) => {
   const classes = useStyles();
 
   useFonts();
-
-  useZhugeIoSdk();
 
   return (
     <Container maxWidth={false} className={classes.root}>
